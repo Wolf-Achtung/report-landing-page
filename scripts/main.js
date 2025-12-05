@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMicroInteractions();
   initAmbientBackground();
   initReportViewerTabs(); // V5: Mini-Report-Viewer Tabs
+  initStickyCTABar(); // V7: Sticky Mobile CTA Bar
   // initScrollParallax(); // V3: Deaktiviert - verursacht Scroll-Ruckler
   // initSectionCrossfade(); // V3: Deaktiviert - zu viel DOM-Manipulation
 });
@@ -790,6 +791,50 @@ function initReportViewerTabs() {
       }
     });
   });
+}
+
+/* ==================== V7: STICKY MOBILE CTA BAR ==================== */
+
+/**
+ * Sticky CTA Bar - Shows on mobile after scrolling past hero
+ * Uses IntersectionObserver for performance
+ */
+function initStickyCTABar() {
+  const stickyCTA = document.getElementById('sticky-cta');
+  const heroSection = document.querySelector('.hero-section');
+
+  if (!stickyCTA || !heroSection) return;
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Only show on mobile (CSS handles display:none on desktop)
+  const isMobile = window.innerWidth <= 768;
+  if (!isMobile) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Show sticky CTA when hero is out of view
+      if (!entry.isIntersecting) {
+        stickyCTA.classList.add('is-visible');
+      } else {
+        stickyCTA.classList.remove('is-visible');
+      }
+    });
+  }, {
+    threshold: 0,
+    rootMargin: '-100px 0px 0px 0px'
+  });
+
+  observer.observe(heroSection);
+
+  // Re-check on resize
+  window.addEventListener('resize', debounce(() => {
+    const nowMobile = window.innerWidth <= 768;
+    if (!nowMobile) {
+      stickyCTA.classList.remove('is-visible');
+    }
+  }, 250));
 }
 
 /* ==================== V3: DEAKTIVIERTE ANIMATIONEN ==================== */
