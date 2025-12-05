@@ -1,6 +1,6 @@
 /**
  * KI-Sicherheit.jetzt - Report Landing Page
- * Main JavaScript - PayPal-inspired Premium Version
+ * Main JavaScript - Premium Version with Soft Motion Design
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initPrivacyModal();
   initScrollReveal();
   initHoverEffects();
+  initFloatingShapes();
+  initReportMockupTilt();
+  initMicroInteractions();
 });
 
 /* ==================== E-MAIL FUNKTION ==================== */
@@ -370,15 +373,15 @@ function openPrivacyModal() {
 
 window.openPrivacyModal = openPrivacyModal;
 
-/* ==================== SCROLL REVEAL ==================== */
+/* ==================== SCROLL REVEAL 2.0 ==================== */
 
 /**
- * Scroll Reveal Animationen mit IntersectionObserver
+ * Premium Scroll Reveal mit Scale-In + Soft Fade
+ * Transformation: 98% → 100%, Dauer ~300ms, ease-out
  */
 function initScrollReveal() {
   const revealSections = document.querySelectorAll('.reveal-section');
-
-  if (revealSections.length === 0) return;
+  const revealItems = document.querySelectorAll('.reveal-item');
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -388,33 +391,63 @@ function initScrollReveal() {
     revealSections.forEach(section => {
       section.classList.add('is-visible');
     });
+    revealItems.forEach(item => {
+      item.classList.add('is-visible');
+    });
     return;
   }
 
+  // Set initial state for reveal items (scale-in effect)
+  revealItems.forEach(item => {
+    if (!item.classList.contains('is-visible')) {
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.98)';
+      item.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+    }
+  });
+
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -60px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  // Observer for sections
+  const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add staggered delay for children
-        const revealItems = entry.target.querySelectorAll('.reveal-item');
-        revealItems.forEach((item, index) => {
-          item.style.animationDelay = `${index * 0.1 + 0.1}s`;
-        });
-
         entry.target.classList.add('is-visible');
-
-        // Stop observing after reveal
-        observer.unobserve(entry.target);
+        sectionObserver.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
+  // Observer for individual items with staggered animation
+  const itemObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Calculate stagger delay based on sibling index
+        const parent = entry.target.parentElement;
+        const siblings = parent ? Array.from(parent.querySelectorAll('.reveal-item')) : [];
+        const itemIndex = siblings.indexOf(entry.target);
+        const delay = itemIndex * 80; // 80ms stagger
+
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'scale(1)';
+          entry.target.classList.add('is-visible');
+        }, delay);
+
+        itemObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
   revealSections.forEach(section => {
-    observer.observe(section);
+    sectionObserver.observe(section);
+  });
+
+  revealItems.forEach(item => {
+    itemObserver.observe(item);
   });
 }
 
@@ -513,3 +546,268 @@ function isInViewport(element) {
 function getCSSVariable(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
+
+/* ==================== FLOATING SHAPES ==================== */
+
+/**
+ * Floating Shapes - organische Formen mit minimaler Bewegung
+ * 8-10 Sekunden Loop, ease-in-out
+ */
+function initFloatingShapes() {
+  const shapes = document.querySelectorAll('.shape-warm, .shape-organic');
+
+  if (shapes.length === 0) return;
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  shapes.forEach((shape, index) => {
+    // Randomize animation parameters for natural feel
+    const duration = 8000 + Math.random() * 4000; // 8-12 seconds
+    const delay = index * 1000; // Stagger start times
+
+    // Create unique floating animation
+    animateFloatingShape(shape, duration, delay);
+  });
+}
+
+/**
+ * Animate a single floating shape with smooth motion
+ */
+function animateFloatingShape(shape, duration, delay) {
+  const startX = 0;
+  const startY = 0;
+  const maxOffset = 20; // Maximum movement in pixels
+
+  let startTime = null;
+  let animationId = null;
+
+  function animate(currentTime) {
+    if (!startTime) startTime = currentTime - delay;
+    const elapsed = currentTime - startTime;
+    const progress = (elapsed % duration) / duration;
+
+    // Smooth ease-in-out movement using sine wave
+    const xOffset = Math.sin(progress * Math.PI * 2) * maxOffset;
+    const yOffset = Math.cos(progress * Math.PI * 2) * (maxOffset * 0.75);
+    const scaleOffset = 1 + Math.sin(progress * Math.PI * 2) * 0.03;
+    const opacityOffset = 0.5 + Math.sin(progress * Math.PI * 2) * 0.15;
+
+    shape.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scaleOffset})`;
+    shape.style.opacity = opacityOffset;
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  // Start animation after delay
+  setTimeout(() => {
+    animationId = requestAnimationFrame(animate);
+  }, delay);
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    if (animationId) cancelAnimationFrame(animationId);
+  });
+}
+
+/* ==================== REPORT MOCKUP TILT ==================== */
+
+/**
+ * Report Mockup 3D Tilt Effect
+ * Subtiler Tilt-Effekt beim Hover
+ */
+function initReportMockupTilt() {
+  const mockups = document.querySelectorAll('.report-mockup');
+
+  if (mockups.length === 0) return;
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  mockups.forEach(mockup => {
+    let bounds;
+    let isHovering = false;
+
+    mockup.addEventListener('mouseenter', function() {
+      bounds = this.getBoundingClientRect();
+      isHovering = true;
+      this.style.transition = 'transform 0.1s ease-out';
+    });
+
+    mockup.addEventListener('mousemove', function(e) {
+      if (!isHovering) return;
+
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const centerX = bounds.width / 2;
+      const centerY = bounds.height / 2;
+
+      // Calculate rotation (max 8 degrees)
+      const rotateX = ((mouseY - centerY) / centerY) * -8;
+      const rotateY = ((mouseX - centerX) / centerX) * 8;
+
+      // Add subtle lift and shine effect
+      const shine = ((mouseX / bounds.width) * 100);
+
+      this.style.transform = `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateZ(20px)
+        scale(1.02)
+      `;
+
+      // Update shine gradient position
+      this.style.setProperty('--shine-position', `${shine}%`);
+    });
+
+    mockup.addEventListener('mouseleave', function() {
+      isHovering = false;
+      this.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      this.style.transform = 'perspective(1000px) rotateY(-8deg) rotateX(4deg)';
+    });
+  });
+}
+
+/* ==================== MICRO INTERACTIONS ==================== */
+
+/**
+ * Micro Interactions für Icons, Cards und Buttons
+ * Icons: Farbe füllen bei Hover
+ * Cards: Minimaler Lift
+ * Buttons: Sanfte Skalierung
+ */
+function initMicroInteractions() {
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  // Icon hover effects
+  initIconHoverEffects();
+
+  // Enhanced card interactions
+  initCardMicroInteractions();
+
+  // Timeline item interactions
+  initTimelineInteractions();
+
+  // Badge pulse effect
+  initBadgePulse();
+}
+
+/**
+ * Icon hover - sanftes Füllen der Farbe
+ */
+function initIconHoverEffects() {
+  const iconContainers = document.querySelectorAll('.feature-card, .prozess-step, .card');
+
+  iconContainers.forEach(container => {
+    const icon = container.querySelector('svg, .icon, [class*="icon"]');
+    if (!icon) return;
+
+    container.addEventListener('mouseenter', () => {
+      icon.style.transition = 'transform 0.3s ease-out, color 0.3s ease-out';
+      icon.style.transform = 'scale(1.1)';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      icon.style.transform = 'scale(1)';
+    });
+  });
+}
+
+/**
+ * Card micro interactions - sanfter Lift mit Schatten
+ */
+function initCardMicroInteractions() {
+  const cards = document.querySelectorAll('.feature-card, .testimonial-card, .card, .kontakt-card, .prozess-step');
+
+  cards.forEach(card => {
+    // Smooth transition setup
+    card.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-4px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+/**
+ * Timeline interactions - Highlight bei Hover
+ */
+function initTimelineInteractions() {
+  const timelineItems = document.querySelectorAll('.timeline-item, .timeline-h-item');
+
+  timelineItems.forEach(item => {
+    item.style.transition = 'transform 0.3s ease-out';
+
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02)';
+
+      // Highlight the icon/number
+      const marker = this.querySelector('.timeline-icon, .timeline-h-icon');
+      if (marker) {
+        marker.style.transition = 'transform 0.3s ease-out, box-shadow 0.3s ease-out';
+        marker.style.transform = 'scale(1.1)';
+        marker.style.boxShadow = '0 0 20px rgba(244, 196, 125, 0.5)';
+      }
+    });
+
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+
+      const marker = this.querySelector('.timeline-icon, .timeline-h-icon');
+      if (marker) {
+        marker.style.transform = 'scale(1)';
+        marker.style.boxShadow = '';
+      }
+    });
+  });
+}
+
+/**
+ * Badge pulse effect - sanftes Pulsieren
+ */
+function initBadgePulse() {
+  const badges = document.querySelectorAll('.badge, .trust-badge');
+
+  badges.forEach((badge, index) => {
+    // Stagger the pulse animation
+    badge.style.animationDelay = `${index * 0.5}s`;
+  });
+}
+
+/* ==================== DATA SHAPES ANIMATION ==================== */
+
+/**
+ * Animate data shapes (dots and lines)
+ */
+function initDataShapesAnimation() {
+  const dots = document.querySelectorAll('.shape-dots');
+  const lines = document.querySelectorAll('.shape-lines');
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  // Dots get a subtle floating animation
+  dots.forEach((dot, index) => {
+    dot.style.animation = `floatDots ${10 + index * 2}s ease-in-out infinite`;
+    dot.style.animationDelay = `${index * 0.5}s`;
+  });
+
+  // Lines get a subtle pulse animation
+  lines.forEach((line, index) => {
+    line.style.animation = `pulseLine ${8 + index * 2}s ease-in-out infinite`;
+    line.style.animationDelay = `${index * 0.3}s`;
+  });
+}
+
+// Initialize data shapes animation
+document.addEventListener('DOMContentLoaded', initDataShapesAnimation);

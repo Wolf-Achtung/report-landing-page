@@ -31,13 +31,16 @@
             primary: {
               DEFAULT: '#003087',
               dark: '#001f5c',
+              darker: '#00122e',
               light: '#0070ba',
               hover: '#0052a3'
             },
-            accent: {
-              DEFAULT: '#f5a623',
-              light: '#ffc658',
-              dark: '#d48f1e'
+            warm: {
+              apricot: '#FFD7B3',
+              peach: '#F8CDA2',
+              sand: '#EDE4D5',
+              gold: '#F4C47D',
+              amber: '#E8A849'
             },
             teal: {
               DEFAULT: '#169bd7',
@@ -45,7 +48,8 @@
             }
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Georgia', 'Times New Roman', 'serif']
           }
         }
       }
@@ -59,14 +63,10 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles/main.css">
-
-  <!-- Optional: Privacy-friendly Analytics (z.B. Plausible/Fathom)
-  <script defer data-domain="report.ki-sicherheit.jetzt" src="https://plausible.io/js/script.js"></script>
-  -->
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body class="antialiased">
 
-  <!-- ==================== DARK MODE TOGGLE ==================== -->
+  <!-- Dark Mode Toggle -->
   <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode umschalten">
     <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
@@ -76,292 +76,298 @@
     </svg>
   </button>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section class="hero-gradient min-h-screen flex items-center relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+  <!-- ==================== HERO SECTION (Light) ==================== -->
+  <section class="hero-section section-light">
+    <!-- Organic Warm Shapes -->
+    <div class="shape-warm shape-warm-1"></div>
+    <div class="shape-warm shape-warm-2"></div>
 
+    <!-- Data Shapes -->
+    <div class="data-shape data-dots" style="top: 20%; left: 5%;"></div>
+    <div class="data-shape data-dots data-dots-warm" style="bottom: 15%; right: 8%;"></div>
+    <div class="data-shape data-line" style="top: 40%; right: 15%;"></div>
+
+    <div class="container py-20 lg:py-32">
+      <div class="split-section">
         <!-- Hero Content -->
-        <div class="relative z-10">
-          <p class="section-label mb-6">
-            KI-Sicherheit.jetzt
-          </p>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>KI-Sicherheit.jetzt</span>
+          </div>
 
-          <h1 class="heading-display text-primary-dark mb-8">
-            <span class="block">Zertifiziert.</span>
-            <span class="block">Dokumentiert.</span>
-            <span class="block gradient-text">KI-bereit.</span>
+          <h1 class="text-display hero-headline">
+            <span>Zertifiziert.</span>
+            <span>Dokumentiert.</span>
+            <span class="highlight">KI-bereit.</span>
           </h1>
 
-          <p class="text-large text-slate-600 mb-10 max-w-xl leading-relaxed">
+          <p class="hero-subheadline">
             Der KI-Check-Report liefert Ihrem Unternehmen eine neutrale, strukturiert aufbereitete
-            Einschätzung zum Einsatz von Künstlicher Intelligenz - rechtlich eingeordnet,
+            Einschätzung zum Einsatz von Künstlicher Intelligenz – rechtlich eingeordnet,
             datenschutzkonform gedacht und mit klaren Handlungsempfehlungen.
           </p>
 
           <!-- Checkmarks List -->
-          <ul class="space-y-4 mb-12">
+          <ul class="space-y-4 mb-10">
             <li class="flex items-start gap-4">
-              <span class="check-icon mt-0.5">
+              <span class="check-icon-warm check-icon mt-0.5">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </span>
-              <span class="text-slate-700 text-lg">DSGVO- & EU-AI-Act-orientierte Empfehlungen</span>
+              <span class="text-lg" style="color: var(--color-text-secondary)">DSGVO- & EU-AI-Act-orientierte Empfehlungen</span>
             </li>
             <li class="flex items-start gap-4">
-              <span class="check-icon mt-0.5">
+              <span class="check-icon-warm check-icon mt-0.5">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </span>
-              <span class="text-slate-700 text-lg">Klare Einordnung von Chancen, Risiken und Prioritäten</span>
+              <span class="text-lg" style="color: var(--color-text-secondary)">Klare Einordnung von Chancen, Risiken und Prioritäten</span>
             </li>
             <li class="flex items-start gap-4">
-              <span class="check-icon mt-0.5">
+              <span class="check-icon-warm check-icon mt-0.5">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </span>
-              <span class="text-slate-700 text-lg">Entwickelt auf Basis zertifizierter KI-Management-Expertise</span>
+              <span class="text-lg" style="color: var(--color-text-secondary)">Entwickelt auf Basis zertifizierter KI-Management-Expertise</span>
             </li>
           </ul>
 
           <!-- CTA Buttons -->
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="btn-primary" data-action="request-check">
+            <button class="btn btn-primary" data-action="request-check">
               <span>Jetzt KI-Check anfragen</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </button>
-            <button class="btn-secondary" data-action="request-sample">
+            <button class="btn btn-secondary" data-action="request-sample">
               Beispiel-Report anfordern
             </button>
           </div>
 
-          <p class="text-sm text-slate-500 mt-6">
-            Unverbindlich - Sie erhalten eine erste neutrale Einschätzung zu Ihrem KI-Status.
+          <p class="text-small mt-6" style="color: var(--color-text-light)">
+            Unverbindlich – Sie erhalten eine erste neutrale Einschätzung zu Ihrem KI-Status.
           </p>
         </div>
 
-        <!-- Hero Side Card -->
-        <div class="relative">
-          <div class="card-dark rounded-3xl p-10 shadow-2xl animate-float">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-3 h-3 rounded-full bg-accent"></div>
-              <span class="text-sm text-slate-300 font-medium">In nur 15-20 Minuten</span>
-            </div>
+        <!-- Hero Visual Card -->
+        <div class="hero-visual">
+          <div class="hero-card animate-float">
+            <span class="hero-card-badge">In nur 15–20 Min</span>
 
-            <h2 class="text-2xl font-bold text-white mb-4">
+            <h2 class="text-h3 text-white mb-4">
               Ihr Vorteil in einem Satz
             </h2>
-            <p class="text-slate-300 leading-relaxed text-lg">
+            <p class="text-muted text-lg leading-relaxed">
               Ein schneller, strukturierter KI-Check, der Ihnen Klarheit verschafft,
               interne Diskussionen erleichtert und eine belastbare Grundlage für
               weitere Entscheidungen legt.
             </p>
 
-            <div class="mt-10 pt-8 border-t border-white/10">
-              <div class="grid grid-cols-2 gap-6">
-                <div class="text-center">
-                  <p class="text-3xl font-bold text-accent mb-1">15+</p>
-                  <p class="text-sm text-slate-400">Seiten Report</p>
-                </div>
-                <div class="text-center">
-                  <p class="text-3xl font-bold text-teal-light mb-1">100%</p>
-                  <p class="text-sm text-slate-400">DSGVO-konform</p>
-                </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <p class="hero-stat-value warm">15+</p>
+                <p class="hero-stat-label">Seiten Report</p>
+              </div>
+              <div class="hero-stat">
+                <p class="hero-stat-value teal">100%</p>
+                <p class="hero-stat-label">DSGVO-konform</p>
               </div>
             </div>
-          </div>
 
-          <!-- Decorative elements -->
-          <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-accent/10 rounded-2xl -z-10"></div>
-          <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/5 rounded-full -z-10"></div>
+            <div class="hero-shape-1"></div>
+            <div class="hero-shape-2"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== WARUM SECTION ==================== -->
-  <section class="py-24 lg:py-32 bg-white reveal-section" id="warum">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-20">
+  <!-- ==================== DARK SECTION: Value Proposition ==================== -->
+  <section class="section-dark py-20 lg:py-28 reveal-section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="section-label">Der Mehrwert</p>
+        <h2 class="text-h1 text-white mb-6">
+          Strukturierte Klarheit statt <span class="text-gradient-warm">endloser Recherche</span>
+        </h2>
+        <p class="text-body-lg text-muted max-w-2xl mx-auto leading-relaxed">
+          Während andere noch nach Orientierung suchen, haben Sie bereits einen professionellen
+          Report mit klaren Handlungsempfehlungen in der Hand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WARUM SECTION (Light) ==================== -->
+  <section class="section-light py-20 lg:py-28 reveal-section" id="warum">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-16">
         <p class="section-label">Das Problem</p>
-        <h2 class="section-title mb-6">Warum dieser KI-Check?</h2>
-        <p class="section-subtitle mx-auto">
-          Viele Unternehmen stehen vor den gleichen Herausforderungen, wenn es um den Einstieg in KI geht.
+        <h2 class="text-h2 mb-6">Warum dieser KI-Check?</h2>
+        <p class="text-body-lg" style="color: var(--color-text-muted)">
+          Viele Unternehmen stehen vor den gleichen Herausforderungen.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Problem 1 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         <div class="feature-card reveal-item">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-teal/10 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(22, 155, 215, 0.1) 100%)">
+            <svg class="w-7 h-7" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg text-primary-dark mb-3">Orientierungslosigkeit</h3>
-          <p class="text-slate-600 leading-relaxed">
-            KI ist überall Thema, aber wo fängt man an? Was ist relevant für das eigene Unternehmen?
+          <h3 class="text-h4 mb-3">Orientierungslosigkeit</h3>
+          <p class="text-body" style="color: var(--color-text-muted)">
+            KI ist überall Thema, aber wo fängt man an?
           </p>
         </div>
 
-        <!-- Problem 2 -->
         <div class="feature-card reveal-item">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-teal/10 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(22, 155, 215, 0.1) 100%)">
+            <svg class="w-7 h-7" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg text-primary-dark mb-3">Kosten & Zeitaufwand</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Klassische Beratung ist oft teuer und langwierig - ohne Garantie auf schnelle, umsetzbare Ergebnisse.
+          <h3 class="text-h4 mb-3">Kosten & Zeit</h3>
+          <p class="text-body" style="color: var(--color-text-muted)">
+            Klassische Beratung ist teuer und langwierig.
           </p>
         </div>
 
-        <!-- Problem 3 -->
         <div class="feature-card reveal-item">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-teal/10 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(248, 205, 162, 0.1) 100%)">
+            <svg class="w-7 h-7" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg text-primary-dark mb-3">Förderdschungel</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Welche Fördermöglichkeiten gibt es? Welche passen zum eigenen Vorhaben und zur Unternehmensgröße?
+          <h3 class="text-h4 mb-3">Förderdschungel</h3>
+          <p class="text-body" style="color: var(--color-text-muted)">
+            Welche Förderungen passen zum Vorhaben?
           </p>
         </div>
 
-        <!-- Problem 4 -->
         <div class="feature-card reveal-item">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-teal/10 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(248, 205, 162, 0.1) 100%)">
+            <svg class="w-7 h-7" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg text-primary-dark mb-3">Interne Überzeugung</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Wie überzeugt man Geschäftsführung oder Team von einem strukturierten KI-Ansatz?
+          <h3 class="text-h4 mb-3">Interne Überzeugung</h3>
+          <p class="text-body" style="color: var(--color-text-muted)">
+            Wie überzeugt man das Team?
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SO FUNKTIONIERT ES - TIMELINE ==================== -->
-  <section class="py-24 lg:py-32 bg-slate-50 reveal-section" id="ablauf">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+  <!-- ==================== SO FUNKTIONIERT ES (Warm - Split) ==================== -->
+  <section class="section-warm py-20 lg:py-28 reveal-section" id="ablauf">
+    <div class="shape-warm shape-warm-3"></div>
+    <div class="container">
+      <div class="split-section">
         <div>
           <p class="section-label">Der Ablauf</p>
-          <h2 class="section-title mb-6">So funktioniert es</h2>
-          <p class="section-subtitle mb-12">
-            In drei einfachen Schritten zu Ihrer individuellen KI-Analyse. Ohne komplizierte Software, ohne lange Wartezeiten.
+          <h2 class="text-h2 mb-6">So funktioniert es</h2>
+          <p class="text-body-lg mb-10" style="color: var(--color-text-muted)">
+            In drei einfachen Schritten zu Ihrer individuellen KI-Analyse.
           </p>
 
-          <!-- Timeline -->
-          <div class="timeline">
-            <!-- Step 1 -->
-            <div class="timeline-item reveal-item">
-              <div class="timeline-marker">1</div>
+          <div class="timeline-vertical">
+            <div class="timeline-vertical-item reveal-item">
+              <div class="timeline-vertical-marker">1</div>
               <div>
-                <h3 class="text-xl font-semibold text-primary-dark mb-2">Fragebogen ausfüllen</h3>
-                <p class="text-slate-600 leading-relaxed">
-                  Beantworten Sie verständliche Fragen zu Ihrem Unternehmen, Ihrer aktuellen
-                  Situation und Ihren Zielen. <strong class="text-primary">Dauer: ca. 15-20 Minuten.</strong>
+                <h4 class="text-h4 mb-2">Fragebogen ausfüllen</h4>
+                <p class="text-body" style="color: var(--color-text-muted)">
+                  Beantworten Sie Fragen zu Ihrem Unternehmen. <strong style="color: var(--color-primary)">Dauer: ca. 15–20 Minuten.</strong>
                 </p>
               </div>
             </div>
 
-            <!-- Step 2 -->
-            <div class="timeline-item reveal-item">
-              <div class="timeline-marker">2</div>
+            <div class="timeline-vertical-item reveal-item">
+              <div class="timeline-vertical-marker" style="border-color: var(--color-teal); color: var(--color-teal)">2</div>
               <div>
-                <h3 class="text-xl font-semibold text-primary-dark mb-2">Strukturierte Analyse</h3>
-                <p class="text-slate-600 leading-relaxed">
-                  Ihre Angaben werden systematisch ausgewertet: Reifegrad-Einordnung,
-                  Chancen-Risiko-Bewertung und Priorisierung relevanter Themen.
+                <h4 class="text-h4 mb-2">Strukturierte Analyse</h4>
+                <p class="text-body" style="color: var(--color-text-muted)">
+                  Systematische Auswertung: Reifegrad, Chancen-Risiko-Bewertung und Priorisierung.
                 </p>
               </div>
             </div>
 
-            <!-- Step 3 -->
-            <div class="timeline-item reveal-item">
-              <div class="timeline-marker">3</div>
+            <div class="timeline-vertical-item reveal-item">
+              <div class="timeline-vertical-marker" style="border-color: var(--color-warm-gold); color: var(--color-warm-amber)">3</div>
               <div>
-                <h3 class="text-xl font-semibold text-primary-dark mb-2">Report erhalten</h3>
-                <p class="text-slate-600 leading-relaxed">
-                  Sie erhalten einen professionell gestalteten Report mit konkreten
-                  Maßnahmen und einem Überblick zu Fördermöglichkeiten.
+                <h4 class="text-h4 mb-2">Report erhalten</h4>
+                <p class="text-body" style="color: var(--color-text-muted)">
+                  Professioneller Report mit konkreten Maßnahmen und Fördermöglichkeiten.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Illustration Card -->
-        <div class="relative">
-          <div class="card-elevated rounded-3xl p-8 lg:p-10 bg-white">
-            <div class="flex items-center gap-4 mb-8">
-              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        <div class="card p-8 lg:p-10">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.2) 0%, rgba(248, 205, 162, 0.15) 100%)">
+              <svg class="w-6 h-6" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold">Schnell & effizient</p>
+              <p class="text-small" style="color: var(--color-text-light)">Keine Installation notwendig</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--color-primary)">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                 </svg>
               </div>
-              <div>
-                <p class="font-semibold text-primary-dark">Schnell & effizient</p>
-                <p class="text-sm text-slate-500">Keine Installation notwendig</p>
+              <div class="flex-1">
+                <p class="font-medium">Online-Fragebogen</p>
+                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
+                  <div class="h-2 rounded-full" style="width: 100%; background: var(--color-primary)"></div>
+                </div>
+              </div>
+              <span class="check-icon">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </span>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--color-teal)">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium">KI-Analyse</p>
+                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
+                  <div class="h-2 rounded-full animate-pulse" style="width: 75%; background: var(--color-teal)"></div>
+                </div>
               </div>
             </div>
 
-            <div class="space-y-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <p class="font-medium text-slate-900">Online-Fragebogen</p>
-                  <div class="w-full bg-slate-200 rounded-full h-2 mt-2">
-                    <div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
-                  </div>
-                </div>
-                <span class="check-icon">
-                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </span>
+            <div class="flex items-center gap-4 p-4 rounded-xl opacity-60" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--gradient-warm)">
+                <svg class="w-5 h-5" style="color: var(--color-text)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
               </div>
-
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="w-10 h-10 rounded-lg bg-teal flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <p class="font-medium text-slate-900">KI-Analyse</p>
-                  <div class="w-full bg-slate-200 rounded-full h-2 mt-2">
-                    <div class="bg-teal h-2 rounded-full animate-pulse" style="width: 75%"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 opacity-60">
-                <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <p class="font-medium text-slate-900">Report-Erstellung</p>
-                  <div class="w-full bg-slate-200 rounded-full h-2 mt-2">
-                    <div class="bg-accent h-2 rounded-full" style="width: 0%"></div>
-                  </div>
+              <div class="flex-1">
+                <p class="font-medium">Report-Erstellung</p>
+                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
+                  <div class="h-2 rounded-full" style="width: 0%; background: var(--color-warm-gold)"></div>
                 </div>
               </div>
             </div>
@@ -371,122 +377,80 @@
     </div>
   </section>
 
-  <!-- ==================== FÜR WEN SECTION ==================== -->
-  <section class="py-24 lg:py-32 bg-white reveal-section" id="zielgruppen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-20">
+  <!-- ==================== FÜR WEN SECTION (Light) ==================== -->
+  <section class="section-light py-20 lg:py-28 reveal-section" id="zielgruppen">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-16">
         <p class="section-label">Zielgruppen</p>
-        <h2 class="section-title mb-6">Für wen ist die Analyse geeignet?</h2>
-        <p class="section-subtitle mx-auto">
-          Der KI-Check richtet sich an unterschiedliche Zielgruppen mit verschiedenen Ausgangssituationen.
-        </p>
+        <h2 class="text-h2 mb-6"><span class="text-serif">Für wen</span> ist die Analyse geeignet?</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
-        <!-- Zielgruppe 1: Berater -->
-        <div class="card p-8 lg:p-10 border border-slate-100 hover:border-primary/20 transition-all reveal-item">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-8">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div class="card p-8 reveal-item">
+          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(0, 48, 135, 0.2) 100%)">
+            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-primary-dark mb-6">Berater:innen</h3>
-          <ul class="space-y-4 text-slate-600">
+          <h3 class="text-h3 mb-6">Berater:innen</h3>
+          <ul class="space-y-4" style="color: var(--color-text-muted)">
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <span>Strukturierte Basis für Kundengespräche</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Professionelles Dokument für Ihre Beratungsleistung</span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Professionelles Dokument</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Upselling-Potenzial für vertiefende Beratung</span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Upselling-Potenzial</span>
             </li>
           </ul>
         </div>
 
-        <!-- Zielgruppe 2: Agenturen -->
-        <div class="card p-8 lg:p-10 border border-slate-100 hover:border-primary/20 transition-all reveal-item">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal/10 to-teal/20 flex items-center justify-center mb-8">
-            <svg class="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="card p-8 reveal-item">
+          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(22, 155, 215, 0.1) 0%, rgba(22, 155, 215, 0.2) 100%)">
+            <svg class="w-8 h-8" style="color: var(--color-teal)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-primary-dark mb-6">Agenturen & Teams</h3>
-          <ul class="space-y-4 text-slate-600">
+          <h3 class="text-h3 mb-6">Agenturen & Teams</h3>
+          <ul class="space-y-4" style="color: var(--color-text-muted)">
             <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Klare Positionierung gegenüber Kunden</span>
+              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Klare Positionierung</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Dokumentierte KI-Strategie für das eigene Team</span>
+              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Dokumentierte KI-Strategie</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Wettbewerbsvorteil durch nachweisbare KI-Kompetenz</span>
+              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Wettbewerbsvorteil</span>
             </li>
           </ul>
         </div>
 
-        <!-- Zielgruppe 3: KMU -->
-        <div class="card p-8 lg:p-10 border border-slate-100 hover:border-primary/20 transition-all reveal-item">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/20 flex items-center justify-center mb-8">
-            <svg class="w-8 h-8 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="card p-8 reveal-item">
+          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(244, 196, 125, 0.25) 100%)">
+            <svg class="w-8 h-8" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-primary-dark mb-6">KMU</h3>
-          <ul class="space-y-4 text-slate-600">
+          <h3 class="text-h3 mb-6">KMU</h3>
+          <ul class="space-y-4" style="color: var(--color-text-muted)">
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Einstieg in KI ohne hohe Anfangsinvestition</span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>KI-Einstieg ohne hohe Kosten</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Entscheidungsgrundlage für Geschäftsführung</span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Entscheidungsgrundlage</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="check-icon-accent check-icon mt-0.5">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span>Überblick zu passenden Fördermöglichkeiten</span>
+              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+              <span>Fördermöglichkeiten</span>
             </li>
           </ul>
         </div>
@@ -494,154 +458,122 @@
     </div>
   </section>
 
-  <!-- ==================== NICHT FÜR WEN - CALLOUT ==================== -->
-  <section class="py-16 bg-slate-50 reveal-section">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="callout-box">
-        <div class="callout-box-icon">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+  <!-- ==================== CALLOUT (Cream) ==================== -->
+  <section class="section-cream py-16 reveal-section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="callout-box">
+          <div class="callout-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-h3 mb-4">Ehrlich gesagt: Nicht für jeden</h3>
+          <p class="text-body mb-4" style="color: var(--color-text-muted)">Der KI-Check ist <strong>nicht</strong> das Richtige, wenn Sie:</p>
+          <ul class="grid sm:grid-cols-2 gap-3" style="color: var(--color-text-muted)">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span>Bereits ein KI-Team haben</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span>Fertige KI-Produkte suchen</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span>Keine 15 Min investieren möchten</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span>Sofortige Implementierung erwarten</span>
+            </li>
+          </ul>
         </div>
-        <h3 class="text-xl font-bold text-primary-dark mb-4">Ehrlich gesagt: Nicht für jeden geeignet</h3>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          Der KI-Check ist <strong>nicht</strong> das Richtige, wenn Sie:
-        </p>
-        <ul class="grid sm:grid-cols-2 gap-3 text-slate-600">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Bereits ein dediziertes KI-Team haben</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Auf der Suche nach fertigen KI-Produkten sind</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Keine 15 Minuten für den Fragebogen investieren möchten</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Sofortige Implementierung statt Strategie erwarten</span>
-          </li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ==================== WAS DER REPORT LIEFERT ==================== -->
-  <section class="py-24 lg:py-32 bg-white reveal-section" id="report-inhalt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+  <!-- ==================== REPORT (Light - Split Reverse) ==================== -->
+  <section class="section-light py-20 lg:py-28 reveal-section" id="report-inhalt">
+    <div class="container">
+      <div class="split-section reverse">
         <div>
           <p class="section-label">Der Report</p>
-          <h2 class="section-title mb-6">Was der Report liefert</h2>
-          <p class="text-lg text-slate-600 leading-relaxed mb-10">
-            Der KI-Check-Report ist mehr als eine einfache Checkliste. Er bietet Ihnen eine
-            fundierte Grundlage für strategische Entscheidungen rund um den KI-Einsatz.
+          <h2 class="text-h2 mb-6">Was der Report liefert</h2>
+          <p class="text-body-lg mb-10" style="color: var(--color-text-muted)">
+            Mehr als eine Checkliste – eine fundierte Grundlage für strategische Entscheidungen.
           </p>
 
-          <ul class="space-y-6">
+          <ul class="space-y-5">
             <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon mt-1 flex-shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <div>
-                <span class="font-semibold text-lg text-primary-dark">Reifegrad-Einordnung</span>
-                <p class="text-slate-600 mt-1">Wo steht Ihr Unternehmen im Branchenkontext?</p>
+                <span class="text-h4 block">Reifegrad-Einordnung</span>
+                <p class="text-body mt-1" style="color: var(--color-text-muted)">Wo steht Ihr Unternehmen?</p>
               </div>
             </li>
             <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon mt-1 flex-shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <div>
-                <span class="font-semibold text-lg text-primary-dark">Priorisierte Maßnahmen</span>
-                <p class="text-slate-600 mt-1">Konkrete Schritte für die nächsten 6-12 Monate</p>
+                <span class="text-h4 block">Priorisierte Maßnahmen</span>
+                <p class="text-body mt-1" style="color: var(--color-text-muted)">Konkrete Schritte für 6–12 Monate</p>
               </div>
             </li>
             <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon mt-1 flex-shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon-warm check-icon mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <div>
-                <span class="font-semibold text-lg text-primary-dark">Risiken & Governance</span>
-                <p class="text-slate-600 mt-1">Hinweise zu Compliance und Datenschutz</p>
+                <span class="text-h4 block">Risiken & Governance</span>
+                <p class="text-body mt-1" style="color: var(--color-text-muted)">Compliance und Datenschutz</p>
               </div>
             </li>
             <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon mt-1 flex-shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon-warm check-icon mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <div>
-                <span class="font-semibold text-lg text-primary-dark">Fördermöglichkeiten</span>
-                <p class="text-slate-600 mt-1">Überblick relevanter Programme im Kontext</p>
+                <span class="text-h4 block">Fördermöglichkeiten</span>
+                <p class="text-body mt-1" style="color: var(--color-text-muted)">Relevante Programme</p>
               </div>
             </li>
             <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon mt-1 flex-shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
+              <span class="check-icon mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <div>
-                <span class="font-semibold text-lg text-primary-dark">Management-Summary</span>
-                <p class="text-slate-600 mt-1">Klare Zusammenfassung für Entscheider</p>
+                <span class="text-h4 block"><span class="text-serif">Management</span>-Summary</span>
+                <p class="text-body mt-1" style="color: var(--color-text-muted)">Für Entscheider</p>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Report Mockup 3D -->
-        <div class="report-mockup-3d">
+        <div class="report-mockup">
           <span class="report-badge">KI-Readiness</span>
-          <div class="report-cover p-8 lg:p-10">
-            <div class="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200">
-              <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+          <div class="report-cover">
+            <div class="flex items-center gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--color-border)">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-primary)">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                 </svg>
               </div>
               <div>
-                <p class="font-bold text-primary-dark text-lg">KI-Readiness Report</p>
-                <p class="text-sm text-slate-500">Individuell erstellt</p>
+                <p class="font-bold text-lg">KI-Readiness Report</p>
+                <p class="text-small" style="color: var(--color-text-light)">Individuell erstellt</p>
               </div>
             </div>
 
-            <div class="space-y-5">
-              <div class="h-3 bg-slate-200 rounded-full w-full"></div>
-              <div class="h-3 bg-slate-200 rounded-full w-4/5"></div>
-              <div class="h-3 bg-slate-200 rounded-full w-5/6"></div>
+            <div class="space-y-4">
+              <div class="h-3 rounded-full w-full" style="background: var(--color-border)"></div>
+              <div class="h-3 rounded-full w-4/5" style="background: var(--color-border)"></div>
 
               <div class="pt-6 grid grid-cols-2 gap-4">
-                <div class="bg-primary/10 rounded-xl p-5">
-                  <p class="text-xs text-slate-500 mb-1 font-medium">Reifegrad</p>
-                  <p class="text-2xl font-bold text-primary">Stufe 2/5</p>
+                <div class="rounded-xl p-5" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(0, 48, 135, 0.05) 100%)">
+                  <p class="text-xs font-medium" style="color: var(--color-text-light)">Reifegrad</p>
+                  <p class="text-2xl font-bold" style="color: var(--color-primary)">Stufe 2/5</p>
                 </div>
-                <div class="bg-accent/10 rounded-xl p-5">
-                  <p class="text-xs text-slate-500 mb-1 font-medium">Potenzial</p>
-                  <p class="text-2xl font-bold text-accent-dark">Hoch</p>
+                <div class="rounded-xl p-5" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(244, 196, 125, 0.08) 100%)">
+                  <p class="text-xs font-medium" style="color: var(--color-text-light)">Potenzial</p>
+                  <p class="text-2xl font-bold" style="color: var(--color-warm-amber)">Hoch</p>
                 </div>
               </div>
 
-              <div class="h-3 bg-slate-200 rounded-full w-3/4"></div>
-              <div class="h-3 bg-slate-200 rounded-full w-full"></div>
+              <div class="h-3 rounded-full w-3/4" style="background: var(--color-border)"></div>
             </div>
           </div>
         </div>
@@ -649,53 +581,90 @@
     </div>
   </section>
 
-  <!-- ==================== TESTIMONIALS ==================== -->
-  <section class="py-24 lg:py-32 bg-slate-50 reveal-section" id="testimonials">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ==================== TIMELINE DARK ==================== -->
+  <section class="section-dark py-20 lg:py-28 reveal-section">
+    <div class="container">
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label">Stimmen</p>
-        <h2 class="section-title mb-6">Was Kunden sagen</h2>
+        <p class="section-label">Nach dem Report</p>
+        <h2 class="text-h2 text-white mb-6">Was passiert <span class="text-gradient-warm">danach</span>?</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
+      <div class="timeline-horizontal max-w-4xl mx-auto">
+        <div class="timeline-step reveal-item">
+          <div class="timeline-marker">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="timeline-content">
+            <h4 class="text-white">Tag 1</h4>
+            <p class="text-muted">Klare Standortanalyse</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-item">
+          <div class="timeline-marker">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div class="timeline-content">
+            <h4 class="text-white">Woche 1</h4>
+            <p class="text-muted">Priorisierte Maßnahmen</p>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal-item">
+          <div class="timeline-marker">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div class="timeline-content">
+            <h4 class="text-white">Monat 1</h4>
+            <p class="text-muted">Erste Effekte</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS (Warm) ==================== -->
+  <section class="section-warm py-20 lg:py-28 reveal-section" id="testimonials">
+    <div class="shape-warm shape-warm-3"></div>
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="section-label"><span class="text-serif">Stimmen</span></p>
+        <h2 class="text-h2 mb-6">Was Kunden sagen</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
         <div class="testimonial-card reveal-item">
-          <p class="text-slate-600 leading-relaxed relative z-10">
-            "Der Report hat uns endlich Klarheit verschafft, wo wir mit KI starten können. Die Empfehlungen waren konkret und umsetzbar."
-          </p>
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">Der Report hat uns Klarheit verschafft, wo wir mit KI starten können.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">MK</div>
             <div>
-              <p class="font-semibold text-primary-dark">Michael K.</p>
-              <p class="text-sm text-slate-500">Geschäftsführer, Mittelstand</p>
+              <p class="testimonial-name">Michael K.</p>
+              <p class="testimonial-role">Geschäftsführer</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
         <div class="testimonial-card reveal-item">
-          <p class="text-slate-600 leading-relaxed relative z-10">
-            "Als Beraterin nutze ich den KI-Check als Einstieg bei neuen Kunden. Professionell aufbereitet und spart mir viel Vorarbeit."
-          </p>
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">Als Beraterin nutze ich den KI-Check als Einstieg bei neuen Kunden.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">SW</div>
+            <div class="testimonial-avatar warm">SW</div>
             <div>
-              <p class="font-semibold text-primary-dark">Sandra W.</p>
-              <p class="text-sm text-slate-500">Unternehmensberaterin</p>
+              <p class="testimonial-name">Sandra W.</p>
+              <p class="testimonial-role">Beraterin</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
         <div class="testimonial-card reveal-item">
-          <p class="text-slate-600 leading-relaxed relative z-10">
-            "Die Reifegrad-Einordnung war für unser Führungsteam ein echter Augenöffner. Jetzt haben wir eine gemeinsame Diskussionsgrundlage."
-          </p>
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">Die Reifegrad-Einordnung war für unser Führungsteam ein Augenöffner.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">TH</div>
             <div>
-              <p class="font-semibold text-primary-dark">Thomas H.</p>
-              <p class="text-sm text-slate-500">IT-Leiter, Agentur</p>
+              <p class="testimonial-name">Thomas H.</p>
+              <p class="testimonial-role">IT-Leiter</p>
             </div>
           </div>
         </div>
@@ -703,317 +672,181 @@
     </div>
   </section>
 
-  <!-- ==================== VERTRAUEN / TRUST SECTION ==================== -->
-  <section class="py-20 lg:py-24 bg-white reveal-section" id="vertrauen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+  <!-- ==================== TRUST (Light) ==================== -->
+  <section class="section-light py-16 lg:py-20 reveal-section" id="vertrauen">
+    <div class="container">
+      <div class="text-center mb-12">
         <p class="section-label">Vertrauen</p>
-        <h2 class="text-2xl font-bold text-primary-dark mb-3">Qualität & Sicherheit</h2>
-        <p class="text-slate-600">Zertifizierte Expertise und höchste Datenschutzstandards</p>
+        <h2 class="text-h3 mb-3">Qualität & Sicherheit</h2>
       </div>
 
       <div class="flex flex-wrap justify-center gap-4 lg:gap-6">
         <div class="trust-pill">
-          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-          </svg>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span>KI-Sicherheit.jetzt</span>
         </div>
-
         <div class="trust-pill">
-          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-          </svg>
-          <span>TÜV-zertifizierte KI-Expertise</span>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          <span>TÜV-zertifiziert</span>
         </div>
-
         <div class="trust-pill">
-          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
-          <span>DSGVO-konforme Datenverarbeitung</span>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span>DSGVO-konform</span>
         </div>
-
         <div class="trust-pill">
-          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>Server in der EU</span>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Server in EU</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== FAQ SECTION ==================== -->
-  <section class="py-24 lg:py-32 bg-slate-50 reveal-section" id="faq">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="section-label">FAQ</p>
-        <h2 class="section-title mb-6">Häufige Fragen</h2>
-        <p class="section-subtitle mx-auto">
-          Antworten auf die wichtigsten Fragen rund um den KI-Check.
+  <!-- ==================== FAQ (Cream) ==================== -->
+  <section class="section-cream py-20 lg:py-28 reveal-section" id="faq">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="section-label">FAQ</p>
+          <h2 class="text-h2 mb-6">Häufige Fragen</h2>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" tabindex="0">
+              <span>Wie lange dauert die Analyse?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">Der Fragebogen ist in 15–20 Minuten ausgefüllt. Die Auswertung erfolgt zeitnah.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" tabindex="0">
+              <span>Brauche ich technisches Vorwissen?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">Nein. Die Fragen sind verständlich formuliert, der Report ist für Entscheider konzipiert.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" tabindex="0">
+              <span>Wie sicher sind meine Daten?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">DSGVO-konform, EU-Server, keine Weitergabe an Dritte.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" tabindex="0">
+              <span>Was kostet der KI-Check?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer">Informationen auf Anfrage. Kontaktieren Sie uns unverbindlich.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KONTAKT (Light) ==================== -->
+  <section class="section-light py-20 lg:py-28 reveal-section" id="kontakt-demo">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="section-label">Kontakt</p>
+          <h2 class="text-h2 mb-6">Bereit für den nächsten Schritt?</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div class="kontakt-card">
+            <div class="kontakt-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-h3 mb-3">KI-Check anfragen</h3>
+            <p class="text-body mb-8" style="color: var(--color-text-muted)">Starten Sie Ihre KI-Readiness-Analyse.</p>
+            <button class="btn btn-primary w-full" data-action="request-check">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>E-Mail schreiben</span>
+            </button>
+          </div>
+
+          <div class="kontakt-card warm">
+            <div class="kontakt-icon warm">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="text-h3 mb-3">Beispiel-Report</h3>
+            <p class="text-body mb-8" style="color: var(--color-text-muted)">Sehen Sie vorab einen fertigen Report.</p>
+            <button class="btn btn-warm w-full" data-action="request-sample">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Report anfordern</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA (Dark) ==================== -->
+  <section class="cta-section py-20 lg:py-28" id="kontakt">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <p class="text-small font-semibold tracking-widest uppercase mb-6" style="color: var(--color-primary-light)">Bereit?</p>
+        <h2 class="text-h1 text-white mb-8 leading-tight">
+          Verschaffen Sie sich <span class="text-gradient-warm">Klarheit</span>
+        </h2>
+        <p class="text-body-lg text-muted mb-12 max-w-2xl mx-auto">
+          Fundierte Standortbestimmung und konkrete Handlungsempfehlungen.
         </p>
-      </div>
 
-      <div class="bg-white rounded-2xl shadow-md border border-slate-100 divide-y divide-slate-100">
-        <!-- FAQ 1 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Wie lange dauert die Analyse?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Der Fragebogen ist in etwa 15-20 Minuten ausgefüllt. Die Auswertung und
-            Erstellung des Reports erfolgt zeitnah, sodass Sie in der Regel innerhalb
-            kurzer Zeit Ihr Ergebnis erhalten.
-          </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Brauche ich technisches Vorwissen?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Nein. Die Fragen sind bewusst so formuliert, dass sie auch ohne
-            tiefgreifendes KI-Wissen verständlich sind. Der Report selbst ist
-            ebenfalls für Entscheider ohne technischen Hintergrund konzipiert.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Wie sicher sind meine Daten?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Ihre Daten werden DSGVO-konform verarbeitet und auf Servern innerhalb
-            der EU gespeichert. Wir geben keine Daten an Dritte weiter und verwenden
-            sie ausschließlich für die Erstellung Ihres individuellen Reports.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Für welche Branchen ist der Check geeignet?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Der KI-Check ist branchenübergreifend konzipiert und eignet sich für
-            Dienstleistungsunternehmen, produzierende Betriebe, den Handel sowie
-            für Agenturen und Beratungshäuser jeder Größe.
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Was passiert nach dem Report?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Der Report gibt Ihnen konkrete Handlungsempfehlungen. Sie können diese
-            eigenständig umsetzen oder bei Bedarf weiterführende Beratung anfragen.
-            Es gibt keine Verpflichtung zu Folgeleistungen.
-          </div>
-        </div>
-
-        <!-- FAQ 6 -->
-        <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 lg:px-8" tabindex="0">
-            <span>Was kostet der KI-Check?</span>
-            <svg class="faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer px-6 lg:px-8">
-            Informationen zu Preisen und Paketen erhalten Sie auf Anfrage.
-            Kontaktieren Sie uns gerne für ein unverbindliches Gespräch über
-            Ihre spezifischen Anforderungen.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== KONTAKT & DEMO SECTION ==================== -->
-  <section class="py-24 lg:py-32 bg-white reveal-section" id="kontakt-demo">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="section-label">Kontakt</p>
-        <h2 class="section-title mb-6">Bereit für den nächsten Schritt?</h2>
-        <p class="section-subtitle mx-auto">
-          Fordern Sie einen Beispiel-Report an oder stellen Sie Ihre Fragen direkt per E-Mail.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- KI-Check anfragen -->
-        <div class="kontakt-card">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-dark mb-3">KI-Check anfragen</h3>
-          <p class="text-slate-600 mb-8">
-            Starten Sie Ihre KI-Readiness-Analyse und erhalten Sie einen individuellen Report.
-          </p>
-          <button class="email-btn w-full justify-center" data-action="request-check">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-            <span>E-Mail schreiben</span>
-          </button>
-        </div>
-
-        <!-- Beispiel-Report -->
-        <div class="kontakt-card">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/10 to-accent/20 flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-dark mb-3">Beispiel-Report</h3>
-          <p class="text-slate-600 mb-8">
-            Sehen Sie vorab, wie ein fertiger KI-Readiness-Report aussieht.
-          </p>
-          <button class="btn-accent w-full justify-center" data-action="request-sample">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span>Report anfordern</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FINAL CTA SECTION ==================== -->
-  <section class="cta-section py-24 lg:py-32" id="kontakt">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <p class="text-sm font-semibold tracking-widest uppercase text-primary-light mb-6">Bereit?</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
-        Verschaffen Sie sich Klarheit<br class="hidden sm:block"> über Ihre KI-Readiness
-      </h2>
-      <p class="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-        Der strukturierte Check liefert Ihnen eine fundierte Standortbestimmung und
-        konkrete Handlungsempfehlungen für Ihr Unternehmen.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button class="inline-flex items-center justify-center gap-3 bg-white text-primary-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1" data-action="request-check">
+        <button class="btn btn-primary" style="background: #ffffff; color: var(--color-primary-dark)" data-action="request-check">
           <span>Jetzt KI-Check anfragen</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </button>
       </div>
-
-      <p class="text-sm text-slate-400 mt-8">
-        Unverbindliche Anfrage - Sie erhalten zeitnah eine Rückmeldung.
-      </p>
     </div>
   </section>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="py-10 bg-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <footer class="py-10" style="background: var(--color-bg-darker)">
+    <div class="container">
       <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-            <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0, 112, 186, 0.2)">
+            <svg class="w-4 h-4" style="color: var(--color-primary-light)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <p class="text-sm text-slate-500">
-            &copy; <span id="year"></span> KI-Sicherheit.jetzt
-          </p>
+          <p class="text-small" style="color: rgba(255, 255, 255, 0.5)">&copy; <span id="year"></span> KI-Sicherheit.jetzt</p>
         </div>
         <div class="flex items-center gap-8">
-          <a href="impressum.html" class="text-sm text-slate-500 hover:text-slate-300 transition-colors">Impressum</a>
-          <a href="javascript:openPrivacyModal();" class="text-sm text-slate-500 hover:text-slate-300 transition-colors">Datenschutz</a>
-          <button onclick="schicken();" class="text-sm text-slate-500 hover:text-slate-300 transition-colors">E-Mail</button>
+          <a href="impressum.html" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">Impressum</a>
+          <a href="javascript:openPrivacyModal();" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">Datenschutz</a>
+          <button onclick="schicken();" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">E-Mail</button>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== LEGAL FAB (Floating Action Button) ==================== -->
-  <button id="legal-fab" class="legal-fab" aria-label="Rechtliches & Datenschutz" title="Rechtliches & Datenschutz">
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-    </svg>
+  <!-- Legal FAB -->
+  <button id="legal-fab" class="legal-fab" aria-label="Rechtliches" title="Rechtliches">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
   </button>
 
-  <!-- ==================== PRIVACY MODAL ==================== -->
+  <!-- Privacy Modal -->
   <div id="privacy-modal" class="privacy-modal">
     <div class="privacy-modal-overlay"></div>
     <div class="privacy-modal-content">
       <button class="privacy-modal-close" aria-label="Schließen">&times;</button>
-
       <h1>Datenschutzerklärung</h1>
-
       <h2>Verantwortliche Stelle</h2>
-      <p>
-        Wolf Hohl, TÜV-zertifiziertes KI-Management<br>
-        Berlin, Deutschland<br>
-        <button class="legal-btn" onclick="schicken();">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          E-Mail schreiben
-        </button>
+      <p>Wolf Hohl, TÜV-zertifiziertes KI-Management<br>Berlin, Deutschland<br>
+        <button class="legal-btn" onclick="schicken();"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>E-Mail schreiben</button>
       </p>
-
       <h2>Datenverarbeitung durch KI-Tools</h2>
-      <p>
-        Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT).
-        Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Es werden ausschließlich die von Ihnen
-        angegebenen Informationen übermittelt. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.
-      </p>
-
+      <p>Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT). Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.</p>
       <h2>Rechtsgrundlage & Widerruf</h2>
-      <p>
-        <strong>Rechtsgrundlage:</strong> Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO.
-      </p>
-      <p>
-        <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.
-        Senden Sie uns hierzu einfach eine E-Mail.
-      </p>
-
+      <p><strong>Rechtsgrundlage:</strong> Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO.</p>
+      <p><strong>Widerruf:</strong> Jederzeit per E-Mail möglich.</p>
       <h2>Haftungshinweis</h2>
-      <p>
-        Die generierten Auswertungen stellen keine Rechts- oder Steuerberatung dar.
-        Für die Umsetzung bleibt Ihr Unternehmen verantwortlich.
-      </p>
-
-      <h2>Weitere Hinweise</h2>
-      <p>
-        Mehr Informationen zu allgemeinen Datenschutzrechten finden Sie bei Ihrer Aufsichtsbehörde oder unter
-        <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer">EU-DSGVO</a>.
-      </p>
-
-      <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: 0.875rem;">
-        &copy; 2025 KI-Sicherheit.jetzt
-      </p>
+      <p>Keine Rechts- oder Steuerberatung. Für die Umsetzung bleibt Ihr Unternehmen verantwortlich.</p>
+      <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: 0.875rem;">&copy; 2025 KI-Sicherheit.jetzt</p>
     </div>
   </div>
 
-  <!-- JavaScript -->
   <script src="scripts/main.js"></script>
 </body>
 </html>
