@@ -50,8 +50,22 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Optional: Privacy-friendly Analytics (z.B. Plausible/Fathom)
+  <script defer data-domain="report.ki-sicherheit.jetzt" src="https://plausible.io/js/script.js"></script>
+  -->
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
+
+  <!-- ==================== DARK MODE TOGGLE ==================== -->
+  <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode umschalten">
+    <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+    </svg>
+    <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+    </svg>
+  </button>
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="hero-gradient min-h-screen flex items-center">
@@ -162,7 +176,7 @@
   </section>
 
   <!-- ==================== WARUM SECTION ==================== -->
-  <section class="py-20 lg:py-28 bg-white" id="warum">
+  <section class="py-20 lg:py-28 bg-white reveal-section" id="warum">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16">
         <h2 class="section-title mb-4">Warum dieser KI-Check?</h2>
@@ -173,7 +187,7 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Problem 1 -->
-        <div class="card p-6 border border-slate-100">
+        <div class="card p-6 border border-slate-100 reveal-item">
           <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -186,7 +200,7 @@
         </div>
 
         <!-- Problem 2 -->
-        <div class="card p-6 border border-slate-100">
+        <div class="card p-6 border border-slate-100 reveal-item">
           <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -199,7 +213,7 @@
         </div>
 
         <!-- Problem 3 -->
-        <div class="card p-6 border border-slate-100">
+        <div class="card p-6 border border-slate-100 reveal-item">
           <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -212,7 +226,7 @@
         </div>
 
         <!-- Problem 4 -->
-        <div class="card p-6 border border-slate-100">
+        <div class="card p-6 border border-slate-100 reveal-item">
           <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
@@ -228,7 +242,7 @@
   </section>
 
   <!-- ==================== SO FUNKTIONIERT ES ==================== -->
-  <section class="py-20 lg:py-28 bg-slate-50" id="ablauf">
+  <section class="py-20 lg:py-28 bg-slate-50 reveal-section" id="ablauf">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16">
         <h2 class="section-title mb-4">So funktioniert es</h2>
@@ -239,7 +253,7 @@
 
       <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
         <!-- Step 1 -->
-        <div class="relative">
+        <div class="relative reveal-item">
           <div class="flex flex-col items-center text-center">
             <div class="step-number mb-6">1</div>
             <h3 class="text-xl font-semibold text-primary-dark mb-3">Fragebogen ausfüllen</h3>
@@ -253,7 +267,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="relative">
+        <div class="relative reveal-item">
           <div class="flex flex-col items-center text-center">
             <div class="step-number mb-6">2</div>
             <h3 class="text-xl font-semibold text-primary-dark mb-3">Strukturierte Analyse</h3>
@@ -266,7 +280,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="relative">
+        <div class="relative reveal-item">
           <div class="flex flex-col items-center text-center">
             <div class="step-number mb-6">3</div>
             <h3 class="text-xl font-semibold text-primary-dark mb-3">Report erhalten</h3>
@@ -281,7 +295,7 @@
   </section>
 
   <!-- ==================== FÜR WEN SECTION ==================== -->
-  <section class="py-20 lg:py-28 bg-white" id="zielgruppen">
+  <section class="py-20 lg:py-28 bg-white reveal-section" id="zielgruppen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center mb-16">
         <h2 class="section-title mb-4">Für wen ist die Analyse geeignet?</h2>
@@ -292,7 +306,7 @@
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Zielgruppe 1: Berater -->
-        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors">
+        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors reveal-item">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-6">
             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -320,7 +334,7 @@
         </div>
 
         <!-- Zielgruppe 2: Agenturen -->
-        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors">
+        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors reveal-item">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-6">
             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -348,7 +362,7 @@
         </div>
 
         <!-- Zielgruppe 3: KMU -->
-        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors">
+        <div class="card p-8 border border-slate-100 hover:border-primary/20 transition-colors reveal-item">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-6">
             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -379,7 +393,7 @@
   </section>
 
   <!-- ==================== WAS DER REPORT LIEFERT ==================== -->
-  <section class="py-20 lg:py-28 bg-slate-50" id="report-inhalt">
+  <section class="py-20 lg:py-28 bg-slate-50 reveal-section" id="report-inhalt">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
@@ -459,10 +473,11 @@
           </ul>
         </div>
 
-        <!-- Visual Element -->
-        <div class="relative">
-          <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
-            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+        <!-- Report Mockup 3D -->
+        <div class="report-mockup-3d">
+          <span class="report-badge">KI-Readiness</span>
+          <div class="report-cover p-8">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
               <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -475,36 +490,32 @@
             </div>
 
             <div class="space-y-4">
-              <div class="h-3 bg-slate-100 rounded-full w-full"></div>
-              <div class="h-3 bg-slate-100 rounded-full w-4/5"></div>
-              <div class="h-3 bg-slate-100 rounded-full w-5/6"></div>
+              <div class="h-3 bg-slate-200 rounded-full w-full"></div>
+              <div class="h-3 bg-slate-200 rounded-full w-4/5"></div>
+              <div class="h-3 bg-slate-200 rounded-full w-5/6"></div>
 
               <div class="pt-4 grid grid-cols-2 gap-4">
-                <div class="bg-primary/5 rounded-lg p-4">
+                <div class="bg-primary/10 rounded-lg p-4">
                   <p class="text-xs text-slate-500 mb-1">Reifegrad</p>
                   <p class="text-lg font-bold text-primary">Stufe 2/5</p>
                 </div>
-                <div class="bg-accent/5 rounded-lg p-4">
+                <div class="bg-accent/10 rounded-lg p-4">
                   <p class="text-xs text-slate-500 mb-1">Potenzial</p>
                   <p class="text-lg font-bold text-accent">Hoch</p>
                 </div>
               </div>
 
-              <div class="h-3 bg-slate-100 rounded-full w-3/4"></div>
-              <div class="h-3 bg-slate-100 rounded-full w-full"></div>
+              <div class="h-3 bg-slate-200 rounded-full w-3/4"></div>
+              <div class="h-3 bg-slate-200 rounded-full w-full"></div>
             </div>
           </div>
-
-          <!-- Decorative Elements -->
-          <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full -z-10"></div>
-          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/5 rounded-full -z-10"></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==================== VERTRAUEN / TRUST SECTION ==================== -->
-  <section class="py-16 lg:py-20 bg-white" id="vertrauen">
+  <section class="py-16 lg:py-20 bg-white reveal-section" id="vertrauen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-xl font-semibold text-primary-dark mb-2">Vertrauen & Qualität</h2>
@@ -544,7 +555,7 @@
   </section>
 
   <!-- ==================== FAQ SECTION ==================== -->
-  <section class="py-20 lg:py-28 bg-slate-50" id="faq">
+  <section class="py-20 lg:py-28 bg-slate-50 reveal-section" id="faq">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="section-title mb-4">Häufige Fragen</h2>
@@ -647,6 +658,58 @@
     </div>
   </section>
 
+  <!-- ==================== KONTAKT & DEMO SECTION ==================== -->
+  <section class="py-20 lg:py-28 bg-white reveal-section" id="kontakt-demo">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title mb-4">Kontakt & Demo</h2>
+        <p class="section-subtitle mx-auto">
+          Fordern Sie einen Beispiel-Report an oder stellen Sie Ihre Fragen direkt per E-Mail.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- KI-Check anfragen -->
+        <div class="kontakt-card">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-dark mb-3">KI-Check anfragen</h3>
+          <p class="text-slate-600 text-sm mb-6">
+            Starten Sie Ihre KI-Readiness-Analyse und erhalten Sie einen individuellen Report.
+          </p>
+          <button class="email-btn" data-action="request-check">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>E-Mail schreiben</span>
+          </button>
+        </div>
+
+        <!-- Beispiel-Report -->
+        <div class="kontakt-card">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/10 to-accent/20 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-dark mb-3">Beispiel-Report</h3>
+          <p class="text-slate-600 text-sm mb-6">
+            Sehen Sie vorab, wie ein fertiger KI-Readiness-Report aussieht.
+          </p>
+          <button class="email-btn" data-action="request-sample">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span>Report anfordern</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== FINAL CTA SECTION ==================== -->
   <section class="py-20 lg:py-28 bg-primary-dark" id="kontakt">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -682,12 +745,74 @@
           &copy; <span id="year"></span> KI-Sicherheit.jetzt - Report Preview
         </p>
         <div class="flex items-center gap-6">
-          <a href="#" class="text-sm text-slate-500 hover:text-slate-400 transition-colors">Impressum</a>
-          <a href="#" class="text-sm text-slate-500 hover:text-slate-400 transition-colors">Datenschutz</a>
+          <a href="impressum.html" class="text-sm text-slate-500 hover:text-slate-400 transition-colors">Impressum</a>
+          <a href="javascript:openPrivacyModal();" class="text-sm text-slate-500 hover:text-slate-400 transition-colors">Datenschutz</a>
+          <button onclick="schicken();" class="text-sm text-slate-500 hover:text-slate-400 transition-colors">E-Mail</button>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- ==================== LEGAL FAB (Floating Action Button) ==================== -->
+  <button id="legal-fab" class="legal-fab" aria-label="Rechtliches & Datenschutz" title="Rechtliches & Datenschutz">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+    </svg>
+  </button>
+
+  <!-- ==================== PRIVACY MODAL ==================== -->
+  <div id="privacy-modal" class="privacy-modal">
+    <div class="privacy-modal-overlay"></div>
+    <div class="privacy-modal-content">
+      <button class="privacy-modal-close" aria-label="Schließen">&times;</button>
+
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>Verantwortliche Stelle</h2>
+      <p>
+        Wolf Hohl, TÜV-zertifiziertes KI-Management<br>
+        Berlin, Deutschland<br>
+        <button class="legal-btn" onclick="schicken();">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          E-Mail schreiben
+        </button>
+      </p>
+
+      <h2>Datenverarbeitung durch KI-Tools</h2>
+      <p>
+        Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT).
+        Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Es werden ausschließlich die von Ihnen
+        angegebenen Informationen übermittelt. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.
+      </p>
+
+      <h2>Rechtsgrundlage & Widerruf</h2>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO.
+      </p>
+      <p>
+        <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.
+        Senden Sie uns hierzu einfach eine E-Mail.
+      </p>
+
+      <h2>Haftungshinweis</h2>
+      <p>
+        Die generierten Auswertungen stellen keine Rechts- oder Steuerberatung dar.
+        Für die Umsetzung bleibt Ihr Unternehmen verantwortlich.
+      </p>
+
+      <h2>Weitere Hinweise</h2>
+      <p>
+        Mehr Informationen zu allgemeinen Datenschutzrechten finden Sie bei Ihrer Aufsichtsbehörde oder unter
+        <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer">EU-DSGVO</a>.
+      </p>
+
+      <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: 0.875rem;">
+        &copy; 2025 KI-Sicherheit.jetzt
+      </p>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="scripts/main.js"></script>
