@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initFloatingShapes();
   initReportMockupTilt();
   initMicroInteractions();
+  initAmbientBackground();
+  initScrollParallax();
+  initSectionCrossfade();
 });
 
 /* ==================== E-MAIL FUNKTION ==================== */
@@ -811,3 +814,228 @@ function initDataShapesAnimation() {
 
 // Initialize data shapes animation
 document.addEventListener('DOMContentLoaded', initDataShapesAnimation);
+
+/* ==================== AMBIENT BACKGROUND ENGINE ==================== */
+
+/**
+ * Initialize the ambient background with dot matrix and organic shapes
+ * Creates a living, breathing background texture
+ */
+function initAmbientBackground() {
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  // Create ambient background container if it doesn't exist
+  let ambientBg = document.querySelector('.ambient-bg');
+  if (!ambientBg) {
+    ambientBg = document.createElement('div');
+    ambientBg.className = 'ambient-bg';
+    ambientBg.innerHTML = `
+      <div class="dot-matrix" id="dot-matrix"></div>
+      <div class="ambient-shape ambient-shape-warm ambient-shape-1"></div>
+      <div class="ambient-shape ambient-shape-blue ambient-shape-2"></div>
+      <div class="ambient-shape ambient-shape-warm ambient-shape-3"></div>
+    `;
+    document.body.insertBefore(ambientBg, document.body.firstChild);
+  }
+
+  // Start ambient drift animation
+  initAmbientDrift();
+}
+
+/**
+ * Ambient drift animation for dot matrix
+ * Very subtle movement: 0.4-0.8% per second, 6-10 second loop
+ */
+function initAmbientDrift() {
+  const dotMatrix = document.getElementById('dot-matrix');
+  if (!dotMatrix) return;
+
+  let startTime = null;
+  const duration = 8000; // 8 seconds loop
+  const maxDrift = 15; // pixels
+
+  function animate(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const elapsed = currentTime - startTime;
+    const progress = (elapsed % duration) / duration;
+
+    // Skewed sine wave for slightly irregular movement
+    const skewedProgress = Math.pow(Math.sin(progress * Math.PI), 1.2);
+    const xDrift = Math.sin(progress * Math.PI * 2) * maxDrift;
+    const yDrift = Math.cos(progress * Math.PI * 2 * 0.7) * (maxDrift * 0.6);
+
+    dotMatrix.style.transform = `translate(${xDrift}px, ${yDrift}px) rotate(6deg)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+}
+
+/* ==================== SCROLL PARALLAX ==================== */
+
+/**
+ * Scroll-reactive parallax for dot matrix
+ * Subtle horizontal shift based on scroll position
+ */
+function initScrollParallax() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const dotMatrix = document.getElementById('dot-matrix');
+  const ambientShapes = document.querySelectorAll('.ambient-shape');
+  const heroGlows = document.querySelectorAll('.hero-glow, .hero-glow-blue, .hero-glow-warm');
+
+  let ticking = false;
+  let lastScrollY = 0;
+
+  function updateParallax() {
+    const scrollY = window.pageYOffset;
+    const scrollDelta = scrollY - lastScrollY;
+    const viewportHeight = window.innerHeight;
+
+    // Dot matrix parallax - very subtle
+    if (dotMatrix) {
+      const parallaxX = (scrollY * 0.02) % 30;
+      const parallaxY = (scrollY * 0.015) % 20;
+      dotMatrix.style.transform = `translate(${parallaxX}px, ${parallaxY}px) rotate(6deg)`;
+    }
+
+    // Ambient shapes parallax - different speeds for depth
+    ambientShapes.forEach((shape, index) => {
+      const speed = 0.03 + (index * 0.01);
+      const yOffset = scrollY * speed;
+      shape.style.transform = `translateY(${yOffset}px)`;
+    });
+
+    // Hero glows fade out on scroll
+    heroGlows.forEach(glow => {
+      const opacity = Math.max(0, 1 - (scrollY / viewportHeight));
+      glow.style.opacity = opacity;
+    });
+
+    lastScrollY = scrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ==================== SECTION CROSSFADE ==================== */
+
+/**
+ * Section-specific background transformations with crossfade
+ * Different matrix density/rotation per section
+ */
+function initSectionCrossfade() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const sections = document.querySelectorAll('section');
+  const dotMatrix = document.getElementById('dot-matrix');
+
+  if (!dotMatrix || sections.length === 0) return;
+
+  // Section-specific configurations
+  const sectionConfigs = {
+    'warum': { spacing: 22, rotation: 6, opacity: 0.16 },      // Tight grid
+    'ablauf': { spacing: 28, rotation: 8, opacity: 0.12 },     // Normal
+    'zielgruppen': { spacing: 32, rotation: 10, opacity: 0.14 }, // Slightly rotated
+    'testimonials': { spacing: 36, rotation: 4, opacity: 0.1 }, // Wide, subtle
+    'faq': { spacing: 24, rotation: 6, opacity: 0.12 },
+    'default': { spacing: 28, rotation: 6, opacity: 0.14 }
+  };
+
+  let currentSection = 'default';
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        const sectionId = entry.target.id || 'default';
+        const config = sectionConfigs[sectionId] || sectionConfigs['default'];
+
+        if (currentSection !== sectionId) {
+          currentSection = sectionId;
+
+          // Apply crossfade transition
+          dotMatrix.style.transition = 'opacity 0.5s ease-in-out';
+          dotMatrix.style.opacity = '0';
+
+          setTimeout(() => {
+            dotMatrix.style.setProperty('--dot-spacing', `${config.spacing}px`);
+            dotMatrix.style.transform = `rotate(${config.rotation}deg)`;
+            dotMatrix.style.opacity = config.opacity;
+          }, 250);
+        }
+      }
+    });
+  }, {
+    threshold: [0.3, 0.5],
+    rootMargin: '-10% 0px -10% 0px'
+  });
+
+  sections.forEach(section => {
+    if (section.id) {
+      observer.observe(section);
+    }
+  });
+}
+
+/* ==================== AMBIENT SHAPE FLOATING ==================== */
+
+/**
+ * Enhanced floating animation for ambient shapes
+ * More organic movement with varying speeds
+ */
+function initAmbientShapeFloating() {
+  const shapes = document.querySelectorAll('.ambient-shape');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion || shapes.length === 0) return;
+
+  shapes.forEach((shape, index) => {
+    const baseDuration = 10000 + (index * 2000);
+    const baseDelay = index * 1500;
+
+    animateAmbientShape(shape, baseDuration, baseDelay, index);
+  });
+}
+
+function animateAmbientShape(shape, duration, delay, index) {
+  let startTime = null;
+  const maxX = 30 + (index * 10);
+  const maxY = 25 + (index * 8);
+
+  function animate(currentTime) {
+    if (!startTime) startTime = currentTime - delay;
+    const elapsed = currentTime - startTime;
+    const progress = (elapsed % duration) / duration;
+
+    // Lissajous-like pattern for organic movement
+    const freqX = 1 + (index * 0.3);
+    const freqY = 0.7 + (index * 0.2);
+    const xOffset = Math.sin(progress * Math.PI * 2 * freqX) * maxX;
+    const yOffset = Math.cos(progress * Math.PI * 2 * freqY) * maxY;
+    const scale = 1 + Math.sin(progress * Math.PI * 2) * 0.05;
+    const opacity = 0.4 + Math.sin(progress * Math.PI * 2) * 0.2;
+
+    shape.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scale})`;
+    shape.style.opacity = opacity;
+
+    requestAnimationFrame(animate);
+  }
+
+  setTimeout(() => {
+    requestAnimationFrame(animate);
+  }, delay);
+}
+
+// Initialize ambient shape floating
+document.addEventListener('DOMContentLoaded', initAmbientShapeFloating);
