@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
   initPrivacyModal();
   initScrollReveal();
   initHoverEffects();
-  initFloatingShapes();
+  // initFloatingShapes(); // V3: Deaktiviert - Performance
   initReportMockupTilt();
   initMicroInteractions();
   initAmbientBackground();
-  initScrollParallax();
-  initSectionCrossfade();
+  // initScrollParallax(); // V3: Deaktiviert - verursacht Scroll-Ruckler
+  // initSectionCrossfade(); // V3: Deaktiviert - zu viel DOM-Manipulation
 });
 
 /* ==================== E-MAIL FUNKTION ==================== */
@@ -551,127 +551,26 @@ function getCSSVariable(name) {
 }
 
 /* ==================== FLOATING SHAPES ==================== */
-
-/**
- * Floating Shapes - organische Formen mit minimaler Bewegung
- * 8-10 Sekunden Loop, ease-in-out
+/* V3: Diese Funktionen wurden deaktiviert für bessere Scroll-Performance.
+ * Shapes sind jetzt statisch via CSS positioniert.
+ * Code bleibt als Referenz erhalten, wird aber nicht aufgerufen.
  */
-function initFloatingShapes() {
-  const shapes = document.querySelectorAll('.shape-warm, .shape-organic');
 
-  if (shapes.length === 0) return;
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  shapes.forEach((shape, index) => {
-    // Randomize animation parameters for natural feel
-    const duration = 8000 + Math.random() * 4000; // 8-12 seconds
-    const delay = index * 1000; // Stagger start times
-
-    // Create unique floating animation
-    animateFloatingShape(shape, duration, delay);
-  });
-}
-
-/**
- * Animate a single floating shape with smooth motion
- */
-function animateFloatingShape(shape, duration, delay) {
-  const startX = 0;
-  const startY = 0;
-  const maxOffset = 20; // Maximum movement in pixels
-
-  let startTime = null;
-  let animationId = null;
-
-  function animate(currentTime) {
-    if (!startTime) startTime = currentTime - delay;
-    const elapsed = currentTime - startTime;
-    const progress = (elapsed % duration) / duration;
-
-    // Smooth ease-in-out movement using sine wave
-    const xOffset = Math.sin(progress * Math.PI * 2) * maxOffset;
-    const yOffset = Math.cos(progress * Math.PI * 2) * (maxOffset * 0.75);
-    const scaleOffset = 1 + Math.sin(progress * Math.PI * 2) * 0.03;
-    const opacityOffset = 0.5 + Math.sin(progress * Math.PI * 2) * 0.15;
-
-    shape.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scaleOffset})`;
-    shape.style.opacity = opacityOffset;
-
-    animationId = requestAnimationFrame(animate);
-  }
-
-  // Start animation after delay
-  setTimeout(() => {
-    animationId = requestAnimationFrame(animate);
-  }, delay);
-
-  // Cleanup on page unload
-  window.addEventListener('beforeunload', () => {
-    if (animationId) cancelAnimationFrame(animationId);
-  });
-}
+// function initFloatingShapes() { /* V3: Deaktiviert */ }
+// function animateFloatingShape() { /* V3: Deaktiviert */ }
 
 /* ==================== REPORT MOCKUP TILT ==================== */
 
 /**
  * Report Mockup 3D Tilt Effect
- * Subtiler Tilt-Effekt beim Hover
+ * V3: Deaktiviert - Tilt-Effekt entfernt für statischen, hochwertigen Look
+ * Hover-Shadow wird jetzt nur über CSS gesteuert
  */
 function initReportMockupTilt() {
-  const mockups = document.querySelectorAll('.report-mockup');
-
-  if (mockups.length === 0) return;
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  mockups.forEach(mockup => {
-    let bounds;
-    let isHovering = false;
-
-    mockup.addEventListener('mouseenter', function() {
-      bounds = this.getBoundingClientRect();
-      isHovering = true;
-      this.style.transition = 'transform 0.1s ease-out';
-    });
-
-    mockup.addEventListener('mousemove', function(e) {
-      if (!isHovering) return;
-
-      const mouseX = e.clientX - bounds.left;
-      const mouseY = e.clientY - bounds.top;
-      const centerX = bounds.width / 2;
-      const centerY = bounds.height / 2;
-
-      // Calculate rotation (max 8 degrees)
-      const rotateX = ((mouseY - centerY) / centerY) * -8;
-      const rotateY = ((mouseX - centerX) / centerX) * 8;
-
-      // Add subtle lift and shine effect
-      const shine = ((mouseX / bounds.width) * 100);
-
-      this.style.transform = `
-        perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateZ(20px)
-        scale(1.02)
-      `;
-
-      // Update shine gradient position
-      this.style.setProperty('--shine-position', `${shine}%`);
-    });
-
-    mockup.addEventListener('mouseleave', function() {
-      isHovering = false;
-      this.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      this.style.transform = 'perspective(1000px) rotateY(-8deg) rotateX(4deg)';
-    });
-  });
+  // V3: Tilt-Animation komplett deaktiviert
+  // Hover-Effekt (Schatten verstärken) läuft jetzt rein über CSS
+  // Siehe .report-mockup:hover .report-cover in main.css
+  return;
 }
 
 /* ==================== MICRO INTERACTIONS ==================== */
@@ -840,202 +739,20 @@ function initAmbientBackground() {
     document.body.insertBefore(ambientBg, document.body.firstChild);
   }
 
-  // Start ambient drift animation
-  initAmbientDrift();
+  // V3: initAmbientDrift() entfernt - requestAnimationFrame-Loop verursachte Scroll-Ruckler
+  // Dot-Matrix ist jetzt statisch - sieht genauso gut aus, performt besser
 }
 
-/**
- * Ambient drift animation for dot matrix
- * Very subtle movement: 0.4-0.8% per second, 6-10 second loop
+/* ==================== V3: DEAKTIVIERTE ANIMATIONEN ==================== */
+/*
+ * Die folgenden Funktionen wurden in V3 deaktiviert, um Scroll-Performance zu verbessern:
+ * - initAmbientDrift() - Kontinuierlicher requestAnimationFrame-Loop
+ * - initScrollParallax() - Scroll-Event mit requestAnimationFrame
+ * - initSectionCrossfade() - IntersectionObserver mit DOM-Manipulationen
+ * - initAmbientShapeFloating() - Lissajous-Animation mit requestAnimationFrame
+ *
+ * Ersetzt durch:
+ * - Statische CSS-Positionierung für alle dekorativen Elemente
+ * - Langsame CSS-only Animationen (12-30s Loops) für dezente Bewegung
+ * - Hover-Effekte rein über CSS gesteuert
  */
-function initAmbientDrift() {
-  const dotMatrix = document.getElementById('dot-matrix');
-  if (!dotMatrix) return;
-
-  let startTime = null;
-  const duration = 8000; // 8 seconds loop
-  const maxDrift = 15; // pixels
-
-  function animate(currentTime) {
-    if (!startTime) startTime = currentTime;
-    const elapsed = currentTime - startTime;
-    const progress = (elapsed % duration) / duration;
-
-    // Skewed sine wave for slightly irregular movement
-    const skewedProgress = Math.pow(Math.sin(progress * Math.PI), 1.2);
-    const xDrift = Math.sin(progress * Math.PI * 2) * maxDrift;
-    const yDrift = Math.cos(progress * Math.PI * 2 * 0.7) * (maxDrift * 0.6);
-
-    dotMatrix.style.transform = `translate(${xDrift}px, ${yDrift}px) rotate(6deg)`;
-
-    requestAnimationFrame(animate);
-  }
-
-  requestAnimationFrame(animate);
-}
-
-/* ==================== SCROLL PARALLAX ==================== */
-
-/**
- * Scroll-reactive parallax for dot matrix
- * Subtle horizontal shift based on scroll position
- */
-function initScrollParallax() {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  const dotMatrix = document.getElementById('dot-matrix');
-  const ambientShapes = document.querySelectorAll('.ambient-shape');
-  const heroGlows = document.querySelectorAll('.hero-glow, .hero-glow-blue, .hero-glow-warm');
-
-  let ticking = false;
-  let lastScrollY = 0;
-
-  function updateParallax() {
-    const scrollY = window.pageYOffset;
-    const scrollDelta = scrollY - lastScrollY;
-    const viewportHeight = window.innerHeight;
-
-    // Dot matrix parallax - very subtle
-    if (dotMatrix) {
-      const parallaxX = (scrollY * 0.02) % 30;
-      const parallaxY = (scrollY * 0.015) % 20;
-      dotMatrix.style.transform = `translate(${parallaxX}px, ${parallaxY}px) rotate(6deg)`;
-    }
-
-    // Ambient shapes parallax - different speeds for depth
-    ambientShapes.forEach((shape, index) => {
-      const speed = 0.03 + (index * 0.01);
-      const yOffset = scrollY * speed;
-      shape.style.transform = `translateY(${yOffset}px)`;
-    });
-
-    // Hero glows fade out on scroll
-    heroGlows.forEach(glow => {
-      const opacity = Math.max(0, 1 - (scrollY / viewportHeight));
-      glow.style.opacity = opacity;
-    });
-
-    lastScrollY = scrollY;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
-}
-
-/* ==================== SECTION CROSSFADE ==================== */
-
-/**
- * Section-specific background transformations with crossfade
- * Different matrix density/rotation per section
- */
-function initSectionCrossfade() {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  const sections = document.querySelectorAll('section');
-  const dotMatrix = document.getElementById('dot-matrix');
-
-  if (!dotMatrix || sections.length === 0) return;
-
-  // Section-specific configurations
-  const sectionConfigs = {
-    'warum': { spacing: 22, rotation: 6, opacity: 0.16 },      // Tight grid
-    'ablauf': { spacing: 28, rotation: 8, opacity: 0.12 },     // Normal
-    'zielgruppen': { spacing: 32, rotation: 10, opacity: 0.14 }, // Slightly rotated
-    'testimonials': { spacing: 36, rotation: 4, opacity: 0.1 }, // Wide, subtle
-    'faq': { spacing: 24, rotation: 6, opacity: 0.12 },
-    'default': { spacing: 28, rotation: 6, opacity: 0.14 }
-  };
-
-  let currentSection = 'default';
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-        const sectionId = entry.target.id || 'default';
-        const config = sectionConfigs[sectionId] || sectionConfigs['default'];
-
-        if (currentSection !== sectionId) {
-          currentSection = sectionId;
-
-          // Apply crossfade transition
-          dotMatrix.style.transition = 'opacity 0.5s ease-in-out';
-          dotMatrix.style.opacity = '0';
-
-          setTimeout(() => {
-            dotMatrix.style.setProperty('--dot-spacing', `${config.spacing}px`);
-            dotMatrix.style.transform = `rotate(${config.rotation}deg)`;
-            dotMatrix.style.opacity = config.opacity;
-          }, 250);
-        }
-      }
-    });
-  }, {
-    threshold: [0.3, 0.5],
-    rootMargin: '-10% 0px -10% 0px'
-  });
-
-  sections.forEach(section => {
-    if (section.id) {
-      observer.observe(section);
-    }
-  });
-}
-
-/* ==================== AMBIENT SHAPE FLOATING ==================== */
-
-/**
- * Enhanced floating animation for ambient shapes
- * More organic movement with varying speeds
- */
-function initAmbientShapeFloating() {
-  const shapes = document.querySelectorAll('.ambient-shape');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion || shapes.length === 0) return;
-
-  shapes.forEach((shape, index) => {
-    const baseDuration = 10000 + (index * 2000);
-    const baseDelay = index * 1500;
-
-    animateAmbientShape(shape, baseDuration, baseDelay, index);
-  });
-}
-
-function animateAmbientShape(shape, duration, delay, index) {
-  let startTime = null;
-  const maxX = 30 + (index * 10);
-  const maxY = 25 + (index * 8);
-
-  function animate(currentTime) {
-    if (!startTime) startTime = currentTime - delay;
-    const elapsed = currentTime - startTime;
-    const progress = (elapsed % duration) / duration;
-
-    // Lissajous-like pattern for organic movement
-    const freqX = 1 + (index * 0.3);
-    const freqY = 0.7 + (index * 0.2);
-    const xOffset = Math.sin(progress * Math.PI * 2 * freqX) * maxX;
-    const yOffset = Math.cos(progress * Math.PI * 2 * freqY) * maxY;
-    const scale = 1 + Math.sin(progress * Math.PI * 2) * 0.05;
-    const opacity = 0.4 + Math.sin(progress * Math.PI * 2) * 0.2;
-
-    shape.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${scale})`;
-    shape.style.opacity = opacity;
-
-    requestAnimationFrame(animate);
-  }
-
-  setTimeout(() => {
-    requestAnimationFrame(animate);
-  }, delay);
-}
-
-// Initialize ambient shape floating
-document.addEventListener('DOMContentLoaded', initAmbientShapeFloating);
