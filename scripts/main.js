@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initReportMockupTilt();
   initMicroInteractions();
   initAmbientBackground();
+  initReportViewerTabs(); // V5: Mini-Report-Viewer Tabs
   // initScrollParallax(); // V3: Deaktiviert - verursacht Scroll-Ruckler
   // initSectionCrossfade(); // V3: Deaktiviert - zu viel DOM-Manipulation
 });
@@ -741,6 +742,54 @@ function initAmbientBackground() {
 
   // V3: initAmbientDrift() entfernt - requestAnimationFrame-Loop verursachte Scroll-Ruckler
   // Dot-Matrix ist jetzt statisch - sieht genauso gut aus, performt besser
+}
+
+/* ==================== V5: MINI-REPORT-VIEWER TABS ==================== */
+
+/**
+ * Report Viewer Tab Switching
+ * Handles the interactive 3-tab preview in the Report section
+ */
+function initReportViewerTabs() {
+  const tabs = document.querySelectorAll('.report-viewer-tab');
+  const panels = document.querySelectorAll('.report-viewer-panel');
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetTab = tab.dataset.tab;
+
+      // Remove active state from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // Remove active state from all panels
+      panels.forEach(p => p.classList.remove('active'));
+
+      // Add active state to clicked tab
+      tab.classList.add('active');
+
+      // Find and show the corresponding panel
+      const targetPanel = document.getElementById(`panel-${targetTab}`);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+
+      // Add click feedback animation
+      tab.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        tab.style.transform = '';
+      }, 100);
+    });
+
+    // Keyboard accessibility
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tab.click();
+      }
+    });
+  });
 }
 
 /* ==================== V3: DEAKTIVIERTE ANIMATIONEN ==================== */
