@@ -2210,3 +2210,285 @@ body {
     padding-right: 2rem;
   }
 }
+
+/* ==================== V4: MESSAGING & VISUAL CLARITY ==================== */
+
+/* V4: Risk Icon Glow (Amber) */
+.icon-risk-glow {
+  position: relative;
+  box-shadow: 0 0 20px rgba(197, 138, 50, 0.15), 0 0 40px rgba(232, 168, 73, 0.08);
+}
+
+.icon-risk-glow::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(197, 138, 50, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* V4: Risk Feature Cards */
+.feature-card-risk {
+  background: linear-gradient(135deg, var(--color-card-bg) 0%, #fdfaf7 100%);
+  border: 1px solid rgba(197, 138, 50, 0.15);
+}
+
+.feature-card-risk:hover {
+  border-color: rgba(197, 138, 50, 0.25);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(197, 138, 50, 0.08);
+}
+
+/* V4: Serious Callout Box */
+.callout-box-serious {
+  background: linear-gradient(135deg, #F5E4D3 0%, #F7EBDD 100%);
+  border-left: 5px solid #C58A32;
+  padding: 2rem 2.5rem;
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.callout-box-serious:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(197, 138, 50, 0.12);
+}
+
+.callout-icon-serious {
+  background: linear-gradient(135deg, rgba(197, 138, 50, 0.15) 0%, rgba(197, 138, 50, 0.25) 100%);
+  color: #C58A32;
+}
+
+.callout-box-serious:hover .callout-icon-serious {
+  box-shadow: 0 0 20px rgba(197, 138, 50, 0.25);
+}
+
+/* V4: Unified Checkmark Colors (No Traffic Light) */
+.check-icon-navy {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: #ffffff;
+}
+
+.check-icon-gold {
+  background: linear-gradient(135deg, var(--color-warm-gold) 0%, var(--color-warm-amber) 100%);
+  color: var(--color-text);
+}
+
+/* V4: Micro Benefit Cards */
+.benefit-micro-card {
+  padding: 0.875rem 1rem;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-small);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+.benefit-micro-card:hover {
+  background: var(--color-bg-warm);
+  border-color: var(--color-border-warm);
+  transform: translateY(-1px);
+}
+
+/* V4: Report Mockup Container with Snippet Overlays */
+.report-mockup-container {
+  position: relative;
+  perspective: 1200px;
+}
+
+/* V4: Floating Report Snippets */
+.report-snippet {
+  position: absolute;
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--color-border);
+  z-index: 10;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.report-snippet:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.report-snippet-1 {
+  top: 20%;
+  right: -30px;
+}
+
+.report-snippet-2 {
+  bottom: 35%;
+  left: -25px;
+}
+
+.report-snippet-3 {
+  bottom: 10%;
+  right: -20px;
+}
+
+@media (max-width: 1023px) {
+  .report-snippet {
+    display: none;
+  }
+}
+
+/* V4: Timeline Step Interactive */
+.timeline-step-interactive {
+  cursor: pointer;
+  position: relative;
+}
+
+.timeline-step-interactive:hover {
+  transform: translateY(-3px);
+}
+
+.timeline-step-interactive:hover .timeline-marker {
+  background: var(--color-warm-gold);
+  border-color: var(--color-warm-gold);
+  color: var(--color-text);
+}
+
+.timeline-step-interactive::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  background: var(--color-warm-gold);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.timeline-step-interactive:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* V4: Timeline Tooltip */
+.timeline-tooltip {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 280px;
+  padding: 1rem 1.25rem;
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-border);
+  font-size: var(--font-small);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  z-index: 100;
+}
+
+.timeline-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: var(--color-card-bg) transparent transparent transparent;
+}
+
+.timeline-step-interactive:hover .timeline-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 767px) {
+  .timeline-tooltip {
+    width: 220px;
+    left: 0;
+    transform: translateX(0) translateY(10px);
+  }
+
+  .timeline-step-interactive:hover .timeline-tooltip {
+    transform: translateX(0) translateY(0);
+  }
+
+  .timeline-tooltip::before {
+    left: 24px;
+    transform: none;
+  }
+}
+
+/* V4: Hero Tax Badge */
+.hero-tax-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.625rem 1rem;
+  background: linear-gradient(135deg, rgba(244, 196, 125, 0.12) 0%, rgba(244, 196, 125, 0.06) 100%);
+  border: 1px solid var(--color-border-warm);
+  border-radius: var(--radius-full);
+  font-size: var(--font-small);
+  color: var(--color-warm-amber);
+  width: fit-content;
+}
+
+.hero-tax-badge svg {
+  flex-shrink: 0;
+}
+
+/* V4: Hero Card - Completely Static */
+.hero-card {
+  /* Remove animate-float class - card is now static */
+  animation: none !important;
+  transition: box-shadow var(--transition-smooth);
+}
+
+.hero-card:hover {
+  /* V4: Only shadow enhancement, no transform */
+  box-shadow:
+    0 30px 80px -15px rgba(0, 0, 0, 0.25),
+    0 0 60px -10px rgba(244, 196, 125, 0.15);
+}
+
+/* V4: Remove all floating animations from Hero elements */
+.animate-float {
+  animation: none !important;
+}
+
+/* V4: Dark Mode Adjustments */
+.dark-mode .callout-box-serious {
+  background: linear-gradient(135deg, rgba(197, 138, 50, 0.08) 0%, rgba(197, 138, 50, 0.04) 100%);
+  border-left-color: var(--color-warm-gold);
+}
+
+.dark-mode .feature-card-risk {
+  background: linear-gradient(135deg, var(--color-card-bg) 0%, rgba(197, 138, 50, 0.05) 100%);
+}
+
+.dark-mode .benefit-micro-card {
+  background: var(--color-bg-soft);
+  border-color: var(--color-border);
+}
+
+.dark-mode .report-snippet {
+  background: var(--color-card-bg);
+  border-color: var(--color-border);
+}
+
+.dark-mode .timeline-tooltip {
+  background: var(--color-card-bg);
+  border-color: var(--color-border);
+}
+
+.dark-mode .timeline-tooltip::before {
+  border-color: var(--color-card-bg) transparent transparent transparent;
+}
+
+.dark-mode .hero-tax-badge {
+  background: linear-gradient(135deg, rgba(245, 208, 138, 0.1) 0%, rgba(245, 208, 138, 0.05) 100%);
+  border-color: rgba(245, 208, 138, 0.2);
+  color: var(--color-warm-gold);
+}
