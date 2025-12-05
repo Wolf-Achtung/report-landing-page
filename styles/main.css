@@ -103,7 +103,15 @@
   --font-small: 0.875rem;
   --font-xs: 0.8125rem;
 
-  /* Spacing */
+  /* V7: 8-Point Spacing System */
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+
+  /* Section Spacing */
   --section-padding-y: clamp(5rem, 10vw, 8rem);
   --section-padding-y-sm: clamp(3rem, 6vw, 5rem);
 
@@ -371,11 +379,21 @@ body {
   line-height: 1.6;
 }
 
-/* Serif Accent - Editorial Touch */
+/* V7: Serif Accent - Editorial Touch, Harmonisiert */
+/* Serif nur bei: Section-Lead-Headlines, Testimonials-Zitaten, Final CTA */
 .text-serif {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-style: italic;
   font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* V7: Serif Headlines - Premium Feel */
+.text-serif-headline {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
 }
 
 /* Section Label - V3: Prominenter im PayPal-Stil */
@@ -3553,13 +3571,76 @@ body {
  * 5.4 Haptik Utilities - Card-Stacking, tiefere Schatten
  */
 
-/* --- 5.1 Narrative Scroll Story (Stripe-Style) --- */
-/* Struktur: Problem → Erkenntnis → Lösung → Beispiel → Demo → CTA */
+/* ==================== V7: NARRATIVE SCROLL STORY (AKTIVIERT) ==================== */
+/* Stripe/Linear-Style Progress Spine mit Chapter-Labels */
+
 .narrative-section {
   position: relative;
   overflow: hidden;
 }
 
+/* Progress Spine - Vertikale Fortschrittslinie */
+.narrative-progress-spine {
+  position: fixed;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 240px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.narrative-progress-spine.is-visible {
+  opacity: 1;
+}
+
+.narrative-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-warm-gold) 100%);
+  border-radius: var(--radius-full);
+  transition: height 0.3s ease-out;
+}
+
+/* Progress Markers */
+.narrative-progress-markers {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.narrative-progress-marker {
+  width: 11px;
+  height: 11px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.narrative-progress-marker.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 48, 135, 0.15);
+}
+
+.narrative-progress-marker.completed {
+  background: var(--color-warm-gold);
+  border-color: var(--color-warm-gold);
+}
+
+/* Chapter Label - Sticky beim Scrollen */
 .narrative-chapter {
   padding: var(--section-padding-y) 0;
   position: relative;
@@ -3568,14 +3649,259 @@ body {
 .narrative-chapter::before {
   content: attr(data-chapter);
   position: absolute;
-  top: 2rem;
-  left: 2rem;
+  top: var(--space-4);
+  left: var(--space-4);
   font-size: var(--font-xs);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.6;
+  background: var(--color-bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+}
+
+.narrative-chapter[data-chapter]::after {
+  content: '';
+  position: absolute;
+  top: var(--space-4);
+  left: 0;
+  width: 4px;
+  height: calc(100% - var(--space-8));
+  background: linear-gradient(180deg, var(--color-primary) 0%, transparent 100%);
+  border-radius: var(--radius-full);
+  opacity: 0.15;
+}
+
+/* Hide on Mobile */
+@media (max-width: 1024px) {
+  .narrative-progress-spine {
+    display: none;
+  }
+
+  .narrative-chapter::before {
+    left: 1rem;
+    top: 1.5rem;
+  }
+}
+
+/* ==================== V7: CRO LAYER ==================== */
+
+/* Sticky Mobile CTA Bar */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 0.875rem 1rem;
+  z-index: 99;
+  transform: translateY(100%);
+  transition: transform var(--transition-smooth);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+.sticky-cta-bar.is-visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .sticky-cta-bar {
+    display: block;
+  }
+}
+
+.sticky-cta-bar .btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+}
+
+.sticky-cta-bar-text {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Micro-FAQ (Kompakt, nach Hero) */
+.micro-faq {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: var(--space-4);
+}
+
+.micro-faq-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  transition: all var(--transition-base);
+}
+
+.micro-faq-item:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--color-border-warm);
+  color: var(--color-text);
+}
+
+.micro-faq-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Reassurance Text */
+.reassurance-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: var(--font-xs);
   color: var(--color-text-light);
-  opacity: 0.5;
+  margin-top: var(--space-3);
+}
+
+.reassurance-text svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-warm-gold);
+}
+
+/* Mini-Trust Bar (unter CTAs) */
+.mini-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.mini-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.mini-trust-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-primary);
+}
+
+.mini-trust-item.gold svg {
+  color: var(--color-warm-gold);
+}
+
+/* ==================== V7: TRUST LAYER ==================== */
+
+/* Affirmations Row (nach Why-Us) */
+.affirmations-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: var(--space-4) 0;
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.affirmation-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: var(--font-small);
+  color: var(--color-text-muted);
+}
+
+.affirmation-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.affirmation-item.gold svg {
+  color: var(--color-warm-gold);
+}
+
+/* Badge Cluster (unter Hero-Card) */
+.badge-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: var(--space-3);
+}
+
+.badge-cluster-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  box-shadow: var(--shadow-xs);
+}
+
+.badge-cluster-item svg {
+  width: 12px;
+  height: 12px;
+}
+
+.badge-cluster-item.navy {
+  background: rgba(0, 48, 135, 0.05);
+  border-color: rgba(0, 48, 135, 0.15);
+  color: var(--color-primary);
+}
+
+.badge-cluster-item.navy svg {
+  color: var(--color-primary);
+}
+
+.badge-cluster-item.gold {
+  background: rgba(244, 196, 125, 0.1);
+  border-color: rgba(244, 196, 125, 0.3);
+  color: var(--color-warm-amber);
+}
+
+.badge-cluster-item.gold svg {
+  color: var(--color-warm-gold);
+}
+
+/* Dark Mode CRO/Trust */
+.dark-mode .sticky-cta-bar {
+  background: var(--color-bg-dark);
+  border-color: var(--color-border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .micro-faq-item {
+  background: rgba(15, 30, 50, 0.8);
+  border-color: var(--color-border);
+}
+
+.dark-mode .badge-cluster-item {
+  background: rgba(15, 30, 50, 0.6);
+  border-color: var(--color-border);
 }
 
 /* --- 5.2 Micro-Walkthrough (Report Wizard) --- */
@@ -3766,14 +4092,268 @@ body {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ==================== V6: PERFORMANCE NOTES ==================== */
+/* ==================== V7: MOBILE EXPERIENCE UPGRADE ==================== */
+
+/* Mobile Hero Optimizations */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
+  }
+
+  .hero-headline {
+    font-size: clamp(2.25rem, 8vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .hero-subheadline {
+    font-size: 1rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-visual {
+    margin-top: var(--space-6);
+  }
+
+  .hero-card {
+    padding: 1.5rem;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .hero-stat-value {
+    font-size: 2rem;
+  }
+
+  /* Mobile Grid Collapse */
+  .split-section {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .split-section.reverse > *:first-child {
+    order: 0;
+  }
+
+  /* Mobile Section Spacing */
+  .py-20 {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .py-24 {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .py-28 {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  /* Mobile Card Grids */
+  .why-us-grid,
+  .grid.md\:grid-cols-3,
+  .grid.md\:grid-cols-2 {
+    gap: var(--space-3);
+  }
+
+  /* Mobile Tab Viewer */
+  .report-viewer-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .report-viewer-tab {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .report-viewer-card {
+    padding: 1.25rem;
+  }
+
+  /* Mobile Timeline */
+  .timeline-horizontal {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .timeline-step {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  /* Mobile Final CTA */
+  .final-cta-benefits {
+    max-width: 100%;
+  }
+
+  .final-cta-benefit {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Mobile FAQ */
+  .faq-question {
+    padding: 1rem;
+    font-size: var(--font-body);
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1rem;
+  }
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-headline {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+  }
+
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================== V7: FINAL POLISH ==================== */
+
+/* Edge-to-Edge Layouts */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Section Decorations - Subtle Accent Lines */
+.section-accent-line {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-warm-gold), transparent);
+  border-radius: var(--radius-full);
+  opacity: 0.4;
+}
+
+.section-accent-line-left {
+  left: 0;
+  width: 120px;
+}
+
+.section-accent-line-right {
+  right: 0;
+  width: 120px;
+  background: linear-gradient(270deg, var(--color-primary), transparent);
+}
+
+/* V7: Footer Upgrade */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-warm-gold), transparent);
+  opacity: 0.3;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-brand-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(0, 112, 186, 0.15) 0%, rgba(0, 112, 186, 0.25) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-link {
+  font-size: var(--font-small);
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  position: relative;
+}
+
+.footer-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-warm-gold);
+  transition: width var(--transition-base);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* V7: Hero Tax Badge Animation */
+.hero-tax-badge {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* V7: Gold Accent Reduction - Softer Glow */
+.check-icon-gold,
+.why-us-icon-gold {
+  --glow-intensity: 0.15;
+}
+
+/* V7: Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .hero-tax-badge,
+  .narrative-progress-fill,
+  .sticky-cta-bar {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ==================== V7: PERFORMANCE NOTES ==================== */
 /*
- * Performance-Optimierungen in V6:
+ * Performance-Optimierungen in V7:
  *
- * 1. Lazy Loading: Alle SVG-Icons sind inline (kein externer Load)
- * 2. Keine globalen scroll listener (IntersectionObserver wird verwendet)
- * 3. Animationen nur Opacity/Transform (GPU-beschleunigt)
- * 4. Dot-Matrix Pulse: Nur Opacity-Shift, keine Transformation
- * 5. CSS Custom Properties für Theme-Wechsel (kein JS-Reflow)
- * 6. prefers-reduced-motion wird respektiert
+ * 1. 8-pt Spacing System für konsistente Abstände
+ * 2. Narrative Scroll Story mit Progress Spine (IntersectionObserver)
+ * 3. Sticky Mobile CTA mit transform statt position-Animation
+ * 4. Serif nur an 3 Stellen (Headlines, Testimonials, Final CTA)
+ * 5. Gold-Akzente reduziert für weniger visuelle Ablenkung
+ * 6. Mobile-First Grid Optimierungen
+ * 7. Footer mit subtilen Akzenten
  */
