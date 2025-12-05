@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>KI-Readiness Report – KI-Sicherheit.jetzt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f6fa;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      max-width: 960px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      padding: 40px 32px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 48px 56px 40px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        gap: 40px;
+        align-items: center;
+      }
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 3vw + 10px, 36px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .lead {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 24px;
+      max-width: 40rem;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .bullets li span.icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #0f766e;
+      color: #ecfeff;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #0f172a;
+      color: #f9fafb;
+      letter-spacing: 0.01em;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.12s ease;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+      background: #020617;
+    }
+
+    .btn-secondary {
+      appearance: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #cbd5f5;
+      background: #e5edff;
+      color: #1d3557;
+      cursor: pointer;
+      transition: background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #d6e3ff;
+      border-color: #94a3b8;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .card-side {
+      margin-top: 28px;
+      padding: 18px 18px 16px;
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 16px;
+    }
+
+    .card-side h2 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .card-side p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #cbd5f5;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .logo-pill {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .footer {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="layout">
+      <section>
+        <div class="eyebrow">KI-Sicherheit.jetzt</div>
+        <h1>
+          <span>Zertifiziert.</span>
+          <span>Dokumentiert.</span>
+          <span>KI-bereit.</span>
+        </h1>
+
+        <p class="lead">
+          Der KI-Check-Report liefert Ihrem Unternehmen eine neutrale, strukturiert
+          aufbereitete Einschätzung zum Einsatz von Künstlicher Intelligenz –
+          rechtlich eingeordnet, datenschutzkonform gedacht und mit klaren
+          Handlungsempfehlungen für die nächsten Schritte.
+        </p>
+
+        <ul class="bullets">
+          <li>
+            <span class="icon">✓</span>
+            <span>DSGVO- &amp; EU-AI-Act-orientierte Empfehlungen</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span>Klare Einordnung von Chancen, Risiken und Prioritäten</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span>Konkrete nächste Schritte – verständlich für Entscheider</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span>Entwickelt von TÜV-zertifiziertem KI-Management</span>
+          </li>
+        </ul>
+
+        <div class="cta-row">
+          <button class="btn-primary" type="button">
+            Jetzt KI-Check anfragen
+          </button>
+          <button class="btn-secondary" type="button">
+            Beispiel-Report anfordern
+          </button>
+        </div>
+        <p class="hint">
+          Unverbindlich, ohne Installation – Sie erhalten eine erste neutrale
+          Einschätzung zu Ihrem KI-Status.
+        </p>
+      </section>
+
+      <aside class="card-side">
+        <h2>Ihr Vorteil in einem Satz</h2>
+        <p>
+          Ein schneller, strukturierter KI-Check, der Ihnen Klarheit verschafft,
+          interne Diskussionen erleichtert und eine belastbare Grundlage für
+          weitere Entscheidungen legt – von der Strategie bis zur Förderung.
+        </p>
+      </aside>
+    </div>
+
+    <div class="logos">
+      <span class="logo-pill">KI-Sicherheit.jetzt</span>
+      <span class="logo-pill">TÜV-zertifizierte KI-Expertise</span>
+      <span class="logo-pill">DSGVO-konforme Datenverarbeitung</span>
+      <span class="logo-pill">Server in der EU</span>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span> KI-Sicherheit.jetzt – Report Preview
+    </div>
+  </main>
+
+  <script>
+    // Jahr im Footer automatisch setzen
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
