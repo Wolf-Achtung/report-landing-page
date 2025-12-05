@@ -3763,6 +3763,197 @@ body {
   }
 }
 
+/* ==================== V9: NARRATIVE CHAPTER TYPES ==================== */
+/* 9 Chapter Story Arc: Problem → Erkenntnis → Lösung → Ablauf → Report → Vertrauen → Warum Wir → Wirkung → CTA */
+
+/* Base Chapter States */
+.narrative-chapter {
+  opacity: 1;
+  transition: opacity var(--transition-smooth);
+}
+
+.narrative-chapter.chapter-active {
+  opacity: 1;
+}
+
+.narrative-chapter.chapter-completed {
+  opacity: 1;
+}
+
+/* Chapter Type: Dark (Problem / Impact) */
+.chapter-dark {
+  background: var(--gradient-dark-section);
+  color: var(--color-text-inverse);
+}
+
+.chapter-dark .section-label {
+  color: var(--color-warm-gold);
+}
+
+.chapter-dark .text-h2,
+.chapter-dark .text-h3 {
+  color: #ffffff;
+}
+
+.chapter-dark::before {
+  color: var(--color-warm-gold) !important;
+  background: rgba(0, 31, 84, 0.9) !important;
+  border-color: rgba(244, 196, 125, 0.3) !important;
+}
+
+/* Chapter Type: Light (Erkenntnis / Trust / Zielgruppen) */
+.chapter-light {
+  background: var(--color-bg);
+}
+
+.chapter-light::before {
+  color: var(--color-primary) !important;
+}
+
+/* Chapter Type: Warm (Lösung / Testimonials) */
+.chapter-warm {
+  background: var(--color-bg-warm);
+}
+
+.chapter-warm::before {
+  color: var(--color-warm-amber) !important;
+  border-color: var(--color-border-warm) !important;
+}
+
+/* Chapter Type: Split (Ablauf - Two Column) */
+.chapter-split {
+  background: var(--color-bg-cream);
+}
+
+.chapter-split::before {
+  color: var(--color-teal) !important;
+}
+
+/* Chapter Type: Product (Report Section) */
+.chapter-product {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 50%, var(--color-bg) 100%);
+}
+
+.chapter-product::before {
+  color: var(--color-primary) !important;
+  background: linear-gradient(135deg, rgba(0, 48, 135, 0.08) 0%, rgba(244, 196, 125, 0.08) 100%) !important;
+  border-color: rgba(0, 48, 135, 0.2) !important;
+}
+
+/* Chapter Type: Trust */
+.chapter-trust {
+  background: var(--color-bg-soft);
+}
+
+.chapter-trust::before {
+  color: var(--color-primary) !important;
+}
+
+/* Chapter Type: Why Us */
+.chapter-whyus {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.chapter-whyus::before {
+  color: var(--color-warm-gold) !important;
+}
+
+/* Chapter Type: Impact (Timeline) */
+.chapter-impact {
+  background: var(--gradient-dark-section);
+  color: var(--color-text-inverse);
+}
+
+.chapter-impact::before {
+  color: var(--color-warm-gold) !important;
+  background: rgba(0, 31, 84, 0.9) !important;
+  border-color: rgba(244, 196, 125, 0.3) !important;
+}
+
+/* Chapter Type: Final CTA */
+.chapter-finalcta {
+  background: var(--color-bg-warm);
+}
+
+.chapter-finalcta::before {
+  color: var(--color-warm-amber) !important;
+  border-color: var(--color-border-warm) !important;
+}
+
+/* V9: Enhanced Progress Spine with 9 Markers */
+.narrative-progress-spine {
+  height: 320px; /* Taller for 9 markers */
+}
+
+.narrative-progress-marker {
+  position: relative;
+  cursor: pointer;
+}
+
+.narrative-progress-marker::after {
+  content: attr(data-num);
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  white-space: nowrap;
+}
+
+.narrative-progress-spine.is-visible .narrative-progress-marker::after {
+  opacity: 0.7;
+}
+
+.narrative-progress-marker.active::after {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.narrative-progress-marker.completed::after {
+  color: var(--color-warm-gold);
+  opacity: 1;
+}
+
+/* V9: Chapter Headline Styling */
+.chapter-headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: var(--letter-spacing-serif);
+  line-height: var(--line-height-section);
+}
+
+.chapter-subhead {
+  font-size: var(--font-body-lg);
+  color: var(--color-text-muted);
+  max-width: var(--max-width-prose);
+  line-height: var(--line-height-body-long);
+}
+
+/* Dark chapters override */
+.chapter-dark .chapter-subhead,
+.chapter-impact .chapter-subhead {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* V9: Chapter Number Badge (Enhanced) */
+.narrative-chapter[data-chapter]::before {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* V9: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .narrative-chapter,
+  .narrative-progress-marker,
+  .narrative-progress-fill {
+    transition: none;
+  }
+}
+
 /* ==================== V7: CRO LAYER ==================== */
 
 /* Sticky Mobile CTA Bar */

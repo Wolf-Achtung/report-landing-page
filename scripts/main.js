@@ -837,6 +837,151 @@ function initStickyCTABar() {
   }, 250));
 }
 
+/* ==================== V9: NARRATIVE SCROLL STORY ==================== */
+
+/**
+ * Narrative Chapter Activation System
+ * Uses IntersectionObserver to track chapter visibility and progress
+ * - 30% visible = chapter-active (blue glow on marker)
+ * - Fully passed = chapter-completed (gold marker)
+ * - Progress Spine shows/hides based on scroll position
+ */
+function initNarrativeChapters() {
+  const progressSpine = document.getElementById('progress-spine');
+  const progressFill = document.getElementById('progress-fill');
+  const markers = document.querySelectorAll('.narrative-progress-marker');
+  const chapters = document.querySelectorAll('.narrative-chapter');
+
+  if (!progressSpine || !chapters.length) return;
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Track chapter states
+  const chapterStates = new Map();
+  chapters.forEach(chapter => {
+    const chapterId = chapter.dataset.chapter;
+    chapterStates.set(chapterId, { visible: false, passed: false });
+  });
+
+  // Show/hide progress spine based on scroll position
+  function updateSpineVisibility() {
+    const firstChapter = chapters[0];
+    const lastChapter = chapters[chapters.length - 1];
+
+    if (!firstChapter || !lastChapter) return;
+
+    const firstRect = firstChapter.getBoundingClientRect();
+    const lastRect = lastChapter.getBoundingClientRect();
+
+    // Show spine when in the chapter area
+    const shouldShow = firstRect.top < window.innerHeight * 0.7 && lastRect.bottom > window.innerHeight * 0.3;
+
+    if (shouldShow) {
+      progressSpine.classList.add('is-visible');
+    } else {
+      progressSpine.classList.remove('is-visible');
+    }
+  }
+
+  // Update progress fill based on scroll
+  function updateProgressFill() {
+    const firstChapter = chapters[0];
+    const lastChapter = chapters[chapters.length - 1];
+
+    if (!firstChapter || !lastChapter || !progressFill) return;
+
+    const firstTop = firstChapter.getBoundingClientRect().top + window.pageYOffset;
+    const lastBottom = lastChapter.getBoundingClientRect().bottom + window.pageYOffset;
+    const totalHeight = lastBottom - firstTop;
+    const scrolled = window.pageYOffset - firstTop + window.innerHeight * 0.5;
+
+    const progress = Math.max(0, Math.min(100, (scrolled / totalHeight) * 100));
+    progressFill.style.height = `${progress}%`;
+  }
+
+  // Chapter activation observer (30% visible = active)
+  const chapterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const chapter = entry.target;
+      const chapterId = chapter.dataset.chapter;
+      const marker = document.querySelector(`.narrative-progress-marker[data-chapter="${chapterId}"]`);
+
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+        // Chapter is 30% visible - mark as active
+        chapter.classList.add('chapter-active');
+        if (marker) {
+          marker.classList.add('active');
+        }
+        chapterStates.get(chapterId).visible = true;
+      } else if (!entry.isIntersecting) {
+        chapter.classList.remove('chapter-active');
+        if (marker) {
+          marker.classList.remove('active');
+        }
+        chapterStates.get(chapterId).visible = false;
+
+        // Check if chapter is above viewport (completed)
+        const rect = chapter.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          chapter.classList.add('chapter-completed');
+          if (marker) {
+            marker.classList.add('completed');
+          }
+          chapterStates.get(chapterId).passed = true;
+        } else {
+          // Chapter is below viewport, remove completed state
+          chapter.classList.remove('chapter-completed');
+          if (marker) {
+            marker.classList.remove('completed');
+          }
+          chapterStates.get(chapterId).passed = false;
+        }
+      }
+    });
+  }, {
+    threshold: [0, 0.3, 0.5, 1],
+    rootMargin: '0px'
+  });
+
+  // Observe all chapters
+  chapters.forEach(chapter => {
+    chapterObserver.observe(chapter);
+  });
+
+  // Marker click navigation
+  markers.forEach(marker => {
+    marker.addEventListener('click', () => {
+      const chapterId = marker.dataset.chapter;
+      const targetChapter = document.querySelector(`.narrative-chapter[data-chapter="${chapterId}"]`);
+
+      if (targetChapter) {
+        const offset = 80;
+        const targetPosition = targetChapter.getBoundingClientRect().top + window.pageYOffset - offset;
+        smoothScrollTo(targetPosition, 600);
+      }
+    });
+  });
+
+  // Update on scroll (throttled)
+  const updateOnScroll = throttle(() => {
+    updateSpineVisibility();
+    updateProgressFill();
+  }, 50);
+
+  window.addEventListener('scroll', updateOnScroll, { passive: true });
+
+  // Initial update
+  updateSpineVisibility();
+  updateProgressFill();
+}
+
+// Initialize narrative chapters on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Add to existing initializations
+  initNarrativeChapters();
+});
+
 /* ==================== V3: DEAKTIVIERTE ANIMATIONEN ==================== */
 /*
  * Die folgenden Funktionen wurden in V3 deaktiviert, um Scroll-Performance zu verbessern:
