@@ -5195,6 +5195,199 @@ h1, h2, .text-display, .text-h1, .text-h2 {
 
 /* ==================== END V16 ==================== */
 
+/* ==================== V17: SOFT BACKGROUNDS WITH ANIMATION ==================== */
+
+/* Basis: weicher Hintergrund-Layer mit optionaler Bewegung */
+.section-soft-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-soft-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content über den BG-Layer heben */
+.section-soft-bg > .section-inner,
+.section-soft-bg > .chapter-content,
+.section-soft-bg > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ganz leichte, langsame Drift-Animation (nur wenn nicht reduziert) */
+@media (prefers-reduced-motion: no-preference) {
+  .section-soft-bg::before {
+    animation: bgDrift 60s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgDrift {
+    from {
+      transform: translate3d(-10px, 0, 0) scale(1.02);
+    }
+    to {
+      transform: translate3d(10px, 5px, 0) scale(1.03);
+    }
+  }
+}
+
+/* --- "Die Erkenntnis" Background --- */
+.section-bg-insight::before {
+  background-image: url("/visuals/desktop/01-desktop.webp");
+  opacity: 0.12;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-insight::before {
+    background-image: url("/visuals/tablet/01-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-insight::before {
+    background-image: url("/visuals/mobile/01-mobile.webp");
+  }
+}
+
+/* --- "Ein Report, der funktioniert" (Audiences) Background --- */
+.section-bg-audiences::before {
+  background-image: url("/visuals/desktop/04-desktop.webp");
+  opacity: 0.14;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-audiences::before {
+    background-image: url("/visuals/tablet/04-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-audiences::before {
+    background-image: url("/visuals/mobile/04-mobile.webp");
+  }
+}
+
+/* --- FAQ Background --- */
+.section-bg-faq::before {
+  background-image: url("/visuals/desktop/07-desktop.webp");
+  opacity: 0.10;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-faq::before {
+    background-image: url("/visuals/tablet/07-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-faq::before {
+    background-image: url("/visuals/mobile/07-mobile.webp");
+  }
+}
+
+/* --- "Warum dieser KI-Check" Background --- */
+.section-bg-why::before {
+  background-image: url("/visuals/desktop/03-desktop.webp");
+  opacity: 0.14;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-why::before {
+    background-image: url("/visuals/tablet/03-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-why::before {
+    background-image: url("/visuals/mobile/03-mobile.webp");
+  }
+}
+
+/* --- "Nicht geeignet" Warning Background --- */
+.section-bg-warning::before {
+  background-image: url("/visuals/desktop/05-desktop.webp");
+  opacity: 0.10;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-warning::before {
+    background-image: url("/visuals/tablet/05-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-warning::before {
+    background-image: url("/visuals/mobile/05-mobile.webp");
+  }
+}
+
+/* --- "So funktioniert der KI-Check" Process Background --- */
+.section-bg-process::before {
+  background-image: url("/visuals/desktop/02-desktop.webp");
+  opacity: 0.12;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-process::before {
+    background-image: url("/visuals/tablet/02-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-process::before {
+    background-image: url("/visuals/mobile/02-mobile.webp");
+  }
+}
+
+/* --- "Bereit für den nächsten Schritt" Contact Background --- */
+.section-bg-contact::before {
+  background-image: url("/visuals/desktop/06-desktop.webp");
+  opacity: 0.16;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-contact::before {
+    background-image: url("/visuals/tablet/06-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-contact::before {
+    background-image: url("/visuals/mobile/06-mobile.webp");
+  }
+}
+
+/* --- Impact Section Enhancement (Dark Navy) --- */
+.chapter-impact {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06), transparent 55%), var(--color-bg-dark, #02183f);
+}
+
+.chapter-impact .timeline-horizontal {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* --- Hide empty Trust Visual placeholder --- */
+.trust-visual:empty,
+.trust-visual:not(:has(img)) {
+  display: none;
+}
+
+/* Dark Mode adjustments for V17 */
+.dark-mode .section-soft-bg::before {
+  opacity: 0.10;
+}
+
+/* ==================== END V17 ==================== */
+
 /* Sections mit Visual-Hintergrund (Legacy) */
 .section-with-visual-bg {
   position: relative;
