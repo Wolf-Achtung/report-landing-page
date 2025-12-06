@@ -199,9 +199,15 @@
   box-sizing: border-box;
 }
 
+/* V12: Fullpage Snap - Body does NOT scroll */
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -213,8 +219,52 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   transition: background-color var(--transition-slow), color var(--transition-smooth);
-  /* V11: Soft scroll-snap for chapters */
-  scroll-snap-type: y proximity;
+}
+
+/* V12: Scroll Container for Fullpage Snap */
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: auto !important; /* No smooth scroll for hard snap */
+}
+
+/* V12: Snap Sections - Full viewport height */
+.chapter-snap {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* V12: Hero Section - Full viewport with contained content */
+.chapter-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chapter-hero .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+.chapter-hero .content-wrapper,
+.chapter-hero .content-card {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* V12: Mini-FAQ inside Hero - Compact & Centered */
+.chapter-hero .mini-faq {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
 }
 
 ::selection {
@@ -3737,9 +3787,7 @@ body {
 .narrative-chapter {
   padding: var(--section-padding-y) 0;
   position: relative;
-  /* V11: Soft scroll-snap */
-  scroll-snap-align: start;
-  scroll-margin-top: 80px;
+  /* V12: Snap handled by .chapter-snap class */
 }
 
 .narrative-chapter::before {
