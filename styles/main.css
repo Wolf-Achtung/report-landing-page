@@ -5388,6 +5388,97 @@ h1, h2, .text-display, .text-h1, .text-h2 {
 
 /* ==================== END V17 ==================== */
 
+/* ==================== V18: VISIBLE SECTION VISUALS ==================== */
+
+/* Basis: Section mit Visual-Layer */
+.section-with-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container für das Bild */
+.section-visual {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.section-visual--right {
+  right: -10%;
+  bottom: -10%;
+}
+
+.section-visual--left {
+  left: -10%;
+  bottom: -10%;
+}
+
+.section-visual--top-right {
+  right: -8%;
+  top: -8%;
+}
+
+.section-visual--top-left {
+  left: -8%;
+  top: -8%;
+}
+
+.section-visual img {
+  display: block;
+  max-width: 640px;
+  width: 50vw;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Content über das Bild heben */
+.section-with-visual .section-inner,
+.section-with-visual .chapter-content,
+.section-with-visual > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section-spezifische Opacity-Anpassungen */
+.chapter-whyus .section-visual {
+  opacity: 0.2;
+}
+
+.section-bg-faq .section-visual {
+  opacity: 0.16;
+}
+
+.section-bg-process .section-visual {
+  opacity: 0.18;
+}
+
+.section-bg-warning .section-visual {
+  opacity: 0.14;
+}
+
+.section-bg-contact .section-visual {
+  opacity: 0.2;
+}
+
+/* Mobile: Visuals kleiner / weniger präsent */
+@media (max-width: 768px) {
+  .section-visual {
+    opacity: 0.18;
+  }
+  .section-visual img {
+    max-width: 420px;
+    width: 80vw;
+  }
+}
+
+/* Dark Mode adjustments for V18 */
+.dark-mode .section-visual {
+  opacity: 0.15;
+}
+
+/* ==================== END V18 ==================== */
+
 /* Sections mit Visual-Hintergrund (Legacy) */
 .section-with-visual-bg {
   position: relative;
