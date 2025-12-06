@@ -5015,7 +5015,187 @@ h1, h2, .text-display, .text-h1, .text-h2 {
   max-height: 420px;
 }
 
-/* Sections mit Visual-Hintergrund */
+/* ==================== V16: SECTION-HERO-VISUAL BACKGROUNDS ==================== */
+/* Gemeinsamer Hintergrund-Layer für bildstarke Kapitel */
+.section-hero-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-hero-visual > .section-inner,
+.section-hero-visual > .chapter-content,
+.section-hero-visual > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Content-Lesbarkeit Overlay (optional, aktivieren wenn Texte schwer lesbar) */
+/*
+.section-hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.32),
+    rgba(10, 22, 40, 0.0) 40%,
+    rgba(10, 22, 40, 0.24)
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+*/
+
+/* --- Hero Background (Visual 01) --- */
+.section-hero-bg-01::before {
+  background-image: url("/visuals/desktop/01-desktop.webp");
+  opacity: 0.25;
+}
+
+@media (max-width: 1024px) {
+  .section-hero-bg-01::before {
+    background-image: url("/visuals/tablet/01-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-hero-bg-01::before {
+    background-image: url("/visuals/mobile/01-mobile.webp");
+  }
+}
+
+/* --- Lösung Section Background (Visual 02) --- */
+.section-bg-02::before {
+  background-image: url("/visuals/desktop/02-desktop.webp");
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-02::before {
+    background-image: url("/visuals/tablet/02-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-02::before {
+    background-image: url("/visuals/mobile/02-mobile.webp");
+  }
+}
+
+/* --- Report-Vorschau Background (Visual 03) --- */
+.section-bg-03::before {
+  background-image: url("/visuals/desktop/03-desktop.webp");
+  opacity: 0.20;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-03::before {
+    background-image: url("/visuals/tablet/03-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-03::before {
+    background-image: url("/visuals/mobile/03-mobile.webp");
+  }
+}
+
+/* --- Was der Report liefert Background (Visual 04) --- */
+.section-bg-04::before {
+  background-image: url("/visuals/desktop/04-desktop.webp");
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-04::before {
+    background-image: url("/visuals/tablet/04-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-04::before {
+    background-image: url("/visuals/mobile/04-mobile.webp");
+  }
+}
+
+/* --- Testimonials Background (Visual 05) --- */
+.section-bg-05::before {
+  background-image: url("/visuals/desktop/05-desktop.webp");
+  opacity: 0.20;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-05::before {
+    background-image: url("/visuals/tablet/05-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-05::before {
+    background-image: url("/visuals/mobile/05-mobile.webp");
+  }
+}
+
+/* --- Nach dem Report Background (Visual 06) --- */
+.section-bg-06::before {
+  background-image: url("/visuals/desktop/06-desktop.webp");
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-06::before {
+    background-image: url("/visuals/tablet/06-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-06::before {
+    background-image: url("/visuals/mobile/06-mobile.webp");
+  }
+}
+
+/* --- Final CTA Background (Visual 07) --- */
+.section-bg-07::before {
+  background-image: url("/visuals/desktop/07-desktop.webp");
+  opacity: 0.16;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-07::before {
+    background-image: url("/visuals/tablet/07-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-07::before {
+    background-image: url("/visuals/mobile/07-mobile.webp");
+  }
+}
+
+/* Dark Mode Anpassungen für V16 Hintergründe */
+.dark-mode .section-hero-visual::before {
+  opacity: 0.12;
+}
+
+.dark-mode .section-bg-07::before {
+  opacity: 0.10;
+}
+
+/* ==================== END V16 ==================== */
+
+/* Sections mit Visual-Hintergrund (Legacy) */
 .section-with-visual-bg {
   position: relative;
   overflow: hidden;
