@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Anmelden | make.ki-sicherheit.jetzt</title>
+  <meta name="description" content="Melden Sie sich bei Ihrem KI-Check an. Sicherer Zugang mit 6-stelligem Code.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anmelden | KI-Sicherheit.jetzt">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://make.ki-sicherheit.jetzt/login">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Harmonized Styles -->
+  <link rel="stylesheet" href="styles/make.css">
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button class="make-dark-toggle" id="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode umschalten">
+    <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+    </svg>
+    <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+    </svg>
+  </button>
+
+  <!-- Background Elements -->
+  <div class="make-bg">
+    <div class="make-dot-matrix"></div>
+    <div class="make-warm-shape make-warm-shape-1"></div>
+    <div class="make-warm-shape make-warm-shape-2"></div>
+  </div>
+
+  <!-- Main Page Content -->
+  <main class="make-page">
+    <!-- Login Card -->
+    <div class="make-card">
+      <!-- Header Bar -->
+      <div class="make-card-header">
+        <h1 class="make-card-header-title">KI-Sicherheit.jetzt</h1>
+      </div>
+
+      <!-- Badge under header -->
+      <div class="text-center">
+        <div class="make-badge">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+          <span>TÜV-zertifiziert &bull; steuerlich absetzbar</span>
+        </div>
+      </div>
+
+      <!-- Card Body -->
+      <div class="make-card-body">
+        <!-- Headline -->
+        <h2 class="make-h1 text-center">Willkommen zurück</h2>
+
+        <!-- Subline -->
+        <p class="make-body text-center">
+          Melden Sie sich mit Ihrer E-Mail an. Sie erhalten einen sicheren 6-stelligen Code.
+        </p>
+
+        <!-- Login Form -->
+        <form id="login-form" action="#" method="POST">
+          <!-- Email Step -->
+          <div id="email-step">
+            <div class="make-form-group">
+              <label class="make-label" for="email">E-Mail-Adresse</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="make-input"
+                placeholder="ihre@email.de"
+                required
+                autocomplete="email"
+              >
+            </div>
+
+            <button type="submit" class="make-btn make-btn-primary">
+              <span>Code anfordern</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Code Step (hidden by default) -->
+          <div id="code-step" style="display: none;">
+            <p class="make-body text-center mb-3">
+              Code wurde gesendet an: <strong id="sent-email"></strong>
+            </p>
+
+            <div class="make-code-inputs">
+              <input type="text" maxlength="1" class="make-code-input" data-index="0" inputmode="numeric" pattern="[0-9]" autocomplete="one-time-code">
+              <input type="text" maxlength="1" class="make-code-input" data-index="1" inputmode="numeric" pattern="[0-9]">
+              <input type="text" maxlength="1" class="make-code-input" data-index="2" inputmode="numeric" pattern="[0-9]">
+              <input type="text" maxlength="1" class="make-code-input" data-index="3" inputmode="numeric" pattern="[0-9]">
+              <input type="text" maxlength="1" class="make-code-input" data-index="4" inputmode="numeric" pattern="[0-9]">
+              <input type="text" maxlength="1" class="make-code-input" data-index="5" inputmode="numeric" pattern="[0-9]">
+            </div>
+
+            <button type="button" id="verify-code" class="make-btn make-btn-primary">
+              <span>Anmelden</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </button>
+
+            <p class="text-center mt-3">
+              <button type="button" id="resend-code" class="make-btn make-btn-secondary" style="width: auto; padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Code erneut senden
+              </button>
+            </p>
+          </div>
+        </form>
+
+        <!-- Help Box -->
+        <div class="make-help-box">
+          <h3 class="make-help-box-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Hilfe bei Problemen
+          </h3>
+          <p>Keinen Code erhalten? Bitte Spam/Werbung prüfen und bis zu 2 Minuten warten.</p>
+          <p>Erneut senden: Klicken Sie einfach noch einmal auf „Code anfordern". Zu viele Versuche führen zu einer kurzen Sperre.</p>
+          <p class="mb-0">E-Mail nicht freigeschaltet? Kontakt: <a href="mailto:support@ki-sicherheit.jetzt">support@ki-sicherheit.jetzt</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo Row - Larger Logos -->
+    <div class="make-logos">
+      <div class="make-logo-pill">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <span>KI-Sicherheit.jetzt</span>
+      </div>
+      <div class="make-logo-pill">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+        </svg>
+        <span>TÜV-zertifiziert</span>
+      </div>
+      <div class="make-logo-pill">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        <span>DSGVO-konform</span>
+      </div>
+      <div class="make-logo-pill">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span>Server in EU</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    (function() {
+      // Dark Mode Toggle
+      const toggle = document.getElementById('dark-mode-toggle');
+      const body = document.body;
+
+      const savedMode = localStorage.getItem('darkMode');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedMode === 'true' || (savedMode === null && prefersDark)) {
+        body.classList.add('dark-mode');
+      }
+
+      toggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+      });
+
+      // Code Input Auto-Focus (UX enhancement only - no login logic change)
+      const codeInputs = document.querySelectorAll('.make-code-input');
+
+      codeInputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+          const value = e.target.value;
+
+          // Only allow numbers
+          e.target.value = value.replace(/[^0-9]/g, '');
+
+          // Auto-focus next input
+          if (value && index < codeInputs.length - 1) {
+            codeInputs[index + 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', function(e) {
+          // Handle backspace
+          if (e.key === 'Backspace' && !e.target.value && index > 0) {
+            codeInputs[index - 1].focus();
+          }
+        });
+
+        // Handle paste
+        input.addEventListener('paste', function(e) {
+          e.preventDefault();
+          const pastedData = e.clipboardData.getData('text').replace(/[^0-9]/g, '').slice(0, 6);
+
+          pastedData.split('').forEach((char, i) => {
+            if (codeInputs[i]) {
+              codeInputs[i].value = char;
+            }
+          });
+
+          if (pastedData.length > 0) {
+            const focusIndex = Math.min(pastedData.length, codeInputs.length - 1);
+            codeInputs[focusIndex].focus();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
