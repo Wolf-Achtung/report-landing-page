@@ -2,7 +2,7 @@
 # Image Processing Script for Web Optimization
 # Creates Desktop (3200x1370), Tablet (1920x1080), Mobile (1080x1350) WebP versions
 
-SOURCE_DIR="./source"
+SOURCE_DIR="../images"
 DESKTOP_DIR="./desktop"
 TABLET_DIR="./tablet"
 MOBILE_DIR="./mobile"
@@ -15,7 +15,7 @@ MOBILE_DIR="./mobile"
 echo "=== Image Processing Started ==="
 echo ""
 
-for i in 01 02 03 04 05; do
+for i in 01 02 03 04 05 06 07; do
     SOURCE_FILE="${SOURCE_DIR}/${i}.png"
 
     if [ ! -f "$SOURCE_FILE" ]; then
