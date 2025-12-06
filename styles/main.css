@@ -4986,160 +4986,188 @@ h1, h2, .text-display, .text-h1, .text-h2 {
   border-color: var(--color-warm-gold);
 }
 
-/* ==================== V15: VISUAL SLOTS & BACKGROUNDS ==================== */
+/* ==================== V16: KEY-VISUALS PRO KAPITEL ==================== */
 
-/* Section Inner Container */
-.section-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-inline: 2rem;
-}
-
-/* Generische Bild-Wrapper für Visual-Slots */
-.visual-slot {
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
-  position: relative;
-}
-
-.visual-slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Für schmale, breite Visuals */
-.visual-slot--wide {
-  max-height: 420px;
-}
-
-/* Sections mit Visual-Hintergrund */
-.section-with-visual-bg {
+/* Gemeinsamer Hintergrund-Layer für bildstarke Kapitel */
+.section-hero-visual {
   position: relative;
   overflow: hidden;
 }
 
-.section-with-visual-bg::before {
-  content: '';
+.section-hero-visual::before {
+  content: "";
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
-  opacity: 0.10;
+  opacity: 0.25;
   pointer-events: none;
   z-index: 0;
 }
 
-.section-with-visual-bg > .container {
+.section-hero-visual > .container,
+.section-hero-visual > .section-inner {
   position: relative;
   z-index: 1;
 }
 
-/* --- Solution Section Layout (Image 01) --- */
-.solution-layout {
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-  align-items: center;
+/* Optional: Content-Lesbarkeit Overlay */
+.section-hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.18),
+    rgba(10, 22, 40, 0.0) 40%,
+    rgba(10, 22, 40, 0.12)
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-.solution-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.solution-visual {
-  max-width: 520px;
-  margin-left: auto;
-}
-
-@media (max-width: 900px) {
-  .solution-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .solution-visual {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-/* --- Report Section Layout (Image 02) --- */
-.report-layout {
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-  align-items: center;
-}
-
-.report-visual {
-  max-width: 520px;
-}
-
-@media (max-width: 900px) {
-  .report-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .report-visual {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-/* --- Report Preview Visual (Image 03) --- */
-.report-preview-visual {
-  margin: 2rem auto 2.5rem;
-}
-
-/* --- Impact Section Background (Image 05) --- */
-.section-impact-bg::before {
-  background-image: url('/visuals/desktop/05-desktop.webp');
+/* --- Hero Background (Visual 01) --- */
+.section-hero-bg-01::before {
+  background-image: url("/visuals/desktop/01-desktop.webp");
 }
 
 @media (max-width: 1024px) {
-  .section-impact-bg::before {
-    background-image: url('/visuals/tablet/05-tablet.webp');
+  .section-hero-bg-01::before {
+    background-image: url("/visuals/tablet/01-tablet.webp");
   }
 }
 
-@media (max-width: 600px) {
-  .section-impact-bg::before {
-    background-image: url('/visuals/mobile/05-mobile.webp');
+@media (max-width: 640px) {
+  .section-hero-bg-01::before {
+    background-image: url("/visuals/mobile/01-mobile.webp");
   }
 }
 
-/* --- Final CTA Background (Image 07) --- */
-.section-final-bg::before {
-  background-image: url('/visuals/desktop/07-desktop.webp');
-  opacity: 0.07;
+/* --- Solution Section (Visual 02) --- */
+.section-bg-02::before {
+  background-image: url("/visuals/desktop/02-desktop.webp");
+  opacity: 0.22;
 }
 
 @media (max-width: 1024px) {
-  .section-final-bg::before {
-    background-image: url('/visuals/tablet/07-tablet.webp');
+  .section-bg-02::before {
+    background-image: url("/visuals/tablet/02-tablet.webp");
   }
 }
 
-@media (max-width: 600px) {
-  .section-final-bg::before {
-    background-image: url('/visuals/mobile/07-mobile.webp');
+@media (max-width: 640px) {
+  .section-bg-02::before {
+    background-image: url("/visuals/mobile/02-mobile.webp");
   }
 }
 
-/* Dark Mode Adjustments for Visual Backgrounds */
-.dark-mode .section-with-visual-bg::before {
-  opacity: 0.08;
+/* --- Report Preview Section (Visual 03) --- */
+.section-bg-03::before {
+  background-image: url("/visuals/desktop/03-desktop.webp");
+  opacity: 0.20;
 }
 
-.dark-mode .section-final-bg::before {
-  opacity: 0.05;
+@media (max-width: 1024px) {
+  .section-bg-03::before {
+    background-image: url("/visuals/tablet/03-tablet.webp");
+  }
 }
 
-.dark-mode .visual-slot {
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+@media (max-width: 640px) {
+  .section-bg-03::before {
+    background-image: url("/visuals/mobile/03-mobile.webp");
+  }
+}
+
+/* --- Report Delivery Section (Visual 04) --- */
+.section-bg-04::before {
+  background-image: url("/visuals/desktop/04-desktop.webp");
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-04::before {
+    background-image: url("/visuals/tablet/04-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-04::before {
+    background-image: url("/visuals/mobile/04-mobile.webp");
+  }
+}
+
+/* --- Testimonials Section (Visual 05) --- */
+.section-bg-05::before {
+  background-image: url("/visuals/desktop/05-desktop.webp");
+  opacity: 0.20;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-05::before {
+    background-image: url("/visuals/tablet/05-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-05::before {
+    background-image: url("/visuals/mobile/05-mobile.webp");
+  }
+}
+
+/* --- Impact Section (Visual 06) --- */
+.section-bg-06::before {
+  background-image: url("/visuals/desktop/06-desktop.webp");
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-06::before {
+    background-image: url("/visuals/tablet/06-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-06::before {
+    background-image: url("/visuals/mobile/06-mobile.webp");
+  }
+}
+
+/* --- Final CTA Section (Visual 07) --- */
+.section-bg-07::before {
+  background-image: url("/visuals/desktop/07-desktop.webp");
+  opacity: 0.16;
+}
+
+@media (max-width: 1024px) {
+  .section-bg-07::before {
+    background-image: url("/visuals/tablet/07-tablet.webp");
+  }
+}
+
+@media (max-width: 640px) {
+  .section-bg-07::before {
+    background-image: url("/visuals/mobile/07-mobile.webp");
+  }
+}
+
+/* Dark Mode Adjustments for V16 Visuals */
+.dark-mode .section-hero-visual::before {
+  opacity: 0.15;
+}
+
+.dark-mode .section-hero-visual::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.4),
+    rgba(10, 22, 40, 0.1) 40%,
+    rgba(10, 22, 40, 0.35)
+  );
+}
+
+.dark-mode .section-bg-07::before {
+  opacity: 0.10;
 }
 
 /* ==================== V8: PERFORMANCE NOTES ==================== */
