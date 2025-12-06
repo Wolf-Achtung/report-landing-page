@@ -995,3 +995,82 @@ document.addEventListener('DOMContentLoaded', function() {
  * - Langsame CSS-only Animationen (12-30s Loops) für dezente Bewegung
  * - Hover-Effekte rein über CSS gesteuert
  */
+
+/* ==================== V12: OPTIONAL FULLPAGE SNAP FALLBACK ==================== */
+/*
+ * JS-basierter Fullpage-Snap-Fallback für Browser ohne CSS scroll-snap Support.
+ * DEAKTIVIERT - CSS scroll-snap funktioniert in allen modernen Browsern.
+ * Aktivieren mit: initFullpageSnapFallback() in DOMContentLoaded
+ */
+function initFullpageSnapFallback() {
+  // Check if CSS scroll-snap is NOT supported
+  const supportsScrollSnap = CSS.supports('scroll-snap-type', 'y mandatory');
+  if (supportsScrollSnap) {
+    console.log('V12: CSS scroll-snap supported - JS fallback not needed');
+    return;
+  }
+
+  console.log('V12: CSS scroll-snap NOT supported - activating JS fallback');
+
+  const scrollContainer = document.querySelector('.scroll-container');
+  const snapSections = document.querySelectorAll('.chapter-snap');
+
+  if (!scrollContainer || !snapSections.length) return;
+
+  let isScrolling = false;
+  let lastScrollTop = 0;
+
+  // Find nearest snap section
+  function getNearestSection() {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    let nearestSection = null;
+    let nearestDistance = Infinity;
+
+    snapSections.forEach(section => {
+      const sectionRect = section.getBoundingClientRect();
+      const distance = Math.abs(sectionRect.top - containerRect.top);
+
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestSection = section;
+      }
+    });
+
+    return nearestSection;
+  }
+
+  // Snap to nearest section
+  function snapToNearest() {
+    if (isScrolling) return;
+
+    const nearestSection = getNearestSection();
+    if (!nearestSection) return;
+
+    const sectionTop = nearestSection.offsetTop;
+    const currentScroll = scrollContainer.scrollTop;
+    const threshold = 50; // Only snap if within threshold
+
+    if (Math.abs(sectionTop - currentScroll) > threshold) {
+      isScrolling = true;
+      scrollContainer.scrollTo({
+        top: sectionTop,
+        behavior: 'auto' // Instant snap, no smooth
+      });
+
+      // Reset flag after animation
+      setTimeout(() => {
+        isScrolling = false;
+      }, 100);
+    }
+  }
+
+  // Debounced scroll handler
+  let scrollTimeout;
+  scrollContainer.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(snapToNearest, 100);
+  }, { passive: true });
+}
+
+// DISABLED by default - uncomment to enable JS fallback
+// document.addEventListener('DOMContentLoaded', initFullpageSnapFallback);
