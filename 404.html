@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Seite nicht gefunden – KI-Readiness Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    .not-found-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .not-found-card {
+      max-width: 640px;
+      width: 100%;
+      border-radius: 24px;
+      padding: 2.5rem 2.25rem;
+      background: var(--surface-elevated, rgba(15, 23, 42, 0.96));
+      color: #e5e7eb;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+    }
+    .not-found-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .7rem;
+      font-weight: 600;
+      opacity: .75;
+      margin-bottom: .75rem;
+    }
+    .not-found-title {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .not-found-text {
+      font-size: .95rem;
+      line-height: 1.6;
+      opacity: .9;
+      margin-bottom: 1.75rem;
+    }
+    .not-found-meta {
+      font-size: .8rem;
+      opacity: .7;
+      margin-top: 1rem;
+    }
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+    }
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: .55rem 1.3rem;
+      font-size: .8rem;
+      font-weight: 500;
+      background: transparent;
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <main class="not-found-page page-root">
+    <section class="not-found-card">
+      <div class="not-found-eyebrow">KI-Sicherheit.jetzt</div>
+      <h1 class="not-found-title">Diese Seite konnten wir nicht finden.</h1>
+      <p class="not-found-text">
+        Der aufgerufene Link existiert nicht (mehr) oder wurde verschoben.
+        Ihr KI-Readiness-Report ist davon nicht betroffen – Sie können jederzeit
+        zum Startpunkt des Reports zurückkehren oder uns direkt kontaktieren.
+      </p>
+
+      <div class="not-found-actions">
+        <a href="/" class="btn-primary">
+          Zur Startseite des KI-Checks
+        </a>
+        <a href="mailto:kontakt@ki-sicherheit.jetzt?subject=404%20Frage%20zum%20KI-Readiness-Report" class="btn-ghost">
+          E-Mail an KI-Sicherheit.jetzt
+        </a>
+      </div>
+
+      <p class="not-found-meta">
+        Fehlercode: 404 – Seite nicht gefunden.  
+        © 2025 KI-Sicherheit.jetzt
+      </p>
+    </section>
+  </main>
+</body>
+</html>
