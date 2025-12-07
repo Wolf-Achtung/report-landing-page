@@ -98,6 +98,99 @@
     <div class="data-shape data-line data-line-long" style="top: 35%; right: 12%;"></div>
     <div class="data-connection" style="top: 50%; left: 10%; transform: rotate(-15deg);"></div>
 
+    <!-- V19: Animated KI Network Background -->
+    <div class="network-bg" aria-hidden="true">
+      <svg class="network-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <!-- Gradient for connections -->
+          <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--ki-primary-light)" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="var(--ki-primary-medium)" stop-opacity="0.1"/>
+          </linearGradient>
+          <!-- Glow filter for gold nodes -->
+          <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Layer 1: Slow background network -->
+        <g class="network-layer-slow">
+          <!-- Connection lines (background layer) -->
+          <line x1="650" y1="380" x2="720" y2="450" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="720" y1="450" x2="680" y2="520" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="580" y1="420" x2="650" y2="380" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="550" y1="500" x2="580" y2="420" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="680" y1="520" x2="550" y2="500" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="750" y1="350" x2="720" y2="450" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="620" y1="550" x2="680" y2="520" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="500" y1="450" x2="550" y2="500" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="480" y1="380" x2="580" y2="420" stroke="url(#connectionGradient)" stroke-width="1"/>
+          <line x1="700" y1="320" x2="750" y2="350" stroke="url(#connectionGradient)" stroke-width="1"/>
+
+          <!-- Background nodes -->
+          <circle cx="650" cy="380" r="4" fill="var(--ki-primary-medium)" opacity="0.4"/>
+          <circle cx="720" cy="450" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
+          <circle cx="680" cy="520" r="5" fill="var(--ki-primary-medium)" opacity="0.35"/>
+          <circle cx="580" cy="420" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
+          <circle cx="550" cy="500" r="4" fill="var(--ki-primary-medium)" opacity="0.4"/>
+          <circle cx="750" cy="350" r="3" fill="var(--ki-primary-light)" opacity="0.25"/>
+          <circle cx="620" cy="550" r="4" fill="var(--ki-primary-medium)" opacity="0.35"/>
+          <circle cx="500" cy="450" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
+          <circle cx="480" cy="380" r="4" fill="var(--ki-primary-medium)" opacity="0.3"/>
+          <circle cx="700" cy="320" r="3" fill="var(--ki-primary-light)" opacity="0.25"/>
+        </g>
+
+        <!-- Layer 2: Main animated network -->
+        <g class="network-layer">
+          <!-- Main connection lines -->
+          <line x1="600" y1="350" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
+          <line x1="680" y1="400" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
+          <line x1="740" y1="480" x2="700" y2="550" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
+          <line x1="560" y1="450" x2="600" y2="350" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
+          <line x1="560" y1="450" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
+          <line x1="520" y1="520" x2="560" y2="450" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
+          <line x1="620" y1="500" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
+          <line x1="620" y1="500" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
+          <line x1="660" y1="550" x2="700" y2="550" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.25"/>
+          <line x1="660" y1="550" x2="620" y2="500" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
+          <line x1="760" y1="400" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
+          <line x1="760" y1="400" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- Main nodes -->
+          <circle cx="600" cy="350" r="6" fill="var(--ki-primary)" opacity="0.6"/>
+          <circle cx="680" cy="400" r="8" fill="var(--ki-primary)" opacity="0.7" class="node-pulse"/>
+          <circle cx="740" cy="480" r="5" fill="var(--ki-primary-medium)" opacity="0.5"/>
+          <circle cx="700" cy="550" r="6" fill="var(--ki-primary)" opacity="0.55"/>
+          <circle cx="560" cy="450" r="7" fill="var(--ki-primary-medium)" opacity="0.6" class="node-pulse"/>
+          <circle cx="520" cy="520" r="5" fill="var(--ki-primary)" opacity="0.5"/>
+          <circle cx="620" cy="500" r="6" fill="var(--ki-primary-medium)" opacity="0.55"/>
+          <circle cx="660" cy="550" r="5" fill="var(--ki-primary)" opacity="0.5"/>
+          <circle cx="760" cy="400" r="6" fill="var(--ki-primary-medium)" opacity="0.6"/>
+
+          <!-- Gold accent nodes (~20% of nodes) -->
+          <circle cx="680" cy="400" r="4" fill="var(--ki-gold)" opacity="0.8" filter="url(#goldGlow)" class="node-gold-pulse"/>
+          <circle cx="620" cy="500" r="3" fill="var(--ki-gold-light)" opacity="0.7" filter="url(#goldGlow)" class="node-gold-pulse"/>
+          <circle cx="740" cy="480" r="3" fill="var(--ki-gold)" opacity="0.6" filter="url(#goldGlow)"/>
+
+          <!-- Additional scattered nodes for density -->
+          <circle cx="540" cy="380" r="4" fill="var(--ki-primary-light)" opacity="0.4"/>
+          <circle cx="780" cy="520" r="4" fill="var(--ki-primary-medium)" opacity="0.35"/>
+          <circle cx="590" cy="580" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
+          <circle cx="710" cy="360" r="5" fill="var(--ki-primary)" opacity="0.45" class="node-pulse"/>
+          <circle cx="500" cy="400" r="4" fill="var(--ki-primary-light)" opacity="0.35"/>
+          <circle cx="770" cy="550" r="3" fill="var(--ki-primary-medium)" opacity="0.3"/>
+          <circle cx="640" cy="420" r="4" fill="var(--ki-primary)" opacity="0.5"/>
+          <circle cx="580" cy="530" r="5" fill="var(--ki-primary-medium)" opacity="0.4"/>
+          <circle cx="720" cy="380" r="4" fill="var(--ki-primary-light)" opacity="0.45"/>
+          <circle cx="550" cy="560" r="3" fill="var(--ki-primary)" opacity="0.35"/>
+        </g>
+      </svg>
+    </div>
+
     <div class="container py-20 lg:py-32">
       <div class="split-section">
         <!-- Hero Content -->

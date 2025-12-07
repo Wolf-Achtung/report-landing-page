@@ -150,6 +150,23 @@
   /* V8: Card Polish */
   --radius-card: 14px;
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.07);
+
+  /* V19: KI Network Animation Color Palette */
+  --ki-primary-dark: #08385d;
+  --ki-primary: #0c4a74;
+  --ki-primary-medium: #157ea8;
+  --ki-primary-light: #1a9cd4;
+  --ki-gold: #d4a574;
+  --ki-gold-light: #e8c9a0;
+  --ki-bg-dark: #0a1929;
+  --ki-bg-light: #f8fafc;
+  --ki-text-primary: #1a2b3c;
+  --ki-text-muted: #5a6b7c;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(8, 56, 93, 0.12);
 }
 
 /* ==================== DARK MODE - Navy Premium ==================== */
@@ -5388,6 +5405,307 @@ claude/add-chapter-visuals-011KB1spQoNUBMc7Awtufp4j
 }
 
 /* ==================== END V17 ==================== */
+
+/* ==================== V18: VISIBLE SECTION VISUALS ==================== */
+
+/* Basis: Section mit Visual-Layer */
+.section-with-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container für das Bild */
+.section-visual {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.section-visual--right {
+  right: -10%;
+  bottom: -10%;
+}
+
+.section-visual--left {
+  left: -10%;
+  bottom: -10%;
+}
+
+.section-visual--top-right {
+  right: -8%;
+  top: -8%;
+}
+
+.section-visual--top-left {
+  left: -8%;
+  top: -8%;
+}
+
+.section-visual img {
+  display: block;
+  max-width: 640px;
+  width: 50vw;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Content über das Bild heben */
+.section-with-visual .section-inner,
+.section-with-visual .chapter-content,
+.section-with-visual > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section-spezifische Opacity-Anpassungen */
+.chapter-whyus .section-visual {
+  opacity: 0.2;
+}
+
+.section-bg-faq .section-visual {
+  opacity: 0.16;
+}
+
+.section-bg-process .section-visual {
+  opacity: 0.18;
+}
+
+.section-bg-warning .section-visual {
+  opacity: 0.14;
+}
+
+.section-bg-contact .section-visual {
+  opacity: 0.2;
+}
+
+/* Mobile: Visuals kleiner / weniger präsent */
+@media (max-width: 768px) {
+  .section-visual {
+    opacity: 0.18;
+  }
+  .section-visual img {
+    max-width: 420px;
+    width: 80vw;
+  }
+}
+
+/* Dark Mode adjustments for V18 */
+.dark-mode .section-visual {
+  opacity: 0.15;
+}
+
+/* ==================== END V18 ==================== */
+
+/* ==================== V19: ANIMATED NETWORK BACKGROUND ==================== */
+
+/* Network Background Container */
+.network-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.network-bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Network Animation Layers */
+.network-layer {
+  animation: networkFloat 45s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+.network-layer-slow {
+  animation: networkFloat 60s infinite ease-in-out reverse;
+}
+
+.network-layer-fast {
+  animation: networkFloat 35s infinite ease-in-out;
+}
+
+@keyframes networkFloat {
+  0%, 100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+    opacity: 0.04;
+  }
+  25% {
+    transform: scale(1.02) rotate(1deg) translateY(-8px);
+    opacity: 0.06;
+  }
+  50% {
+    transform: scale(1.01) rotate(0deg) translateY(4px);
+    opacity: 0.05;
+  }
+  75% {
+    transform: scale(1.03) rotate(-1deg) translateY(-4px);
+    opacity: 0.06;
+  }
+}
+
+/* Node Pulse Animation */
+.node-pulse {
+  animation: nodePulse 4s infinite ease-in-out;
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    r: 4;
+    opacity: 0.6;
+  }
+  50% {
+    r: 6;
+    opacity: 1;
+  }
+}
+
+/* Gold Accent Pulse */
+.node-gold {
+  fill: var(--ki-gold);
+  animation: goldPulse 5s infinite ease-in-out;
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    opacity: 0.4;
+    r: 3;
+  }
+  50% {
+    opacity: 0.8;
+    r: 5;
+  }
+}
+
+/* Connection Line Animation */
+.connection-animated {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: connectionDraw 8s infinite ease-in-out;
+}
+
+@keyframes connectionDraw {
+  0%, 100% {
+    stroke-dashoffset: 200;
+    opacity: 0.1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  padding: 2rem 2.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.glass-panel-dark {
+  background: rgba(8, 56, 93, 0.75);
+  color: white;
+}
+
+/* Gold Accent Line for Glass Panels */
+.glass-panel-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--ki-gold), transparent);
+  border-radius: 2px;
+}
+
+/* Hero Card Glassmorphism Enhancement */
+.hero-card.glass-enhanced {
+  background: rgba(8, 56, 93, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .network-layer,
+  .network-layer-slow,
+  .network-layer-fast {
+    animation: none;
+    opacity: 0.04;
+  }
+
+  .node-pulse,
+  .node-gold {
+    animation: none;
+  }
+
+  .connection-animated {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .network-bg {
+    opacity: 0.6;
+  }
+
+  .network-layer,
+  .network-layer-slow,
+  .network-layer-fast {
+    animation-duration: 60s;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(12px)) {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .glass-panel-dark {
+    background: rgba(8, 56, 93, 0.95);
+  }
+}
+
+/* Dark Mode adjustments for V19 */
+.dark-mode .network-bg {
+  opacity: 0.8;
+}
+
+.dark-mode .glass-panel {
+  background: rgba(15, 30, 50, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== END V19 ==================== */
 
 /* Sections mit Visual-Hintergrund (Legacy) */
 .section-with-visual-bg {
