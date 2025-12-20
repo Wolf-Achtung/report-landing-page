@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>KI-Readiness Report | KI-Sicherheit.jetzt</title>
-  <meta name="description" content="Der KI-Check-Report liefert Ihrem Unternehmen eine neutrale, strukturierte Einschätzung zum Einsatz von KI - rechtlich eingeordnet, DSGVO-konform und mit klaren Handlungsempfehlungen.">
-  <meta name="keywords" content="KI-Check, KI-Readiness, KI-Sicherheit, DSGVO, EU AI Act, Unternehmensberatung, KI-Management">
+  <title>KI-Status-Report | KI-Sicherheit.jetzt</title>
+  <meta name="description" content="Erhalten Sie in wenigen Minuten eine individuelle KI-Standortbestimmung für Ihr Unternehmen – kostenfrei und basierend auf EU-Standards.">
+  <meta name="keywords" content="KI-Status-Report, KI-Readiness, KI-Sicherheit, DSGVO, EU AI Act, KMU, Unternehmensberatung">
   <meta name="author" content="KI-Sicherheit.jetzt">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="KI-Readiness Report | KI-Sicherheit.jetzt">
-  <meta property="og:description" content="Strukturierte KI-Analyse mit klaren Handlungsempfehlungen für Ihr Unternehmen.">
+  <meta property="og:title" content="KI-Status-Report | KI-Sicherheit.jetzt">
+  <meta property="og:description" content="Individuelle KI-Standortbestimmung für Ihr Unternehmen – kostenfrei und basierend auf EU-Standards.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://report.ki-sicherheit.jetzt">
   <meta property="og:locale" content="de_DE">
@@ -21,1393 +21,193 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
 
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              DEFAULT: '#003087',
-              dark: '#001f5c',
-              darker: '#00122e',
-              light: '#0070ba',
-              hover: '#0052a3'
-            },
-            warm: {
-              apricot: '#FFD7B3',
-              peach: '#F8CDA2',
-              sand: '#EDE4D5',
-              gold: '#F4C47D',
-              amber: '#E8A849'
-            },
-            teal: {
-              DEFAULT: '#169bd7',
-              light: '#4fb8e8'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            serif: ['Georgia', 'Times New Roman', 'serif']
-          }
-        }
-      }
-    }
-  </script>
-
   <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body class="antialiased">
+<body>
 
-  <!-- Dark Mode Toggle -->
-  <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode umschalten">
-    <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-    </svg>
-    <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-    </svg>
-  </button>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- V12: Scroll Container for Fullpage Snap -->
-  <div class="scroll-container">
-
-  <!-- ==================== HERO SECTION (Light) ==================== -->
-  <section class="hero-section section-light chapter-snap chapter-hero section-hero-visual section-hero-bg-01">
-    <!-- Hero Large Dot Matrix -->
-    <div class="hero-dot-matrix"></div>
-
-    <!-- Dual-Color Ambient Glow -->
-    <div class="hero-glow hero-glow-blue"></div>
-    <div class="hero-glow hero-glow-warm"></div>
-
-    <!-- Organic Warm Shapes -->
-    <div class="shape-warm shape-warm-1"></div>
-    <div class="shape-warm shape-warm-2"></div>
-
-    <!-- Enhanced Data Shapes -->
-    <div class="data-shape data-dots data-dots-large" style="top: 15%; left: 3%;"></div>
-    <div class="data-shape data-dots data-dots-warm data-dots-large" style="bottom: 10%; right: 5%;"></div>
-    <div class="data-shape data-line data-line-long" style="top: 35%; right: 12%;"></div>
-    <div class="data-connection" style="top: 50%; left: 10%; transform: rotate(-15deg);"></div>
-
-    <!-- V19: Animated KI Network Background -->
-    <div class="network-bg" aria-hidden="true">
-      <svg class="network-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <!-- Gradient for connections -->
-          <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="var(--ki-primary-light)" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="var(--ki-primary-medium)" stop-opacity="0.1"/>
-          </linearGradient>
-          <!-- Glow filter for gold nodes -->
-          <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <!-- Layer 1: Slow background network -->
-        <g class="network-layer-slow">
-          <!-- Connection lines (background layer) -->
-          <line x1="650" y1="380" x2="720" y2="450" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="720" y1="450" x2="680" y2="520" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="580" y1="420" x2="650" y2="380" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="550" y1="500" x2="580" y2="420" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="680" y1="520" x2="550" y2="500" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="750" y1="350" x2="720" y2="450" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="620" y1="550" x2="680" y2="520" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="500" y1="450" x2="550" y2="500" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="480" y1="380" x2="580" y2="420" stroke="url(#connectionGradient)" stroke-width="1"/>
-          <line x1="700" y1="320" x2="750" y2="350" stroke="url(#connectionGradient)" stroke-width="1"/>
-
-          <!-- Background nodes -->
-          <circle cx="650" cy="380" r="4" fill="var(--ki-primary-medium)" opacity="0.4"/>
-          <circle cx="720" cy="450" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
-          <circle cx="680" cy="520" r="5" fill="var(--ki-primary-medium)" opacity="0.35"/>
-          <circle cx="580" cy="420" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
-          <circle cx="550" cy="500" r="4" fill="var(--ki-primary-medium)" opacity="0.4"/>
-          <circle cx="750" cy="350" r="3" fill="var(--ki-primary-light)" opacity="0.25"/>
-          <circle cx="620" cy="550" r="4" fill="var(--ki-primary-medium)" opacity="0.35"/>
-          <circle cx="500" cy="450" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
-          <circle cx="480" cy="380" r="4" fill="var(--ki-primary-medium)" opacity="0.3"/>
-          <circle cx="700" cy="320" r="3" fill="var(--ki-primary-light)" opacity="0.25"/>
-        </g>
-
-        <!-- Layer 2: Main animated network -->
-        <g class="network-layer">
-          <!-- Main connection lines -->
-          <line x1="600" y1="350" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
-          <line x1="680" y1="400" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
-          <line x1="740" y1="480" x2="700" y2="550" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
-          <line x1="560" y1="450" x2="600" y2="350" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
-          <line x1="560" y1="450" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
-          <line x1="520" y1="520" x2="560" y2="450" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
-          <line x1="620" y1="500" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
-          <line x1="620" y1="500" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
-          <line x1="660" y1="550" x2="700" y2="550" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.25"/>
-          <line x1="660" y1="550" x2="620" y2="500" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.3"/>
-          <line x1="760" y1="400" x2="740" y2="480" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.35"/>
-          <line x1="760" y1="400" x2="680" y2="400" stroke="var(--ki-primary-light)" stroke-width="1.5" opacity="0.4"/>
-
-          <!-- Main nodes -->
-          <circle cx="600" cy="350" r="6" fill="var(--ki-primary)" opacity="0.6"/>
-          <circle cx="680" cy="400" r="8" fill="var(--ki-primary)" opacity="0.7" class="node-pulse"/>
-          <circle cx="740" cy="480" r="5" fill="var(--ki-primary-medium)" opacity="0.5"/>
-          <circle cx="700" cy="550" r="6" fill="var(--ki-primary)" opacity="0.55"/>
-          <circle cx="560" cy="450" r="7" fill="var(--ki-primary-medium)" opacity="0.6" class="node-pulse"/>
-          <circle cx="520" cy="520" r="5" fill="var(--ki-primary)" opacity="0.5"/>
-          <circle cx="620" cy="500" r="6" fill="var(--ki-primary-medium)" opacity="0.55"/>
-          <circle cx="660" cy="550" r="5" fill="var(--ki-primary)" opacity="0.5"/>
-          <circle cx="760" cy="400" r="6" fill="var(--ki-primary-medium)" opacity="0.6"/>
-
-          <!-- Gold accent nodes (~20% of nodes) -->
-          <circle cx="680" cy="400" r="4" fill="var(--ki-gold)" opacity="0.8" filter="url(#goldGlow)" class="node-gold-pulse"/>
-          <circle cx="620" cy="500" r="3" fill="var(--ki-gold-light)" opacity="0.7" filter="url(#goldGlow)" class="node-gold-pulse"/>
-          <circle cx="740" cy="480" r="3" fill="var(--ki-gold)" opacity="0.6" filter="url(#goldGlow)"/>
-
-          <!-- Additional scattered nodes for density -->
-          <circle cx="540" cy="380" r="4" fill="var(--ki-primary-light)" opacity="0.4"/>
-          <circle cx="780" cy="520" r="4" fill="var(--ki-primary-medium)" opacity="0.35"/>
-          <circle cx="590" cy="580" r="3" fill="var(--ki-primary-light)" opacity="0.3"/>
-          <circle cx="710" cy="360" r="5" fill="var(--ki-primary)" opacity="0.45" class="node-pulse"/>
-          <circle cx="500" cy="400" r="4" fill="var(--ki-primary-light)" opacity="0.35"/>
-          <circle cx="770" cy="550" r="3" fill="var(--ki-primary-medium)" opacity="0.3"/>
-          <circle cx="640" cy="420" r="4" fill="var(--ki-primary)" opacity="0.5"/>
-          <circle cx="580" cy="530" r="5" fill="var(--ki-primary-medium)" opacity="0.4"/>
-          <circle cx="720" cy="380" r="4" fill="var(--ki-primary-light)" opacity="0.45"/>
-          <circle cx="550" cy="560" r="3" fill="var(--ki-primary)" opacity="0.35"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="container py-20 lg:py-32">
-      <div class="split-section">
-        <!-- Hero Content -->
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            <span>KI-Sicherheit.jetzt</span>
-          </div>
-
-          <h1 class="text-display hero-headline">
-            <span>Zertifiziert.</span>
-            <span>Dokumentiert.</span>
-            <span class="highlight">KI-bereit.</span>
-          </h1>
-
-          <p class="hero-subheadline">
-            TÜV-zertifizierte KI-Beratung – steuerlich absetzbar, neutral bewertet und klar dokumentiert.
-          </p>
-
-          <!-- Checkmarks List -->
-          <ul class="space-y-4 mb-10">
-            <li class="flex items-start gap-4">
-              <span class="check-icon-warm check-icon mt-0.5">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span class="text-lg" style="color: var(--color-text-secondary)">DSGVO- & EU-AI-Act-orientierte Empfehlungen</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="check-icon-warm check-icon mt-0.5">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span class="text-lg" style="color: var(--color-text-secondary)">Klare Einordnung von Chancen, Risiken und Prioritäten</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="check-icon-warm check-icon mt-0.5">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              <span class="text-lg" style="color: var(--color-text-secondary)">Entwickelt auf Basis zertifizierter KI-Management-Expertise</span>
-            </li>
-          </ul>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <button class="btn btn-primary" data-action="request-check">
-              <span>Jetzt KI-Check anfragen</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </button>
-            <button class="btn btn-secondary" data-action="request-sample">
-              Beispiel-Report anfordern
-            </button>
-          </div>
-
-          <p class="text-small mt-6" style="color: var(--color-text-light)">
-            Unverbindlich – Sie erhalten eine erste neutrale Einschätzung zu Ihrem KI-Status.
-          </p>
-        </div>
-
-        <!-- Hero Visual Card - V4: Komplett statisch -->
-        <div class="hero-visual">
-          <div class="hero-card">
-            <span class="hero-card-badge">In nur 15–20 Min</span>
-
-            <h2 class="text-h3 text-white mb-4">
-              Ihr Vorteil in einem Satz
-            </h2>
-            <p class="text-muted text-lg leading-relaxed">
-              Ein schneller, strukturierter KI-Check, der Ihnen Klarheit verschafft,
-              interne Diskussionen erleichtert und eine belastbare Grundlage für
-              weitere Entscheidungen legt.
-            </p>
-
-            <div class="hero-stats">
-              <div class="hero-stat">
-                <p class="hero-stat-value warm">15+</p>
-                <p class="hero-stat-label">Seiten Report</p>
-              </div>
-              <div class="hero-stat">
-                <p class="hero-stat-value teal">100%</p>
-                <p class="hero-stat-label">DSGVO-konform</p>
-              </div>
-            </div>
-
-            <div class="hero-shape-1"></div>
-            <div class="hero-shape-2"></div>
-          </div>
-
-          <!-- V4: Steuerlich absetzbar Badge -->
-          <div class="hero-tax-badge">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            <span>Als zertifizierte KI-Beratung steuerlich absetzbar</span>
-          </div>
-
-          <!-- V7: Badge Cluster -->
-          <div class="badge-cluster">
-            <span class="badge-cluster-item navy">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              TÜV-zertifiziert
-            </span>
-            <span class="badge-cluster-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-              DSGVO-konform
-            </span>
-            <span class="badge-cluster-item gold">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Absetzbar
-            </span>
-          </div>
-        </div>
+  <!-- ==================== HERO SECTION ==================== -->
+  <header id="hero" class="hero-section">
+    <div class="container">
+      <h1>KI-Status-Report</h1>
+      <p class="hero-subtitle">
+        Erhalten Sie in wenigen Minuten eine individuelle KI-Standortbestimmung für Ihr Unternehmen – kostenfrei und basierend auf EU-Standards.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#start" class="btn btn-white">
+          <span>Jetzt kostenlosen KI-Report starten</span>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
     </div>
+  </header>
 
-    <!-- V12: Mini-FAQ inside Hero -->
-    <div class="mini-faq">
+  <main id="main-content">
+
+    <!-- ==================== BENEFITS & TARGET AUDIENCE SECTION ==================== -->
+    <section id="benefits" class="benefits-section section">
       <div class="container">
-        <ul class="mini-faq-list">
-          <li>Dauer: 15–20&nbsp;Minuten</li>
-          <li>Datensicher</li>
-          <li>Kostenloser Einstieg</li>
-        </ul>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- V9: Progress Spine - Narrative Navigation -->
-  <nav class="narrative-progress-spine" id="progress-spine" aria-label="Story Progress">
-    <div class="narrative-progress-fill" id="progress-fill" style="height: 0%"></div>
-    <div class="narrative-progress-markers">
-      <button class="narrative-progress-marker" data-num="01" data-chapter="01" aria-label="Kapitel 1: Das Problem"></button>
-      <button class="narrative-progress-marker" data-num="02" data-chapter="02" aria-label="Kapitel 2: Die Erkenntnis"></button>
-      <button class="narrative-progress-marker" data-num="03" data-chapter="03" aria-label="Kapitel 3: Die Lösung"></button>
-      <button class="narrative-progress-marker" data-num="04" data-chapter="04" aria-label="Kapitel 4: Der Ablauf"></button>
-      <button class="narrative-progress-marker" data-num="05" data-chapter="05" aria-label="Kapitel 5: Der Report"></button>
-      <button class="narrative-progress-marker" data-num="06" data-chapter="06" aria-label="Kapitel 6: Wirkung"></button>
-      <button class="narrative-progress-marker" data-num="07" data-chapter="07" aria-label="Kapitel 7: Vertrauen"></button>
-      <button class="narrative-progress-marker" data-num="08" data-chapter="08" aria-label="Kapitel 8: Warum Wir"></button>
-      <button class="narrative-progress-marker" data-num="09" data-chapter="09" aria-label="Kapitel 9: Bereit?"></button>
-    </div>
-  </nav>
-
-  <!-- ==================== CHAPTER 01: DAS PROBLEM (Dark) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-dark py-20 lg:py-28 reveal-section" data-chapter="01" id="das-problem">
-    <div class="container">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="section-label">Das Problem</p>
-        <h2 class="text-h1 text-white mb-6 chapter-headline">
-          Warum KI in Unternehmen <span class="text-gradient-warm">oft scheitert</span>
-        </h2>
-        <p class="text-body-lg text-muted chapter-subhead max-w-2xl mx-auto leading-relaxed">
-          KI kann viel. Aber ohne Orientierung führt sie selten dahin, wo man hin will.
+        <h2 class="section-title">Ihr Nutzen auf einen Blick</h2>
+        <p class="section-subtitle">
+          Entwickelt für Entscheider in KMU, Selbständige und öffentliche Hand, die KI verantwortungsvoll einsetzen wollen.
         </p>
+
+        <div class="grid grid-cols-3">
+          <!-- Benefit 1: Security & Compliance -->
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3>Sicherheit & Compliance</h3>
+            <p>
+              Prüfen Sie die Konformität Ihrer KI-Anwendungen mit EU AI Act und DSGVO. Identifizieren Sie Risiken, bevor sie zum Problem werden.
+            </p>
+          </div>
+
+          <!-- Benefit 2: Efficiency & ROI -->
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <h3>Effizienz & ROI-Potenziale</h3>
+            <p>
+              Decken Sie Zeit- und Kosteneinsparungen auf. Erfahren Sie, wo KI in Ihrem Unternehmen den größten Mehrwert schaffen kann.
+            </p>
+          </div>
+
+          <!-- Benefit 3: Funding & Recommendations -->
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3>Fördermittel & Empfehlungen</h3>
+            <p>
+              Identifizieren Sie passende Förderprogramme und erhalten Sie konkrete Handlungsempfehlungen für Ihre nächsten Schritte.
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Problem Cards -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
-        <div class="feature-card feature-card-risk reveal-item" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.2) 0%, rgba(244, 196, 125, 0.1) 100%)">
-            <svg class="w-7 h-7" style="color: var(--color-warm-gold)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3 text-white">Es fehlt der Rahmen</h3>
-          <p class="text-body text-muted">
-            KI wird als Werkzeug gesehen, aber nicht als strategische Entscheidung. Ohne klare Ausrichtung entstehen Projekte ohne Wirkung.
-          </p>
-        </div>
-
-        <div class="feature-card feature-card-risk reveal-item" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.2) 0%, rgba(244, 196, 125, 0.1) 100%)">
-            <svg class="w-7 h-7" style="color: var(--color-warm-gold)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3 text-white">Die Datenlage ist unklar</h3>
-          <p class="text-body text-muted">
-            Prozesse sind nicht vorbereitet, Daten nicht strukturiert, Zuständigkeiten nicht definiert. Jede Investition wird zum Risiko.
-          </p>
-        </div>
-
-        <div class="feature-card feature-card-risk reveal-item" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-          <div class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.2) 0%, rgba(244, 196, 125, 0.1) 100%)">
-            <svg class="w-7 h-7" style="color: var(--color-warm-gold)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3 text-white">Teams bleiben skeptisch</h3>
-          <p class="text-body text-muted">
-            Ohne neutrale Einschätzung entstehen Unsicherheit und Verzögerungen – besonders in IT, Datenschutz und Management.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CHAPTER 02: DIE ERKENNTNIS (Light) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-light section-soft-bg section-bg-insight py-20 lg:py-28 reveal-section" data-chapter="02" id="die-erkenntnis">
-    <div class="section-divider section-divider-top section-divider-warm"></div>
-    <div class="ambient-gradient"></div>
-    <div class="container relative z-10">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label">Die Erkenntnis</p>
-        <h2 class="text-h2 mb-6 chapter-headline">Eine neutrale Standortbestimmung <span class="text-serif">verhindert Fehlentscheidungen</span></h2>
-        <p class="text-body-lg chapter-subhead mx-auto" style="color: var(--color-text-muted)">
-          Bevor KI implementiert wird, braucht es Klarheit:
+    <!-- ==================== REPORT EXAMPLES SECTION ==================== -->
+    <section id="examples" class="examples-section section">
+      <div class="container">
+        <h2 class="section-title">Was Sie erwartet</h2>
+        <p class="section-intro">
+          Ihr persönlicher Bericht analysiert Risiken & Potenziale und liefert umsetzbare Empfehlungen – von Quick Wins bis Fördermöglichkeiten.
         </p>
-      </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        <!-- Card 1: Nutzen -->
-        <div class="deep-card reveal-item">
-          <div class="deep-card-icon deep-card-icon-navy">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="highlight-value">85/100</span>
+            <span class="highlight-label">KI-Readiness-Score</span>
           </div>
-          <h3 class="text-h4 mb-3">Wo bringt KI echten Nutzen?</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">
-            Potenziale identifizieren, Use Cases priorisieren.
-          </p>
+          <div class="highlight-card">
+            <span class="highlight-value">18 Std</span>
+            <span class="highlight-label">Zeitersparnis pro Monat</span>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-value">+284%</span>
+            <span class="highlight-label">ROI-Potenzial</span>
+          </div>
         </div>
 
-        <!-- Card 2: Risiken -->
-        <div class="deep-card reveal-item">
-          <div class="deep-card-icon deep-card-icon-gold">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3">Welche Risiken müssen berücksichtigt werden?</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">
-            Compliance, Datenschutz, Governance.
-          </p>
-        </div>
-
-        <!-- Card 3: Investitionen -->
-        <div class="deep-card reveal-item">
-          <div class="deep-card-icon deep-card-icon-teal">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3">Welche Investitionen lohnen sich?</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">
-            ROI-Szenarien, Fördermöglichkeiten.
-          </p>
-        </div>
-
-        <!-- Card 4: Prozesse -->
-        <div class="deep-card reveal-item">
-          <div class="deep-card-icon deep-card-icon-navy">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
-            </svg>
-          </div>
-          <h3 class="text-h4 mb-3">Welche Prozesse sind bereit?</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">
-            Datenlage, Infrastruktur, Reifegrad.
+        <div class="report-preview">
+          <p>
+            Ihr individueller 40-Seiten-Bericht enthält eine detaillierte Analyse Ihrer KI-Reife,
+            einen Compliance-Check nach EU-Standards sowie priorisierte Handlungsempfehlungen
+            mit konkreten Quick Wins und langfristigen Strategien.
           </p>
         </div>
       </div>
+    </section>
 
-      <!-- Summary -->
-      <div class="max-w-2xl mx-auto text-center mt-12">
-        <p class="text-body-lg" style="color: var(--color-text-muted); font-style: italic;">
-          Nur wenn diese Fragen sauber beantwortet sind, entsteht Sicherheit für Entscheidungen, Budget und Umsetzung.
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- ==================== FEEDBACK & TRUST SECTION ==================== -->
+    <section id="feedback" class="feedback-section section">
+      <div class="container">
+        <h2 class="section-title">Vertrauen & Qualität</h2>
 
-  <!-- ==================== CHAPTER 03: DIE LÖSUNG (Warm) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-warm section-with-network-bg section-hero-visual section-bg-02 py-20 lg:py-28 reveal-section" data-chapter="03" id="die-loesung">
-    <div class="shape-warm shape-warm-3"></div>
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label"><span class="text-serif">Die Lösung</span></p>
-        <h2 class="text-h2 mb-6 chapter-headline">Der KI-Check schafft <span class="text-gradient-warm">Orientierung und Sicherheit</span></h2>
-        <p class="text-body-lg chapter-subhead mx-auto" style="color: var(--color-text-muted)">
-          In 15–20 Minuten entsteht die Grundlage für fundierte Entscheidungen.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <div class="card p-8 reveal-item text-center">
-          <div class="w-16 h-16 rounded-2xl mb-8 mx-auto flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(0, 48, 135, 0.2) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-          <h3 class="text-h3 mb-4">Strategische Tiefe</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">Klare Einordnung, wo KI im Unternehmen sinnvoll ist.</p>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            „Der KI-Report hat uns geholfen, blinde Flecken in unserer KI-Strategie zu finden.
+            Die klaren Handlungsempfehlungen waren sofort umsetzbar."
+          </p>
+          <cite class="testimonial-source">– Geschäftsführer, Mittelständisches Unternehmen</cite>
         </div>
 
-        <div class="card p-8 reveal-item text-center">
-          <div class="w-16 h-16 rounded-2xl mb-8 mx-auto flex items-center justify-center" style="background: linear-gradient(135deg, rgba(22, 155, 215, 0.1) 0%, rgba(22, 155, 215, 0.2) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-teal)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
             </svg>
+            <span>TÜV-zertifizierte KI-Manager</span>
           </div>
-          <h3 class="text-h3 mb-4">Governance & Compliance</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">DSGVO, EU AI Act, interne Richtlinien – verständlich und nachvollziehbar eingeordnet.</p>
-        </div>
-
-        <div class="card p-8 reveal-item text-center">
-          <div class="w-16 h-16 rounded-2xl mb-8 mx-auto flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(244, 196, 125, 0.25) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <div class="trust-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
+            <span>DSGVO-konform</span>
           </div>
-          <h3 class="text-h3 mb-4">Wirtschaftlichkeit & Förderung</h3>
-          <p class="text-body" style="color: var(--color-text-muted)">Förderprogramme, ROI-Szenarien, Amortisation – ohne Verkaufsinteressen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CHAPTER 04: DER ABLAUF (Split) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-split section-soft-bg section-bg-process section-with-visual py-20 lg:py-28 reveal-section" data-chapter="04" id="der-ablauf">
-    <div class="container">
-      <div class="split-section">
-        <div>
-          <p class="section-label">Der Ablauf</p>
-          <h2 class="text-h2 mb-6 chapter-headline">So funktioniert der <span class="text-serif">KI-Check</span></h2>
-          <p class="text-body-lg mb-10 chapter-subhead" style="color: var(--color-text-muted)">
-            Drei Schritte zur fundierten KI-Entscheidung.
-          </p>
-
-          <div class="timeline-vertical">
-            <div class="timeline-vertical-item reveal-item">
-              <div class="timeline-vertical-marker">1</div>
-              <div>
-                <h4 class="text-h4 mb-2">Fragebogen</h4>
-                <p class="text-body" style="color: var(--color-text-muted)">
-                  Sie beantworten präzise, leicht verständliche Fragen zu Ihrem Unternehmen. <strong style="color: var(--color-primary)">Dauer: ca. 15–20 Minuten.</strong>
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-vertical-item reveal-item">
-              <div class="timeline-vertical-marker" style="border-color: var(--color-teal); color: var(--color-teal)">2</div>
-              <div>
-                <h4 class="text-h4 mb-2">Analyse</h4>
-                <p class="text-body" style="color: var(--color-text-muted)">
-                  Die KI wertet Strategie, Prozesse, Datenlage, Risiken und Potenziale aus.
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-vertical-item reveal-item">
-              <div class="timeline-vertical-marker" style="border-color: var(--color-warm-gold); color: var(--color-warm-amber)">3</div>
-              <div>
-                <h4 class="text-h4 mb-2">Report</h4>
-                <p class="text-body" style="color: var(--color-text-muted)">
-                  Ein professionelles, revisionssicheres Dokument für Geschäftsführung, IT und Datenschutz.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-8 lg:p-10">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.2) 0%, rgba(248, 205, 162, 0.15) 100%)">
-              <svg class="w-6 h-6" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-semibold">Schnell & effizient</p>
-              <p class="text-small" style="color: var(--color-text-light)">Keine Installation notwendig</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
-              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--color-primary)">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <p class="font-medium">Online-Fragebogen</p>
-                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
-                  <div class="h-2 rounded-full" style="width: 100%; background: var(--color-primary)"></div>
-                </div>
-              </div>
-              <span class="check-icon">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-            </div>
-
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
-              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--color-teal)">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <p class="font-medium">KI-Analyse</p>
-                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
-                  <div class="h-2 rounded-full animate-pulse" style="width: 75%; background: var(--color-teal)"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4 p-4 rounded-xl opacity-60" style="background: var(--color-bg-soft); border: 1px solid var(--color-border-light)">
-              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--gradient-warm)">
-                <svg class="w-5 h-5" style="color: var(--color-text)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <p class="font-medium">Report-Erstellung</p>
-                <div class="w-full rounded-full h-2 mt-2" style="background: var(--color-border)">
-                  <div class="h-2 rounded-full" style="width: 0%; background: var(--color-warm-gold)"></div>
-                </div>
-              </div>
-            </div>
+          <div class="trust-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span>EU AI Act & Best Practices</span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--top-right">
-      <picture>
-        <source srcset="/visuals/desktop/02-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/02-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/02-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== CHAPTER 05: DER REPORT (Product) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-product section-with-network-bg section-hero-visual section-bg-03 section-soft-bg section-bg-audiences section-with-visual py-20 lg:py-28 reveal-section" data-chapter="05" id="der-report">
-    <div class="section-divider section-divider-top section-divider-navy"></div>
-    <div class="ambient-gradient"></div>
-    <div class="container relative z-10">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label">Der Report</p>
-        <h2 class="text-h2 mb-6 chapter-headline">Ein Report, der in Management, IT, Datenschutz und <span class="text-serif">Beratung funktioniert</span></h2>
-        <p class="text-body-lg chapter-subhead mx-auto" style="color: var(--color-text-muted)">
-          Neutral. Präzise. Revisionssicher. Klar strukturiert.
+    <!-- ==================== FINAL CTA SECTION ==================== -->
+    <section id="cta" class="cta-section">
+      <div class="container">
+        <h2>Bereit für Ihren KI-Status-Check?</h2>
+        <p class="cta-text">
+          Starten Sie jetzt Ihre individuelle KI-Standortbestimmung und erhalten Sie einen detaillierten Report mit konkreten Handlungsempfehlungen.
         </p>
+        <a id="start" href="make/" class="btn btn-white">
+          <span>KI-Report jetzt starten</span>
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <p class="cta-note">Dauer ca. 10 Minuten · Keine Registrierung erforderlich</p>
       </div>
+    </section>
 
-      <!-- Zielgruppen Übersicht -->
-
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <div class="card p-8 reveal-item">
-          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 48, 135, 0.1) 0%, rgba(0, 48, 135, 0.2) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-h3 mb-6">Berater:innen</h3>
-          <ul class="space-y-4" style="color: var(--color-text-muted)">
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Strukturierte Basis für Kundengespräche</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Professionelles Dokument</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Upselling-Potenzial</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 reveal-item">
-          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(22, 155, 215, 0.1) 0%, rgba(22, 155, 215, 0.2) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-teal)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-          </div>
-          <h3 class="text-h3 mb-6">Agenturen & Teams</h3>
-          <ul class="space-y-4" style="color: var(--color-text-muted)">
-            <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Klare Positionierung</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Dokumentierte KI-Strategie</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Wettbewerbsvorteil</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 reveal-item">
-          <div class="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(244, 196, 125, 0.15) 0%, rgba(244, 196, 125, 0.25) 100%)">
-            <svg class="w-8 h-8" style="color: var(--color-warm-amber)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="text-h3 mb-6">KMU</h3>
-          <ul class="space-y-4" style="color: var(--color-text-muted)">
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>KI-Einstieg ohne hohe Kosten</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Entscheidungsgrundlage</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="check-icon-warm check-icon mt-0.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <span>Fördermöglichkeiten</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--right">
-      <picture>
-        <source srcset="/visuals/desktop/01-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/01-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/01-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== CALLOUT (Cream) ==================== -->
-  <section class="section-cream chapter-snap section-soft-bg section-bg-warning section-with-visual py-16 reveal-section">
-    <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <div class="callout-box callout-box-serious">
-          <div class="callout-icon callout-icon-serious">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-            </svg>
-          </div>
-          <h3 class="text-h3 mb-4">Dieser KI-Check ist NICHT geeignet, wenn …</h3>
-          <p class="text-body mb-5" style="color: var(--color-text-secondary)">Wir arbeiten mit Unternehmen, die bereit sind für fundierte Entscheidungen:</p>
-          <ul class="grid sm:grid-cols-2 gap-4" style="color: var(--color-text-secondary)">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #C58A32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Sie bereits ein komplettes KI-Team im Haus haben</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #C58A32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Sie einen fertigen KI-Produktkauf erwarten</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #C58A32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Sie keine 15 Minuten investieren möchten</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #C58A32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Sie sofortige Umsetzung statt Strategie erwarten</span>
-            </li>
-            <li class="flex items-start gap-3 sm:col-span-2">
-              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #C58A32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Sie nicht bereit sind, fundierte Entscheidungen zu treffen</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--left">
-      <picture>
-        <source srcset="/visuals/desktop/05-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/05-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/05-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== REPORT (Light - Split Reverse) ==================== -->
-  <section class="section-light chapter-snap section-hero-visual section-bg-04 py-20 lg:py-28 reveal-section" id="report-inhalt">
-    <div class="section-divider section-divider-top section-divider-warm"></div>
-    <div class="ambient-gradient"></div>
-    <div class="container relative z-10">
-      <div class="split-section reverse">
-        <div>
-          <p class="section-label">Der Report</p>
-          <h2 class="text-h2 mb-6">Was der Report liefert</h2>
-          <p class="text-body-lg mb-10" style="color: var(--color-text-muted)">
-            Mehr als eine Checkliste – eine fundierte Grundlage für strategische Entscheidungen.
-          </p>
-
-          <!-- V4: Einheitliche Navy-Checkmarks (keine Ampel) -->
-          <ul class="space-y-5 mb-10">
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Reifegrad-Einordnung</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Wo steht Ihr Unternehmen?</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Priorisierte Maßnahmen</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Konkrete Schritte für 30, 90 und 180 Tage</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Risiken & Governance</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Compliance und Datenschutz</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Fördermöglichkeiten</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Relevante Programme inkl. Antragstipps</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block"><span class="text-serif">Management</span>-Summary</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Für Vorstand, Geschäftsführung oder Team</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-navy mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Revisionssichere Dokumentation</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Nutzbar für Steuerprüfung, Beirat oder IT-Sicherheit</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-5 reveal-item">
-              <span class="check-icon check-icon-gold mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-              <div>
-                <span class="text-h4 block">Steuerlich absetzbar</span>
-                <p class="text-body mt-1" style="color: var(--color-text-muted)">Als TÜV-zertifizierte KI-Beratung vollständig abzugsfähig</p>
-              </div>
-            </li>
-          </ul>
-
-          <!-- V4: Micro-Benefit Cards -->
-          <div class="mt-8 pt-8" style="border-top: 1px solid var(--color-border-light)">
-            <p class="text-small font-semibold mb-4" style="color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.1em;">Ihr Vorteil in der Praxis</p>
-            <div class="grid sm:grid-cols-2 gap-3">
-              <div class="benefit-micro-card">
-                <span>Schnell entscheiden – statt wochenlang diskutieren</span>
-              </div>
-              <div class="benefit-micro-card">
-                <span>Strukturiertes Dokument für interne Präsentationen</span>
-              </div>
-              <div class="benefit-micro-card">
-                <span>Professioneller Bericht statt unklarer Excel-Listen</span>
-              </div>
-              <div class="benefit-micro-card">
-                <span>Starke Argumentationsbasis für Budgetgespräche</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- V5: Mini-Report-Viewer -->
-      <div class="report-viewer-section mt-20 pt-16" style="border-top: 1px solid var(--color-border-light)">
-        <div class="text-center mb-10">
-          <p class="text-small font-semibold mb-2" style="color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.1em;">Report-Vorschau</p>
-          <h3 class="text-h3">So sieht Ihr Report aus</h3>
-        </div>
-
-        <!-- Tab Navigation -->
-        <div class="report-viewer-tabs">
-          <button class="report-viewer-tab active" data-tab="reifegrad">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            <span>Reifegrad</span>
-          </button>
-          <button class="report-viewer-tab" data-tab="roi">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-            <span>ROI & Effizienz</span>
-          </button>
-          <button class="report-viewer-tab" data-tab="foerderung">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>Förderprogramme</span>
-          </button>
-        </div>
-
-        <!-- Tab Content Panels -->
-        <div class="report-viewer-content">
-          <!-- Reifegrad Panel -->
-          <div class="report-viewer-panel active" id="panel-reifegrad">
-            <div class="report-viewer-card">
-              <div class="report-viewer-header">
-                <span class="report-viewer-badge">Kapitel 2</span>
-                <h4 class="text-h4">KI-Reifegrad-Analyse</h4>
-                <p class="report-viewer-desc">Einordnung des aktuellen KI-Status im Branchenkontext – verständlich, realistisch und neutral.</p>
-              </div>
-              <div class="report-viewer-body">
-                <div class="reifegrad-visual">
-                  <div class="reifegrad-bar">
-                    <div class="reifegrad-progress" style="width: 40%">
-                      <span class="reifegrad-level">Stufe 2 von 5</span>
-                    </div>
-                  </div>
-                  <div class="reifegrad-labels">
-                    <span>Experimentell</span>
-                    <span>Pilotphase</span>
-                    <span>Operativ</span>
-                    <span>Skaliert</span>
-                    <span>Transformiert</span>
-                  </div>
-                </div>
-                <div class="reifegrad-insights">
-                  <div class="reifegrad-insight">
-                    <span class="insight-label">Aktuelle Einordnung:</span>
-                    <span class="insight-value navy">Pilotphase</span>
-                  </div>
-                  <div class="reifegrad-insight">
-                    <span class="insight-label">Potenzial:</span>
-                    <span class="insight-value gold">Hoch – schnelle Skalierung möglich</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ROI & Effizienz Panel -->
-          <div class="report-viewer-panel" id="panel-roi">
-            <div class="report-viewer-card">
-              <div class="report-viewer-header">
-                <span class="report-viewer-badge teal">Kapitel 4</span>
-                <h4 class="text-h4">ROI & Effizienzprognose</h4>
-                <p class="report-viewer-desc">Einsparpotenziale, Effizienzgewinne und Amortisationsszenarien – klar und übersichtlich.</p>
-              </div>
-              <div class="report-viewer-body">
-                <div class="roi-grid">
-                  <div class="roi-metric">
-                    <p class="roi-metric-value">+23%</p>
-                    <p class="roi-metric-label">Effizienzsteigerung</p>
-                    <p class="roi-metric-note">durch Prozessautomatisierung</p>
-                  </div>
-                  <div class="roi-metric">
-                    <p class="roi-metric-value teal">12 Std</p>
-                    <p class="roi-metric-label">Zeitersparnis / Woche</p>
-                    <p class="roi-metric-note">bei administrativen Aufgaben</p>
-                  </div>
-                  <div class="roi-metric">
-                    <p class="roi-metric-value gold">€ 18.400</p>
-                    <p class="roi-metric-label">Geschätzter Jahresvorteil</p>
-                    <p class="roi-metric-note">konservative Schätzung</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Förderprogramme Panel -->
-          <div class="report-viewer-panel" id="panel-foerderung">
-            <div class="report-viewer-card">
-              <div class="report-viewer-header">
-                <span class="report-viewer-badge gold">Kapitel 6</span>
-                <h4 class="text-h4">Passende Förderprogramme</h4>
-                <p class="report-viewer-desc">Passende Programme mit Fördersätzen und Voraussetzungen – ohne Rechercheaufwand.</p>
-              </div>
-              <div class="report-viewer-body">
-                <div class="foerder-list">
-                  <div class="foerder-item">
-                    <div class="foerder-icon">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div class="foerder-content">
-                      <p class="foerder-name">go-digital</p>
-                      <p class="foerder-desc">Bis zu 16.500 € Förderung für digitale Geschäftsprozesse</p>
-                    </div>
-                    <span class="foerder-match">93% Match</span>
-                  </div>
-                  <div class="foerder-item">
-                    <div class="foerder-icon teal">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div class="foerder-content">
-                      <p class="foerder-name">KMU.Digital (AT)</p>
-                      <p class="foerder-desc">Beratung und Umsetzung für österreichische KMU</p>
-                    </div>
-                    <span class="foerder-match teal">87% Match</span>
-                  </div>
-                  <div class="foerder-item">
-                    <div class="foerder-icon gold">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div class="foerder-content">
-                      <p class="foerder-name">Digitalbonus Bayern</p>
-                      <p class="foerder-desc">50% Zuschuss für KI-Beratung und -Implementierung</p>
-                    </div>
-                    <span class="foerder-match gold">76% Match</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CHAPTER 06: WIRKUNG / TIMELINE (Impact) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-impact section-hero-visual section-bg-06 py-20 lg:py-28 reveal-section" data-chapter="06" id="wirkung">
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label">Nach dem Report</p>
-        <h2 class="text-h2 text-white mb-6">Was Sie nach dem Report <span class="text-gradient-warm">erwarten können</span></h2>
-      </div>
-
-      <!-- V4: Timeline mit Hover-Tooltips -->
-      <div class="timeline-horizontal max-w-4xl mx-auto">
-        <div class="timeline-step timeline-step-interactive reveal-item" data-tooltip="Sie erhalten eine sofort nutzbare Neutral-Analyse für Vorstand, Geschäftsführung oder Team.">
-          <div class="timeline-marker">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <div class="timeline-content">
-            <h4 class="text-white">Tag 1</h4>
-            <p class="text-muted">Klare Standortanalyse für Ihre KI-Strategie</p>
-          </div>
-          <div class="timeline-tooltip">Sie erhalten eine sofort nutzbare Neutral-Analyse für Vorstand, Geschäftsführung oder Team.</div>
-        </div>
-
-        <div class="timeline-step timeline-step-interactive reveal-item" data-tooltip="Alle Maßnahmen priorisiert mit Aufwand, Einsparpotenzial und Verantwortlichkeiten.">
-          <div class="timeline-marker">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          </div>
-          <div class="timeline-content">
-            <h4 class="text-white">Woche 1</h4>
-            <p class="text-muted">Priorisierte Maßnahmen mit konkreten Verantwortlichkeiten</p>
-          </div>
-          <div class="timeline-tooltip">Alle Maßnahmen priorisiert mit Aufwand, Einsparpotenzial und Verantwortlichkeiten.</div>
-        </div>
-
-        <div class="timeline-step timeline-step-interactive reveal-item" data-tooltip="Erste sichtbare Effekte – von Effizienz bis Kostenvorteilen. Steuerliche Vorteile nutzbar.">
-          <div class="timeline-marker">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-          </div>
-          <div class="timeline-content">
-            <h4 class="text-white">Monat 1</h4>
-            <p class="text-muted">Erste sichtbare Effekte und nutzbare Vorteile</p>
-          </div>
-          <div class="timeline-tooltip">Erste sichtbare Effekte – von Effizienz bis Kostenvorteilen. Steuerliche Vorteile nutzbar.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CHAPTER 07: VERTRAUEN (Trust - Testimonials) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-trust section-testimonials-deluxe section-hero-visual section-bg-05 py-20 lg:py-28 reveal-section" data-chapter="07" id="vertrauen-testimonials">
-    <div class="shape-warm shape-warm-3"></div>
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="section-label"><span class="text-serif">Vertrauen</span></p>
-        <h2 class="text-h2 mb-4 chapter-headline">Was Unternehmen über den <span class="text-gradient-warm">KI-Check sagen</span></h2>
-        <p class="text-body-lg" style="color: var(--color-text-muted)">
-          Echte Stimmen von Führungskräften und Projektverantwortlichen.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Testimonial 1 - Featured -->
-        <div class="testimonial-card-deluxe testimonial-card-featured reveal-item">
-          <div class="testimonial-badge">Geschäftsleitung</div>
-          <span class="testimonial-quote-deluxe">"</span>
-          <p class="testimonial-text-deluxe">
-            Wir hatten keine Idee, was wir wirklich brauchen. Der Report hat uns gezeigt, wo wir stehen – und was wir konkret tun können.
-          </p>
-          <div class="testimonial-author-deluxe">
-            <div class="testimonial-avatar-deluxe">TM</div>
-            <div>
-              <p class="testimonial-name-deluxe">Tanja M.</p>
-              <p class="testimonial-role-deluxe">Geschäftsleitung, Produktionsunternehmen</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card-deluxe reveal-item">
-          <div class="testimonial-badge teal">IT-Leitung</div>
-          <span class="testimonial-quote-deluxe">"</span>
-          <p class="testimonial-text-deluxe">
-            Zum ersten Mal konnten wir das Thema KI intern diskutieren – auf Basis von Zahlen, nicht Hype.
-          </p>
-          <div class="testimonial-author-deluxe">
-            <div class="testimonial-avatar-deluxe teal">JB</div>
-            <div>
-              <p class="testimonial-name-deluxe">Jan B.</p>
-              <p class="testimonial-role-deluxe">IT-Leiter, Finanzdienstleister</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card-deluxe reveal-item">
-          <div class="testimonial-badge warm">Projektleitung</div>
-          <span class="testimonial-quote-deluxe">"</span>
-          <p class="testimonial-text-deluxe">
-            Wir haben sofort einen Förderantrag gestellt. Der Report war die perfekte Grundlage.
-          </p>
-          <div class="testimonial-author-deluxe">
-            <div class="testimonial-avatar-deluxe warm">NP</div>
-            <div>
-              <p class="testimonial-name-deluxe">Nina P.</p>
-              <p class="testimonial-role-deluxe">Projektleitung, Beratungsunternehmen</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trust Indicators -->
-      <div class="testimonials-trust mt-12 pt-8" style="border-top: 1px solid var(--color-border-warm)">
-        <div class="flex flex-wrap justify-center items-center gap-6 lg:gap-10">
-          <div class="trust-indicator">
-            <span class="trust-indicator-value">50+</span>
-            <span class="trust-indicator-label">Reports erstellt</span>
-          </div>
-          <div class="trust-indicator-divider"></div>
-          <div class="trust-indicator">
-            <span class="trust-indicator-value">4.9/5</span>
-            <span class="trust-indicator-label">Zufriedenheit</span>
-          </div>
-          <div class="trust-indicator-divider"></div>
-          <div class="trust-indicator">
-            <span class="trust-indicator-value">15 Min</span>
-            <span class="trust-indicator-label">Durchschnittszeit</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== CHAPTER 08: WARUM WIR (Why Us) ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-whyus section-soft-bg section-bg-why section-with-visual py-16 lg:py-20 reveal-section" data-chapter="08" id="warum-wir">
-    <div class="container">
-      <div class="text-center mb-12">
-        <p class="section-label">Warum Wir</p>
-        <h2 class="text-h3 mb-3 chapter-headline">Warum dieser <span class="text-serif">KI-Check?</span></h2>
-        <p class="text-body-lg chapter-subhead mx-auto max-w-2xl" style="color: var(--color-text-muted)">
-          30 Jahre Beratungserfahrung. TÜV-zertifiziert. Plattformneutral.
-        </p>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-4 lg:gap-6">
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Plattformneutral</span>
-        </div>
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-          <span>TÜV-zertifiziert (ISO-konform)</span>
-        </div>
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Förderkonform (§ 7g EstG)</span>
-        </div>
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>30 Jahre Beratungserfahrung</span>
-        </div>
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
-          <span>Kein Produktverkauf</span>
-        </div>
-        <div class="trust-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          <span>Datenschutzkonform (DSGVO)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--top-left">
-      <picture>
-        <source srcset="/visuals/desktop/02-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/02-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/02-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== FAQ (Cream) ==================== -->
-  <section class="section-cream chapter-snap section-soft-bg section-bg-faq section-with-visual py-20 lg:py-28 reveal-section" id="faq">
-    <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="section-label">FAQ</p>
-          <h2 class="text-h2 mb-6">Häufige Fragen</h2>
-        </div>
-
-        <div class="faq-container">
-          <div class="faq-item">
-            <button class="faq-question" tabindex="0">
-              <span>Wie lange dauert die Analyse?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer">Der Fragebogen ist in 15–20 Minuten ausgefüllt. Die Auswertung erfolgt zeitnah.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" tabindex="0">
-              <span>Brauche ich technisches Vorwissen?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer">Nein. Die Fragen sind verständlich formuliert, der Report ist für Entscheider konzipiert.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" tabindex="0">
-              <span>Wie sicher sind meine Daten?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer">DSGVO-konform, EU-Server, keine Weitergabe an Dritte.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" tabindex="0">
-              <span>Was kostet der KI-Check?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer">Informationen auf Anfrage. Kontaktieren Sie uns unverbindlich.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--right">
-      <picture>
-        <source srcset="/visuals/desktop/03-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/03-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/03-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== KONTAKT (Light) ==================== -->
-  <section class="section-light chapter-snap section-soft-bg section-bg-contact section-with-visual py-20 lg:py-28 reveal-section" id="kontakt-demo">
-    <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-14">
-          <p class="section-label">Kontakt</p>
-          <h2 class="text-h2 mb-6">Bereit für den nächsten Schritt?</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-          <div class="kontakt-card">
-            <div class="kontakt-icon">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <h3 class="text-h3 mb-3">KI-Check anfragen</h3>
-            <p class="text-body mb-8" style="color: var(--color-text-muted)">Starten Sie Ihre KI-Readiness-Analyse.</p>
-            <button class="btn btn-primary w-full" data-action="request-check">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>E-Mail schreiben</span>
-            </button>
-          </div>
-
-          <div class="kontakt-card warm">
-            <div class="kontakt-icon warm">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            </div>
-            <h3 class="text-h3 mb-3">Beispiel-Report</h3>
-            <p class="text-body mb-8" style="color: var(--color-text-muted)">Sehen Sie vorab einen fertigen Report.</p>
-            <button class="btn btn-warm w-full" data-action="request-sample">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Report anfordern</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- V18: Visual Element -->
-    <figure class="section-visual section-visual--right">
-      <picture>
-        <source srcset="/visuals/desktop/01-desktop.webp" media="(min-width: 1025px)" type="image/webp">
-        <source srcset="/visuals/tablet/01-tablet.webp" media="(min-width: 601px)" type="image/webp">
-        <img src="/visuals/mobile/01-mobile.webp" alt="" loading="lazy" decoding="async">
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ==================== CHAPTER 09: FINALER CTA ==================== -->
-  <section class="narrative-chapter chapter-snap chapter-finalcta final-cta-section section-hero-visual section-bg-07 py-24 lg:py-32 reveal-section" data-chapter="09" id="bereit">
-    <!-- Organic Shape -->
-    <div class="final-cta-shape"></div>
-    <!-- Subtle Dot Matrix -->
-    <div class="final-cta-dots"></div>
-
-    <div class="container">
-      <div class="final-cta-content max-w-3xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="text-h2 mb-6"><span class="text-serif">Bereit für Ihren KI-Check?</span></h2>
-          <p class="text-body-lg" style="color: var(--color-text-muted)">
-            Ihre neutrale Standortbestimmung – fundiert, dokumentiert, umsetzbar.
-          </p>
-        </div>
-
-        <!-- Benefit List -->
-        <ul class="final-cta-benefits mb-12">
-          <li class="final-cta-benefit">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Neutraler Standort</span>
-          </li>
-          <li class="final-cta-benefit">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Förder-Übersicht</span>
-          </li>
-          <li class="final-cta-benefit">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Klarer nächster Schritt</span>
-          </li>
-        </ul>
-
-        <!-- Single CTA Button with Gold Glow -->
-        <div class="text-center">
-          <button class="btn btn-primary btn-final-cta" data-action="request-check">
-            <span>Jetzt starten</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </button>
-
-          <!-- V7: Reassurance Text -->
-          <p class="reassurance-text mt-4">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-            Kostenlos. Unverbindlich. Datenschutzkonform.
-          </p>
-
-          <!-- V7: Mini-Trust Bar -->
-          <div class="mini-trust-bar mt-6">
-            <span class="mini-trust-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              TÜV-zertifiziert
-            </span>
-            <span class="mini-trust-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-              DSGVO-konform
-            </span>
-            <span class="mini-trust-item gold">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Steuerlich absetzbar
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="py-10" style="background: var(--color-bg-darker)">
+  <footer class="site-footer">
     <div class="container">
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0, 112, 186, 0.2)">
-            <svg class="w-4 h-4" style="color: var(--color-primary-light)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <p class="text-small" style="color: rgba(255, 255, 255, 0.5)">&copy; <span id="year"></span> KI-Sicherheit.jetzt</p>
-        </div>
-        <div class="flex items-center gap-8">
-          <a href="impressum.html" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">Impressum</a>
-          <a href="javascript:openPrivacyModal();" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">Datenschutz</a>
-          <button onclick="schicken();" class="text-small hover:text-white transition-colors" style="color: rgba(255, 255, 255, 0.5)">E-Mail</button>
-        </div>
+      <div class="footer-content">
+        <p class="footer-copyright">© 2025 KI-Sicherheit.jetzt</p>
+        <nav class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
       </div>
     </div>
   </footer>
 
-  </div><!-- End V12: Scroll Container -->
-
-  <!-- V7: Sticky Mobile CTA Bar -->
-  <div class="sticky-cta-bar" id="sticky-cta">
-    <p class="sticky-cta-bar-text">Jetzt unverbindlich anfragen</p>
-    <button class="btn btn-primary" data-action="request-check">
-      <span>KI-Check anfordern</span>
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-    </button>
-  </div>
-
-  <!-- Legal FAB -->
-  <button id="legal-fab" class="legal-fab" aria-label="Rechtliches" title="Rechtliches">
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-  </button>
-
-  <!-- Privacy Modal -->
-  <div id="privacy-modal" class="privacy-modal">
-    <div class="privacy-modal-overlay"></div>
-    <div class="privacy-modal-content">
-      <button class="privacy-modal-close" aria-label="Schließen">&times;</button>
-      <h1>Datenschutzerklärung</h1>
-      <h2>Verantwortliche Stelle</h2>
-      <p>Wolf Hohl, TÜV-zertifiziertes KI-Management<br>Berlin, Deutschland<br>
-        <button class="legal-btn" onclick="schicken();"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>E-Mail schreiben</button>
-      </p>
-      <h2>Datenverarbeitung durch KI-Tools</h2>
-      <p>Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT). Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.</p>
-      <h2>Rechtsgrundlage & Widerruf</h2>
-      <p><strong>Rechtsgrundlage:</strong> Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO.</p>
-      <p><strong>Widerruf:</strong> Jederzeit per E-Mail möglich.</p>
-      <h2>Haftungshinweis</h2>
-      <p>Keine Rechts- oder Steuerberatung. Für die Umsetzung bleibt Ihr Unternehmen verantwortlich.</p>
-      <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: 0.875rem;">&copy; 2025 KI-Sicherheit.jetzt</p>
-    </div>
-  </div>
-
+  <!-- JavaScript -->
   <script src="scripts/main.js"></script>
+
 </body>
 </html>
