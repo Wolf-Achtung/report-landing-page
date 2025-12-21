@@ -1,6 +1,6 @@
 /**
  * KI-Sicherheit.jetzt - Report Landing Page
- * Redesign: McKinsey-Style - Clean, Professional, Minimal
+ * Redesign: McKinsey-Style - Clean, Professional, with Visual Interest
  */
 
 /* ==================== CSS VARIABLEN ==================== */
@@ -10,6 +10,7 @@
   --color-primary-dark: #001F3F;
   --color-primary-light: #003D7A;
   --color-primary-hover: #004494;
+  --color-primary-subtle: #E8EEF5;
 
   /* Neutral Colors - Gray Scale */
   --color-gray-100: #F7F8FA;
@@ -92,6 +93,82 @@ body {
   color: #FFFFFF;
 }
 
+/* ==================== NETWORK BACKGROUND ==================== */
+.network-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/netzstruktur.svg');
+  background-repeat: repeat;
+  background-size: 600px 450px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.network-bg-light {
+  opacity: 0.04;
+}
+
+.network-bg-dark {
+  opacity: 0.15;
+  filter: brightness(3);
+}
+
+/* ==================== GEOMETRIC SHAPES ==================== */
+.geo-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.geo-shape {
+  position: absolute;
+  background-color: var(--color-primary);
+  opacity: 0.03;
+}
+
+/* Light section shapes */
+.geo-shape-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+}
+
+.geo-shape-2 {
+  width: 300px;
+  height: 200px;
+  bottom: 50px;
+  left: -50px;
+}
+
+.geo-shape-3 {
+  width: 200px;
+  height: 300px;
+  top: 30%;
+  right: 10%;
+}
+
+/* Dark section shapes (lighter color) */
+.geo-shape-light {
+  background-color: #FFFFFF;
+  opacity: 0.05;
+}
+
+.geo-shape-4 {
+  width: 350px;
+  height: 250px;
+  top: -50px;
+  left: -80px;
+}
+
+.geo-shape-5 {
+  width: 280px;
+  height: 280px;
+  bottom: -80px;
+  right: -60px;
+}
+
 /* ==================== TYPOGRAPHY ==================== */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
@@ -127,10 +204,14 @@ p {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  position: relative;
+  z-index: 1;
 }
 
 .section {
   padding: var(--section-padding-y) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Grid System */
@@ -252,6 +333,7 @@ p {
   padding: clamp(5rem, 12vw, 8rem) 0;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-section h1 {
@@ -273,6 +355,7 @@ p {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 640px) {
@@ -282,10 +365,29 @@ p {
   }
 }
 
+.hero-note {
+  font-size: var(--font-small);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hero-note a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.hero-note a:hover {
+  text-decoration: none;
+}
+
 /* ==================== BENEFITS SECTION ==================== */
 .benefits-section {
   background-color: var(--color-bg);
   padding: var(--section-padding-y) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .benefits-section .section-title {
@@ -307,17 +409,20 @@ p {
   border-radius: var(--radius-lg);
   padding: 2rem;
   transition: all var(--transition-base);
+  position: relative;
+  z-index: 1;
 }
 
 .benefit-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+  border-color: var(--color-primary-subtle);
 }
 
 .benefit-icon {
   width: 3rem;
   height: 3rem;
-  background-color: var(--color-gray-100);
+  background-color: var(--color-primary-subtle);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -347,6 +452,8 @@ p {
 .examples-section {
   background-color: var(--color-bg-alt);
   padding: var(--section-padding-y) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .examples-section .section-title {
@@ -378,28 +485,34 @@ p {
 .highlight-card {
   background: #FFFFFF;
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .highlight-value {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--color-primary);
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .highlight-label {
   font-size: var(--font-small);
   color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .report-preview {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .report-preview p {
@@ -412,6 +525,8 @@ p {
 .feedback-section {
   background-color: var(--color-bg);
   padding: var(--section-padding-y) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .feedback-section .section-title {
@@ -420,12 +535,15 @@ p {
 }
 
 .testimonial-card {
-  background: var(--color-gray-100);
+  background: var(--color-primary-subtle);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   max-width: 800px;
   margin: 0 auto 2.5rem;
   text-align: center;
+  border-left: 4px solid var(--color-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-quote {
@@ -448,6 +566,8 @@ p {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .trust-badge {
@@ -460,6 +580,7 @@ p {
   font-size: var(--font-small);
   color: var(--color-text-secondary);
   font-weight: 500;
+  border: 1px solid var(--color-border);
 }
 
 .trust-badge svg {
@@ -474,6 +595,8 @@ p {
   color: #FFFFFF;
   padding: clamp(4rem, 8vw, 6rem) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-section h2 {
@@ -536,6 +659,7 @@ p {
 .footer-copyright {
   color: var(--color-text-muted);
   font-size: var(--font-small);
+  margin: 0;
 }
 
 /* ==================== ACCESSIBILITY ==================== */

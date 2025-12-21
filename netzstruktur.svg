@@ -1,13 +1,11 @@
-claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
-  <!-- V13: Network Structure Background Pattern -->
+  <!-- Network Structure Background Pattern -->
   <!-- Subtle interconnected nodes representing AI/data network -->
 
   <defs>
-    <!-- Gradient for depth -->
     <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#003087" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#0070ba" stop-opacity="0.3"/>
+      <stop offset="0%" stop-color="#002E5D" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#004494" stop-opacity="0.3"/>
     </linearGradient>
   </defs>
 
@@ -60,7 +58,7 @@ claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
     <line x1="480" y1="500" x2="580" y2="430"/>
     <line x1="580" y1="430" x2="720" y2="470"/>
 
-    <!-- Cross connections for density -->
+    <!-- Cross connections -->
     <line x1="100" y1="150" x2="280" y2="200"/>
     <line x1="350" y1="130" x2="500" y2="180"/>
     <line x1="180" y1="250" x2="380" y2="250"/>
@@ -71,7 +69,7 @@ claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
 
   <!-- Network Nodes -->
   <g fill="url(#networkGrad)">
-    <!-- Primary nodes (larger) -->
+    <!-- Primary nodes -->
     <circle cx="100" cy="150" r="6" opacity="0.7"/>
     <circle cx="350" cy="130" r="7" opacity="0.8"/>
     <circle cx="600" cy="120" r="6" opacity="0.7"/>
@@ -79,7 +77,7 @@ claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
     <circle cx="320" cy="320" r="6" opacity="0.7"/>
     <circle cx="480" cy="500" r="7" opacity="0.8"/>
 
-    <!-- Secondary nodes (medium) -->
+    <!-- Secondary nodes -->
     <circle cx="200" cy="100" r="4" opacity="0.6"/>
     <circle cx="450" cy="80" r="4" opacity="0.6"/>
     <circle cx="700" cy="90" r="4" opacity="0.6"/>
@@ -92,7 +90,7 @@ claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
     <circle cx="550" cy="300" r="4" opacity="0.6"/>
     <circle cx="680" cy="340" r="5" opacity="0.7"/>
 
-    <!-- Tertiary nodes (smaller) -->
+    <!-- Tertiary nodes -->
     <circle cx="50" cy="300" r="3" opacity="0.5"/>
     <circle cx="750" cy="200" r="3" opacity="0.5"/>
     <circle cx="120" cy="420" r="4" opacity="0.6"/>
@@ -102,56 +100,3 @@ claude/website-briefing-setup-01DoTsKEuzMWVstPZCAXZBwM
     <circle cx="720" cy="470" r="3" opacity="0.5"/>
   </g>
 </svg>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <style>
-    .net {
-      animation: rotateZoom 30s infinite linear;
-      transform-origin: center center;
-    }
-
-    @keyframes rotateZoom {
-      0% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.02;
-      }
-      50% {
-        transform: scale(1.03) rotate(180deg);
-        opacity: 0.04;
-      }
-      100% {
-        transform: scale(1) rotate(360deg);
-        opacity: 0.02;
-      }
-    }
-  </style>
-
-  <g class="net" stroke="#157ea8" stroke-width="2" fill="none">
-    <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
-    <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
-    <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
-    <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
-    <circle cx="200" cy="300" r="6" fill="#157ea8"/>
-    <circle cx="400" cy="320" r="6" fill="#157ea8"/>
-    <circle cx="600" cy="300" r="6" fill="#157ea8"/>
-    <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
-    <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
-    <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
-    <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
-
-    <line x1="100" y1="100" x2="300" y2="80"/>
-    <line x1="300" y1="80" x2="500" y2="120"/>
-    <line x1="500" y1="120" x2="700" y2="100"/>
-    <line x1="300" y1="80" x2="400" y2="320"/>
-    <line x1="100" y1="100" x2="200" y2="300"/>
-    <line x1="700" y1="100" x2="600" y2="300"/>
-    <line x1="200" y1="300" x2="400" y2="320"/>
-    <line x1="400" y1="320" x2="600" y2="300"/>
-    <line x1="200" y1="300" x2="300" y2="480"/>
-    <line x1="600" y1="300" x2="500" y2="500"/>
-    <line x1="100" y1="500" x2="300" y2="480"/>
-    <line x1="300" y1="480" x2="500" y2="500"/>
-    <line x1="500" y1="500" x2="700" y2="480"/>
-  </g>
-</svg>
-
