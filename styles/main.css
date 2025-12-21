@@ -317,26 +317,69 @@ p {
 
 /* ==================== HERO SECTION ==================== */
 .hero-section {
-  padding: 3rem 0 4rem;
   position: relative;
 }
 
-.hero-card {
-  max-width: 560px;
-  margin: 0 auto;
+/* Full-width Navy Header Bar */
+.hero-topbar {
+  background: linear-gradient(135deg, var(--mk-navy-800) 0%, var(--mk-navy-700) 100%);
+  padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-card .card-body h1 {
+.hero-topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.hero-topbar .brand-title {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin: 0;
+  position: relative;
+}
+
+/* Hero Content Area */
+.hero-content {
+  padding: 4rem 0 5rem;
+  position: relative;
+}
+
+/* Two-column Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.hero-text h1 {
   font-size: var(--font-display);
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-subtitle {
   font-size: var(--font-body-lg);
   color: var(--mk-text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.65;
+  margin-bottom: 0;
+  line-height: 1.7;
+  max-width: 540px;
 }
 
 .hero-subtitle strong {
@@ -344,35 +387,48 @@ p {
   font-weight: 600;
 }
 
-/* Trust Badge */
-.trust-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: linear-gradient(135deg, var(--mk-warm-100) 0%, #fff9e6 100%);
-  border-radius: 999px;
-  border: 1px solid rgba(201,162,39,0.25);
-  padding: 0.4rem 0.9rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #7a6012;
-  margin-bottom: 1rem;
+/* Hero CTA Group */
+.hero-cta {
+  margin-top: 2rem;
 }
 
-.trust-badge svg {
-  width: 12px;
-  height: 12px;
-  fill: var(--mk-warm-500);
+.hero-cta .btn {
+  min-width: 280px;
+}
+
+.hero-note {
+  margin-top: 0.75rem;
+  font-size: var(--font-xs);
+  color: var(--mk-text-secondary);
+}
+
+.hero-note a {
+  color: var(--mk-navy-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero-note a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Features Column */
+.hero-features {
+  background: var(--mk-bg-card);
+  border-radius: 14px;
+  border: 1px solid var(--mk-border-light);
+  box-shadow: var(--mk-shadow-lg);
+  padding: 2rem;
 }
 
 /* Features Checklist */
 .features-list {
   list-style: none;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
 
 .features-list li {
@@ -388,13 +444,13 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
   background: var(--mk-navy-50);
   color: var(--mk-navy-600);
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   border-radius: 50%;
   margin-top: 0.1rem;
 }
@@ -404,36 +460,10 @@ p {
   font-weight: 600;
 }
 
-/* Hero CTA Group */
-.hero-cta {
-  margin-top: 1.5rem;
-}
-
-.hero-cta .btn {
-  width: 100%;
-}
-
-.hero-note {
-  margin-top: 0.75rem;
-  font-size: var(--font-xs);
-  color: var(--mk-text-secondary);
-  text-align: center;
-}
-
-.hero-note a {
-  color: var(--mk-navy-600);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.hero-note a:hover {
-  text-decoration: underline;
-}
-
 /* Tax Note */
 .tax-note {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--mk-border-light);
   font-size: var(--font-xs);
   color: var(--mk-text-muted);
@@ -726,13 +756,25 @@ p {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 640px) {
-  .hero-card .card-body,
-  .cta-card .card-body {
+  .hero-content {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-features {
     padding: 1.5rem;
   }
 
-  .hero-card .card-body h1 {
-    font-size: 1.75rem;
+  .hero-cta .btn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .cta-card .card-body {
+    padding: 1.5rem;
   }
 
   .card-header {
