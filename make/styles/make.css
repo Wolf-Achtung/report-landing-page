@@ -252,10 +252,11 @@ body {
 }
 
 .make-card-header-title {
-  font-size: var(--font-body);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: none;
   margin: 0;
 }
 
@@ -320,6 +321,7 @@ body {
 }
 
 .make-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: var(--font-h1);
   font-weight: 700;
   line-height: 1.2;
