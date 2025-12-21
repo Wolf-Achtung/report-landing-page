@@ -669,33 +669,62 @@ p {
   line-height: 1.7;
 }
 
-/* ==================== FEEDBACK/TRUST SECTION ==================== */
+/* ==================== TRUST SECTION ==================== */
 .feedback-section {
   padding: var(--section-padding-y) 0;
 }
 
-.testimonial-card {
-  background: linear-gradient(135deg, #fdfcfa 0%, var(--mk-warm-100) 100%);
+/* Expert Card */
+.expert-card {
+  background: var(--mk-bg-card);
   border-radius: 12px;
   padding: 2rem;
-  max-width: 700px;
+  max-width: 500px;
   margin: 0 auto 2rem;
-  border: 1px solid rgba(201,162,39,0.15);
+  border: 1px solid var(--mk-border-light);
+  box-shadow: var(--mk-shadow-md);
+  text-align: center;
 }
 
-.testimonial-quote {
+.expert-info h3 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.0625rem;
-  font-style: italic;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
   color: var(--mk-text-primary);
-  line-height: 1.7;
-  margin: 0 0 1rem;
 }
 
-.testimonial-source {
+.expert-title {
   font-size: var(--font-small);
   color: var(--mk-text-muted);
-  font-style: normal;
+  margin-bottom: 1.25rem;
+}
+
+.expert-credentials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.expert-credentials li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--mk-border-light);
+  font-size: 0.9375rem;
+  color: var(--mk-text-secondary);
+}
+
+.expert-credentials li:last-child {
+  border-bottom: none;
+}
+
+.expert-credentials svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  color: var(--mk-navy-500);
 }
 
 .trust-badges {
