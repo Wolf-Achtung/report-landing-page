@@ -43,14 +43,19 @@
           <stop offset="100%" stop-color="#2a5a8c" stop-opacity="0.4"/>
         </linearGradient>
         <radialGradient id="nodeGradPrimary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#4a7ba8"/><stop offset="100%" stop-color="#1a3a5c"/>
+          <stop offset="0%" stop-color="#4a7ba8"/>
+          <stop offset="100%" stop-color="#1a3a5c"/>
         </radialGradient>
         <radialGradient id="nodeGradSecondary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#5a8bb8"/><stop offset="100%" stop-color="#2a4a6c"/>
+          <stop offset="0%" stop-color="#5a8bb8"/>
+          <stop offset="100%" stop-color="#2a4a6c"/>
         </radialGradient>
         <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
       <g class="connection-lines" stroke="url(#lineGrad)" stroke-width="1">
@@ -63,16 +68,22 @@
         <line x1="380" y1="250" x2="500" y2="180"/><line x1="500" y1="180" x2="620" y2="220"/>
         <line x1="50" y1="300" x2="180" y2="250"/><line x1="180" y1="250" x2="250" y2="350"/>
         <line x1="280" y1="200" x2="320" y2="320"/><line x1="380" y1="250" x2="420" y2="380"/>
-        <line x1="250" y1="350" x2="320" y2="320"/><line x1="320" y1="320" x2="420" y2="380"/>
+        <line x1="500" y1="180" x2="550" y2="300"/><line x1="620" y1="220" x2="680" y2="340"/>
+        <line x1="700" y1="90" x2="750" y2="200"/><line x1="250" y1="350" x2="320" y2="320"/>
+        <line x1="320" y1="320" x2="420" y2="380"/><line x1="420" y1="380" x2="550" y2="300"/>
+        <line x1="550" y1="300" x2="680" y2="340"/><line x1="680" y1="340" x2="750" y2="200"/>
       </g>
       <g class="node-primary" fill="url(#nodeGradPrimary)" filter="url(#nodeGlow)">
         <circle cx="100" cy="150" r="6"/><circle cx="350" cy="130" r="7"/>
         <circle cx="600" cy="120" r="6"/><circle cx="380" cy="250" r="8"/>
+        <circle cx="320" cy="320" r="6"/>
       </g>
       <g class="node-secondary" fill="url(#nodeGradSecondary)" filter="url(#nodeGlow)">
         <circle cx="200" cy="100" r="4"/><circle cx="450" cy="80" r="4"/>
         <circle cx="700" cy="90" r="4"/><circle cx="180" cy="250" r="5"/>
         <circle cx="280" cy="200" r="5"/><circle cx="500" cy="180" r="5"/>
+        <circle cx="620" cy="220" r="4"/><circle cx="250" cy="350" r="5"/>
+        <circle cx="420" cy="380" r="5"/><circle cx="550" cy="300" r="4"/>
       </g>
     </svg>
   </div>
@@ -104,94 +115,197 @@
 
     <main id="main-content">
 
-      <!-- ==================== NEWS HEADER ==================== -->
+      <!-- ==================== HERO ==================== -->
       <section class="news-hero section">
         <div class="container">
           <div class="section-header">
             <h1>News</h1>
-            <p>Updates on AI, Data Protection & Cybersecurity</p>
+            <p>Updates & Developments on AI, Data Protection & Cybersecurity</p>
           </div>
         </div>
       </section>
 
-      <!-- ==================== NEWS GRID ==================== -->
-      <section class="news-section section">
+      <!-- ==================== NEWS TICKER ==================== -->
+      <section class="news-ticker-section section">
         <div class="container">
-          <div class="news-grid">
+          <h2 class="ticker-title">Latest Updates</h2>
+          <p class="ticker-subtitle">What's happening now</p>
 
-            <!-- Calendar 2026 -->
-            <article class="news-card news-card-featured">
-              <div class="news-card-badge">New</div>
-              <div class="news-card-meta">
-                <span class="news-date">January 2026</span>
-                <span class="news-category">Calendar</span>
-              </div>
-              <h2 class="news-card-title">
-                <a href="calendar-2026.html">Calendar 2026: AI, Digitalization & Cybersecurity</a>
-              </h2>
-              <p class="news-card-excerpt">
-                All important deadlines and dates for freelancers, small businesses and SMEs:
-                EU AI Act, NIS2, Data Act, Cyber Resilience Act and funding programs at a glance.
-              </p>
-              <div class="news-card-footer">
-                <span class="news-readtime">Overview</span>
-                <a href="calendar-2026.html" class="news-link">To Calendar →</a>
+          <div class="news-ticker">
+            <!-- Ticker Item 1 -->
+            <article class="ticker-item ticker-regulation">
+              <div class="ticker-date">Jan 6, 2026</div>
+              <div class="ticker-content">
+                <span class="ticker-tag">NIS2</span>
+                <h3>BSI Portal for NIS2 Registration Now Live</h3>
+                <p>The official reporting portal is now available. Affected companies have until March 6 to register.</p>
+                <a href="https://mip2.bsi.bund.de/de/info-nis2-registrierung/" class="ticker-link" target="_blank" rel="noopener">BSI Portal &rarr;</a>
               </div>
             </article>
 
-            <!-- Article 1: NIS2 -->
-            <article class="news-card">
-              <div class="news-card-meta">
-                <span class="news-date">December 21, 2025</span>
-                <span class="news-category">Cybersecurity</span>
+            <!-- Ticker Item 2 -->
+            <article class="ticker-item ticker-event">
+              <div class="ticker-date">Jan 8, 2026</div>
+              <div class="ticker-content">
+                <span class="ticker-tag ticker-tag-event">Event</span>
+                <h3>BSI Webinar: NIS-2 Kickoff</h3>
+                <p>Free online event "The new BSI Act and regulated businesses". Additional date: January 20.</p>
+                <a href="https://www.bsi.bund.de/DE/Service-Navi/Veranstaltungen/veranstaltungen_node.html" class="ticker-link" target="_blank" rel="noopener">Register &rarr;</a>
               </div>
-              <h2 class="news-card-title">
+            </article>
+
+            <!-- Ticker Item 3 -->
+            <article class="ticker-item ticker-regulation">
+              <div class="ticker-date">Dec 2025</div>
+              <div class="ticker-content">
+                <span class="ticker-tag">EU AI Act</span>
+                <h3>46 German Companies Request AI Act Delay</h3>
+                <p>Companies request 2-year extension. EU Commission considering up to 16-month postponement.</p>
+                <a href="https://www.ventum-consulting.com/news/eu-ai-act-2026/" class="ticker-link" target="_blank" rel="noopener">Learn more &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Ticker Item 4 -->
+            <article class="ticker-item ticker-funding">
+              <div class="ticker-date">Ongoing</div>
+              <div class="ticker-content">
+                <span class="ticker-tag ticker-tag-funding">Funding</span>
+                <h3>Mittelstand-Digital: Free Consulting for SMEs</h3>
+                <p>Regional digital centers offer free support for digitalization and AI adoption. Program ends late 2026.</p>
+                <a href="https://digitalzentrum-berlin.de/foerderung-digitalisierung" class="ticker-link" target="_blank" rel="noopener">Find centers &rarr;</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CALENDAR SECTION ==================== -->
+      <section class="calendar-link-section section">
+        <div class="container">
+          <div class="calendar-promo">
+            <div class="calendar-promo-content">
+              <span class="calendar-promo-badge">Deadlines & Dates</span>
+              <h2>Calendar 2026</h2>
+              <p>All important deadlines for businesses at a glance: NIS2 registration, EU AI Act, Data Act, Cyber Resilience Act and funding programs.</p>
+              <ul class="calendar-highlights">
+                <li><strong>March 6:</strong> NIS2 registration deadline</li>
+                <li><strong>August 2:</strong> EU AI Act High-Risk</li>
+                <li><strong>Dec 31:</strong> BAFA funding ends</li>
+              </ul>
+              <a href="calendar-2026.html" class="btn-calendar">To Calendar 2026 &rarr;</a>
+            </div>
+            <div class="calendar-promo-visual">
+              <div class="calendar-icon">
+                <span class="calendar-month">2026</span>
+                <span class="calendar-day">Q1–Q4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ARTICLES ==================== -->
+      <section class="news-articles-section section">
+        <div class="container">
+          <h2 class="articles-title">Analysis & Background</h2>
+          <p class="articles-subtitle">In-depth articles on current topics</p>
+
+          <div class="articles-grid">
+            <!-- Article 1: NIS2 -->
+            <article class="article-card article-card-featured">
+              <div class="article-card-meta">
+                <span class="article-date">December 21, 2025</span>
+                <span class="article-category">Cybersecurity</span>
+              </div>
+              <h3 class="article-card-title">
                 <a href="nis2-december-2025.html">NIS2 Is Here – What German Companies Need to Know Now</a>
-              </h2>
-              <p class="news-card-excerpt">
+              </h3>
+              <p class="article-card-excerpt">
                 The NIS2 Implementation Act came into force on December 6, 2025 – with no transition period.
                 Around 29,500 companies in Germany are affected and must act immediately.
               </p>
-              <div class="news-card-footer">
-                <span class="news-readtime">5 min read</span>
-                <a href="nis2-december-2025.html" class="news-link">Read more →</a>
+              <div class="article-card-footer">
+                <span class="article-readtime">5 min read</span>
+                <a href="nis2-december-2025.html" class="article-link">Read more &rarr;</a>
               </div>
             </article>
 
-            <!-- Article 2: AI Act (Coming Soon) -->
-            <article class="news-card news-card-upcoming">
-              <div class="news-card-badge badge-upcoming">Coming Soon</div>
-              <div class="news-card-meta">
-                <span class="news-date">January 2026</span>
-                <span class="news-category">AI Regulation</span>
+            <!-- Article 2: AI Act -->
+            <article class="article-card article-card-upcoming">
+              <div class="article-badge-upcoming">Coming Soon</div>
+              <div class="article-card-meta">
+                <span class="article-date">January 2026</span>
+                <span class="article-category">AI Regulation</span>
               </div>
-              <h2 class="news-card-title">EU AI Act – These Obligations Already Apply</h2>
-              <p class="news-card-excerpt">
+              <h3 class="article-card-title">EU AI Act – These Obligations Already Apply</h3>
+              <p class="article-card-excerpt">
                 AI Literacy requirement since February 2025, prohibited AI practices, GPAI rules since August 2025 –
                 and what's coming in 2026.
               </p>
-              <div class="news-card-footer">
-                <span class="news-readtime">Article in preparation</span>
-              </div>
             </article>
 
-            <!-- Article 3: ChatGPT GDPR (Coming Soon) -->
-            <article class="news-card news-card-upcoming">
-              <div class="news-card-badge badge-upcoming">Coming Soon</div>
-              <div class="news-card-meta">
-                <span class="news-date">January 2026</span>
-                <span class="news-category">Data Protection</span>
+            <!-- Article 3: ChatGPT GDPR -->
+            <article class="article-card article-card-upcoming">
+              <div class="article-badge-upcoming">Coming Soon</div>
+              <div class="article-card-meta">
+                <span class="article-date">January 2026</span>
+                <span class="article-category">Data Protection</span>
               </div>
-              <h2 class="news-card-title">ChatGPT in Business – GDPR-Compliant Usage</h2>
-              <p class="news-card-excerpt">
+              <h3 class="article-card-title">ChatGPT in Business – GDPR-Compliant Usage</h3>
+              <p class="article-card-excerpt">
                 Consumer vs. Business version, Data Processing Agreement (DPA), practical tips
                 and European alternatives.
               </p>
-              <div class="news-card-footer">
-                <span class="news-readtime">Article in preparation</span>
-              </div>
             </article>
+          </div>
+        </div>
+      </section>
 
+      <!-- ==================== EVENTS ==================== -->
+      <section class="events-section section">
+        <div class="container">
+          <h2 class="events-title">Events 2026</h2>
+          <div class="events-grid">
+            <div class="event-card">
+              <div class="event-date">
+                <span class="event-day">4–6</span>
+                <span class="event-month">Mar</span>
+              </div>
+              <div class="event-info">
+                <h3>Cyber Security Conference</h3>
+                <p>by Schwarz Digits</p>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <span class="event-day">15–16</span>
+                <span class="event-month">Apr</span>
+              </div>
+              <div class="event-info">
+                <h3>21st German IT Security Congress</h3>
+                <p>BSI (virtual)</p>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <span class="event-day">28–29</span>
+                <span class="event-month">Apr</span>
+              </div>
+              <div class="event-info">
+                <h3>Cybersecurity Summit</h3>
+                <p>Hamburg</p>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <span class="event-day">24–25</span>
+                <span class="event-month">Jun</span>
+              </div>
+              <div class="event-info">
+                <h3>Potsdam Conference for National Cybersecurity</h3>
+                <p>HPI Potsdam</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -207,7 +321,7 @@
             </p>
             <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
               <span>Start Report Now</span>
-              <span class="arrow">→</span>
+              <span class="arrow">&rarr;</span>
             </a>
           </div>
         </div>
@@ -219,7 +333,7 @@
     <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
-          <p class="footer-copyright">© 2025 KI-Sicherheit.jetzt</p>
+          <p class="footer-copyright">&copy; 2025 KI-Sicherheit.jetzt</p>
           <nav class="footer-links">
             <a href="../../impressum.html">Imprint</a>
             <a href="../../datenschutz.html">Privacy Policy</a>
