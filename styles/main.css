@@ -1387,3 +1387,343 @@ p {
     font-size: 1.1rem;
   }
 }
+
+/* ==================== CALENDAR / TIMELINE PAGE ==================== */
+
+/* Legend */
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--mk-navy-50);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 720px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-small);
+  color: var(--mk-text-secondary);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-regulation { background: var(--mk-navy-500); }
+.legend-funding { background: var(--mk-warm-500); }
+.legend-deadline { background: #dc2626; }
+
+/* Quarter Sections */
+.calendar-quarter {
+  margin-bottom: 3rem;
+  max-width: 720px;
+}
+
+.quarter-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--font-h2);
+  color: var(--mk-navy-700);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--mk-navy-200);
+  margin-bottom: 1.5rem;
+}
+
+.quarter-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--font-body);
+  font-weight: 400;
+  color: var(--mk-text-muted);
+  margin-left: 0.5rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--mk-navy-200), var(--mk-warm-200));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.25rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--mk-navy-500);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px var(--mk-navy-200);
+  transform: translateX(-5.5px);
+}
+
+.timeline-item.timeline-funding::before {
+  background: var(--mk-warm-500);
+  box-shadow: 0 0 0 2px var(--mk-warm-200);
+}
+
+.timeline-item.timeline-deadline::before {
+  background: #dc2626;
+  box-shadow: 0 0 0 2px #fecaca;
+}
+
+.timeline-date {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--font-small);
+  color: var(--mk-navy-600);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  background: #fff;
+  border: 1px solid var(--mk-border-light);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--mk-shadow-sm);
+}
+
+.timeline-content h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--font-body-lg);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--mk-text-primary);
+}
+
+.timeline-content p {
+  font-size: var(--font-body);
+  color: var(--mk-text-secondary);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.meta-tag {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+}
+
+.meta-regulation {
+  background: var(--mk-navy-100);
+  color: var(--mk-navy-700);
+}
+
+.meta-funding {
+  background: var(--mk-warm-100);
+  color: var(--mk-warm-600);
+}
+
+.meta-audience {
+  font-size: var(--font-xs);
+  color: var(--mk-text-muted);
+  padding: 0.25rem 0;
+}
+
+.timeline-warning {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: var(--font-small);
+  color: #991b1b;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-info {
+  background: var(--mk-navy-50);
+  border: 1px solid var(--mk-navy-100);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: var(--font-small);
+  color: var(--mk-navy-700);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-small);
+  font-weight: 500;
+  color: var(--mk-navy-600);
+  text-decoration: none;
+}
+
+.timeline-link:hover {
+  color: var(--mk-navy-400);
+  text-decoration: underline;
+}
+
+/* Outlook 2027 */
+.calendar-outlook {
+  max-width: 720px;
+  margin: 3rem 0;
+}
+
+.calendar-outlook h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 1.5rem;
+}
+
+.outlook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.outlook-card {
+  background: var(--mk-navy-50);
+  border: 1px solid var(--mk-navy-100);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.outlook-date {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--font-small);
+  color: var(--mk-navy-500);
+  margin-bottom: 0.5rem;
+}
+
+.outlook-card h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--font-body);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--mk-text-primary);
+}
+
+.outlook-card p {
+  font-size: var(--font-small);
+  color: var(--mk-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Funding Programs */
+.calendar-funding-programs {
+  max-width: 720px;
+  margin: 3rem 0;
+}
+
+.calendar-funding-programs h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 1.5rem;
+}
+
+.funding-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.funding-card {
+  background: #fff;
+  border: 1px solid var(--mk-border-light);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--mk-shadow-sm);
+}
+
+.funding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.funding-header h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--font-body);
+  font-weight: 600;
+  margin: 0;
+  color: var(--mk-text-primary);
+}
+
+.funding-amount {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--font-small);
+  color: var(--mk-warm-600);
+  background: var(--mk-warm-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.funding-card p {
+  font-size: var(--font-small);
+  color: var(--mk-text-secondary);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.funding-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: var(--font-xs);
+  color: var(--mk-text-muted);
+}
+
+/* Responsive Timeline */
+@media (max-width: 640px) {
+  .calendar-legend {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item::before {
+    left: -1.5rem;
+    width: 12px;
+    height: 12px;
+    transform: translateX(-4.5px);
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .outlook-grid {
+    grid-template-columns: 1fr;
+  }
+}
