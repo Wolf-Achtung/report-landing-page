@@ -133,66 +133,27 @@ body::after {
 
 .network-bg svg {
   position: absolute;
-  width: 150%;
-  height: 150%;
-  top: -25%;
-  left: -25%;
-  animation: networkFloat 60s ease-in-out infinite;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  transform-origin: center center;
+  animation: networkRotate 120s linear infinite;
 }
 
-/* Floating animation for the whole network */
-@keyframes networkFloat {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
+/* Smooth clockwise rotation */
+@keyframes networkRotate {
+  from {
+    transform: rotate(0deg);
   }
-  25% {
-    transform: translate(2%, 1%) rotate(0.5deg);
-  }
-  50% {
-    transform: translate(0%, 2%) rotate(0deg);
-  }
-  75% {
-    transform: translate(-2%, 1%) rotate(-0.5deg);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* Pulsing animation for nodes */
-@keyframes nodePulse {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.2);
-  }
-}
-
-/* Line glow animation */
-@keyframes lineGlow {
-  0%, 100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-/* Apply animations to SVG elements */
-.network-bg .node-primary {
-  animation: nodePulse 4s ease-in-out infinite;
-}
-
-.network-bg .node-secondary {
-  animation: nodePulse 5s ease-in-out infinite 1s;
-}
-
-.network-bg .node-tertiary {
-  animation: nodePulse 6s ease-in-out infinite 2s;
-}
-
+/* Subtle line opacity variation */
 .network-bg .connection-lines {
-  animation: lineGlow 8s ease-in-out infinite;
+  opacity: 0.5;
 }
 
 ::selection {
