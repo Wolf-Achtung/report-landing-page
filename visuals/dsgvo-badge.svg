@@ -1,12 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
-  <!-- DSGVO konform Badge -->
-  <g>
-    <!-- Lock Icon -->
-    <rect x="18" y="18" width="14" height="12" rx="2" fill="#0e1e36"/>
-    <path d="M21 18V14C21 11.2386 23.2386 9 26 9V9C28.7614 9 31 11.2386 31 14V18" stroke="#0e1e36" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <circle cx="25" cy="24" r="1.5" fill="white"/>
-    <rect x="24" y="24" width="2" height="3" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 100" fill="none">
+  <!-- DSGVO KONFORM Badge with EU Stars -->
+
+  <!-- EU Stars in semi-circle above text -->
+  <g fill="#5a6a7a">
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(-55, 5)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(-40, -2)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(-22, -6)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(0, -8)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(22, -6)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(40, -2)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(55, 5)"/>
   </g>
-  <!-- Text -->
-  <text x="48" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#0e1e36" letter-spacing="0.5">DSGVO konform</text>
+
+  <!-- DSGVO Text -->
+  <text x="90" y="58" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#4a7ab8" text-anchor="middle" letter-spacing="2">DSGVO</text>
+
+  <!-- KONFORM Text -->
+  <text x="90" y="80" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" fill="#5a6a7a" text-anchor="middle" letter-spacing="4">KONFORM</text>
+
+  <!-- Bottom stars -->
+  <g fill="#5a6a7a">
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(-45, 75) scale(0.8)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(-22, 78) scale(0.8)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(0, 80) scale(0.8)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(22, 78) scale(0.8)"/>
+    <polygon points="90,8 91.5,12.5 96,12.5 92.5,15.5 94,20 90,17 86,20 87.5,15.5 84,12.5 88.5,12.5" transform="translate(45, 75) scale(0.8)"/>
+  </g>
 </svg>
