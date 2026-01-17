@@ -128,7 +128,7 @@ body::after {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  opacity: 0.35;
+  opacity: 0.18;
 }
 
 .network-bg svg {
@@ -138,14 +138,14 @@ body::after {
   top: -50%;
   left: -50%;
   transform-origin: center center;
-  animation: networkRotate 180s linear infinite;
+  animation: networkRotate 360s linear infinite;
   /* GPU acceleration for smooth animation */
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* Smooth clockwise rotation */
+/* Smooth clockwise rotation - very slow and elegant */
 @keyframes networkRotate {
   from {
     transform: rotate(0deg) translateZ(0);
@@ -155,10 +155,10 @@ body::after {
   }
 }
 
-/* Connection lines - slightly thinner */
+/* Connection lines - subtle */
 .network-bg .connection-lines {
-  opacity: 0.6;
-  stroke-width: 0.8;
+  opacity: 0.4;
+  stroke-width: 0.6;
 }
 
 /* Nodes get solid background to cover lines */
