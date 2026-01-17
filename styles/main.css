@@ -2789,6 +2789,17 @@ p {
   flex-shrink: 0;
 }
 
+.trust-badge-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-badge-logo img {
+  flex-shrink: 0;
+  width: auto;
+}
+
 /* ==================== TESTIMONIALS ==================== */
 .testimonials-section {
   margin-top: 3rem;
