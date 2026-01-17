@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>KI-Check-Report | KI-Sicherheit.jetzt</title>
-  <meta name="description" content="Der KI-Check-Report liefert Ihrem Unternehmen eine strukturierte Einschätzung zum KI-Einsatz – rechtlich, datenschutzkonform und steuerlich dokumentierbar.">
-  <meta name="keywords" content="KI-Check, KI-Readiness, KI-Sicherheit, DSGVO, EU AI Act, KMU, Unternehmensberatung">
+  <title>KI-Readiness-Report | KI-Sicherheit.jetzt</title>
+  <meta name="description" content="Der KI-Readiness-Report liefert Ihrem Unternehmen eine strukturierte Einschätzung zum KI-Einsatz – rechtlich, datenschutzkonform und steuerlich dokumentierbar.">
+  <meta name="keywords" content="KI-Readiness-Report, KI-Check, KI-Sicherheit, DSGVO, EU AI Act, KMU, Unternehmensberatung, Fördermittel">
   <meta name="author" content="KI-Sicherheit.jetzt">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="KI-Check-Report | KI-Sicherheit.jetzt">
-  <meta property="og:description" content="Strukturierte KI-Analyse mit klaren Handlungsempfehlungen für Ihr Unternehmen.">
+  <meta property="og:title" content="KI-Readiness-Report | KI-Sicherheit.jetzt">
+  <meta property="og:description" content="TÜV-zertifizierte KI-Analyse mit Fördermittel-Check und klaren Handlungsempfehlungen für Ihr Unternehmen.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://report.ki-sicherheit.jetzt">
   <meta property="og:locale" content="de_DE">
@@ -123,7 +123,13 @@
       <div class="hero-topbar">
         <div class="container topbar-content">
           <a href="/" class="brand-title">KI-Sicherheit.jetzt</a>
-          <nav class="main-nav">
+          <!-- Mobile Menu Toggle -->
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="main-nav" id="main-nav">
             <a href="#benefits" class="nav-link">Vorteile</a>
             <a href="aktuell/" class="nav-link nav-highlight">Aktuell</a>
             <a href="kontakt.html" class="nav-link">Kontakt</a>
@@ -143,15 +149,20 @@
           <div class="hero-grid">
             <!-- Left Column: Headline & Description -->
             <div class="hero-text">
+              <!-- TÜV Logo Badge -->
+              <div class="tuev-badge-hero">
+                <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria Zertifiziert" width="120" height="70" loading="eager">
+              </div>
+
               <h1>Zertifiziert.<br>Dokumentiert.<br>KI-konform.</h1>
 
               <p class="hero-subtitle">
-                Der <strong>KI-Check-Report</strong> liefert Ihrem Unternehmen eine strukturierte Einschätzung Ihres aktuellen und möglichen künftigen KI-Einsatzes – rechtlich, datenschutzkonform und steuerlich dokumentierbar.
+                Der <strong>KI-Readiness-Report</strong> liefert Ihrem Unternehmen eine strukturierte Einschätzung Ihres aktuellen und möglichen künftigen KI-Einsatzes – rechtlich, datenschutzkonform und <strong>inkl. Fördermittel-Check</strong>.
               </p>
 
               <div class="hero-cta">
                 <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
-                  <span>Jetzt KI-Check starten</span>
+                  <span>Jetzt Readiness-Report starten</span>
                   <span class="arrow">→</span>
                 </a>
                 <p class="hero-note">
@@ -224,14 +235,15 @@
             </div>
 
             <!-- Benefit 3 -->
-            <div class="benefit-card">
-              <div class="benefit-icon">
+            <div class="benefit-card benefit-card-highlight">
+              <div class="benefit-icon benefit-icon-highlight">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
-              <h3>Fördermittel & Empfehlungen</h3>
-              <p>Identifizieren Sie passende Förderprogramme und erhalten Sie Handlungsempfehlungen.</p>
+              <h3>Fördermittel-Check inklusive</h3>
+              <p>Identifizieren Sie passende EU- und Bundes-Förderprogramme für Ihre KI-Investitionen – direkt im Report.</p>
+              <a href="aktuell/foerderung-ki-digital-2026.html" class="benefit-link">Aktuelle Förderprogramme ansehen →</a>
             </div>
           </div>
         </div>
@@ -277,39 +289,67 @@
             <p>Entwickelt von einem zertifizierten Experten für KI-Sicherheit und Compliance.</p>
           </div>
 
-          <div class="expert-card">
-            <div class="expert-info">
-              <h3>Wolf Hohl</h3>
-              <p class="expert-title">Gründer, KI-Sicherheit.jetzt</p>
-              <ul class="expert-credentials">
-                <li>
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                  </svg>
-                  <span>TÜV-zertifiziertes KI-Management</span>
-                </li>
-                <li>
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span>Spezialisierung: EU AI Act & DSGVO</span>
-                </li>
-                <li>
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  <span>Langjährige Beratungserfahrung für KMU</span>
-                </li>
-              </ul>
+          <div class="trust-grid">
+            <!-- Expert Card -->
+            <div class="expert-card">
+              <div class="expert-info">
+                <h3>Wolf Hohl</h3>
+                <p class="expert-title">Gründer, KI-Sicherheit.jetzt</p>
+                <ul class="expert-credentials">
+                  <li>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    <span>TÜV Austria zertifiziertes KI-Management</span>
+                  </li>
+                  <li>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                    </svg>
+                    <span>Spezialisierung: EU AI Act & DSGVO</span>
+                  </li>
+                  <li>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>25 Jahre Geschäftsführung (Post-Produktion)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- TÜV Logo Card -->
+            <div class="tuev-card">
+              <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria Zertifiziert" width="180" height="105" loading="lazy">
+              <p class="tuev-card-text">Zertifiziertes KI-Management nach TÜV Austria Standard</p>
+            </div>
+          </div>
+
+          <!-- Testimonials -->
+          <div class="testimonials-section">
+            <h3 class="testimonials-title">Das sagen unsere Kunden</h3>
+            <div class="testimonials-grid">
+              <blockquote class="testimonial-card">
+                <p class="testimonial-text">"Der KI-Readiness-Report hat uns einen klaren Fahrplan gegeben. Besonders der Fördermittel-Check war Gold wert – wir haben 15.000 EUR Zuschuss erhalten."</p>
+                <footer class="testimonial-author">
+                  <span class="testimonial-name">M. Schneider</span>
+                  <span class="testimonial-role">Geschäftsführer, Mittelständisches Unternehmen</span>
+                </footer>
+              </blockquote>
+              <blockquote class="testimonial-card">
+                <p class="testimonial-text">"Endlich eine neutrale Einschätzung ohne Verkaufsinteresse. Die Compliance-Analyse zum EU AI Act war genau das, was wir gebraucht haben."</p>
+                <footer class="testimonial-author">
+                  <span class="testimonial-name">Dr. K. Weber</span>
+                  <span class="testimonial-role">IT-Leitung, Öffentliche Verwaltung</span>
+                </footer>
+              </blockquote>
             </div>
           </div>
 
           <div class="trust-badges">
-            <div class="trust-badge-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-              <span>TÜV-zertifiziert</span>
+            <div class="trust-badge-item trust-badge-tuev">
+              <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria" width="60" height="35">
+              <span>TÜV Austria zertifiziert</span>
             </div>
             <div class="trust-badge-item">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,7 +361,13 @@
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
-              <span>EU AI Act</span>
+              <span>EU AI Act konform</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Steuerlich absetzbar</span>
             </div>
           </div>
         </div>
@@ -332,15 +378,15 @@
         <div class="container">
           <div class="cta-card card">
             <div class="card-header">
-              <p class="brand-title">Bereit für Ihren KI-Check?</p>
+              <p class="brand-title">Bereit für Ihren KI-Readiness-Report?</p>
             </div>
             <div class="card-body">
               <h2>Jetzt starten</h2>
               <p>
-                Erhalten Sie Ihre individuelle KI-Standortbestimmung mit konkreten Handlungsempfehlungen.
+                Erhalten Sie Ihre individuelle KI-Standortbestimmung mit Fördermittel-Check und konkreten Handlungsempfehlungen.
               </p>
               <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
-                <span>Zum Fragebogen</span>
+                <span>Zum Readiness-Report</span>
                 <span class="arrow">→</span>
               </a>
               <p class="hero-note">

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" fill="none">
+  <!-- TÜV Austria Zertifiziert Logo - Accurate Recreation -->
+
+  <!-- TÜ Letters -->
+  <g fill="#1a1a1a">
+    <!-- T -->
+    <polygon points="15,20 15,32 35,32 35,70 50,70 50,32 70,32 70,20"/>
+    <!-- Ü body -->
+    <path d="M80,20 L80,52 C80,65 90,72 105,72 C120,72 130,65 130,52 L130,20 L115,20 L115,50 C115,56 111,60 105,60 C99,60 95,56 95,50 L95,20 Z"/>
+    <!-- Ü dots -->
+    <circle cx="92" cy="10" r="4"/>
+    <circle cx="118" cy="10" r="4"/>
+  </g>
+
+  <!-- V as Red Checkmark -->
+  <g fill="#e31937">
+    <polygon points="135,20 155,58 175,20 160,20 155,32 150,20"/>
+    <polygon points="155,58 175,20 190,20 220,72 200,72 175,28"/>
+  </g>
+
+  <!-- AUSTRIA text -->
+  <text x="120" y="95" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#e31937" text-anchor="middle" letter-spacing="4">AUSTRIA</text>
+
+  <!-- ZERTIFIZIERT text -->
+  <text x="120" y="120" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">ZERTIFIZIERT</text>
+</svg>
