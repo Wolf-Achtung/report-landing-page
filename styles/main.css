@@ -3105,3 +3105,41 @@ p {
   line-height: 1.6;
   margin: 0;
 }
+
+/* ==================== QUICK CHECK TEASER ==================== */
+.quick-check-section {
+  background: linear-gradient(135deg, var(--mk-navy-50) 0%, var(--mk-warm-100) 50%, var(--mk-navy-50) 100%);
+  border-top: 1px solid var(--mk-border-light);
+  border-bottom: 1px solid var(--mk-border-light);
+}
+
+.quick-check-content {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quick-check-content h2 {
+  font-size: var(--font-h1);
+  font-weight: 700;
+  color: var(--mk-navy-900);
+  margin: 0 0 1rem 0;
+}
+
+.quick-check-content > p:first-of-type {
+  font-size: var(--font-body-lg);
+  color: var(--mk-text-secondary);
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+}
+
+.quick-check-content .btn {
+  margin: 0 auto;
+}
+
+.quick-check-trust {
+  font-size: var(--font-small);
+  color: var(--mk-text-muted);
+  margin-top: 1.25rem;
+  letter-spacing: 0.02em;
+}
