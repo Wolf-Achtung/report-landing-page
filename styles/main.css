@@ -3042,3 +3042,66 @@ p {
   color: var(--mk-text-muted);
   margin: 0;
 }
+
+/* ==================== SERVICES SECTION ==================== */
+.services-section {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.service-card {
+  background: var(--mk-bg-card);
+  border: 1px solid var(--mk-border-light);
+  border-radius: 0.875rem;
+  padding: 2rem;
+  transition: all var(--mk-transition-base);
+  box-shadow: var(--mk-shadow-sm);
+}
+
+.service-card:hover {
+  box-shadow: var(--mk-shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--mk-warm-300);
+}
+
+.service-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--mk-navy-50) 0%, var(--mk-navy-100) 100%);
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--mk-navy-600);
+}
+
+.service-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: var(--font-h3);
+  font-weight: 600;
+  color: var(--mk-text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.service-card p {
+  font-size: var(--font-body);
+  color: var(--mk-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
