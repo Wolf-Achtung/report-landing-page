@@ -87,6 +87,9 @@
     }
   }
   </script>
+
+  <!-- Analytics (Plausible.io – DSGVO-konform, kein Cookie-Banner nötig) -->
+  <script defer data-domain="report.ki-sicherheit.jetzt" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -222,11 +225,11 @@
               </p>
 
               <div class="hero-cta hero-cta-dual">
-                <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+                <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Hero-Primary')">
                   <span>Readiness-Report starten</span>
                   <span class="arrow">→</span>
                 </a>
-                <a href="#produkte" class="btn btn-secondary">
+                <a href="#produkte" class="btn btn-secondary" onclick="plausible('CTA-Hero-Secondary')">
                   <span>Leistungen & Preise</span>
                   <span class="arrow">→</span>
                 </a>
@@ -376,7 +379,7 @@
           <div class="quick-check-content">
             <h2>Wo steht Ihr Unternehmen?</h2>
             <p>In ca. 5 Minuten erhalten Sie eine strukturierte Einschätzung Ihres KI-Einsatzes — inklusive Risikoanalyse, Compliance-Check und Fördermittel-Scan.</p>
-            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Schnellcheck')">
               <span>Jetzt Schnell-Check starten</span>
               <span class="arrow">→</span>
             </a>
@@ -609,7 +612,7 @@
               <p>
                 Erhalten Sie Ihre individuelle KI-Standortbestimmung mit Fördermittel-Check und konkreten Handlungsempfehlungen.
               </p>
-              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Bottom')">
                 <span>Zum Readiness-Report</span>
                 <span class="arrow">→</span>
               </a>
