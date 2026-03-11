@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1e36"/>
+      <stop offset="100%" stop-color="#1a3a5c"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="950" cy="150" r="200" fill="rgba(42,106,158,0.15)"/>
+  <circle cx="1050" cy="450" r="120" fill="rgba(42,106,158,0.1)"/>
+  <!-- Main title -->
+  <text x="80" y="240" font-family="Georgia, serif" font-size="64" font-weight="700" fill="#ffffff">KI-Readiness Report</text>
+  <!-- Subline -->
+  <text x="80" y="320" font-family="Arial, sans-serif" font-size="26" fill="#c5ddf0">Risikoanalyse · Compliance-Check · Fördermittel-Scan</text>
+  <!-- Divider line -->
+  <rect x="80" y="360" width="120" height="3" rx="1.5" fill="#4a8cc4"/>
+  <!-- TÜV badge text -->
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="20" fill="#7eb3dc">TÜV Austria zertifiziert · DSGVO-konform · EU AI Act ready</text>
+  <!-- URL -->
+  <text x="80" y="560" font-family="monospace" font-size="22" fill="#4a8cc4">report.ki-sicherheit.jetzt</text>
+  <!-- Shield icon (simplified) -->
+  <g transform="translate(1000, 380)" fill="none" stroke="#4a8cc4" stroke-width="2.5">
+    <path d="M40 5 L75 20 L75 45 C75 65 60 80 40 90 C20 80 5 65 5 45 L5 20 Z" fill="rgba(74,140,196,0.1)"/>
+    <polyline points="22 45 35 58 58 35" stroke="#059669" stroke-width="3"/>
+  </g>
+</svg>

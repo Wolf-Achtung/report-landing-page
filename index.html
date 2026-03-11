@@ -7,7 +7,7 @@
   <!-- SEO Meta Tags -->
   <title>KI-Readiness-Report | KI-Sicherheit.jetzt</title>
   <meta name="description" content="Der KI-Readiness-Report liefert Ihrem Unternehmen eine strukturierte Einschätzung zum KI-Einsatz – rechtlich, datenschutzkonform und steuerlich dokumentierbar.">
-  <meta name="keywords" content="KI-Readiness-Report, KI-Check, KI-Sicherheit, DSGVO, EU AI Act, KMU, Unternehmensberatung, Fördermittel">
+  <meta name="keywords" content="KI-Readiness-Report, KI-Readiness Report, KI-Sicherheit, DSGVO, EU AI Act, KMU, Unternehmensberatung, Fördermittel">
   <meta name="author" content="KI-Sicherheit.jetzt">
   <meta name="robots" content="index, follow">
 
@@ -17,6 +17,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://report.ki-sicherheit.jetzt">
   <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://report.ki-sicherheit.jetzt/visuals/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KI-Readiness-Report | KI-Sicherheit.jetzt">
+  <meta name="twitter:description" content="TÜV-zertifizierte KI-Analyse mit Fördermittel-Check und Handlungsempfehlungen.">
+  <meta name="twitter:image" content="https://report.ki-sicherheit.jetzt/visuals/og-image.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://report.ki-sicherheit.jetzt/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
@@ -28,6 +38,58 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "KI-Sicherheit.jetzt",
+    "description": "TÜV-zertifizierte KI-Readiness-Analyse für KMU — Risikoanalyse, Compliance-Check und Fördermittel-Scan.",
+    "url": "https://report.ki-sicherheit.jetzt",
+    "logo": "https://report.ki-sicherheit.jetzt/visuals/tuev-austria-logo.svg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Greifswalder Str. 224a",
+      "addressLocality": "Berlin",
+      "postalCode": "10405",
+      "addressCountry": "DE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Wolf Hohl",
+      "jobTitle": "TÜV-zertifizierter KI-Manager"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Germany"
+    },
+    "knowsLanguage": ["de", "en"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "KI-Readiness Reports",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "KI-Readiness Report",
+          "description": "Strukturierte KI-Einschätzung mit Risikoanalyse, Compliance-Check und Fördermittel-Scan",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        {
+          "@type": "Offer",
+          "name": "KI-Strategiebericht",
+          "description": "Vollständige KI-Strategie mit Budget-Kalkulation, ROI-Analyse und Phasen-Plan",
+          "price": "149",
+          "priceCurrency": "EUR"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Analytics (Plausible.io – DSGVO-konform, kein Cookie-Banner nötig) -->
+  <script defer data-domain="report.ki-sicherheit.jetzt" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -131,6 +193,7 @@
           </button>
           <nav class="main-nav" id="main-nav">
             <a href="#benefits" class="nav-link">Vorteile</a>
+            <a href="#produkte" class="nav-link">Produkte & Preise</a>
             <a href="#services" class="nav-link">Leistungen</a>
             <a href="aktuell/" class="nav-link nav-highlight">Aktuell</a>
             <a href="kontakt.html" class="nav-link">Kontakt</a>
@@ -155,19 +218,19 @@
                 <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria Zertifiziert" width="120" height="70" loading="eager">
               </div>
 
-              <h1>KI-konform in 15 Minuten.</h1>
+              <h1>Ihr KI-Fahrplan in unter 10 Minuten.</h1>
 
               <p class="hero-subtitle">
                 Ihr <strong>KI-Readiness-Report</strong> mit TÜV-zertifizierter Methodik – Risikoanalyse, Compliance-Check und Fördermittel-Scan in einem Dokument.
               </p>
 
               <div class="hero-cta hero-cta-dual">
-                <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+                <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Hero-Primary')">
                   <span>Readiness-Report starten</span>
                   <span class="arrow">→</span>
                 </a>
-                <a href="#schnell-check" class="btn btn-secondary">
-                  <span>Kostenloser Schnell-Check</span>
+                <a href="#produkte" class="btn btn-secondary" onclick="plausible('CTA-Hero-Secondary')">
+                  <span>Leistungen & Preise</span>
                   <span class="arrow">→</span>
                 </a>
               </div>
@@ -315,12 +378,105 @@
         <div class="container">
           <div class="quick-check-content">
             <h2>Wo steht Ihr Unternehmen?</h2>
-            <p>In 3 Minuten erfahren Sie, wie gut Ihr KI-Einsatz auf EU AI Act und DSGVO vorbereitet ist – anonym und kostenfrei.</p>
-            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+            <p>In ca. 5 Minuten erhalten Sie eine strukturierte Einschätzung Ihres KI-Einsatzes — inklusive Risikoanalyse, Compliance-Check und Fördermittel-Scan.</p>
+            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Schnellcheck')">
               <span>Jetzt Schnell-Check starten</span>
               <span class="arrow">→</span>
             </a>
-            <p class="quick-check-trust">Keine Anmeldung · Keine Datenspeicherung · Sofortige Auswertung</p>
+            <p class="quick-check-trust">Kurze Registrierung · DSGVO-konform · Report per E-Mail</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PRICING SECTION ==================== -->
+      <section id="produkte" class="pricing-section section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Drei Reports. Ein Ziel: KI-Klarheit.</h2>
+            <p>Von der Standortbestimmung bis zur vollständigen KI-Strategie — wählen Sie die passende Tiefe.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Report 1 -->
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <span class="pricing-badge">Einstieg</span>
+                <h3>KI-Readiness Report</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">Kostenlos</span>
+                  <span class="price-note">in der Einführungsphase</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>KI-Readiness-Score (0–100)</li>
+                <li>Risikoanalyse & Compliance-Check</li>
+                <li>EU AI Act Einordnung</li>
+                <li>Vendor-Audit für Ihre KI-Tools</li>
+                <li>Quick Wins & 90-Tage-Roadmap</li>
+                <li>Business Case mit ROI-Berechnung</li>
+                <li>Fördermittel-Check</li>
+                <li>30-Tage KI-Challenge</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>18 Seiten</strong> · Report per E-Mail in ~5 Min
+              </div>
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary pricing-cta">
+                <span>Jetzt starten</span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
+
+            <!-- Report 2 -->
+            <div class="pricing-card pricing-card-included">
+              <div class="pricing-header">
+                <span class="pricing-badge pricing-badge-highlight">Inklusive</span>
+                <h3>KI-Potenzial-Analyse</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">Inklusive</span>
+                  <span class="price-note">automatisch mit Report 1</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>Strategischer Bruchpunkt-Analyse</li>
+                <li>Detaillierter 90-Tage-Implementierungsplan</li>
+                <li>Business Case mit Sensitivitätsanalyse</li>
+                <li>3-Jahres-Projektion</li>
+                <li>Top-5-Risikobewertung & Absicherung</li>
+                <li>Konkrete 7-Tage-Aktionen</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>8 Seiten</strong> · Separate E-Mail, wenige Min nach Report 1
+              </div>
+              <p class="pricing-included-note">Wird automatisch auf Basis Ihrer Report-1-Daten erstellt — keine erneute Befragung.</p>
+            </div>
+
+            <!-- Report 3 -->
+            <div class="pricing-card pricing-card-premium">
+              <div class="pricing-header">
+                <span class="pricing-badge pricing-badge-premium">Premium</span>
+                <h3>KI-Strategiebericht</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">ab 149 €</span>
+                  <span class="price-note">zzgl. MwSt. · steuerlich absetzbar</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>Vollständige KI-Strategie für 12 Monate</li>
+                <li>Detaillierte Budget-Kalkulation (3 Szenarien)</li>
+                <li>ROI-Analyse mit Break-Even-Berechnung</li>
+                <li>Phasen-Plan mit Meilensteinen</li>
+                <li>Regionale Fördermittel-Recherche</li>
+                <li>Software-Stack-Empfehlungen</li>
+                <li>Branchenspezifische Benchmarks</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>15+ Seiten</strong> · Report per E-Mail in ~8 Min
+              </div>
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-premium pricing-cta">
+                <span>Demnächst verfügbar</span>
+              </a>
+              <p class="pricing-note-small">Payment-Integration in Vorbereitung</p>
+            </div>
           </div>
         </div>
       </section>
@@ -388,7 +544,7 @@
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
-                    <span>25 Jahre Geschäftsführung (Post-Produktion)</span>
+                    <span>30+ Jahre Marketing, Kommunikation & Unternehmensführung</span>
                   </li>
                 </ul>
               </div>
@@ -403,20 +559,22 @@
 
           <!-- Testimonials -->
           <div class="testimonials-section">
-            <h3 class="testimonials-title">Das sagen unsere Kunden</h3>
+            <h3 class="testimonials-title">Ergebnisse aus der Praxis</h3>
             <div class="testimonials-grid">
               <blockquote class="testimonial-card">
-                <p class="testimonial-text">"Der KI-Readiness-Report hat uns einen klaren Fahrplan gegeben. Besonders der Fördermittel-Check war Gold wert – wir haben 15.000 EUR Zuschuss erhalten."</p>
+                <p class="testimonial-text">Solo-Berater, Beratung & Dienstleistungen:<br>
+                  <strong>Score 77/100</strong> · 20h Zeitersparnis/Monat · ROI 70% · Amortisation in 7 Monaten</p>
                 <footer class="testimonial-author">
-                  <span class="testimonial-name">M. Schneider</span>
-                  <span class="testimonial-role">Geschäftsführer, Mittelständisches Unternehmen</span>
+                  <span class="testimonial-name">Anonymisiertes Assessment</span>
+                  <span class="testimonial-role">März 2026</span>
                 </footer>
               </blockquote>
               <blockquote class="testimonial-card">
-                <p class="testimonial-text">"Endlich eine neutrale Einschätzung ohne Verkaufsinteresse. Die Compliance-Analyse zum EU AI Act war genau das, was wir gebraucht haben."</p>
+                <p class="testimonial-text">KMU, 50–249 Mitarbeiter, IT-Dienstleistungen:<br>
+                  <strong>Score 68/100</strong> · 35h Zeitersparnis/Monat · ROI 185% · Amortisation in 5 Monaten</p>
                 <footer class="testimonial-author">
-                  <span class="testimonial-name">Dr. K. Weber</span>
-                  <span class="testimonial-role">IT-Leitung, Öffentliche Verwaltung</span>
+                  <span class="testimonial-name">Anonymisiertes Assessment</span>
+                  <span class="testimonial-role">März 2026</span>
                 </footer>
               </blockquote>
             </div>
@@ -454,12 +612,12 @@
               <p>
                 Erhalten Sie Ihre individuelle KI-Standortbestimmung mit Fördermittel-Check und konkreten Handlungsempfehlungen.
               </p>
-              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener">
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Bottom')">
                 <span>Zum Readiness-Report</span>
                 <span class="arrow">→</span>
               </a>
               <p class="hero-note">
-                Testphase: <a href="kontakt.html">Passwort anfordern</a>
+                Keine Verpflichtung · Ergebnis sofort per E-Mail · Steuerlich absetzbar
               </p>
             </div>
           </div>
