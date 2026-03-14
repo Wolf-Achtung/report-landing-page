@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   // Mobile navigation
   initMobileNav();
+  // Urgency banner rotation
+  initUrgencyBanner();
 });
 
 /**
@@ -65,6 +67,20 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+/**
+ * Urgency Banner - rotating statements
+ */
+function initUrgencyBanner() {
+  var statements = document.querySelectorAll('.urgency-statement');
+  if (statements.length < 2) return;
+  var current = 0;
+  setInterval(function() {
+    statements[current].classList.remove('urgency-active');
+    current = (current + 1) % statements.length;
+    statements[current].classList.add('urgency-active');
+  }, 5000);
 }
 
 /**
