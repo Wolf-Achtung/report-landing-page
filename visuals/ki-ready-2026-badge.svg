@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <!-- KI-READY 2026 Badge - Shield Design -->
+  <!-- Background Shield -->
+  <path d="M100 8 L180 30 L180 70 Q180 105 100 115 Q20 105 20 70 L20 30 Z" fill="#1e4a6f"/>
+  <path d="M100 14 L174 34 L174 68 Q174 100 100 109 Q26 100 26 68 L26 34 Z" fill="#132744" stroke="#4a8cc4" stroke-width="1.5"/>
+
+  <!-- Inner Glow Line -->
+  <path d="M100 20 L168 38 L168 66 Q168 95 100 103 Q32 95 32 66 L32 38 Z" fill="none" stroke="rgba(201,162,39,0.3)" stroke-width="0.75"/>
+
+  <!-- Checkmark Circle -->
+  <circle cx="100" cy="48" r="16" fill="none" stroke="#c9a227" stroke-width="2"/>
+  <polyline points="91,48 97,54 110,42" fill="none" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Text: KI-READY -->
+  <text x="100" y="80" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle" letter-spacing="2">KI-READY</text>
+
+  <!-- Text: 2026 -->
+  <text x="100" y="96" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#c9a227" text-anchor="middle" letter-spacing="1">2026</text>
+</svg>
