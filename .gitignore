@@ -1,0 +1,15 @@
+# Internal documentation — not for public deployment
+ANALYSE-REPORT.md
+*.draft.md
+BRIEFING*.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

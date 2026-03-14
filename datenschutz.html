@@ -108,7 +108,7 @@
                   <tr>
                     <td><span class="data-level data-level-public">Öffentlich</span></td>
                     <td>Branchendaten, Markttrends, Benchmarks, Förderprogramme</td>
-                    <td>Alle KI-Modelle (GPT, Claude, Perplexity, Tavily)</td>
+                    <td>Alle KI-Modelle (mit AVV/DPA)</td>
                   </tr>
                   <tr>
                     <td><span class="data-level data-level-internal">Intern</span></td>
@@ -118,60 +118,55 @@
                   <tr>
                     <td><span class="data-level data-level-confidential">Vertraulich</span></td>
                     <td>E-Mail, Kundencode, Report-PDFs, Freitexte</td>
-                    <td>Nur Backend (Railway/EU). Kein Transfer an KI-Modelle. Verschlüsselt.</td>
+                    <td>Nur Backend (EU-Infrastruktur). Kein Transfer an KI-Modelle. Verschlüsselt.</td>
                   </tr>
                 </tbody>
               </table>
 
-              <h3>Eingesetzte KI-Modelle</h3>
+              <h3>Eingesetzte KI-Anbieter</h3>
               <table class="legal-table">
                 <thead>
                   <tr>
-                    <th>Modell</th>
                     <th>Anbieter</th>
-                    <th>Einsatz</th>
+                    <th>Sitz</th>
                     <th>AVV/DPA</th>
-                    <th>Training</th>
+                    <th>Training mit Ihren Daten</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>GPT-4o</td>
-                    <td>OpenAI (US)</td>
-                    <td>Sektions-Generierung</td>
+                    <td>OpenAI</td>
+                    <td>USA</td>
                     <td>Ja</td>
-                    <td>Opt-out aktiv</td>
+                    <td>Nein (Opt-out aktiv)</td>
                   </tr>
                   <tr>
-                    <td>Claude</td>
-                    <td>Anthropic (US)</td>
-                    <td>Executive Summary</td>
+                    <td>Anthropic</td>
+                    <td>USA</td>
                     <td>Ja</td>
-                    <td>Opt-out aktiv</td>
+                    <td>Nein (Opt-out aktiv)</td>
                   </tr>
                   <tr>
                     <td>Perplexity</td>
-                    <td>Perplexity (US)</td>
-                    <td>Live-Recherche</td>
+                    <td>USA</td>
                     <td>In Prüfung</td>
-                    <td>Kein Training</td>
+                    <td>Nein</td>
                   </tr>
                   <tr>
                     <td>Tavily</td>
-                    <td>Tavily (US)</td>
-                    <td>Marktdaten</td>
+                    <td>USA</td>
                     <td>In Prüfung</td>
-                    <td>Kein Training</td>
+                    <td>Nein</td>
                   </tr>
                 </tbody>
               </table>
 
-              <h3>Qualitätssicherung gegen Halluzinationen</h3>
+              <h3>Qualitätssicherung</h3>
               <ul class="legal-list">
-                <li><strong>Deterministische Berechnung:</strong> ROI, Payback und Scores werden vom Backend berechnet, nie von KI.</li>
-                <li><strong>Prompt-Injection-Schutz:</strong> Strikte Anweisungen verhindern eigene Berechnungen durch KI-Modelle.</li>
-                <li><strong>Automatische Validierung:</strong> PLATIN+++-Validator prüft Konsistenz und Plausibilität aller Report-Sektionen.</li>
-                <li><strong>Renderer Safety Net:</strong> Letzte Prüfschicht vor PDF-Erstellung erkennt Abweichungen und Anomalien.</li>
+                <li><strong>Finanzzahlen:</strong> Mathematisch berechnet, nicht KI-generiert.</li>
+                <li><strong>Schutzmaßnahmen:</strong> Technische Vorkehrungen verhindern fehlerhafte KI-Ausgaben.</li>
+                <li><strong>Automatische Validierung:</strong> Mehrstufiges Prüfverfahren sichert Konsistenz und Plausibilität aller Report-Sektionen.</li>
+                <li><strong>Abschlussvalidierung:</strong> Letzte Prüfschicht vor Dokumenterstellung erkennt Abweichungen.</li>
               </ul>
             </section>
 
