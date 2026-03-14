@@ -3031,6 +3031,64 @@ p {
   margin-bottom: 0.5rem;
 }
 
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: var(--font-small);
+}
+
+.legal-table th,
+.legal-table td {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--mk-border-light);
+  color: var(--mk-text-secondary);
+}
+
+.legal-table th {
+  font-weight: 600;
+  color: var(--mk-navy-700);
+  background: var(--mk-navy-50);
+  white-space: nowrap;
+}
+
+.legal-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-level {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.data-level-public {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.data-level-internal {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.data-level-confidential {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (max-width: 640px) {
+  .legal-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 .legal-btn {
   display: inline-flex;
   align-items: center;
