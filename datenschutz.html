@@ -82,10 +82,111 @@
             <section class="legal-section">
               <h2>Datenverarbeitung durch KI-Tools</h2>
               <p>
-                Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT).
-                Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Es werden ausschließlich die von Ihnen
-                angegebenen Informationen übermittelt. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.
+                Zur Erstellung Ihres KI-Readiness-Reports verarbeiten wir Ihre Angaben mittels mehrerer Sprachmodelle.
+                Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Es werden ausschließlich anonymisierte
+                Branchenprofile und Fragebogen-Scores übermittelt. Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.
               </p>
+              <p>
+                <strong>Wir senden niemals Ihren Unternehmensnamen, Ihre E-Mail oder personenbezogene Daten an KI-Modelle.</strong>
+                Die Verarbeitung erfolgt über anonymisierte Branchenprofile und Fragebogen-Scores.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2>So verarbeiten wir Ihre Daten bei der KI-Analyse</h2>
+
+              <h3>Datenklassifikation — Drei Stufen</h3>
+              <table class="legal-table">
+                <thead>
+                  <tr>
+                    <th>Stufe</th>
+                    <th>Definition</th>
+                    <th>Erlaubte Verarbeitung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="data-level data-level-public">Öffentlich</span></td>
+                    <td>Branchendaten, Markttrends, Benchmarks, Förderprogramme</td>
+                    <td>Alle KI-Modelle (GPT, Claude, Perplexity, Tavily)</td>
+                  </tr>
+                  <tr>
+                    <td><span class="data-level data-level-internal">Intern</span></td>
+                    <td>Fragebogenantworten (Branche, Größe, Scores). Keine personenbezogenen Daten.</td>
+                    <td>KI-Modelle mit AVV/DPA. Anonymisiert. Kein Klartext-Unternehmensname an LLMs.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="data-level data-level-confidential">Vertraulich</span></td>
+                    <td>E-Mail, Kundencode, Report-PDFs, Freitexte</td>
+                    <td>Nur Backend (Railway/EU). Kein Transfer an KI-Modelle. Verschlüsselt.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Eingesetzte KI-Modelle</h3>
+              <table class="legal-table">
+                <thead>
+                  <tr>
+                    <th>Modell</th>
+                    <th>Anbieter</th>
+                    <th>Einsatz</th>
+                    <th>AVV/DPA</th>
+                    <th>Training</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GPT-4o</td>
+                    <td>OpenAI (US)</td>
+                    <td>Sektions-Generierung</td>
+                    <td>Ja</td>
+                    <td>Opt-out aktiv</td>
+                  </tr>
+                  <tr>
+                    <td>Claude</td>
+                    <td>Anthropic (US)</td>
+                    <td>Executive Summary</td>
+                    <td>Ja</td>
+                    <td>Opt-out aktiv</td>
+                  </tr>
+                  <tr>
+                    <td>Perplexity</td>
+                    <td>Perplexity (US)</td>
+                    <td>Live-Recherche</td>
+                    <td>In Prüfung</td>
+                    <td>Kein Training</td>
+                  </tr>
+                  <tr>
+                    <td>Tavily</td>
+                    <td>Tavily (US)</td>
+                    <td>Marktdaten</td>
+                    <td>In Prüfung</td>
+                    <td>Kein Training</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Qualitätssicherung gegen Halluzinationen</h3>
+              <ul class="legal-list">
+                <li><strong>Deterministische Berechnung:</strong> ROI, Payback und Scores werden vom Backend berechnet, nie von KI.</li>
+                <li><strong>Prompt-Injection-Schutz:</strong> Strikte Anweisungen verhindern eigene Berechnungen durch KI-Modelle.</li>
+                <li><strong>Automatische Validierung:</strong> PLATIN+++-Validator prüft Konsistenz und Plausibilität aller Report-Sektionen.</li>
+                <li><strong>Renderer Safety Net:</strong> Letzte Prüfschicht vor PDF-Erstellung erkennt Abweichungen und Anomalien.</li>
+              </ul>
+            </section>
+
+            <section class="legal-section">
+              <h2>Governance-Leitfaden</h2>
+              <p>
+                Unseren vollständigen Governance-Leitfaden mit Details zur Datenklassifikation,
+                KI-Modell-Übersicht und Qualitätssicherung können Sie hier herunterladen:
+              </p>
+              <a href="governance-leitfaden.pdf" class="legal-btn" download>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Governance-Leitfaden herunterladen (PDF)
+              </a>
             </section>
 
             <section class="legal-section">
