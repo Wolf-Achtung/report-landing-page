@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initMobileNav();
   // Urgency banner rotation
   initUrgencyBanner();
+  // Waitlist form
+  initWaitlistForm();
 });
 
 /**
@@ -81,6 +83,42 @@ function initUrgencyBanner() {
     current = (current + 1) % statements.length;
     statements[current].classList.add('urgency-active');
   }, 5000);
+}
+
+/**
+ * Waitlist form submission
+ */
+function initWaitlistForm() {
+  var form = document.getElementById('waitlist-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = document.getElementById('waitlist_email').value;
+    var statusEl = document.getElementById('waitlist-status');
+
+    fetch('https://api-ki-backend-neu-production.up.railway.app/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        type: 'waitlist_training',
+        timestamp: new Date().toISOString()
+      })
+    })
+    .then(function(res) {
+      if (res.ok) {
+        statusEl.textContent = '✅ Eingetragen! Wir melden uns.';
+        form.reset();
+        if (typeof plausible === 'function') plausible('Waitlist-Training');
+      } else {
+        throw new Error();
+      }
+    })
+    .catch(function() {
+      statusEl.textContent = '❗ Fehler — bitte später nochmal versuchen.';
+    });
+  });
 }
 
 /**

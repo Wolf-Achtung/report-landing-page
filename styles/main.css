@@ -3755,6 +3755,168 @@ p {
   margin: 0;
 }
 
+/* ==================== FUNDING BANNER ==================== */
+.funding-banner {
+  background: linear-gradient(135deg, #0F1D35 0%, #1a365d 100%);
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.funding-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.funding-banner-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.funding-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  color: #e8f2fa;
+}
+
+.funding-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.funding-item strong {
+  display: block;
+  color: var(--mk-warm-300);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.funding-item p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(232, 242, 250, 0.85);
+}
+
+@media (max-width: 768px) {
+  .funding-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ==================== TRAINING TEASER SECTION ==================== */
+.training-teaser-section {
+  background: rgba(255,255,255,0.5);
+}
+
+.training-teaser-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.training-teaser-content h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--font-h3);
+  color: var(--mk-text-primary);
+  margin: 0 0 1.25rem;
+}
+
+.training-teaser-note {
+  margin-top: 1.25rem;
+  font-size: var(--font-small);
+  color: var(--mk-text-muted);
+  font-style: italic;
+}
+
+.signup-card {
+  background: var(--mk-bg-card);
+  border: 2px solid var(--mk-navy-600);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.signup-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--mk-text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.signup-card > p {
+  font-size: var(--font-small);
+  color: var(--mk-text-secondary);
+  margin: 0 0 1.25rem;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.waitlist-form input[type="email"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--mk-border-medium);
+  border-radius: 8px;
+  font-family: inherit;
+  transition: border-color var(--mk-transition-fast);
+}
+
+.waitlist-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--mk-navy-400);
+  box-shadow: 0 0 0 3px rgba(42, 106, 158, 0.15);
+}
+
+.waitlist-status {
+  font-size: var(--font-small);
+  margin: 0.25rem 0 0;
+  min-height: 1.25em;
+}
+
+.waitlist-note {
+  font-size: var(--font-xs);
+  color: var(--mk-text-muted);
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .training-teaser-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ==================== CTA TRAINING HINT ==================== */
+.cta-training-hint {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--mk-text-muted);
+}
+
+.cta-training-hint a {
+  color: var(--mk-navy-400);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cta-training-hint a:hover {
+  text-decoration: underline;
+}
+
 /* ==================== SOURCES SECTION ==================== */
 .sources-section {
   padding: 2rem 0;
