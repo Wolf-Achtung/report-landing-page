@@ -76,7 +76,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background: linear-gradient(135deg, #f0f5fa 0%, #faf8f5 50%, #f5f8fc 100%);
+  background: linear-gradient(135deg, #f2f0eb 0%, #f5f3ee 50%, #f0eeea 100%);
   color: var(--mk-text-primary);
   line-height: 1.6;
   min-height: 100vh;
@@ -88,34 +88,34 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(26,58,92,0.06) 1px, transparent 0);
-  background-size: 24px 24px;
+  background-image: radial-gradient(circle at 1px 1px, rgba(180,180,170,0.18) 1px, transparent 0);
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Warm Blob Top Right */
+/* Cyan/Mint Blob - Bottom Left & Center */
 body::after {
   content: "";
   position: fixed;
-  top: -15%;
-  right: -5%;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, rgba(201,162,39,0.06), transparent 65%);
-  filter: blur(40px);
+  bottom: -20%;
+  left: -10%;
+  width: 80vw;
+  height: 60vw;
+  background: radial-gradient(ellipse at 30% 70%, rgba(120,220,210,0.25) 0%, rgba(160,230,220,0.15) 30%, rgba(200,240,235,0.08) 55%, transparent 75%);
+  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Secondary Warm Blob */
+/* Blue-Purple Blob - Bottom Right */
 .warm-blob-secondary {
   position: fixed;
-  bottom: -10%;
-  left: -5%;
-  width: 35vw;
-  height: 35vw;
-  background: radial-gradient(circle, rgba(201,162,39,0.04), transparent 60%);
+  bottom: -15%;
+  right: -8%;
+  width: 40vw;
+  height: 50vw;
+  background: radial-gradient(ellipse at 60% 70%, rgba(80,60,220,0.35) 0%, rgba(100,80,240,0.2) 30%, rgba(130,120,250,0.1) 50%, transparent 70%);
   filter: blur(50px);
   pointer-events: none;
   z-index: 0;
@@ -128,7 +128,7 @@ body::after {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  opacity: 0.18;
+  opacity: 0.08;
 }
 
 .network-bg svg {
