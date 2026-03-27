@@ -103,12 +103,14 @@ body::after {
   width: 85vw;
   height: 65vw;
   background:
-    radial-gradient(ellipse at 20% 75%, rgba(60,200,190,0.45) 0%, rgba(80,210,200,0.25) 25%, transparent 55%),
-    radial-gradient(ellipse at 50% 60%, rgba(100,220,200,0.3) 0%, rgba(150,235,220,0.15) 35%, transparent 65%),
-    radial-gradient(ellipse at 35% 50%, rgba(140,230,210,0.2) 0%, rgba(180,240,225,0.1) 40%, transparent 70%);
-  filter: blur(50px);
+    radial-gradient(ellipse at 20% 75%, rgba(30,190,175,0.6) 0%, rgba(50,200,185,0.35) 25%, transparent 55%),
+    radial-gradient(ellipse at 50% 60%, rgba(60,210,190,0.45) 0%, rgba(120,230,210,0.2) 35%, transparent 65%),
+    radial-gradient(ellipse at 35% 50%, rgba(100,225,200,0.3) 0%, rgba(160,240,220,0.15) 40%, transparent 70%);
+  filter: blur(45px);
   pointer-events: none;
   z-index: 2;
+  animation: blobDriftLeft 45s ease-in-out infinite, blobColorShiftCyan 30s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 /* Blue/Indigo Blob - Bottom Right */
@@ -119,11 +121,40 @@ body::after {
   width: 45vw;
   height: 55vw;
   background:
-    radial-gradient(ellipse at 55% 65%, rgba(65,45,220,0.5) 0%, rgba(80,60,240,0.3) 25%, transparent 55%),
-    radial-gradient(ellipse at 70% 50%, rgba(90,70,235,0.35) 0%, rgba(120,100,250,0.15) 35%, transparent 60%);
-  filter: blur(45px);
+    radial-gradient(ellipse at 55% 65%, rgba(55,35,210,0.6) 0%, rgba(70,50,235,0.4) 25%, transparent 55%),
+    radial-gradient(ellipse at 70% 50%, rgba(80,60,230,0.45) 0%, rgba(110,90,250,0.2) 35%, transparent 60%);
+  filter: blur(40px);
   pointer-events: none;
   z-index: 2;
+  animation: blobDriftRight 50s ease-in-out infinite, blobColorShiftBlue 25s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Blob-Animationen */
+@keyframes blobDriftLeft {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { transform: translate(3vw, -2vw) scale(1.05) rotate(5deg); }
+  50% { transform: translate(-2vw, -4vw) scale(0.95) rotate(-3deg); }
+  75% { transform: translate(4vw, -1vw) scale(1.03) rotate(4deg); }
+}
+
+@keyframes blobDriftRight {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { transform: translate(-3vw, -3vw) scale(1.04) rotate(-5deg); }
+  50% { transform: translate(2vw, -2vw) scale(0.96) rotate(4deg); }
+  75% { transform: translate(-2vw, 1vw) scale(1.06) rotate(-3deg); }
+}
+
+@keyframes blobColorShiftCyan {
+  0%, 100% { filter: blur(45px) hue-rotate(0deg); }
+  33% { filter: blur(50px) hue-rotate(20deg); }
+  66% { filter: blur(42px) hue-rotate(-15deg); }
+}
+
+@keyframes blobColorShiftBlue {
+  0%, 100% { filter: blur(40px) hue-rotate(0deg); }
+  33% { filter: blur(45px) hue-rotate(-20deg); }
+  66% { filter: blur(38px) hue-rotate(25deg); }
 }
 
 /* ==================== NETWORK BACKGROUND ==================== */
@@ -143,7 +174,7 @@ body::after {
   top: -50%;
   left: -50%;
   transform-origin: center center;
-  animation: networkRotate 360s linear infinite;
+  animation: networkRotate 90s linear infinite;
   /* GPU acceleration for smooth animation */
   will-change: transform;
   transform: translateZ(0);
