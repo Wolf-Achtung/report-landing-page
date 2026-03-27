@@ -88,27 +88,27 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(180,180,170,0.18) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(180,180,170,0.15) 1px, transparent 0);
   background-size: 32px 32px;
   pointer-events: none;
-  z-index: 0;
+  z-index: 8;
 }
 
 /* Cyan/Mint/Green Blob - Bottom Left & Center */
 body::after {
   content: "";
   position: fixed;
-  bottom: -15%;
-  left: -10%;
-  width: 85vw;
-  height: 65vw;
+  bottom: -10%;
+  left: -15%;
+  width: 90vw;
+  height: 70vw;
   background:
-    radial-gradient(ellipse at 20% 75%, rgba(30,190,175,0.6) 0%, rgba(50,200,185,0.35) 25%, transparent 55%),
-    radial-gradient(ellipse at 50% 60%, rgba(60,210,190,0.45) 0%, rgba(120,230,210,0.2) 35%, transparent 65%),
-    radial-gradient(ellipse at 35% 50%, rgba(100,225,200,0.3) 0%, rgba(160,240,220,0.15) 40%, transparent 70%);
-  filter: blur(45px);
+    radial-gradient(ellipse at 25% 70%, rgba(30,200,185,0.38) 0%, rgba(60,215,195,0.22) 25%, transparent 55%),
+    radial-gradient(ellipse at 55% 55%, rgba(80,220,200,0.25) 0%, rgba(140,235,215,0.12) 35%, transparent 65%),
+    radial-gradient(ellipse at 15% 45%, rgba(50,195,180,0.2) 0%, rgba(120,225,210,0.1) 40%, transparent 70%);
+  filter: blur(40px);
   pointer-events: none;
-  z-index: 2;
+  z-index: 9;
   animation: blobDriftLeft 45s ease-in-out infinite, blobColorShiftCyan 30s ease-in-out infinite;
   will-change: transform, filter;
 }
@@ -116,16 +116,16 @@ body::after {
 /* Blue/Indigo Blob - Bottom Right */
 .warm-blob-secondary {
   position: fixed;
-  bottom: -10%;
-  right: -5%;
-  width: 45vw;
-  height: 55vw;
+  bottom: -5%;
+  right: -8%;
+  width: 50vw;
+  height: 60vw;
   background:
-    radial-gradient(ellipse at 55% 65%, rgba(55,35,210,0.6) 0%, rgba(70,50,235,0.4) 25%, transparent 55%),
-    radial-gradient(ellipse at 70% 50%, rgba(80,60,230,0.45) 0%, rgba(110,90,250,0.2) 35%, transparent 60%);
-  filter: blur(40px);
+    radial-gradient(ellipse at 50% 60%, rgba(60,40,220,0.45) 0%, rgba(75,55,240,0.28) 25%, transparent 50%),
+    radial-gradient(ellipse at 65% 45%, rgba(85,65,235,0.3) 0%, rgba(115,95,250,0.12) 35%, transparent 55%);
+  filter: blur(35px);
   pointer-events: none;
-  z-index: 2;
+  z-index: 9;
   animation: blobDriftRight 50s ease-in-out infinite, blobColorShiftBlue 25s ease-in-out infinite;
   will-change: transform, filter;
 }
