@@ -17,7 +17,7 @@
   <!-- Divider line -->
   <rect x="80" y="360" width="120" height="3" rx="1.5" fill="#4a8cc4"/>
   <!-- TÜV badge text -->
-  <text x="80" y="420" font-family="Arial, sans-serif" font-size="20" fill="#7eb3dc">TÜV Austria zertifiziert · DSGVO-konform · EU AI Act ready</text>
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="20" fill="#7eb3dc">Wolf Hohl, TÜV-zertifiziertes KI-Management · DSGVO-konform · EU AI Act ready</text>
   <!-- URL -->
   <text x="80" y="560" font-family="monospace" font-size="22" fill="#4a8cc4">report.ki-sicherheit.jetzt</text>
   <!-- Shield icon (simplified) -->
