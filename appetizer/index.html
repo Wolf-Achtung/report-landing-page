@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Kostenloser KI-Potenzial-Check | KI-Sicherheit.jetzt</title>
+  <meta name="description" content="In 2 Minuten erfahren, wie viel KI-Potenzial in Ihrem Unternehmen steckt. Kostenlos, sofort, ohne Registrierung.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kostenloser KI-Potenzial-Check | KI-Sicherheit.jetzt">
+  <meta property="og:description" content="6 Fragen, 30 Sekunden Analyse — Ihr persönlicher KI-Readiness-Score mit konkreten Handlungsempfehlungen.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://report.ki-sicherheit.jetzt/appetizer/">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://report.ki-sicherheit.jetzt/appetizer/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="appetizer.css">
+
+  <!-- Plausible Analytics -->
+  <script defer data-domain="report.ki-sicherheit.jetzt" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <a href="https://report.ki-sicherheit.jetzt" class="header-logo">KI-Sicherheit<span>.jetzt</span></a>
+      <span class="header-badge">Kostenlos</span>
+    </header>
+
+    <!-- Step Form -->
+    <main class="form-container" id="formContainer">
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 16.66%"></div>
+      </div>
+
+      <!-- Step 1: Firma + Branche -->
+      <div class="step active" data-step="1">
+        <div class="step-label">Schritt 1 von 6</div>
+        <h1 class="step-title">Erzählen Sie uns von Ihrem Unternehmen</h1>
+
+        <div class="field-group">
+          <label for="firma">Firmenname</label>
+          <input type="text" id="firma" name="firma" maxlength="100" placeholder="z.B. Müller Consulting GmbH" required>
+        </div>
+
+        <div class="field-group">
+          <label for="branche">Branche</label>
+          <select id="branche" name="branche" required>
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="marketing">Marketing & Werbung</option>
+            <option value="beratung">Beratung & Consulting</option>
+            <option value="it">IT & Software</option>
+            <option value="finanzen">Finanzen & Versicherung</option>
+            <option value="handel">Handel & E-Commerce</option>
+            <option value="bildung">Bildung & Training</option>
+            <option value="verwaltung">Verwaltung & öffentlicher Dienst</option>
+            <option value="gesundheit">Gesundheit & Pflege</option>
+            <option value="bau">Bau & Handwerk</option>
+            <option value="medien">Medien & Verlag</option>
+            <option value="industrie">Industrie & Produktion</option>
+            <option value="logistik">Logistik & Transport</option>
+            <option value="gastronomie">Gastronomie & Hotellerie</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-next" onclick="nextStep(1)">Weiter &rarr;</button>
+      </div>
+
+      <!-- Step 2: Größe + Hauptleistung -->
+      <div class="step" data-step="2">
+        <div class="step-label">Schritt 2 von 6</div>
+        <h1 class="step-title">Teamgröße und Kernleistung</h1>
+
+        <div class="field-group">
+          <label>Wie viele Mitarbeitende hat Ihr Unternehmen?</label>
+          <div class="radio-group">
+            <label class="radio-card">
+              <input type="radio" name="mitarbeiter" value="1" required>
+              <span class="radio-card-content">
+                <span class="radio-icon">👤</span>
+                <span class="radio-label">Solo-Unternehmer</span>
+                <span class="radio-desc">Einzelperson</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="mitarbeiter" value="2-10">
+              <span class="radio-card-content">
+                <span class="radio-icon">👥</span>
+                <span class="radio-label">Kleines Team</span>
+                <span class="radio-desc">2–10 Mitarbeitende</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="mitarbeiter" value="11-100">
+              <span class="radio-card-content">
+                <span class="radio-icon">🏢</span>
+                <span class="radio-label">KMU</span>
+                <span class="radio-desc">11–100 Mitarbeitende</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="hauptleistung">Was ist Ihre Hauptleistung?</label>
+          <input type="text" id="hauptleistung" name="hauptleistung" maxlength="200" placeholder="z.B. Social-Media-Management für lokale Unternehmen" required>
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(2)">&larr; Zurück</button>
+          <button type="button" class="btn-next" onclick="nextStep(2)">Weiter &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Zeitaufwand repetitiv -->
+      <div class="step" data-step="3">
+        <div class="step-label">Schritt 3 von 6</div>
+        <h1 class="step-title">Wie viel Ihrer Arbeitszeit ist repetitiv?</h1>
+        <p class="step-subtitle">Denken Sie an wiederkehrende Aufgaben wie Berichte, E-Mails, Dateneingabe, Recherche...</p>
+
+        <div class="radio-group radio-group-vertical">
+          <label class="radio-card">
+            <input type="radio" name="zeitaufwand_repetitiv" value="unter_25" required>
+            <span class="radio-card-content">
+              <span class="radio-label">Unter 25 %</span>
+              <span class="radio-desc">Hauptsächlich kreative oder individuelle Arbeit</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="zeitaufwand_repetitiv" value="25_50">
+            <span class="radio-card-content">
+              <span class="radio-label">25–50 %</span>
+              <span class="radio-desc">Mix aus Routine und individueller Arbeit</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="zeitaufwand_repetitiv" value="ueber_50">
+            <span class="radio-card-content">
+              <span class="radio-label">Über 50 %</span>
+              <span class="radio-desc">Viel wiederkehrende Standardprozesse</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(3)">&larr; Zurück</button>
+          <button type="button" class="btn-next" onclick="nextStep(3)">Weiter &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 4: KI-Erfahrung -->
+      <div class="step" data-step="4">
+        <div class="step-label">Schritt 4 von 6</div>
+        <h1 class="step-title">Wie ist Ihre bisherige KI-Erfahrung?</h1>
+
+        <div class="radio-group radio-group-vertical">
+          <label class="radio-card">
+            <input type="radio" name="ki_erfahrung" value="keine" required>
+            <span class="radio-card-content">
+              <span class="radio-label">Keine Erfahrung</span>
+              <span class="radio-desc">Noch nicht mit KI-Tools gearbeitet</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="ki_erfahrung" value="erste_versuche">
+            <span class="radio-card-content">
+              <span class="radio-label">Erste Versuche</span>
+              <span class="radio-desc">ChatGPT oder ähnliche Tools ausprobiert</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="ki_erfahrung" value="regelmaessig">
+            <span class="radio-card-content">
+              <span class="radio-label">Regelmäßige Nutzung</span>
+              <span class="radio-desc">KI ist Teil meines Arbeitsalltags</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(4)">&larr; Zurück</button>
+          <button type="button" class="btn-next" onclick="nextStep(4)">Weiter &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Herausforderung -->
+      <div class="step" data-step="5">
+        <div class="step-label">Schritt 5 von 6</div>
+        <h1 class="step-title">Was ist Ihre größte geschäftliche Herausforderung?</h1>
+        <p class="step-subtitle">Wo drückt der Schuh am meisten?</p>
+
+        <div class="field-group">
+          <textarea id="groesste_herausforderung" name="groesste_herausforderung" maxlength="200" rows="3" placeholder="z.B. Zu wenig Zeit für Akquise, weil Admin-Aufgaben überwiegen" required></textarea>
+          <div class="char-count"><span id="charCount">0</span>/200</div>
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(5)">&larr; Zurück</button>
+          <button type="button" class="btn-next" onclick="nextStep(5)">Weiter &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 6: E-Mail (optional) -->
+      <div class="step" data-step="6">
+        <div class="step-label">Schritt 6 von 6</div>
+        <h1 class="step-title">Möchten Sie Ihr Ergebnis auch per E-Mail erhalten?</h1>
+
+        <div class="field-group">
+          <label for="email">E-Mail-Adresse (optional)</label>
+          <input type="email" id="email" name="email" placeholder="ihre@email.de">
+        </div>
+
+        <div class="field-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="newsletter_optin" name="newsletter_optin">
+            <span>KI-Tipps für den Mittelstand erhalten (max. 2x/Monat)</span>
+          </label>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitForm()">Ergebnis anzeigen &rarr;</button>
+
+        <div class="privacy-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Keine Pflichtangabe. Ihre Daten werden nicht an Dritte weitergegeben.
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(6)">&larr; Zurück</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-icon">🔍</div>
+        </div>
+        <h2 class="loading-title">Ihre KI-Analyse wird erstellt...</h2>
+        <p class="loading-subtitle" id="loadingText">Branchendaten werden analysiert</p>
+        <div class="loading-steps">
+          <div class="loading-step active" id="ls1">Branchenpotenzial berechnen</div>
+          <div class="loading-step" id="ls2">KI-Hebel identifizieren</div>
+          <div class="loading-step" id="ls3">Monetarisierungschancen ermitteln</div>
+          <div class="loading-step" id="ls4">Handlungsempfehlungen erstellen</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Screen -->
+    <div class="error-screen" id="errorScreen">
+      <div class="error-content">
+        <div class="error-icon">⚠️</div>
+        <h2>Analyse konnte nicht erstellt werden</h2>
+        <p id="errorMessage">Bitte versuchen Sie es erneut.</p>
+        <button type="button" class="btn-next" onclick="retrySubmit()">Erneut versuchen &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-content">
+
+        <!-- Score Section -->
+        <section class="result-section score-section">
+          <h1 class="result-company-name" id="resultFirma"></h1>
+          <div class="score-gauge-container">
+            <div class="score-gauge" id="scoreGauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <defs>
+                  <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#EF4444"/>
+                    <stop offset="33%" stop-color="#F59E0B"/>
+                    <stop offset="66%" stop-color="#3B82F6"/>
+                    <stop offset="100%" stop-color="#10B981"/>
+                  </linearGradient>
+                </defs>
+                <!-- Background arc -->
+                <path d="M 20 110 A 80 80 0 0 1 180 110" fill="none" stroke="#e2e8f0" stroke-width="12" stroke-linecap="round"/>
+                <!-- Colored arc -->
+                <path d="M 20 110 A 80 80 0 0 1 180 110" fill="none" stroke="url(#gaugeGradient)" stroke-width="12" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2" id="gaugeArc"/>
+                <!-- Needle -->
+                <line x1="100" y1="110" x2="100" y2="40" stroke="var(--mk-navy-800)" stroke-width="2.5" stroke-linecap="round" id="gaugeNeedle" transform="rotate(-90, 100, 110)"/>
+                <circle cx="100" cy="110" r="5" fill="var(--mk-navy-800)"/>
+              </svg>
+              <div class="score-value" id="scoreValue">0</div>
+              <div class="score-label" id="scoreLabel">STARTER</div>
+            </div>
+          </div>
+          <p class="score-text" id="scoreText"></p>
+        </section>
+
+        <!-- Hebel Section -->
+        <section class="result-section">
+          <h2 class="section-title">Ihre 3 stärksten KI-Hebel</h2>
+          <div class="hebel-grid" id="hebelGrid"></div>
+        </section>
+
+        <!-- Monetarisierung Section -->
+        <section class="result-section">
+          <h2 class="section-title">Monetarisierungspotenzial</h2>
+          <div class="monet-grid" id="monetGrid"></div>
+        </section>
+
+        <!-- Positionierung -->
+        <section class="result-section positionierung-section">
+          <h2 class="section-title">Ihre KI-Positionierung</h2>
+          <p class="positionierung-text" id="positionierungText"></p>
+        </section>
+
+        <!-- CTA -->
+        <section class="result-section cta-section" id="ctaSection">
+          <h2 class="cta-headline" id="ctaHeadline"></h2>
+          <p class="cta-subline" id="ctaSubline"></p>
+          <a class="btn-cta" id="ctaLink" href="#" target="_blank">
+            Vollständige KI-Analyse starten &rarr;
+          </a>
+          <ul class="cta-features">
+            <li>27-Seiten KI-Strategiebericht</li>
+            <li>ROI-Berechnung</li>
+            <li>Fördermittel-Check</li>
+            <li>Umsetzungsplan &amp; Tool-Empfehlungen</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-links">
+        <a href="https://report.ki-sicherheit.jetzt/datenschutz.html">Datenschutz</a>
+        <a href="https://report.ki-sicherheit.jetzt/impressum.html">Impressum</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 KI-Sicherheit.jetzt — Wolf Hohl</p>
+    </footer>
+
+  </div>
+
+  <script src="appetizer.js"></script>
+</body>
+</html>

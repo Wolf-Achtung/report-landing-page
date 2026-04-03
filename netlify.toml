@@ -21,8 +21,19 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
+# Cache appetizer assets
+[[headers]]
+  for = "/appetizer/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 # Custom 404
 [[redirects]]
   from = "/schnell-check"
   to = "/schnell-check.html"
   status = 200
+
+[[redirects]]
+  from = "/ki-check"
+  to = "/appetizer/"
+  status = 301
