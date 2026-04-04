@@ -3880,6 +3880,54 @@ p {
   opacity: 0.7;
 }
 
+/* ==================== FÖRDERMITTEL COMPACT SECTION ==================== */
+.funding-compact-section {
+  padding: var(--section-padding-y) 0;
+}
+
+.funding-compact {
+  background: var(--mk-bg-card);
+  border-radius: 12px;
+  padding: clamp(2rem, 4vw, 3rem);
+  border: 1px solid var(--mk-border-light);
+  box-shadow: var(--mk-shadow-md);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.funding-compact h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--font-h2);
+  margin-bottom: 1rem;
+}
+
+.funding-compact-summary {
+  font-size: var(--font-body-lg);
+  color: var(--mk-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.funding-compact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.funding-compact-link {
+  font-size: var(--font-small);
+  color: var(--mk-navy-400);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.funding-compact-link:hover {
+  color: var(--mk-navy-600);
+  text-decoration: underline;
+}
+
 /* ==================== MARKET CONTEXT CARD (expertise section) ==================== */
 .market-context-card {
   background: var(--mk-navy-50);
