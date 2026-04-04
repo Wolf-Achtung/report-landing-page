@@ -21,9 +21,9 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
-# Cache appetizer assets
+# Cache potenzial-check assets
 [[headers]]
-  for = "/appetizer/*"
+  for = "/potenzial-check/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
@@ -35,5 +35,20 @@
 
 [[redirects]]
   from = "/ki-check"
-  to = "/appetizer/"
+  to = "/potenzial-check/"
+  status = 301
+
+[[redirects]]
+  from = "/check"
+  to = "/potenzial-check/"
+  status = 301
+
+[[redirects]]
+  from = "/appetizer"
+  to = "/potenzial-check/"
+  status = 301
+
+[[redirects]]
+  from = "/appetizer/*"
+  to = "/potenzial-check/:splat"
   status = 301
