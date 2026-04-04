@@ -363,8 +363,37 @@ function renderResult(formData, result) {
   const ctaLink = document.getElementById('ctaLink');
   ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
   ctaLink.addEventListener('click', () => {
+    // Append moat field values to CTA link if filled
+    const moatData = getMoatFieldValues();
+    const url = new URL(ctaLink.href);
+    Object.entries(moatData).forEach(([key, val]) => {
+      if (val) url.searchParams.set(key, val);
+    });
+    ctaLink.href = url.toString();
     if (window.plausible) plausible('check_cta_clicked');
   }, { once: true });
+
+  // Show moat fields section (optional strategic assessment)
+  showMoatFields();
+}
+
+// ---------------------------------------------------------------------------
+// Moat Fields — Strategic assessment for Strategy Report
+// ---------------------------------------------------------------------------
+
+function getMoatFieldValues() {
+  return {
+    wettbewerber_anzahl: document.querySelector('input[name="wettbewerber_anzahl"]:checked')?.value || null,
+    kundenbindung_typ: document.querySelector('input[name="kundenbindung_typ"]:checked')?.value || null,
+    datenreife: document.querySelector('input[name="datenreife"]:checked')?.value || null,
+  };
+}
+
+function showMoatFields() {
+  const moatBlock = document.getElementById('moatFieldsBlock');
+  if (moatBlock) {
+    moatBlock.style.display = 'block';
+  }
 }
 
 // ---------------------------------------------------------------------------
