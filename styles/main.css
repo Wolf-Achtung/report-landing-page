@@ -641,6 +641,26 @@ p {
   }
 }
 
+/* Hero Schnell-Check CTA Link */
+.hero-check-cta {
+  margin-top: 1rem;
+}
+
+.hero-check-cta a {
+  color: var(--mk-warm-500);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+}
+
+.hero-check-cta a:hover {
+  color: var(--mk-warm-400);
+  text-decoration: underline;
+}
+
 .hero-trust-line {
   margin-top: 1.25rem;
   font-size: var(--font-small);
