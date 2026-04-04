@@ -59,7 +59,7 @@ class KiErfahrungEnum(str, Enum):
 
 
 class AppetizerRequest(BaseModel):
-    firma: str = Field(..., max_length=100)
+    firma: str = Field(default="Unternehmen", max_length=100)
     branche: BrancheEnum
     mitarbeiter: MitarbeiterEnum
     hauptleistung: str = Field(..., max_length=200)
@@ -69,7 +69,7 @@ class AppetizerRequest(BaseModel):
     email: Optional[str] = None
     newsletter_optin: bool = False
 
-    @field_validator("firma", "hauptleistung", "groesste_herausforderung")
+    @field_validator("hauptleistung", "groesste_herausforderung")
     @classmethod
     def not_empty(cls, v: str) -> str:
         if not v or not v.strip():
