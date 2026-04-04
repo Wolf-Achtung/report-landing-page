@@ -317,8 +317,9 @@ function renderResult(formData, result) {
   // Positionierung
   document.getElementById('positionierungText').textContent = result.positionierung;
 
-  // CTA
-  document.getElementById('ctaHeadline').textContent = result.cta.headline;
+  // CTA — replace any hour figure in the LLM headline with the actual sum
+  const ctaHeadline = result.cta.headline.replace(/\d+\s*h\b/i, `${totalZeitersparnis}h`);
+  document.getElementById('ctaHeadline').textContent = ctaHeadline;
   document.getElementById('ctaSubline').textContent = result.cta.subline;
 
   const ctaParams = new URLSearchParams({
