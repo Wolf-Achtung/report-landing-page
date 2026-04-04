@@ -96,92 +96,6 @@
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- Animated Network Background -->
-  <div class="network-bg" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <!-- Gradient for lines -->
-        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#a0b0b8" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#b0c0c8" stop-opacity="0.3"/>
-        </linearGradient>
-        <!-- Solid fill for nodes with subtle radial gradient -->
-        <radialGradient id="nodeGradPrimary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#c0ccd2"/>
-          <stop offset="100%" stop-color="#a0b0b8"/>
-        </radialGradient>
-        <radialGradient id="nodeGradSecondary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#c8d4da"/>
-          <stop offset="100%" stop-color="#b0bcc4"/>
-        </radialGradient>
-        <!-- Subtle glow filter -->
-        <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Connection Lines (rendered first, behind nodes) -->
-      <g class="connection-lines" stroke="url(#lineGrad)" stroke-width="1">
-        <line x1="100" y1="150" x2="200" y2="100"/><line x1="200" y1="100" x2="350" y2="130"/>
-        <line x1="350" y1="130" x2="450" y2="80"/><line x1="450" y1="80" x2="600" y2="120"/>
-        <line x1="600" y1="120" x2="700" y2="90"/><line x1="100" y1="150" x2="180" y2="250"/>
-        <line x1="200" y1="100" x2="280" y2="200"/><line x1="350" y1="130" x2="380" y2="250"/>
-        <line x1="450" y1="80" x2="500" y2="180"/><line x1="600" y1="120" x2="620" y2="220"/>
-        <line x1="180" y1="250" x2="280" y2="200"/><line x1="280" y1="200" x2="380" y2="250"/>
-        <line x1="380" y1="250" x2="500" y2="180"/><line x1="500" y1="180" x2="620" y2="220"/>
-        <line x1="50" y1="300" x2="180" y2="250"/><line x1="180" y1="250" x2="250" y2="350"/>
-        <line x1="280" y1="200" x2="320" y2="320"/><line x1="380" y1="250" x2="420" y2="380"/>
-        <line x1="500" y1="180" x2="550" y2="300"/><line x1="620" y1="220" x2="680" y2="340"/>
-        <line x1="700" y1="90" x2="750" y2="200"/><line x1="250" y1="350" x2="320" y2="320"/>
-        <line x1="320" y1="320" x2="420" y2="380"/><line x1="420" y1="380" x2="550" y2="300"/>
-        <line x1="550" y1="300" x2="680" y2="340"/><line x1="680" y1="340" x2="750" y2="200"/>
-        <line x1="50" y1="300" x2="120" y2="420"/><line x1="250" y1="350" x2="200" y2="480"/>
-        <line x1="320" y1="320" x2="350" y2="450"/><line x1="420" y1="380" x2="480" y2="500"/>
-        <line x1="550" y1="300" x2="580" y2="430"/><line x1="680" y1="340" x2="720" y2="470"/>
-        <line x1="120" y1="420" x2="200" y2="480"/><line x1="200" y1="480" x2="350" y2="450"/>
-        <line x1="350" y1="450" x2="480" y2="500"/><line x1="480" y1="500" x2="580" y2="430"/>
-        <line x1="580" y1="430" x2="720" y2="470"/><line x1="100" y1="150" x2="280" y2="200"/>
-        <line x1="350" y1="130" x2="500" y2="180"/><line x1="180" y1="250" x2="380" y2="250"/>
-        <line x1="250" y1="350" x2="420" y2="380"/><line x1="320" y1="320" x2="550" y2="300"/>
-        <line x1="200" y1="480" x2="480" y2="500"/>
-      </g>
-      <!-- Primary Nodes (largest, on top) -->
-      <g class="node-primary" fill="url(#nodeGradPrimary)" filter="url(#nodeGlow)">
-        <circle cx="100" cy="150" r="6"/><circle cx="350" cy="130" r="7"/>
-        <circle cx="600" cy="120" r="6"/><circle cx="380" cy="250" r="8"/>
-        <circle cx="320" cy="320" r="6"/><circle cx="480" cy="500" r="7"/>
-      </g>
-      <!-- Secondary Nodes -->
-      <g class="node-secondary" fill="url(#nodeGradSecondary)" filter="url(#nodeGlow)">
-        <circle cx="200" cy="100" r="4"/><circle cx="450" cy="80" r="4"/>
-        <circle cx="700" cy="90" r="4"/><circle cx="180" cy="250" r="5"/>
-        <circle cx="280" cy="200" r="5"/><circle cx="500" cy="180" r="5"/>
-        <circle cx="620" cy="220" r="4"/><circle cx="250" cy="350" r="5"/>
-        <circle cx="420" cy="380" r="5"/><circle cx="550" cy="300" r="4"/>
-        <circle cx="680" cy="340" r="5"/>
-      </g>
-      <!-- Tertiary Nodes (smallest) -->
-      <g class="node-tertiary" fill="url(#nodeGradSecondary)" filter="url(#nodeGlow)">
-        <circle cx="50" cy="300" r="3"/><circle cx="750" cy="200" r="3"/>
-        <circle cx="120" cy="420" r="4"/><circle cx="200" cy="480" r="4"/>
-        <circle cx="350" cy="450" r="3"/><circle cx="580" cy="430" r="4"/>
-        <circle cx="720" cy="470" r="3"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- Color Blob Spots -->
-  <div class="blob-spots" aria-hidden="true">
-    <div class="blob-spot blob-cyan-1"></div>
-    <div class="blob-spot blob-cyan-2"></div>
-    <div class="blob-spot blob-cyan-3"></div>
-    <div class="blob-spot blob-cyan-4"></div>
-    <div class="blob-spot blob-blue-1"></div>
-  </div>
-
   <!-- Page Wrapper -->
   <div class="page-wrapper">
 
@@ -202,7 +116,7 @@
             <a href="/leistungen" class="nav-link">Leistungen</a>
             <a href="#ai-act-timeline" class="nav-link">EU AI Act</a>
             <a href="aktuell/" class="nav-link nav-highlight">Aktuell</a>
-            <a href="/potenzial-check" class="nav-link nav-highlight">KI-Schnell-Check</a>
+            <a href="/potenzial-check" class="nav-link nav-schnellcheck" title="2-Minuten-Check — der Einstieg vor dem vollständigen Report">Gratis Schnell-Check</a>
             <a href="kontakt.html" class="nav-link">Kontakt</a>
             <a href="https://make.ki-sicherheit.jetzt" class="nav-link" target="_blank">Login</a>
             <a href="/partner" class="nav-link nav-link-secondary">Für Berater</a>
@@ -269,7 +183,7 @@
     <main id="main-content">
 
       <!-- ==================== BENEFITS SECTION ==================== -->
-      <section id="benefits" class="benefits-section section">
+      <section id="benefits" class="benefits-section section section-muted">
         <div class="container">
           <div class="section-header">
             <h2>Ihr Nutzen auf einen Blick</h2>
@@ -401,7 +315,7 @@
       </section>
 
       <!-- ==================== SOCIAL PROOF SECTION ==================== -->
-      <section id="trust" class="social-proof-section section">
+      <section id="trust" class="social-proof-section section section-muted">
         <div class="container">
           <div class="social-proof-grid">
             <!-- Left: Expert Profile + TÜV Badge -->
@@ -476,7 +390,7 @@
       </section>
 
       <!-- ==================== AI ACT TIMELINE ==================== -->
-      <section id="ai-act-timeline" class="timeline-section section">
+      <section id="ai-act-timeline" class="timeline-section section section-muted">
         <div class="container">
           <div class="section-header">
             <h2>EU AI Act: Der Zeitplan für Ihr Unternehmen</h2>
@@ -561,13 +475,7 @@
             <p class="funding-compact-summary">
               Bis zu <strong>80 % BAFA-Förderung</strong> · Voll steuerlich absetzbar · KfW-Förderprogramme verfügbar
             </p>
-            <div class="funding-compact-actions">
-              <a href="aktuell/foerderung-ki-digital-2026.html" class="funding-compact-link">Aktuelle Förderprogramme ansehen →</a>
-              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Foerdermittel')">
-                <span>Readiness-Report starten</span>
-                <span class="arrow">→</span>
-              </a>
-            </div>
+            <a href="aktuell/foerderung-ki-digital-2026.html" class="funding-compact-link">Aktuelle Förderprogramme ansehen →</a>
           </div>
         </div>
       </section>
