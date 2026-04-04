@@ -3725,13 +3725,6 @@ p {
   line-height: 1.7;
 }
 
-.funding-compact-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
 .funding-compact-link {
   font-size: var(--font-small);
   color: var(--mk-navy-400);
