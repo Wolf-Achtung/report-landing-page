@@ -584,6 +584,55 @@ body {
   margin-top: 1rem;
 }
 
+/* ==================== UPSELL BRIDGE ==================== */
+.upsell-bridge {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--mk-navy-400);
+  background: var(--mk-navy-50, #f8fafc);
+  border-radius: 0 8px 8px 0;
+}
+
+.upsell-bridge-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--mk-navy-800);
+}
+
+.upsell-bridge-text {
+  font-size: 0.9375rem;
+  color: var(--mk-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.upsell-bridge-text strong {
+  color: var(--mk-navy-800);
+}
+
+.btn-upsell-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: white;
+  background: var(--mk-navy-700);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--mk-transition-fast);
+}
+
+.btn-upsell-cta:hover {
+  background: var(--mk-navy-600);
+  transform: translateY(-1px);
+  box-shadow: var(--mk-shadow-md);
+}
+
 /* ==================== HEBEL CARDS ==================== */
 .hebel-grid {
   display: grid;
