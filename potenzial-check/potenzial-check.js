@@ -76,16 +76,10 @@ function validateStep(step) {
 
   switch (step) {
     case 1: {
-      const firma = document.getElementById('firma');
       const branche = document.getElementById('branche');
-      let valid = true;
-      if (!firma.value.trim() || firma.value.trim().length < 2) {
-        firma.classList.add('error');
-        valid = false;
-      }
-      if (!branche.value) { branche.classList.add('error'); valid = false; }
-      if (valid && window.plausible) plausible('check_started');
-      return valid;
+      if (!branche.value) { branche.classList.add('error'); return false; }
+      if (window.plausible) plausible('check_started');
+      return true;
     }
     case 2: {
       const mitarbeiter = document.querySelector('input[name="mitarbeiter"]:checked');
@@ -152,7 +146,7 @@ function showFieldHint(el, msg) {
 
 function getFormData() {
   return {
-    firma: document.getElementById('firma').value.trim(),
+    firma: 'Unternehmen',
     branche: document.getElementById('branche').value,
     mitarbeiter: document.querySelector('input[name="mitarbeiter"]:checked')?.value || '',
     hauptleistung: document.getElementById('hauptleistung').value.trim(),
@@ -268,7 +262,7 @@ function renderResult(formData, result) {
   // Result header meta
   const brancheDisplay = BRANCHEN_DISPLAY[formData.branche] || formData.branche;
   const segmentDisplay = SEGMENT_DISPLAY[formData.mitarbeiter] || formData.mitarbeiter;
-  document.getElementById('resultMeta').textContent = `${formData.firma} · ${brancheDisplay} · ${segmentDisplay}`;
+  document.getElementById('resultMeta').textContent = `${brancheDisplay} · ${segmentDisplay}`;
 
   // Score
   const score = result.score;
@@ -324,7 +318,6 @@ function renderResult(formData, result) {
 
   const ctaParams = new URLSearchParams({
     ref: 'potenzial-check',
-    firma: formData.firma,
     branche: formData.branche,
     mitarbeiter: formData.mitarbeiter,
     hauptleistung: formData.hauptleistung,
