@@ -362,16 +362,31 @@ function renderResult(formData, result) {
   });
   const ctaLink = document.getElementById('ctaLink');
   ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
-  ctaLink.addEventListener('click', () => {
-    // Append moat field values to CTA link if filled
+  ctaLink.addEventListener('click', (e) => {
+    e.preventDefault();
     const moatData = getMoatFieldValues();
     const url = new URL(ctaLink.href);
     Object.entries(moatData).forEach(([key, val]) => {
       if (val) url.searchParams.set(key, val);
     });
-    ctaLink.href = url.toString();
+    window.open(url.toString(), '_blank');
     if (window.plausible) plausible('check_cta_clicked');
-  }, { once: true });
+  });
+
+  // Secondary CTA also gets moat params
+  const ctaSecondary = document.getElementById('ctaSecondary');
+  if (ctaSecondary) {
+    ctaSecondary.addEventListener('click', (e) => {
+      e.preventDefault();
+      const moatData = getMoatFieldValues();
+      const url = new URL(ctaSecondary.href);
+      Object.entries(moatData).forEach(([key, val]) => {
+        if (val) url.searchParams.set(key, val);
+      });
+      window.open(url.toString(), '_blank');
+      if (window.plausible) plausible('check_cta_secondary_clicked');
+    });
+  }
 
   // Show moat fields section (optional strategic assessment)
   showMoatFields();
