@@ -4,7 +4,7 @@
  */
 
 const API_URL = 'https://api-ki-backend-neu-production.up.railway.app/api/appetizer/generate';
-const CTA_BASE_URL = 'https://make.ki-sicherheit.jetzt/fragebogen';
+const CTA_BASE_URL = 'https://make.ki-sicherheit.jetzt';
 
 let currentStep = 1;
 const totalSteps = 6;
@@ -291,23 +291,28 @@ function renderResult(formData, result) {
   `;
   }).join('');
 
-  // Hebel summary
+  // Hebel summary — segment-specific wording
+  const potenzialLabel = formData.mitarbeiter === '1' ? 'Ihr Potenzial' : 'Potenzial im Team';
   document.getElementById('hebelSummary').textContent =
-    `Gesamt: ~${totalZeitersparnis}h/Woche Potenzial im Team`;
+    `Gesamt: ~${totalZeitersparnis}h/Woche ${potenzialLabel}`;
 
   // Monetarisierung
   const monetGrid = document.getElementById('monetGrid');
-  monetGrid.innerHTML = result.monetarisierung.map(m => `
+  monetGrid.innerHTML = result.monetarisierung.map(m => {
+    const teaserText = m.teaser && m.teaser.toLowerCase().includes('bericht')
+      ? m.teaser
+      : (m.teaser || 'Umsatzpotenzial: Details im vollständigen KI-Strategiebericht');
+    return `
     <div class="monet-card stufe-${m.stufe.split('_')[1]}">
       <div class="monet-header">
         <span class="monet-title">${escapeHtml(m.titel)}</span>
         <span class="monet-stufe">${formatStufe(m.stufe)}</span>
       </div>
       <p class="monet-desc">${escapeHtml(m.beschreibung)}</p>
-      <div class="monet-value">+${formatCurrency(m.umsatzpotenzial_monat_eur)} €/Monat</div>
-      <p class="monet-teaser">${escapeHtml(m.teaser)}</p>
+      <p class="monet-teaser">${escapeHtml(teaserText)}</p>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Positionierung
   document.getElementById('positionierungText').textContent = result.positionierung;
