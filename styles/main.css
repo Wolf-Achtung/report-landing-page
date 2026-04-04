@@ -349,6 +349,16 @@ p {
   color: var(--mk-warm-200);
 }
 
+.nav-link.nav-schnellcheck {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.nav-link.nav-schnellcheck:hover {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .main-nav {
     display: none;
