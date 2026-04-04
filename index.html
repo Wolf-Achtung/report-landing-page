@@ -198,14 +198,14 @@
             <span class="hamburger-line"></span>
           </button>
           <nav class="main-nav" id="main-nav">
-            <a href="#benefits" class="nav-link">Vorteile</a>
             <a href="#produkte" class="nav-link">Produkte</a>
-            <a href="#services" class="nav-link">Leistungen</a>
-            <a href="#schulung" class="nav-link">KI-Schulung</a>
+            <a href="/leistungen" class="nav-link">Leistungen</a>
+            <a href="#ai-act-timeline" class="nav-link">EU AI Act</a>
             <a href="aktuell/" class="nav-link nav-highlight">Aktuell</a>
             <a href="/potenzial-check" class="nav-link nav-highlight">KI-Schnell-Check</a>
             <a href="kontakt.html" class="nav-link">Kontakt</a>
             <a href="https://make.ki-sicherheit.jetzt" class="nav-link" target="_blank">Login</a>
+            <a href="/partner" class="nav-link nav-link-secondary">Für Berater</a>
           </nav>
           <nav class="lang-switcher">
             <span class="lang-active">DE</span>
@@ -232,24 +232,12 @@
                 Ihr <strong>KI-Readiness-Report</strong> mit der Methodik eines TÜV-zertifizierten KI-Managers – Risikoanalyse, Compliance-Check und Fördermittel-Scan in einem Dokument.
               </p>
 
-              <div class="hero-cta hero-cta-dual">
+              <div class="hero-cta">
                 <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Hero-Primary')">
                   <span>Readiness-Report starten</span>
                   <span class="arrow">→</span>
                 </a>
-                <a href="#produkte" class="btn btn-secondary" onclick="plausible('CTA-Hero-Secondary')">
-                  <span>Leistungen & Preise</span>
-                  <span class="arrow">→</span>
-                </a>
               </div>
-
-              <div class="hero-check-cta">
-                <a href="/potenzial-check" onclick="plausible('CTA-Hero-Schnellcheck')">
-                  Noch unsicher? Kostenloser KI-Schnell-Check in 3 Minuten →
-                </a>
-              </div>
-
-              <p class="hero-trust-line">Wolf Hohl, TÜV-zertifiziertes KI-Management · DSGVO-konform · EU AI Act ready · KI-Ready 2026 · Steuerlich absetzbar</p>
             </div>
 
             <!-- Right Column: Features List -->
@@ -269,13 +257,9 @@
                 </li>
                 <li>
                   <span class="check-icon">✓</span>
-                  <span>Entwickelt von <strong>Wolf Hohl</strong>, TÜV-zertifiziertes KI-Management</span>
+                  <span><strong>TÜV-zertifizierte</strong> Methodik (ISO/IEC 17024)</span>
                 </li>
               </ul>
-
-              <p class="tax-note">
-                Die Leistung ist als Unternehmensberatung steuerlich absetzbar.
-              </p>
             </div>
           </div>
         </div>
@@ -283,23 +267,6 @@
     </header>
 
     <main id="main-content">
-
-      <!-- ==================== URGENCY BANNER ==================== -->
-      <div class="urgency-banner" aria-label="Wichtiger Hinweis zur KI-Regulierung">
-        <div class="container">
-          <div class="urgency-banner-inner" id="urgency-banner">
-            <p class="urgency-statement urgency-active" data-index="0">
-              <strong>Artikel 4 EU AI Act:</strong> Die AI-Literacy-Pflicht gilt seit Februar 2025 — für jedes Unternehmen, das KI einsetzt.
-            </p>
-            <p class="urgency-statement" data-index="1">
-              <strong>70 %</strong> der Beschäftigten bekommen kein KI-Schulungsangebot vom Arbeitgeber. <span class="urgency-source">Quelle: Bitkom, Juli 2025</span>
-            </p>
-            <p class="urgency-statement" data-index="2">
-              Weniger als <strong>10 %</strong> der deutschen KMU haben KI operativ im Einsatz. Die Vorbereitungszeit läuft.
-            </p>
-          </div>
-        </div>
-      </div>
 
       <!-- ==================== BENEFITS SECTION ==================== -->
       <section id="benefits" class="benefits-section section">
@@ -318,8 +285,7 @@
                 </svg>
               </div>
               <h3>Sicherheit & Compliance</h3>
-              <p>Prüfen Sie die Konformität Ihrer KI-Anwendungen mit EU AI Act und DSGVO.</p>
-              <p class="benefit-context">Nur 24 % der KMU haben ein KI-Governance-Framework. <span class="benefit-context-source">(Mittelstand Digital, 2025)</span></p>
+              <p>Prüfen Sie die Konformität Ihrer KI-Anwendungen mit EU AI Act und DSGVO. Nur 24 % der KMU haben ein KI-Governance-Framework.</p>
             </div>
 
             <!-- Benefit 2 -->
@@ -330,8 +296,7 @@
                 </svg>
               </div>
               <h3>Effizienz & ROI</h3>
-              <p>Decken Sie Zeit- und Kosteneinsparungen auf und identifizieren Sie Potenziale.</p>
-              <p class="benefit-context">Unternehmen verschenken bis zu 40 % der KI-Produktivitätsgewinne durch fehlende Talentstrategie. <span class="benefit-context-source">(EY, 2025)</span></p>
+              <p>Decken Sie Zeit- und Kosteneinsparungen auf und identifizieren Sie Potenziale. Bis zu 40 % der KI-Produktivitätsgewinne gehen durch fehlende Strategie verloren.</p>
             </div>
 
             <!-- Benefit 3 -->
@@ -342,146 +307,169 @@
                 </svg>
               </div>
               <h3>Fördermittel-Check inklusive</h3>
-              <p>Identifizieren Sie passende EU- und Bundes-Förderprogramme für Ihre KI-Investitionen – direkt im Report.</p>
-              <p class="benefit-context">KfW hat am 1. Juli 2025 neue KI-Förderprogramme aufgelegt — bis zu 25 Mio. € pro Projekt. <span class="benefit-context-source">(KfW, 2025)</span></p>
-              <a href="aktuell/foerderung-ki-digital-2026.html" class="benefit-link">Aktuelle Förderprogramme ansehen →</a>
+              <p>Identifizieren Sie passende EU- und Bundes-Förderprogramme für Ihre KI-Investitionen — bis zu 80 % BAFA-Förderung möglich.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== BAFA & STEUER-HINWEIS ==================== -->
-      <div class="funding-banner" aria-label="Förder- und Steuerhinweis">
-        <div class="container">
-          <div class="funding-banner-inner">
-            <div class="funding-item">
-              <span class="funding-icon">💰</span>
-              <div>
-                <strong>Bis zu 80 % BAFA-Förderung</strong>
-                <p>KI-Beratung wird über die BAFA-Unternehmensberatungsförderung bezuschusst. Programm läuft bis 31.12.2026.</p>
-              </div>
-            </div>
-            <div class="funding-item">
-              <span class="funding-icon">📋</span>
-              <div>
-                <strong>Voll steuerlich absetzbar</strong>
-                <p>Alle Reports sind als Betriebsausgabe absetzbar — unabhängig von Rechtsform und ohne Höchstgrenze.</p>
-              </div>
-            </div>
-            <div class="funding-item">
-              <span class="funding-icon">🏛️</span>
-              <div>
-                <strong>TÜV-zertifiziertes KI-Management</strong>
-                <p>Durchgeführt von Wolf Hohl, TÜV-zertifiziertes KI-Management nach ISO/IEC 17024 (TÜV Austria).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== MARKET DATA SECTION ==================== -->
-      <section id="marktlage" class="market-section section">
+      <!-- ==================== PRICING SECTION ==================== -->
+      <section id="produkte" class="pricing-section section">
         <div class="container">
           <div class="section-header">
-            <h2>Die KI-Realität im deutschen Mittelstand</h2>
-            <p>Die Lücke zwischen regulatorischer Pflicht und operativer Bereitschaft wächst — aktuelle Zahlen zeigen, wo Handlungsbedarf besteht.</p>
+            <h2>Drei Reports. Ein Ziel: KI-Klarheit.</h2>
+            <p>Von der Standortbestimmung bis zur vollständigen KI-Strategie — wählen Sie die passende Tiefe.</p>
           </div>
 
-          <div class="market-grid">
-            <div class="market-card">
-              <span class="market-value">&lt;&nbsp;10&nbsp;%</span>
-              <span class="market-label">der deutschen KMU haben KI operativ im Einsatz — doch bereits 20&nbsp;% nutzen KI breit</span>
-              <span class="market-source">Quellen: DMB/Salesforce KI-Index, März 2026 | KfW Fokus Nr.&nbsp;533, Februar 2026</span>
+          <div class="pricing-grid">
+            <!-- Report 1 -->
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <span class="pricing-badge">Einstieg</span>
+                <h3>KI-Readiness Report</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">Kostenfrei</span>
+                  <span class="price-note">Jetzt starten und testen</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>KI-Readiness-Score (0–100)</li>
+                <li>Risikoanalyse & Compliance-Check</li>
+                <li>EU AI Act Einordnung</li>
+                <li>Quick Wins & 90-Tage-Roadmap</li>
+                <li>Fördermittel-Check</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>18 Seiten</strong> · Report per E-Mail in ~5 Min
+              </div>
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary pricing-cta" target="_blank" rel="noopener" onclick="plausible('CTA-Pricing-Report1')">
+                <span>Jetzt starten</span>
+                <span class="arrow">→</span>
+              </a>
             </div>
-            <div class="market-card">
-              <span class="market-value">&ge;&nbsp;50&nbsp;%</span>
-              <span class="market-label">der GenAI-Projekte werden nach dem Proof of Concept aufgegeben</span>
-              <span class="market-source">Quelle: Gartner, November 2025 (hochgestuft von 30&nbsp;%-Prognose 2024)</span>
-            </div>
-            <div class="market-card">
-              <span class="market-value">bis zu 40&nbsp;%</span>
-              <span class="market-label">der KI-Produktivitätsgewinne gehen durch Lücken in der Talentstrategie verloren</span>
-              <span class="market-source">Quelle: EY Work Reimagined Survey, November 2025</span>
-            </div>
-            <div class="market-card">
-              <span class="market-value">&lt;&nbsp;1&nbsp;%</span>
-              <span class="market-label">der Unternehmen weltweit haben verantwortungsvolle KI umfassend operationalisiert</span>
-              <span class="market-source">Quelle: WEF/Accenture, September 2025</span>
-            </div>
-            <div class="market-card">
-              <span class="market-value">70&nbsp;%</span>
-              <span class="market-label">der Beschäftigten erhalten kein KI-Schulungsangebot vom Arbeitgeber</span>
-              <span class="market-source">Quelle: Bitkom, Juli 2025</span>
-            </div>
-            <div class="market-card">
-              <span class="market-value">75&nbsp;%</span>
-              <span class="market-label">des wirtschaftlichen KI-Potenzials konzentriert sich auf nur vier Geschäftsbereiche: Kundenservice, Marketing &amp; Vertrieb, Software-Entwicklung und F&amp;E</span>
-              <span class="market-source">Quellen: McKinsey, 2023 | bestätigt durch BCG, September 2025</span>
-            </div>
-          </div>
 
-          <div class="market-conclusion">
-            <p>Die Kluft zwischen rechtlicher Pflicht und Marktbereitschaft ist die größte Herausforderung — und die größte Chance für Unternehmen, die jetzt handeln. Unser KI-Readiness-Report zeigt Ihnen, wo Sie stehen und was als nächstes kommt.</p>
-            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Marktlage')">
-              <span>Eigene Position bestimmen</span>
-              <span class="arrow">→</span>
-            </a>
+            <!-- Report 2 -->
+            <div class="pricing-card pricing-card-included">
+              <div class="pricing-header">
+                <span class="pricing-badge pricing-badge-highlight">Inklusive</span>
+                <h3>KI-Potenzial-Analyse</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">Inklusive</span>
+                  <span class="price-note">automatisch mit Report 1</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>Bruchpunkt-Analyse & Implementierungsplan</li>
+                <li>Business Case mit 3-Jahres-Projektion</li>
+                <li>Top-5-Risikobewertung & Absicherung</li>
+                <li>Konkrete 7-Tage-Aktionen</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>8 Seiten</strong> · Separate E-Mail, wenige Min nach Report 1
+              </div>
+              <p class="pricing-included-note">Wird automatisch auf Basis Ihrer Report-1-Daten erstellt — keine erneute Befragung.</p>
+            </div>
+
+            <!-- Report 3 -->
+            <div class="pricing-card pricing-card-premium">
+              <div class="pricing-header">
+                <span class="pricing-badge pricing-badge-premium">Premium</span>
+                <h3>KI-Strategiebericht</h3>
+                <div class="pricing-price">
+                  <span class="price-amount">Premium</span>
+                  <span class="price-note">Individuelle Konditionen</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>Vollständige KI-Strategie für 12 Monate</li>
+                <li>Budget-Kalkulation (3 Szenarien)</li>
+                <li>ROI-Analyse mit Break-Even-Berechnung</li>
+                <li>Phasen-Plan mit Meilensteinen</li>
+                <li>Regionale Fördermittel-Recherche</li>
+                <li>Branchenspezifische Benchmarks</li>
+              </ul>
+              <div class="pricing-delivery">
+                <strong>15+ Seiten</strong> · Report per E-Mail in ~8 Min
+              </div>
+              <a href="mailto:kontakt@ki-sicherheit.jetzt?subject=KI-Strategiebericht%20–%20Anfrage" class="btn btn-premium pricing-cta" onclick="plausible('CTA-Pricing-Premium')">
+                <span>Premium – auf Anfrage</span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== SERVICES SECTION ==================== -->
-      <section id="services" class="services-section section">
+      <!-- ==================== SOCIAL PROOF SECTION ==================== -->
+      <section id="trust" class="social-proof-section section">
         <div class="container">
-          <div class="section-header">
-            <h2>Unsere Leistungen</h2>
-            <p>Von der KI-Strategie bis zur Zertifizierung – alles aus einer Hand.</p>
+          <div class="social-proof-grid">
+            <!-- Left: Expert Profile + TÜV Badge -->
+            <div class="expert-profile">
+              <div class="expert-profile-header">
+                <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria Zertifiziert" width="100" height="58" loading="lazy" class="expert-tuev-logo">
+                <div>
+                  <h3>Wolf Hohl</h3>
+                  <p class="expert-title">Gründer, KI-Sicherheit.jetzt</p>
+                </div>
+              </div>
+              <ul class="expert-credentials">
+                <li>
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                  <span>TÜV-zertifiziertes KI-Management (ISO/IEC 17024)</span>
+                </li>
+                <li>
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                  </svg>
+                  <span>Spezialisierung: EU AI Act & DSGVO</span>
+                </li>
+                <li>
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  <span>30+ Jahre Marketing, Kommunikation & Unternehmensführung</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right: Testimonials -->
+            <div class="social-proof-testimonials">
+              <h3 class="testimonials-title">Ergebnisse aus der Praxis</h3>
+              <blockquote class="testimonial-card">
+                <p class="testimonial-text">Solo-Berater, Beratung & Dienstleistungen:<br>
+                  <strong>Score 77/100</strong> · 20h Zeitersparnis/Monat · ROI 70% · Amortisation in 7 Monaten</p>
+                <footer class="testimonial-author">
+                  <span class="testimonial-name">Anonymisiertes Assessment</span>
+                  <span class="testimonial-role">März 2026</span>
+                </footer>
+              </blockquote>
+              <blockquote class="testimonial-card">
+                <p class="testimonial-text">KMU, 50–249 Mitarbeiter, IT-Dienstleistungen:<br>
+                  <strong>Score 68/100</strong> · 35h Zeitersparnis/Monat · ROI 185% · Amortisation in 5 Monaten</p>
+                <footer class="testimonial-author">
+                  <span class="testimonial-name">Anonymisiertes Assessment</span>
+                  <span class="testimonial-role">März 2026</span>
+                </footer>
+              </blockquote>
+            </div>
           </div>
 
-          <div class="services-grid">
-            <!-- Service 1 -->
-            <div class="service-card">
-              <div class="service-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                </svg>
-              </div>
-              <h3>KI-Strategie & Audit</h3>
-              <p>Entwicklung Ihrer KI-Strategie durch einen TÜV-zertifizierten KI-Manager – von der ersten Idee bis zur Audit-Vorbereitung.</p>
+          <!-- Trust Badges - single horizontal row -->
+          <div class="trust-badges">
+            <div class="trust-badge-item trust-badge-logo">
+              <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria zertifiziert" height="50">
             </div>
-
-            <!-- Service 2 -->
-            <div class="service-card">
-              <div class="service-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
-                </svg>
-              </div>
-              <h3>EU AI Act & DSGVO</h3>
-              <p>Rechtssichere KI-Nutzung: Beratung entlang aktueller Vorschriften, Risikoeinstufung und Dokumentationspflichten.</p>
+            <div class="trust-badge-item trust-badge-logo">
+              <img src="visuals/dsgvo-badge.svg" alt="DSGVO konform" height="55">
             </div>
-
-            <!-- Service 3 -->
-            <div class="service-card">
-              <div class="service-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <h3>Dokumentation & Governance</h3>
-              <p>Förderfähige Prozesse aufbauen, Nachweise führen, KI-Governance strukturiert implementieren.</p>
+            <div class="trust-badge-item trust-badge-logo">
+              <img src="visuals/eu-ai-act-badge.svg" alt="EU AI Act" height="55" style="border-radius: 4px;">
             </div>
-
-            <!-- Service 4 -->
-            <div class="service-card">
-              <div class="service-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-              <h3>Haftungsrisiko minimieren</h3>
-              <p>Vertrauen schaffen bei Kunden, Partnern und Behörden – durch nachweisbare Compliance und zertifizierte Expertise.</p>
+            <div class="trust-badge-item trust-badge-logo">
+              <img src="visuals/ki-ready-2026-badge.svg" alt="KI-Ready 2026" height="55">
             </div>
           </div>
         </div>
@@ -558,294 +546,27 @@
 
           <div class="timeline-cta">
             <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Timeline')">
-              <span>Risikoklasse bestimmen lassen</span>
+              <span>Readiness-Report starten</span>
               <span class="arrow">→</span>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- ==================== KI-KOMPETENZ-SCHULUNG TEASER ==================== -->
-      <section id="schulung" class="training-teaser-section section">
+      <!-- ==================== FÖRDERMITTEL SECTION ==================== -->
+      <section id="foerdermittel" class="funding-compact-section section">
         <div class="container">
-          <div class="section-header">
-            <h2>Artikel 4: KI-Kompetenz-Pflicht für Ihr Team</h2>
-            <p>Seit Februar 2025 müssen alle Unternehmen, die KI einsetzen, die KI-Kompetenz ihrer Mitarbeitenden sicherstellen. Durchsetzung ab August 2026.</p>
-          </div>
-
-          <div class="training-teaser-grid">
-            <div class="training-teaser-content">
-              <h3>Unsere Lösung: Online-Schulung mit Zertifikat</h3>
-              <ul class="features-list">
-                <li><span class="check-icon">✓</span><span><strong>6 Module</strong> — von KI-Grundlagen bis Governance</span></li>
-                <li><span class="check-icon">✓</span><span><strong>Rollenbasierte Lernpfade</strong> — vom Einsteiger bis zur Geschäftsleitung</span></li>
-                <li><span class="check-icon">✓</span><span><strong>Compliance-Zertifikat</strong> — dokumentierter Schulungsnachweis für Audits</span></li>
-                <li><span class="check-icon">✓</span><span><strong>Bezahlbar für KMU</strong> — Pauschalpreise pro Unternehmen, nicht pro Person</span></li>
-                <li><span class="check-icon">✓</span><span><strong>BAFA-förderfähig</strong> — bis zu 80 % der Kosten erstattbar</span></li>
-              </ul>
-              <p class="training-teaser-note">Entwickelt von Wolf Hohl, TÜV-zertifiziertes KI-Management · Launch: Sommer 2026</p>
-            </div>
-
-            <div class="training-teaser-signup">
-              <div class="signup-card">
-                <h4>Warteliste</h4>
-                <p>Erfahren Sie als Erste/r, wenn die Schulung verfügbar ist.</p>
-                <form id="waitlist-form" class="waitlist-form">
-                  <input type="email" name="waitlist_email" id="waitlist_email" placeholder="Ihre Email-Adresse" required/>
-                  <button type="submit" class="btn btn-primary">
-                    <span>Auf die Warteliste</span>
-                    <span class="arrow">→</span>
-                  </button>
-                </form>
-                <p id="waitlist-status" class="waitlist-status"></p>
-                <p class="waitlist-note">Kein Spam. Nur 1–2 Updates bis zum Launch.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== QUICK CHECK TEASER ==================== -->
-      <section id="schnell-check" class="quick-check-section section">
-        <div class="container">
-          <div class="quick-check-content">
-            <h2>Wo steht Ihr Unternehmen?</h2>
-            <p>In ca. 5 Minuten erhalten Sie eine strukturierte Einschätzung Ihres KI-Einsatzes — inklusive Risikoanalyse, Compliance-Check und Fördermittel-Scan.</p>
-            <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Schnellcheck')">
-              <span>Jetzt Schnell-Check starten</span>
-              <span class="arrow">→</span>
-            </a>
-            <a href="/potenzial-check" class="btn btn-secondary" onclick="plausible('CTA-Potenzialcheck')">
-              <span>Oder: Kostenloser KI-Potenzial-Check (3 Min)</span>
-              <span class="arrow">→</span>
-            </a>
-            <p class="quick-check-trust">Kurze Registrierung · DSGVO-konform · Report per E-Mail</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== PRICING SECTION ==================== -->
-      <section id="produkte" class="pricing-section section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Drei Reports. Ein Ziel: KI-Klarheit.</h2>
-            <p>Von der Standortbestimmung bis zur vollständigen KI-Strategie — wählen Sie die passende Tiefe.</p>
-          </div>
-
-          <div class="pricing-grid">
-            <!-- Report 1 -->
-            <div class="pricing-card">
-              <div class="pricing-header">
-                <span class="pricing-badge">Einstieg</span>
-                <h3>KI-Readiness Report</h3>
-                <div class="pricing-price">
-                  <span class="price-amount">Kostenfrei</span>
-                  <span class="price-note">Jetzt starten und testen</span>
-                </div>
-              </div>
-              <ul class="pricing-features">
-                <li>KI-Readiness-Score (0–100)</li>
-                <li>Risikoanalyse & Compliance-Check</li>
-                <li>EU AI Act Einordnung</li>
-                <li>Vendor-Audit für Ihre KI-Tools</li>
-                <li>Quick Wins & 90-Tage-Roadmap</li>
-                <li>Business Case mit ROI-Berechnung</li>
-                <li>Fördermittel-Check</li>
-                <li>30-Tage KI-Challenge</li>
-              </ul>
-              <div class="pricing-delivery">
-                <strong>18 Seiten</strong> · Report per E-Mail in ~5 Min
-              </div>
-              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary pricing-cta">
-                <span>Jetzt starten</span>
+          <div class="funding-compact">
+            <h2>KI-Beratung wird gefördert</h2>
+            <p class="funding-compact-summary">
+              Bis zu <strong>80 % BAFA-Förderung</strong> · Voll steuerlich absetzbar · KfW-Förderprogramme verfügbar
+            </p>
+            <div class="funding-compact-actions">
+              <a href="aktuell/foerderung-ki-digital-2026.html" class="funding-compact-link">Aktuelle Förderprogramme ansehen →</a>
+              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Foerdermittel')">
+                <span>Readiness-Report starten</span>
                 <span class="arrow">→</span>
               </a>
-            </div>
-
-            <!-- Report 2 -->
-            <div class="pricing-card pricing-card-included">
-              <div class="pricing-header">
-                <span class="pricing-badge pricing-badge-highlight">Inklusive</span>
-                <h3>KI-Potenzial-Analyse</h3>
-                <div class="pricing-price">
-                  <span class="price-amount">Inklusive</span>
-                  <span class="price-note">automatisch mit Report 1</span>
-                </div>
-              </div>
-              <ul class="pricing-features">
-                <li>Strategischer Bruchpunkt-Analyse</li>
-                <li>Detaillierter 90-Tage-Implementierungsplan</li>
-                <li>Business Case mit Sensitivitätsanalyse</li>
-                <li>3-Jahres-Projektion</li>
-                <li>Top-5-Risikobewertung & Absicherung</li>
-                <li>Konkrete 7-Tage-Aktionen</li>
-              </ul>
-              <div class="pricing-delivery">
-                <strong>8 Seiten</strong> · Separate E-Mail, wenige Min nach Report 1
-              </div>
-              <p class="pricing-included-note">Wird automatisch auf Basis Ihrer Report-1-Daten erstellt — keine erneute Befragung.</p>
-            </div>
-
-            <!-- Report 3 -->
-            <div class="pricing-card pricing-card-premium">
-              <div class="pricing-header">
-                <span class="pricing-badge pricing-badge-premium">Premium</span>
-                <h3>KI-Strategiebericht</h3>
-                <div class="pricing-price">
-                  <span class="price-amount">Premium</span>
-                  <span class="price-note">Individuelle Konditionen · steuerlich absetzbar</span>
-                </div>
-              </div>
-              <ul class="pricing-features">
-                <li>Vollständige KI-Strategie für 12 Monate</li>
-                <li>Detaillierte Budget-Kalkulation (3 Szenarien)</li>
-                <li>ROI-Analyse mit Break-Even-Berechnung</li>
-                <li>Phasen-Plan mit Meilensteinen</li>
-                <li>Regionale Fördermittel-Recherche</li>
-                <li>Software-Stack-Empfehlungen</li>
-                <li>Branchenspezifische Benchmarks</li>
-              </ul>
-              <div class="pricing-delivery">
-                <strong>15+ Seiten</strong> · Report per E-Mail in ~8 Min
-              </div>
-              <a href="https://make.ki-sicherheit.jetzt" class="btn btn-premium pricing-cta">
-                <span>Demnächst verfügbar</span>
-              </a>
-              <p class="pricing-note-small">Details folgen in Kürze</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== EXAMPLES SECTION ==================== -->
-      <section id="examples" class="examples-section section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Was Sie erwartet</h2>
-            <p>Ihr persönlicher Bericht analysiert Risiken & Potenziale und liefert umsetzbare Empfehlungen.</p>
-          </div>
-
-          <div class="highlights-grid">
-            <div class="highlight-card">
-              <span class="highlight-value">84/100</span>
-              <span class="highlight-label">KI-Readiness-Score</span>
-            </div>
-            <div class="highlight-card">
-              <span class="highlight-value">36 Std</span>
-              <span class="highlight-label">Zeitersparnis pro Monat</span>
-            </div>
-            <div class="highlight-card">
-              <span class="highlight-value">200%</span>
-              <span class="highlight-label">ROI (konservativ)</span>
-            </div>
-          </div>
-
-          <div class="report-preview">
-            <p>
-              Ihr individueller Report enthält eine detaillierte Analyse Ihrer KI-Reife,
-              einen Compliance-Check nach EU-Standards sowie priorisierte Handlungsempfehlungen.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== TRUST SECTION ==================== -->
-      <section id="trust" class="feedback-section section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Fundierte Expertise</h2>
-            <p>Entwickelt von einem zertifizierten Experten für KI-Sicherheit und Compliance.</p>
-          </div>
-
-          <div class="trust-grid">
-            <!-- Expert Card -->
-            <div class="expert-card">
-              <div class="expert-info">
-                <h3>Wolf Hohl</h3>
-                <p class="expert-title">Gründer, KI-Sicherheit.jetzt</p>
-                <ul class="expert-credentials">
-                  <li>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                    <span>TÜV-zertifiziertes KI-Management (ISO/IEC 17024, TÜV Austria)</span>
-                  </li>
-                  <li>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                    </svg>
-                    <span>Spezialisierung: EU AI Act & DSGVO</span>
-                  </li>
-                  <li>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <span>30+ Jahre Marketing, Kommunikation & Unternehmensführung</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Market Positioning Context -->
-            <div class="market-context-card">
-              <h4>Markt-Einordnung</h4>
-              <p>Der deutsche Mittelstand zeigt schnelles Bewusstseinswachstum bei KI, aber eine deutliche Umsetzungslücke:</p>
-              <ul class="market-context-list">
-                <li><strong>36 % der Unternehmen (20+ MA) nutzen bereits KI</strong> — fast doppelt so viele wie 2024 <span class="market-context-source">(Bitkom, September 2025)</span></li>
-                <li>Aber: <strong>43 % der KMU haben keine konkrete KI-Strategie</strong> <span class="market-context-source">(DMB/Salesforce KI-Index, 2025)</span></li>
-                <li>Und: Je kleiner das Unternehmen, desto größer die Lücke — <strong>35,6 % bei Kleinstunternehmen vs. 66,3 % bei Großunternehmen</strong> <span class="market-context-source">(IW Köln, 2025)</span></li>
-              </ul>
-              <p class="market-context-conclusion">Genau hier setzt unser Assessment an: Struktur, Klarheit und ein konkreter Fahrplan — unabhängig von der Unternehmensgröße.</p>
-            </div>
-
-            <!-- TÜV Logo Card -->
-            <div class="tuev-card">
-              <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria Zertifiziert" width="180" height="105" loading="lazy">
-              <p class="tuev-card-text">Wolf Hohl, TÜV-zertifiziertes KI-Management</p>
-            </div>
-          </div>
-
-          <!-- Testimonials -->
-          <div class="testimonials-section">
-            <h3 class="testimonials-title">Ergebnisse aus der Praxis</h3>
-            <div class="testimonials-grid">
-              <blockquote class="testimonial-card">
-                <p class="testimonial-text">Solo-Berater, Beratung & Dienstleistungen:<br>
-                  <strong>Score 77/100</strong> · 20h Zeitersparnis/Monat · ROI 70% · Amortisation in 7 Monaten</p>
-                <footer class="testimonial-author">
-                  <span class="testimonial-name">Anonymisiertes Assessment</span>
-                  <span class="testimonial-role">März 2026</span>
-                </footer>
-              </blockquote>
-              <blockquote class="testimonial-card">
-                <p class="testimonial-text">KMU, 50–249 Mitarbeiter, IT-Dienstleistungen:<br>
-                  <strong>Score 68/100</strong> · 35h Zeitersparnis/Monat · ROI 185% · Amortisation in 5 Monaten</p>
-                <footer class="testimonial-author">
-                  <span class="testimonial-name">Anonymisiertes Assessment</span>
-                  <span class="testimonial-role">März 2026</span>
-                </footer>
-              </blockquote>
-            </div>
-          </div>
-
-          <div class="trust-badges">
-            <div class="trust-badge-item trust-badge-logo">
-              <img src="visuals/tuev-austria-logo.svg" alt="TÜV Austria zertifiziert" height="50">
-            </div>
-            <div class="trust-badge-item trust-badge-logo">
-              <img src="visuals/dsgvo-badge.svg" alt="DSGVO konform" height="55">
-            </div>
-            <div class="trust-badge-item trust-badge-logo">
-              <img src="visuals/eu-ai-act-badge.svg" alt="EU AI Act" height="55" style="border-radius: 4px;">
-            </div>
-            <div class="trust-badge-item trust-badge-logo">
-              <img src="visuals/ki-ready-2026-badge.svg" alt="KI-Ready 2026" height="55">
-            </div>
-            <div class="trust-badge-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <span>Steuerlich absetzbar</span>
             </div>
           </div>
         </div>
@@ -855,25 +576,15 @@
       <section id="cta" class="cta-section">
         <div class="container">
           <div class="cta-card card">
-            <div class="card-header">
-              <p class="brand-title">Bereit für Ihren KI-Readiness-Report?</p>
-            </div>
             <div class="card-body">
-              <h2>Jetzt starten</h2>
+              <h2>Bereit für Ihren KI-Fahrplan?</h2>
               <p>
-                Erhalten Sie Ihre individuelle KI-Standortbestimmung mit Fördermittel-Check und konkreten Handlungsempfehlungen.
+                In unter 10 Minuten — kostenlos, DSGVO-konform, Report per E-Mail.
               </p>
               <a href="https://make.ki-sicherheit.jetzt" class="btn btn-primary" target="_blank" rel="noopener" onclick="plausible('CTA-Bottom')">
-                <span>Zum Readiness-Report</span>
+                <span>Readiness-Report starten</span>
                 <span class="arrow">→</span>
               </a>
-              <p class="hero-note">
-                Keine Verpflichtung · Ergebnis sofort per E-Mail · Steuerlich absetzbar
-              </p>
-              <p class="cta-training-hint">
-                <strong>Neu:</strong> Ab Sommer 2026 — KI-Kompetenz-Schulung für Ihr Team
-                (Artikel-4-Pflicht). <a href="#schulung">Zur Warteliste →</a>
-              </p>
             </div>
           </div>
         </div>
@@ -912,6 +623,7 @@
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#quellen" class="footer-sources-link">Quellen</a>
             <a href="/partner">Partnerprogramm</a>
+            <a href="/schulung">KI-Schulung</a>
           </nav>
         </div>
       </div>
