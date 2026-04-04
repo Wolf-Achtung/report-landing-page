@@ -1,6 +1,6 @@
 /**
- * KI-Business-Appetizer — Frontend Logic
- * Step form, API call, result rendering
+ * KI-Potenzial-Check — Frontend Logic
+ * Step form, API call, result rendering, share functions
  */
 
 const API_URL = 'https://api-ki-backend-neu-production.up.railway.app/api/appetizer/generate';
@@ -8,6 +8,33 @@ const CTA_BASE_URL = 'https://make.ki-sicherheit.jetzt/fragebogen';
 
 let currentStep = 1;
 const totalSteps = 6;
+
+// Display name maps
+const BRANCHEN_DISPLAY = {
+  marketing: 'Marketing & Werbung',
+  beratung: 'Beratung & Dienstleistungen',
+  it: 'IT & Software',
+  finanzen: 'Finanzen & Versicherung',
+  handel: 'Handel & E-Commerce',
+  bildung: 'Bildung & Weiterbildung',
+  verwaltung: 'Öffentliche Verwaltung',
+  gesundheit: 'Gesundheit & Pflege',
+  bau: 'Bau & Handwerk',
+  medien: 'Medien & Produktion',
+  industrie: 'Industrie & Fertigung',
+  logistik: 'Logistik & Transport',
+  gastronomie: 'Gastronomie & Hotellerie',
+};
+
+const SEGMENT_DISPLAY = {
+  '1': 'Soloselbständig',
+  '2-10': 'Kleinunternehmen (2–10 MA)',
+  '11-100': 'Mittelstand (11–100 MA)',
+};
+
+// Store last result for share functions
+let lastResult = null;
+let lastFormData = null;
 
 // ---------------------------------------------------------------------------
 // Navigation
@@ -24,11 +51,20 @@ function prevStep(step) {
 
 function showStep(step) {
   currentStep = step;
+  // Hide hero when advancing past step 1
+  const hero = document.querySelector('.hero-block');
+  if (hero) hero.style.display = step > 1 ? 'none' : '';
+
   document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
   const target = document.querySelector(`.step[data-step="${step}"]`);
   if (target) target.classList.add('active');
   document.getElementById('progressFill').style.width = `${(step / totalSteps) * 100}%`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Track analytics
+  if (step > 1 && window.plausible) {
+    plausible('check_step_' + step);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -43,8 +79,12 @@ function validateStep(step) {
       const firma = document.getElementById('firma');
       const branche = document.getElementById('branche');
       let valid = true;
-      if (!firma.value.trim()) { firma.classList.add('error'); valid = false; }
+      if (!firma.value.trim() || firma.value.trim().length < 2) {
+        firma.classList.add('error');
+        valid = false;
+      }
       if (!branche.value) { branche.classList.add('error'); valid = false; }
+      if (valid && window.plausible) plausible('check_started');
       return valid;
     }
     case 2: {
@@ -55,7 +95,11 @@ function validateStep(step) {
         document.querySelectorAll('.step[data-step="2"] .radio-card').forEach(c => c.classList.add('error'));
         valid = false;
       }
-      if (!hauptleistung.value.trim()) { hauptleistung.classList.add('error'); valid = false; }
+      if (hauptleistung.value.trim().length < 10) {
+        hauptleistung.classList.add('error');
+        showFieldHint(hauptleistung, 'Bitte beschreiben Sie Ihre Leistung etwas genauer.');
+        valid = false;
+      }
       return valid;
     }
     case 3: {
@@ -76,7 +120,11 @@ function validateStep(step) {
     }
     case 5: {
       const herausforderung = document.getElementById('groesste_herausforderung');
-      if (!herausforderung.value.trim()) { herausforderung.classList.add('error'); return false; }
+      if (herausforderung.value.trim().length < 10) {
+        herausforderung.classList.add('error');
+        showFieldHint(herausforderung, 'Ein paar Worte mehr helfen uns, Ihnen bessere Ergebnisse zu liefern.');
+        return false;
+      }
       return true;
     }
     default:
@@ -86,6 +134,16 @@ function validateStep(step) {
 
 function clearErrors() {
   document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  document.querySelectorAll('.field-hint-dynamic').forEach(el => el.remove());
+}
+
+function showFieldHint(el, msg) {
+  const existing = el.parentElement.querySelector('.field-hint-dynamic');
+  if (existing) return;
+  const hint = document.createElement('p');
+  hint.className = 'field-hint-dynamic';
+  hint.textContent = msg;
+  el.parentElement.appendChild(hint);
 }
 
 // ---------------------------------------------------------------------------
@@ -107,18 +165,28 @@ function getFormData() {
 }
 
 async function submitForm() {
-  if (!validateStep(5)) {
-    showStep(5);
-    return;
+  // Validate email if provided
+  const emailField = document.getElementById('email');
+  if (emailField.value.trim()) {
+    const emailVal = emailField.value.trim();
+    if (!emailVal.includes('@') || !emailVal.split('@')[1].includes('.')) {
+      emailField.classList.add('error');
+      return;
+    }
+    if (window.plausible) plausible('check_email_provided');
   }
 
   const data = getFormData();
 
-  // Show loading
+  // Show loading, hide hero + form
+  const hero = document.querySelector('.hero-block');
+  if (hero) hero.style.display = 'none';
   document.getElementById('formContainer').style.display = 'none';
   document.getElementById('loadingScreen').classList.add('active');
   document.getElementById('errorScreen').classList.remove('active');
   document.getElementById('resultScreen').classList.remove('active');
+
+  if (window.plausible) plausible('check_completed');
 
   animateLoadingSteps();
 
@@ -143,10 +211,14 @@ async function submitForm() {
     renderResult(data, result.result);
     document.getElementById('resultScreen').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.plausible) plausible('check_result_shown');
   } catch (err) {
     document.getElementById('loadingScreen').classList.remove('active');
-    document.getElementById('errorMessage').textContent = err.message || 'Bitte versuchen Sie es erneut.';
+    document.getElementById('errorMessage').textContent =
+      err.message || 'Unsere Server sind gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.';
     document.getElementById('errorScreen').classList.add('active');
+    if (window.plausible) plausible('check_error');
   }
 }
 
@@ -190,8 +262,13 @@ function animateLoadingSteps() {
 // ---------------------------------------------------------------------------
 
 function renderResult(formData, result) {
-  // Company name
-  document.getElementById('resultFirma').textContent = `KI-Potenzial: ${formData.firma}`;
+  lastResult = result;
+  lastFormData = formData;
+
+  // Result header meta
+  const brancheDisplay = BRANCHEN_DISPLAY[formData.branche] || formData.branche;
+  const segmentDisplay = SEGMENT_DISPLAY[formData.mitarbeiter] || formData.mitarbeiter;
+  document.getElementById('resultMeta').textContent = `${formData.firma} · ${brancheDisplay} · ${segmentDisplay}`;
 
   // Score
   const score = result.score;
@@ -200,7 +277,10 @@ function renderResult(formData, result) {
 
   // Hebel
   const hebelGrid = document.getElementById('hebelGrid');
-  hebelGrid.innerHTML = result.hebel.map(h => `
+  let totalZeitersparnis = 0;
+  hebelGrid.innerHTML = result.hebel.map(h => {
+    totalZeitersparnis += h.zeitersparnis_pro_woche_stunden || 0;
+    return `
     <div class="hebel-card">
       <div class="hebel-header">
         <span class="hebel-title">${escapeHtml(h.titel)}</span>
@@ -214,7 +294,12 @@ function renderResult(formData, result) {
         <span class="hebel-meta-item">${formatPrioritaet(h.prioritaet)}</span>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
+
+  // Hebel summary
+  document.getElementById('hebelSummary').textContent =
+    `Gesamt: ~${totalZeitersparnis}h/Woche Potenzial im Team`;
 
   // Monetarisierung
   const monetGrid = document.getElementById('monetGrid');
@@ -238,13 +323,17 @@ function renderResult(formData, result) {
   document.getElementById('ctaSubline').textContent = result.cta.subline;
 
   const ctaParams = new URLSearchParams({
-    ref: 'appetizer',
+    ref: 'potenzial-check',
     firma: formData.firma,
     branche: formData.branche,
     mitarbeiter: formData.mitarbeiter,
     hauptleistung: formData.hauptleistung,
   });
-  document.getElementById('ctaLink').href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
+  const ctaLink = document.getElementById('ctaLink');
+  ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
+  ctaLink.addEventListener('click', () => {
+    if (window.plausible) plausible('check_cta_clicked');
+  }, { once: true });
 }
 
 // ---------------------------------------------------------------------------
@@ -257,23 +346,17 @@ function animateScore(targetScore, einordnung) {
   const gaugeArc = document.getElementById('gaugeArc');
   const gaugeNeedle = document.getElementById('gaugeNeedle');
 
-  // Set label
   scoreLabel.textContent = einordnung;
   scoreLabel.className = 'score-label ' + einordnung.toLowerCase();
 
-  // Calculate arc and needle position
   // Score range: 37–98, map to 0–100%
   const minScore = 37;
   const maxScore = 98;
   const pct = Math.max(0, Math.min(1, (targetScore - minScore) / (maxScore - minScore)));
 
   const totalArcLength = 251.2;
-  const targetOffset = totalArcLength * (1 - pct);
-
-  // Needle rotation: -90 (left) to +90 (right)
   const targetAngle = -90 + (pct * 180);
 
-  // Animate counter
   let current = 0;
   const duration = 1500;
   const startTime = performance.now();
@@ -281,7 +364,7 @@ function animateScore(targetScore, einordnung) {
   function animate(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
 
     current = Math.round(eased * targetScore);
     scoreValue.textContent = current;
@@ -295,6 +378,44 @@ function animateScore(targetScore, einordnung) {
   }
 
   requestAnimationFrame(animate);
+}
+
+// ---------------------------------------------------------------------------
+// Share Functions
+// ---------------------------------------------------------------------------
+
+function initShareButtons() {
+  document.getElementById('shareLinkedIn')?.addEventListener('click', () => {
+    if (!lastResult || !lastFormData) return;
+    const score = lastResult.score.wert;
+    const text = `Ich habe gerade meinen KI-Potenzial-Check gemacht: Score ${score}/100. Wo steht Ihr Unternehmen?`;
+    const url = 'https://report.ki-sicherheit.jetzt/potenzial-check';
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&summary=${encodeURIComponent(text)}`,
+      '_blank', 'width=600,height=500'
+    );
+    if (window.plausible) plausible('check_shared', { props: { method: 'linkedin' } });
+  });
+
+  document.getElementById('shareEmail')?.addEventListener('click', () => {
+    if (!lastResult) return;
+    const score = lastResult.score.wert;
+    const subject = 'Mein KI-Potenzial-Check Ergebnis';
+    const body = `Ich habe gerade meinen KI-Potenzial-Check gemacht und einen Score von ${score}/100 erreicht.\n\nMach den kostenlosen Check: https://report.ki-sicherheit.jetzt/potenzial-check`;
+    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (window.plausible) plausible('check_shared', { props: { method: 'email' } });
+  });
+
+  document.getElementById('shareCopy')?.addEventListener('click', () => {
+    const url = 'https://report.ki-sicherheit.jetzt/potenzial-check';
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('shareCopy');
+      const original = btn.innerHTML;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Kopiert!';
+      setTimeout(() => { btn.innerHTML = original; }, 2000);
+    });
+    if (window.plausible) plausible('check_shared', { props: { method: 'link' } });
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -337,12 +458,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Clear error on input
   document.querySelectorAll('input, select, textarea').forEach(el => {
-    el.addEventListener('input', () => el.classList.remove('error'));
+    el.addEventListener('input', () => {
+      el.classList.remove('error');
+      const hint = el.parentElement?.querySelector('.field-hint-dynamic');
+      if (hint) hint.remove();
+    });
     el.addEventListener('change', () => {
       el.classList.remove('error');
-      // Also clear radio card errors
       const card = el.closest('.radio-card');
       if (card) card.classList.remove('error');
     });
   });
+
+  // Keyboard: Enter = Weiter
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      const active = document.querySelector('.step.active');
+      if (!active) return;
+      const step = parseInt(active.dataset.step);
+      if (step === 6) {
+        e.preventDefault();
+        submitForm();
+      } else if (step >= 1 && step <= 5) {
+        // Don't trigger on textarea
+        if (e.target.tagName === 'TEXTAREA') return;
+        e.preventDefault();
+        nextStep(step);
+      }
+    }
+  });
+
+  // Radio auto-advance: click on radio card auto-advances after 300ms
+  document.querySelectorAll('.radio-group-vertical .radio-card input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const step = parseInt(radio.closest('.step')?.dataset.step);
+      if (step && step >= 3 && step <= 4) {
+        setTimeout(() => nextStep(step), 300);
+      }
+    });
+  });
+
+  // Init share buttons
+  initShareButtons();
 });
