@@ -864,7 +864,53 @@ p {
   line-height: 1.7;
 }
 
-/* ==================== TRUST SECTION ==================== */
+/* ==================== SOCIAL PROOF SECTION ==================== */
+.social-proof-section {
+  padding: var(--section-padding-y) 0;
+}
+
+.social-proof-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.expert-profile {
+  background: var(--mk-bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--mk-border-light);
+  box-shadow: var(--mk-shadow-md);
+}
+
+.expert-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.expert-tuev-logo {
+  flex-shrink: 0;
+}
+
+.social-proof-testimonials .testimonial-card {
+  margin-bottom: 1rem;
+}
+
+.social-proof-testimonials .testimonial-card:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .social-proof-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== TRUST SECTION (legacy) ==================== */
 .feedback-section {
   padding: var(--section-padding-y) 0;
 }
