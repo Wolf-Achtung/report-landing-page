@@ -255,6 +255,29 @@ function animateLoadingSteps() {
 // Result Rendering
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Upsell Bridge — Score-dependent text for Strategy Report teaser
+// ---------------------------------------------------------------------------
+
+const SHOW_UPSELL = true; // A/B test flag — set to false to disable
+
+function getUpsellText(scorePercent) {
+  if (scorePercent <= 30) {
+    return `Gerade weil Sie am Anfang stehen, ist jetzt der richtige Zeitpunkt,
+            KI strategisch anzugehen – bevor Ihre Wettbewerber es tun.
+            <strong>Unser KI-Strategiebericht zeigt Ihnen, wie Sie KI nicht nur
+            einführen, sondern als Wettbewerbsvorteil nutzen.</strong>`;
+  } else if (scorePercent <= 65) {
+    return `Sie haben bereits eine gute Basis.
+            <strong>Der KI-Strategiebericht zeigt Ihnen, wie Sie diesen Vorsprung
+            ausbauen und gegenüber Ihren Mitbewerbern absichern können.</strong>`;
+  } else {
+    return `Ihr KI-Reifegrad ist überdurchschnittlich – das ist eine starke Ausgangsposition.
+            <strong>Erfahren Sie im KI-Strategiebericht, wie Sie daraus einen
+            dauerhaften Wettbewerbsvorteil machen.</strong>`;
+  }
+}
+
 function renderResult(formData, result) {
   lastResult = result;
   lastFormData = formData;
@@ -268,6 +291,15 @@ function renderResult(formData, result) {
   const score = result.score;
   animateScore(score.wert, score.einordnung);
   document.getElementById('scoreText').textContent = score.einordnung_text;
+
+  // Upsell Bridge — show score-dependent Strategy Report teaser
+  if (SHOW_UPSELL) {
+    const minScore = 37;
+    const maxScore = 98;
+    const scorePercent = Math.round(((score.wert - minScore) / (maxScore - minScore)) * 100);
+    document.getElementById('upsellText').innerHTML = getUpsellText(scorePercent);
+    document.getElementById('strategyUpsell').style.display = 'block';
+  }
 
   // Hebel
   const hebelGrid = document.getElementById('hebelGrid');
@@ -331,8 +363,37 @@ function renderResult(formData, result) {
   const ctaLink = document.getElementById('ctaLink');
   ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
   ctaLink.addEventListener('click', () => {
+    // Append moat field values to CTA link if filled
+    const moatData = getMoatFieldValues();
+    const url = new URL(ctaLink.href);
+    Object.entries(moatData).forEach(([key, val]) => {
+      if (val) url.searchParams.set(key, val);
+    });
+    ctaLink.href = url.toString();
     if (window.plausible) plausible('check_cta_clicked');
   }, { once: true });
+
+  // Show moat fields section (optional strategic assessment)
+  showMoatFields();
+}
+
+// ---------------------------------------------------------------------------
+// Moat Fields — Strategic assessment for Strategy Report
+// ---------------------------------------------------------------------------
+
+function getMoatFieldValues() {
+  return {
+    wettbewerber_anzahl: document.querySelector('input[name="wettbewerber_anzahl"]:checked')?.value || null,
+    kundenbindung_typ: document.querySelector('input[name="kundenbindung_typ"]:checked')?.value || null,
+    datenreife: document.querySelector('input[name="datenreife"]:checked')?.value || null,
+  };
+}
+
+function showMoatFields() {
+  const moatBlock = document.getElementById('moatFieldsBlock');
+  if (moatBlock) {
+    moatBlock.style.display = 'block';
+  }
 }
 
 // ---------------------------------------------------------------------------

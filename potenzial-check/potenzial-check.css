@@ -584,6 +584,55 @@ body {
   margin-top: 1rem;
 }
 
+/* ==================== UPSELL BRIDGE ==================== */
+.upsell-bridge {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--mk-navy-400);
+  background: var(--mk-navy-50, #f8fafc);
+  border-radius: 0 8px 8px 0;
+}
+
+.upsell-bridge-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--mk-navy-800);
+}
+
+.upsell-bridge-text {
+  font-size: 0.9375rem;
+  color: var(--mk-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.upsell-bridge-text strong {
+  color: var(--mk-navy-800);
+}
+
+.btn-upsell-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: white;
+  background: var(--mk-navy-700);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--mk-transition-fast);
+}
+
+.btn-upsell-cta:hover {
+  background: var(--mk-navy-600);
+  transform: translateY(-1px);
+  box-shadow: var(--mk-shadow-md);
+}
+
 /* ==================== HEBEL CARDS ==================== */
 .hebel-grid {
   display: grid;
@@ -740,6 +789,85 @@ body {
   line-height: 1.6;
   margin: 0;
   font-style: italic;
+}
+
+/* ==================== MOAT FIELDS (Strategic Assessment) ==================== */
+.moat-fields-section {
+  background: white;
+  border: 1px solid var(--mk-border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--mk-shadow-sm);
+}
+
+.moat-fields-hint {
+  font-size: 0.875rem;
+  color: var(--mk-text-muted);
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+}
+
+.moat-field-group {
+  margin-bottom: 1.5rem;
+}
+
+.moat-field-group:last-child {
+  margin-bottom: 0;
+}
+
+.moat-field-label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--mk-navy-800);
+  margin-bottom: 0.5rem;
+}
+
+.moat-field-helptext {
+  font-size: 0.8125rem;
+  color: var(--mk-text-muted);
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.moat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.moat-radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--mk-navy-50, #f8fafc);
+  border: 1px solid var(--mk-border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--mk-transition-fast);
+}
+
+.moat-radio-option:hover {
+  border-color: var(--mk-navy-400);
+  background: white;
+}
+
+.moat-radio-option input[type="radio"] {
+  accent-color: var(--mk-navy-400);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.moat-radio-option input[type="radio"]:checked + .moat-radio-text {
+  color: var(--mk-navy-800);
+  font-weight: 500;
+}
+
+.moat-radio-text {
+  font-size: 0.875rem;
+  color: var(--mk-text-secondary);
+  line-height: 1.4;
 }
 
 /* ==================== CTA SECTION ==================== */

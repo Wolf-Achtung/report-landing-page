@@ -330,6 +330,15 @@
             </div>
           </div>
           <p class="score-text" id="scoreText"></p>
+
+          <!-- Upsell Bridge: Strategy Report -->
+          <div class="upsell-bridge" id="strategyUpsell" style="display:none">
+            <h4 class="upsell-bridge-title">🔍 Ihr KI-Wettbewerbsvorteil-Potenzial</h4>
+            <p class="upsell-bridge-text" id="upsellText"></p>
+            <a href="#ctaSection" class="btn-upsell-cta">
+              → Jetzt KI-Strategiebericht anfordern
+            </a>
+          </div>
         </section>
 
         <!-- Hebel Section -->
@@ -356,6 +365,75 @@
         <section class="result-section positionierung-section">
           <h2 class="section-title">Ihre KI-Positionierung</h2>
           <p class="positionierung-text" id="positionierungText"></p>
+        </section>
+
+        <!-- Moat Fields — optional strategic assessment for Strategy Report -->
+        <section class="result-section moat-fields-section" id="moatFieldsBlock" style="display:none">
+          <h2 class="section-title">Strategische Einschätzung</h2>
+          <p class="moat-fields-hint">Diese Fragen helfen uns, Ihren Strategiebericht mit einer Wettbewerbsanalyse zu ergänzen. (Optional)</p>
+
+          <div class="moat-field-group">
+            <label class="moat-field-label">Wie viele direkte Wettbewerber haben Sie in Ihrem Kernmarkt?</label>
+            <div class="moat-radio-group" id="wettbewerberAnzahl">
+              <label class="moat-radio-option">
+                <input type="radio" name="wettbewerber_anzahl" value="wenige">
+                <span class="moat-radio-text">Wenige (1–3)</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="wettbewerber_anzahl" value="mehrere">
+                <span class="moat-radio-text">Mehrere (4–10)</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="wettbewerber_anzahl" value="viele">
+                <span class="moat-radio-text">Viele (mehr als 10)</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="wettbewerber_anzahl" value="unklar">
+                <span class="moat-radio-text">Schwer einzuschätzen</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="moat-field-group">
+            <label class="moat-field-label">Wie würden Sie Ihre Kundenbeziehungen beschreiben?</label>
+            <div class="moat-radio-group" id="kundenbindungTyp">
+              <label class="moat-radio-option">
+                <input type="radio" name="kundenbindung_typ" value="einmalig">
+                <span class="moat-radio-text">Überwiegend Einmalkunden / Projektgeschäft</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="kundenbindung_typ" value="wiederkehrend">
+                <span class="moat-radio-text">Wiederkehrende Kunden / Verträge / Abos</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="kundenbindung_typ" value="gemischt">
+                <span class="moat-radio-text">Mischung aus beidem</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="moat-field-group">
+            <label class="moat-field-label">Verfügt Ihr Unternehmen über eigene Datenbestände, die für KI nutzbar wären?</label>
+            <p class="moat-field-helptext">z.B. Kundendaten, Projekthistorien, Produktionsdaten, Branchenwissen in strukturierter Form</p>
+            <div class="moat-radio-group" id="datenreife">
+              <label class="moat-radio-option">
+                <input type="radio" name="datenreife" value="keine">
+                <span class="moat-radio-text">Kaum / keine strukturierten Daten vorhanden</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="datenreife" value="basis">
+                <span class="moat-radio-text">Grundlegende Daten vorhanden (CRM, Buchhaltung, etc.)</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="datenreife" value="umfangreich">
+                <span class="moat-radio-text">Umfangreiche eigene Datenbestände</span>
+              </label>
+              <label class="moat-radio-option">
+                <input type="radio" name="datenreife" value="unklar">
+                <span class="moat-radio-text">Bin mir nicht sicher</span>
+              </label>
+            </div>
+          </div>
         </section>
 
         <!-- CTA -->
