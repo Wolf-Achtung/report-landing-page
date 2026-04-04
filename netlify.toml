@@ -29,6 +29,11 @@
 
 # Custom 404
 [[redirects]]
+  from = "/partner"
+  to = "/partner.html"
+  status = 200
+
+[[redirects]]
   from = "/schnell-check"
   to = "/schnell-check.html"
   status = 200
