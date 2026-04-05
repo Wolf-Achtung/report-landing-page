@@ -95,6 +95,12 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* ==================== ACTIVE NAV LINK ==================== */
+.nav-schnellcheck[aria-current="page"] {
+  color: var(--mk-warm-400);
+  font-weight: 600;
+}
+
 /* ==================== PROGRESS BAR ==================== */
 .progress-bar {
   height: 4px;
