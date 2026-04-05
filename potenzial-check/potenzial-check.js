@@ -364,50 +364,17 @@ function renderResult(formData, result) {
   ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
   ctaLink.addEventListener('click', (e) => {
     e.preventDefault();
-    const moatData = getMoatFieldValues();
-    const url = new URL(ctaLink.href);
-    Object.entries(moatData).forEach(([key, val]) => {
-      if (val) url.searchParams.set(key, val);
-    });
-    window.open(url.toString(), '_blank');
+    window.open(ctaLink.href, '_blank');
     if (window.plausible) plausible('check_cta_clicked');
   });
 
-  // Secondary CTA also gets moat params
   const ctaSecondary = document.getElementById('ctaSecondary');
   if (ctaSecondary) {
     ctaSecondary.addEventListener('click', (e) => {
       e.preventDefault();
-      const moatData = getMoatFieldValues();
-      const url = new URL(ctaSecondary.href);
-      Object.entries(moatData).forEach(([key, val]) => {
-        if (val) url.searchParams.set(key, val);
-      });
-      window.open(url.toString(), '_blank');
+      window.open(ctaSecondary.href, '_blank');
       if (window.plausible) plausible('check_cta_secondary_clicked');
     });
-  }
-
-  // Show moat fields section (optional strategic assessment)
-  showMoatFields();
-}
-
-// ---------------------------------------------------------------------------
-// Moat Fields — Strategic assessment for Strategy Report
-// ---------------------------------------------------------------------------
-
-function getMoatFieldValues() {
-  return {
-    wettbewerber_anzahl: document.querySelector('input[name="wettbewerber_anzahl"]:checked')?.value || null,
-    kundenbindung_typ: document.querySelector('input[name="kundenbindung_typ"]:checked')?.value || null,
-    datenreife: document.querySelector('input[name="datenreife"]:checked')?.value || null,
-  };
-}
-
-function showMoatFields() {
-  const moatBlock = document.getElementById('moatFieldsBlock');
-  if (moatBlock) {
-    moatBlock.style.display = 'block';
   }
 }
 
