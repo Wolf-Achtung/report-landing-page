@@ -15,7 +15,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles/main.css">
@@ -112,50 +112,6 @@
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- Animated Network Background -->
-  <div class="network-bg" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#a0b0b8" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#b0c0c8" stop-opacity="0.3"/>
-        </linearGradient>
-        <radialGradient id="nodeGradPrimary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#c0ccd2"/><stop offset="100%" stop-color="#a0b0b8"/>
-        </radialGradient>
-        <radialGradient id="nodeGradSecondary" cx="30%" cy="30%">
-          <stop offset="0%" stop-color="#c8d4da"/><stop offset="100%" stop-color="#b0bcc4"/>
-        </radialGradient>
-        <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <g class="connection-lines" stroke="url(#lineGrad)" stroke-width="1">
-        <line x1="100" y1="150" x2="200" y2="100"/><line x1="200" y1="100" x2="350" y2="130"/>
-        <line x1="350" y1="130" x2="450" y2="80"/><line x1="450" y1="80" x2="600" y2="120"/>
-        <line x1="600" y1="120" x2="700" y2="90"/><line x1="100" y1="150" x2="180" y2="250"/>
-      </g>
-      <g class="node-primary" fill="url(#nodeGradPrimary)" filter="url(#nodeGlow)">
-        <circle cx="100" cy="150" r="6"/><circle cx="350" cy="130" r="7"/>
-        <circle cx="600" cy="120" r="6"/>
-      </g>
-      <g class="node-secondary" fill="url(#nodeGradSecondary)" filter="url(#nodeGlow)">
-        <circle cx="200" cy="100" r="4"/><circle cx="450" cy="80" r="4"/>
-        <circle cx="700" cy="90" r="4"/><circle cx="180" cy="250" r="5"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- Color Blob Spots -->
-  <div class="blob-spots" aria-hidden="true">
-    <div class="blob-spot blob-cyan-1"></div>
-    <div class="blob-spot blob-cyan-2"></div>
-    <div class="blob-spot blob-cyan-3"></div>
-    <div class="blob-spot blob-cyan-4"></div>
-    <div class="blob-spot blob-blue-1"></div>
-  </div>
-
   <!-- Page Wrapper -->
   <div class="page-wrapper">
 
@@ -170,10 +126,14 @@
             <span class="hamburger-line"></span>
           </button>
           <nav class="main-nav" id="main-nav">
-            <a href="/" class="nav-link">Report</a>
-            <a href="aktuell/" class="nav-link nav-highlight">Aktuell</a>
-            <a href="kontakt.html" class="nav-link">Kontakt</a>
+            <a href="/#produkte" class="nav-link">Produkte</a>
+            <a href="/leistungen" class="nav-link">Leistungen</a>
+            <a href="/#ai-act-timeline" class="nav-link">EU AI Act</a>
+            <a href="/aktuell/" class="nav-link nav-highlight">Aktuell</a>
+            <a href="/potenzial-check" class="nav-link nav-schnellcheck" title="2-Minuten-Check — der Einstieg vor dem vollständigen Report">Gratis Schnell-Check</a>
+            <a href="/kontakt.html" class="nav-link">Kontakt</a>
             <a href="https://make.ki-sicherheit.jetzt" class="nav-link" target="_blank">Login</a>
+            <a href="/partner" class="nav-link nav-link-secondary">Für Berater</a>
           </nav>
           <nav class="lang-switcher">
             <span class="lang-active">DE</span>

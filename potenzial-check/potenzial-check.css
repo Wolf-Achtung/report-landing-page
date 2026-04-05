@@ -51,7 +51,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'DM Sans', -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: linear-gradient(135deg, #f2f0eb 0%, #f5f3ee 50%, #f0eeea 100%);
   color: var(--mk-text-primary);
@@ -75,7 +75,7 @@ body {
 }
 
 .header-logo {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', -apple-system, sans-serif;
   font-weight: 700;
   font-size: 1.125rem;
   color: white;
@@ -149,7 +149,7 @@ body {
 }
 
 .step-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(1.375rem, 3vw, 1.75rem);
   font-weight: 700;
   color: var(--mk-navy-800);
@@ -432,7 +432,7 @@ body {
 }
 
 .loading-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 1.375rem;
   color: var(--mk-navy-800);
   margin: 0 0 0.5rem;
@@ -492,7 +492,7 @@ body {
 .error-icon { font-size: 3rem; margin-bottom: 1rem; }
 
 .error-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   color: var(--mk-navy-800);
   margin: 0 0 0.5rem;
 }
@@ -528,7 +528,7 @@ body {
 .result-section:nth-child(5) { animation-delay: 0.4s; }
 
 .result-company-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--mk-navy-800);
   text-align: center;
@@ -536,7 +536,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 1.375rem;
   color: var(--mk-navy-800);
   margin: 0 0 1.25rem;
@@ -558,7 +558,7 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'DM Sans', -apple-system, sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--mk-navy-800);
@@ -767,7 +767,7 @@ body {
 }
 
 .monet-value {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'DM Sans', -apple-system, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--score-advanced);
@@ -886,7 +886,7 @@ body {
 }
 
 .cta-headline {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(1.375rem, 3vw, 1.75rem);
   color: white;
   margin: 0 0 0.75rem;
@@ -951,7 +951,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 700;
   color: var(--mk-navy-800);
@@ -1009,7 +1009,7 @@ body {
 }
 
 .result-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--mk-navy-800);
   margin: 0 0 0.5rem;
