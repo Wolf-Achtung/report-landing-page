@@ -96,7 +96,7 @@
         </ul>
 
         <!-- CTA Button -->
-        <button class="make-btn make-btn-primary" id="start-check-btn" data-action="start-check">
+        <button class="make-btn make-btn-primary" data-action="start-check">
           <span>KI-Check starten</span>
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -110,95 +110,6 @@
           </svg>
           Kostenlos. Unverbindlich. Datenschutzkonform.
         </p>
-      </div>
-    </div>
-
-    <!-- Strategic Questions Step (shown after clicking "KI-Check starten") -->
-    <div class="make-card" id="strategic-step" style="display: none;">
-      <div class="make-card-body">
-        <div class="make-eyebrow" style="justify-content: center;">
-          <span class="make-eyebrow-dot"></span>
-          <span>Optionale Angaben</span>
-        </div>
-
-        <h2 class="make-h1 text-center">Ihr Marktumfeld</h2>
-        <p class="make-body text-center">
-          Diese Angaben helfen uns, Ihren Report mit einer Wettbewerbsanalyse anzureichern. Sie können sie auch überspringen.
-        </p>
-
-        <div class="make-form-group">
-          <label class="make-label">Wie viele direkte Wettbewerber haben Sie in Ihrem Kernmarkt?</label>
-          <div class="make-radio-group" id="strategic-wettbewerber">
-            <label class="make-radio-option">
-              <input type="radio" name="wettbewerber_anzahl" value="wenige">
-              <span>Wenige (1-3)</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="wettbewerber_anzahl" value="mehrere">
-              <span>Mehrere (4-10)</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="wettbewerber_anzahl" value="viele">
-              <span>Viele (mehr als 10)</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="wettbewerber_anzahl" value="unklar">
-              <span>Schwer einzuschätzen</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="make-form-group">
-          <label class="make-label">Wie würden Sie Ihre Kundenbeziehungen beschreiben?</label>
-          <div class="make-radio-group" id="strategic-kundenbindung">
-            <label class="make-radio-option">
-              <input type="radio" name="kundenbindung_typ" value="einmalig">
-              <span>Überwiegend Einmalkunden / Projektgeschäft</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="kundenbindung_typ" value="wiederkehrend">
-              <span>Wiederkehrende Kunden / Verträge / Abos</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="kundenbindung_typ" value="gemischt">
-              <span>Mischung aus beidem</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="make-form-group">
-          <label class="make-label">Verfügt Ihr Unternehmen über eigene Datenbestände, die für KI nutzbar wären?</label>
-          <p class="make-body" style="font-size: 0.8125rem; color: var(--color-text-light); margin: -0.25rem 0 0.5rem;">z.B. Kundendaten, Projekthistorien, Produktionsdaten, Branchenwissen</p>
-          <div class="make-radio-group" id="strategic-datenreife">
-            <label class="make-radio-option">
-              <input type="radio" name="datenreife" value="keine">
-              <span>Kaum / keine strukturierten Daten vorhanden</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="datenreife" value="basis">
-              <span>Grundlegende Daten vorhanden (CRM, Buchhaltung, etc.)</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="datenreife" value="umfangreich">
-              <span>Umfangreiche eigene Datenbestände</span>
-            </label>
-            <label class="make-radio-option">
-              <input type="radio" name="datenreife" value="unklar">
-              <span>Bin mir nicht sicher</span>
-            </label>
-          </div>
-        </div>
-
-        <button class="make-btn make-btn-primary" id="continue-check-btn">
-          <span>Weiter zum KI-Check</span>
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </button>
-
-        <button class="make-btn make-btn-secondary" id="skip-check-btn" style="margin-top: 0.5rem;">
-          <span>Überspringen</span>
-        </button>
       </div>
     </div>
 
@@ -249,60 +160,6 @@
         body.classList.toggle('dark-mode');
         localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
       });
-
-      // Strategic Questions Step
-      const heroCard = document.querySelector('.make-card');
-      const strategicStep = document.getElementById('strategic-step');
-      const startBtn = document.getElementById('start-check-btn');
-      const continueBtn = document.getElementById('continue-check-btn');
-      const skipBtn = document.getElementById('skip-check-btn');
-
-      function getStrategicParams() {
-        const params = new URLSearchParams();
-        const w = document.querySelector('input[name="wettbewerber_anzahl"]:checked');
-        const k = document.querySelector('input[name="kundenbindung_typ"]:checked');
-        const d = document.querySelector('input[name="datenreife"]:checked');
-        if (w) params.set('wettbewerber_anzahl', w.value);
-        if (k) params.set('kundenbindung_typ', k.value);
-        if (d) params.set('datenreife', d.value);
-        return params;
-      }
-
-      function proceedToCheck() {
-        var baseUrl = window.location.href.split('?')[0];
-        var params = getStrategicParams();
-        // Preserve any existing URL params (ref, branche, etc.)
-        var existingParams = new URLSearchParams(window.location.search);
-        existingParams.forEach(function(val, key) {
-          if (!params.has(key)) params.set(key, val);
-        });
-        var qs = params.toString();
-        // Reload page with strategic params so backend can pick them up
-        window.location.href = baseUrl + (qs ? '?' + qs : '');
-      }
-
-      if (startBtn) {
-        startBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          heroCard.style.display = 'none';
-          strategicStep.style.display = '';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      if (continueBtn) {
-        continueBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          proceedToCheck();
-        });
-      }
-
-      if (skipBtn) {
-        skipBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          proceedToCheck();
-        });
-      }
     })();
   </script>
 </body>

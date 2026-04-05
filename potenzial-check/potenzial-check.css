@@ -53,7 +53,7 @@ body {
   margin: 0;
   font-family: 'DM Sans', -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(135deg, #f2f0eb 0%, #f5f3ee 50%, #f0eeea 100%);
+  background: #FAFAF8;
   color: var(--mk-text-primary);
   min-height: 100vh;
 }
