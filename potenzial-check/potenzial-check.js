@@ -176,7 +176,6 @@ function getFormData() {
     kundenbindung_typ: document.querySelector('input[name="kundenbindung_typ"]:checked')?.value || '',
     datenreife: document.querySelector('input[name="datenreife"]:checked')?.value || '',
     email: document.getElementById('email').value.trim() || null,
-    newsletter_optin: document.getElementById('newsletter_optin').checked,
   };
 }
 
