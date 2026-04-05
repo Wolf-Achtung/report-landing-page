@@ -69,7 +69,7 @@
     <!-- Hero Block -->
     <section class="hero-block">
       <h1 class="hero-title">Wo steckt Ihr größtes KI-Potenzial?</h1>
-      <p class="hero-subtitle">6 Fragen, 3 Minuten, sofortige Analyse — kostenlos und unverbindlich.<br>Entwickelt mit der Methodik eines TÜV-zertifizierten KI-Managers.</p>
+      <p class="hero-subtitle">7 Fragen, 3 Minuten, sofortige Analyse — kostenlos und unverbindlich.<br>Entwickelt mit der Methodik eines TÜV-zertifizierten KI-Managers.</p>
       <div class="trust-bar">
         <span class="trust-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -95,12 +95,12 @@
 
       <!-- Progress Bar -->
       <div class="progress-bar">
-        <div class="progress-fill" id="progressFill" style="width: 16.66%"></div>
+        <div class="progress-fill" id="progressFill" style="width: 14.28%"></div>
       </div>
 
       <!-- Step 1: Branche -->
       <div class="step active" data-step="1">
-        <div class="step-label">Schritt 1 von 6</div>
+        <div class="step-label">Schritt 1 von 7</div>
         <h2 class="step-title">In welcher Branche sind Sie tätig?</h2>
 
         <div class="field-group">
@@ -130,7 +130,7 @@
 
       <!-- Step 2: Größe + Hauptleistung -->
       <div class="step" data-step="2">
-        <div class="step-label">Schritt 2 von 6</div>
+        <div class="step-label">Schritt 2 von 7</div>
         <h2 class="step-title">Wie groß ist Ihr Team?</h2>
 
         <div class="field-group">
@@ -175,7 +175,7 @@
 
       <!-- Step 3: Zeitaufwand repetitiv -->
       <div class="step" data-step="3">
-        <div class="step-label">Schritt 3 von 6</div>
+        <div class="step-label">Schritt 3 von 7</div>
         <h2 class="step-title">Wie viel Ihrer Arbeitszeit ist wiederkehrend?</h2>
         <p class="step-subtitle">Denken Sie an E-Mails beantworten, Angebote schreiben, Reports erstellen, Daten eingeben.</p>
 
@@ -211,7 +211,7 @@
 
       <!-- Step 4: KI-Erfahrung -->
       <div class="step" data-step="4">
-        <div class="step-label">Schritt 4 von 6</div>
+        <div class="step-label">Schritt 4 von 7</div>
         <h2 class="step-title">Wie vertraut sind Sie mit KI?</h2>
 
         <div class="radio-group radio-group-vertical">
@@ -246,7 +246,7 @@
 
       <!-- Step 5: Herausforderung -->
       <div class="step" data-step="5">
-        <div class="step-label">Schritt 5 von 6</div>
+        <div class="step-label">Schritt 5 von 7</div>
         <h2 class="step-title">Was ist Ihre größte geschäftliche Herausforderung?</h2>
 
         <div class="field-group">
@@ -260,9 +260,103 @@
         </div>
       </div>
 
-      <!-- Step 6: E-Mail (optional) -->
+      <!-- Step 6: Marktumfeld (Moat-Fragen) -->
       <div class="step" data-step="6">
-        <div class="step-label">Schritt 6 von 6</div>
+        <div class="step-label">Schritt 6 von 7</div>
+        <h2 class="step-title">Ihr Marktumfeld</h2>
+        <p class="step-subtitle">Diese Angaben helfen uns, Ihre Wettbewerbsposition besser einzuschätzen.</p>
+
+        <div class="field-group">
+          <label>Wie viele direkte Wettbewerber haben Sie in Ihrem Kernmarkt?</label>
+          <div class="radio-group radio-group-vertical">
+            <label class="radio-card">
+              <input type="radio" name="wettbewerber_anzahl" value="wenige" required>
+              <span class="radio-card-content">
+                <span class="radio-label">Wenige (1–3)</span>
+                <span class="radio-desc">Nischenmarkt oder spezialisiertes Angebot</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="wettbewerber_anzahl" value="mehrere">
+              <span class="radio-card-content">
+                <span class="radio-label">Mehrere (4–10)</span>
+                <span class="radio-desc">Überschaubarer Wettbewerb</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="wettbewerber_anzahl" value="viele">
+              <span class="radio-card-content">
+                <span class="radio-label">Viele (mehr als 10)</span>
+                <span class="radio-desc">Stark umkämpfter Markt</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Wie würden Sie Ihre Kundenbeziehungen beschreiben?</label>
+          <div class="radio-group radio-group-vertical">
+            <label class="radio-card">
+              <input type="radio" name="kundenbindung_typ" value="einmalig" required>
+              <span class="radio-card-content">
+                <span class="radio-label">Überwiegend Einmalkunden</span>
+                <span class="radio-desc">Projektgeschäft, wechselnde Auftraggeber</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="kundenbindung_typ" value="wiederkehrend">
+              <span class="radio-card-content">
+                <span class="radio-label">Wiederkehrende Kunden</span>
+                <span class="radio-desc">Verträge, Abos, langfristige Zusammenarbeit</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="kundenbindung_typ" value="gemischt">
+              <span class="radio-card-content">
+                <span class="radio-label">Mischung aus beidem</span>
+                <span class="radio-desc">Sowohl Projekt- als auch Bestandskunden</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Verfügt Ihr Unternehmen über eigene Datenbestände, die für KI nutzbar wären?</label>
+          <p class="field-hint">z.B. Kundendaten, Projekthistorien, Produktionsdaten, Branchenwissen</p>
+          <div class="radio-group radio-group-vertical">
+            <label class="radio-card">
+              <input type="radio" name="datenreife" value="keine" required>
+              <span class="radio-card-content">
+                <span class="radio-label">Kaum / keine strukturierten Daten</span>
+                <span class="radio-desc">Wenig digitale Datenerfassung</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="datenreife" value="basis">
+              <span class="radio-card-content">
+                <span class="radio-label">Grundlegende Daten vorhanden</span>
+                <span class="radio-desc">CRM, Buchhaltung, E-Mail-Archiv etc.</span>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="datenreife" value="umfangreich">
+              <span class="radio-card-content">
+                <span class="radio-label">Umfangreiche eigene Datenbestände</span>
+                <span class="radio-desc">Strukturierte Daten in mehreren Systemen</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="step-buttons">
+          <button type="button" class="btn-back" onclick="prevStep(6)">&larr; Zurück</button>
+          <button type="button" class="btn-next" onclick="nextStep(6)">Weiter &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 7: E-Mail (optional) -->
+      <div class="step" data-step="7">
+        <div class="step-label">Schritt 7 von 7</div>
         <h2 class="step-title">Möchten Sie Ihr Ergebnis auch per E-Mail erhalten?</h2>
 
         <div class="field-group">
@@ -285,7 +379,7 @@
         </div>
 
         <div class="step-buttons">
-          <button type="button" class="btn-back" onclick="prevStep(6)">&larr; Zurück</button>
+          <button type="button" class="btn-back" onclick="prevStep(7)">&larr; Zurück</button>
         </div>
       </div>
     </main>

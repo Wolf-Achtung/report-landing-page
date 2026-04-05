@@ -7,7 +7,7 @@ const API_URL = 'https://api-ki-backend-neu-production.up.railway.app/api/appeti
 const CTA_BASE_URL = 'https://make.ki-sicherheit.jetzt';
 
 let currentStep = 1;
-const totalSteps = 6;
+const totalSteps = 7;
 
 // Display name maps
 const BRANCHEN_DISPLAY = {
@@ -121,6 +121,25 @@ function validateStep(step) {
       }
       return true;
     }
+    case 6: {
+      const w = document.querySelector('input[name="wettbewerber_anzahl"]:checked');
+      const k = document.querySelector('input[name="kundenbindung_typ"]:checked');
+      const d = document.querySelector('input[name="datenreife"]:checked');
+      let valid = true;
+      if (!w) {
+        document.querySelectorAll('.step[data-step="6"] .field-group:nth-child(2) .radio-card').forEach(c => c.classList.add('error'));
+        valid = false;
+      }
+      if (!k) {
+        document.querySelectorAll('.step[data-step="6"] .field-group:nth-child(3) .radio-card').forEach(c => c.classList.add('error'));
+        valid = false;
+      }
+      if (!d) {
+        document.querySelectorAll('.step[data-step="6"] .field-group:nth-child(4) .radio-card').forEach(c => c.classList.add('error'));
+        valid = false;
+      }
+      return valid;
+    }
     default:
       return true;
   }
@@ -153,6 +172,9 @@ function getFormData() {
     zeitaufwand_repetitiv: document.querySelector('input[name="zeitaufwand_repetitiv"]:checked')?.value || '',
     ki_erfahrung: document.querySelector('input[name="ki_erfahrung"]:checked')?.value || '',
     groesste_herausforderung: document.getElementById('groesste_herausforderung').value.trim(),
+    wettbewerber_anzahl: document.querySelector('input[name="wettbewerber_anzahl"]:checked')?.value || '',
+    kundenbindung_typ: document.querySelector('input[name="kundenbindung_typ"]:checked')?.value || '',
+    datenreife: document.querySelector('input[name="datenreife"]:checked')?.value || '',
     email: document.getElementById('email').value.trim() || null,
     newsletter_optin: document.getElementById('newsletter_optin').checked,
   };
@@ -359,6 +381,9 @@ function renderResult(formData, result) {
     branche: formData.branche,
     mitarbeiter: formData.mitarbeiter,
     hauptleistung: formData.hauptleistung,
+    wettbewerber_anzahl: formData.wettbewerber_anzahl,
+    kundenbindung_typ: formData.kundenbindung_typ,
+    datenreife: formData.datenreife,
   });
   const ctaLink = document.getElementById('ctaLink');
   ctaLink.href = `${CTA_BASE_URL}?${ctaParams.toString()}`;
@@ -518,10 +543,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const active = document.querySelector('.step.active');
       if (!active) return;
       const step = parseInt(active.dataset.step);
-      if (step === 6) {
+      if (step === 7) {
         e.preventDefault();
         submitForm();
-      } else if (step >= 1 && step <= 5) {
+      } else if (step >= 1 && step <= 6) {
         // Don't trigger on textarea
         if (e.target.tagName === 'TEXTAREA') return;
         e.preventDefault();
